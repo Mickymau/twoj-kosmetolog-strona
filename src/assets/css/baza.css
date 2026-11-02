@@ -1,0 +1,134 @@
+/* baza.css — reset, typografia, fokus, podstawowe klasy. Kolory tylko z tokeny.css. */
+
+/* --- reset --- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--naglowek-h) + var(--s-4));
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+img, svg, video, picture { display: block; max-width: 100%; height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+
+/* --- przejścia między podstronami (progresywnie) --- */
+@view-transition { navigation: auto; }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- typografia --- */
+body {
+  background: var(--bg);
+  color: var(--text-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4 {
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 500; }
+h1 em, h2 em, h3 em { font-style: italic; }
+p { text-wrap: pretty; max-width: 68ch; }
+p + p { margin-top: var(--s-4); }
+strong { font-weight: 600; color: var(--text); }
+small, .tekst-maly { font-size: var(--fs-small); color: var(--text-muted); }
+
+a { color: var(--bordo); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { color: var(--bordo-dark); }
+
+/* --- fokus: zawsze widoczny przy klawiaturze --- */
+:focus-visible {
+  outline: 2px solid var(--bordo);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* --- narzędzia --- */
+.kontener {
+  width: 100%;
+  max-width: calc(var(--kontener) + 2 * var(--kontener-px));
+  margin-inline: auto;
+  padding-inline: var(--kontener-px);
+}
+.sekcja { padding-block: var(--sekcja-py); }
+.sekcja--krem { background: var(--bg-cream); }
+
+.nadtytul {
+  display: block;
+  margin-bottom: var(--s-3);
+  color: var(--bordo);
+  font-family: var(--font-sans);
+  font-size: var(--fs-overline);
+  font-weight: 600;
+  letter-spacing: var(--ls-overline);
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* --- przyciski (bazowe; pełny system komponentów w etapie 3) --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: var(--btn-h);
+  padding: var(--s-3) var(--s-5);
+  border: 1px solid var(--bordo);
+  border-radius: var(--radius);
+  background: var(--bordo);
+  color: var(--on-bordo);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.btn:hover { background: var(--bordo-dark); border-color: var(--bordo-dark); color: var(--on-bordo); }
+.btn--kontur { background: transparent; color: var(--bordo); }
+.btn--kontur:hover { background: var(--bordo); color: var(--on-bordo); }
+
+/* --- link „przejdź do treści” --- */
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: -100px;
+  z-index: 100;
+  padding: var(--s-3) var(--s-4);
+  background: var(--bordo);
+  color: var(--on-bordo);
+  text-decoration: none;
+}
+.skip-link:focus { top: var(--s-4); color: var(--on-bordo); }

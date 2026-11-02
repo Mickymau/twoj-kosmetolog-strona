@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <title>Fundament — strona testowa (tylko dev)</title>
+  <meta name="robots" content="noindex">
+  <!-- @include head -->
+  <style>
+    .probki { display: grid; gap: var(--s-4); grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); margin-top: var(--s-5); }
+    .probka { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; font-size: var(--fs-small); }
+    .probka span { display: block; height: 4rem; }
+    .probka p { padding: var(--s-2) var(--s-3); }
+    .tabela { width: 100%; border-collapse: collapse; margin-top: var(--s-5); }
+    .tabela th, .tabela td { overflow-wrap: anywhere; padding: var(--s-2) var(--s-3); border-bottom: 1px solid var(--line); text-align: left; }
+    .dekor { width: 240px; margin-block: var(--s-6); }
+  </style>
+</head>
+<body>
+  <!-- @include naglowek -->
+  <main id="tresc">
+    <section class="sekcja">
+      <div class="kontener">
+        <span class="nadtytul">Strona testowa · etap 2</span>
+        <h1>Najpierw poznaj swoją skórę. <em>Potem świadomie o nią zadbaj.</em></h1>
+        <p>Test polskich znaków (Jost 400): zażółć gęślą jaźń, Łopuszańska, złuszczanie. ZAŻÓŁĆ GĘŚLĄ JAŹŃ.</p>
+        <p><strong>Jost 600:</strong> zażółć gęślą jaźń · <span style="font-weight:500">Jost 500: zażółć gęślą jaźń</span></p>
+        <img class="dekor" src="/assets/img/marka/tk-divider.svg" alt="" width="240" height="16">
+        <h2>Nagłówek H2 Playfair 400 — zażółć gęślą jaźń</h2>
+        <h3>Nagłówek H3 Playfair 500 — Łopuszańska, złuszczanie</h3>
+        <p><em style="font-family:var(--font-serif)">Playfair kursywa 400 — zażółć gęślą jaźń</em></p>
+        <p style="margin-top:var(--s-5)">
+          <a class="btn" href="{{booksy:lumiscan-beauty-plan}}">Umów w Booksy</a>
+          <a class="btn btn--kontur" href="/diagnostyka-skory/">Poznaj diagnostykę</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="sekcja sekcja--krem">
+      <div class="kontener">
+        <span class="nadtytul">Tokeny kolorów</span>
+        <h2>Paleta</h2>
+        <div class="probki">
+          <div class="probka"><span style="background:var(--bg)"></span><p>--bg #FFFFFF</p></div>
+          <div class="probka"><span style="background:var(--bg-cream)"></span><p>--bg-cream #F7F2EA</p></div>
+          <div class="probka"><span style="background:var(--line)"></span><p>--line #E4DCCF</p></div>
+          <div class="probka"><span style="background:var(--text)"></span><p>--text #2B2522</p></div>
+          <div class="probka"><span style="background:var(--text-2)"></span><p>--text-2 #4F4540</p></div>
+          <div class="probka"><span style="background:var(--text-muted)"></span><p>--text-muted #6B5D52</p></div>
+          <div class="probka"><span style="background:var(--bordo)"></span><p>--bordo #7A2E3A</p></div>
+          <div class="probka"><span style="background:var(--bordo-dark)"></span><p>--bordo-dark #5A1F2A</p></div>
+          <div class="probka"><span style="background:var(--gold)"></span><p>--gold #B8975A (tylko dekoracja)</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sekcja">
+      <div class="kontener">
+        <span class="nadtytul">Znaczniki z cennik.json i firma.json</span>
+        <h2>Dane</h2>
+        <table class="tabela">
+          <thead><tr><th>Znacznik</th><th>Wynik</th></tr></thead>
+          <tbody>
+            <tr><td>cena / czas: lumiscan-beauty-plan</td><td>{{cena:lumiscan-beauty-plan}} · {{czas:lumiscan-beauty-plan}}</td></tr>
+            <tr><td>cena / czas: dermapen (warianty)</td><td>{{cena:dermapen}} · {{czas:dermapen}}</td></tr>
+            <tr><td>cena / czas: dermapen/mezo-szyja-dekolt</td><td>{{cena:dermapen/mezo-szyja-dekolt}} · {{czas:dermapen/mezo-szyja-dekolt}}</td></tr>
+            <tr><td>cena: karboksyterapia-blizny-rozstepy/blizna-duza</td><td>{{cena:karboksyterapia-blizny-rozstepy/blizna-duza}}</td></tr>
+            <tr><td>cena: karboksyterapia-ciala/uda-posladki-bryczesy</td><td>{{cena:karboksyterapia-ciala/uda-posladki-bryczesy}}</td></tr>
+            <tr><td>cena: sunekos/laczona (niezweryfikowana → ostrzeżenie)</td><td>{{cena:sunekos/laczona}}</td></tr>
+            <tr><td>booksy: masaze</td><td>{{booksy:masaze}}</td></tr>
+            <tr><td>firma: adres</td><td>{{firma:adres}}</td></tr>
+            <tr><td>firma: telefon</td><td><a href="{{firma:telefonHref}}">{{firma:telefon}}</a></td></tr>
+            <tr><td>firma: ocena</td><td>★ {{firma:ocena}} / {{firma:liczbaOpinii}} opinii</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <!-- @include stopka -->
+  <!-- @include umow-mobile -->
+</body>
+</html>

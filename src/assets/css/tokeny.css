@@ -1,0 +1,67 @@
+/* tokeny.css — jedyne miejsce definicji kolorów, typografii, odstępów i ruchu.
+   Źródło: BRIEF sekcja 8.1 i 8.5. Kontrasty podane względem bieli / kremu. */
+
+:root {
+  /* --- kolory --- */
+  --bg: #FFFFFF;
+  --bg-cream: #F7F2EA;
+  --line: #E4DCCF;          /* karty, obramowania */
+  --line-header: #EFE8DD;   /* linia nagłówka */
+  --text: #2B2522;          /* 15,1 / 13,6 */
+  --text-2: #4F4540;        /* 9,3 / 8,4 — akapity */
+  --text-muted: #6B5D52;    /* 6,3 / 5,7 — tekst pomocniczy */
+  --bordo: #7A2E3A;         /* 9,2 / 8,3 — CTA, linki, nadtytuły; biały na bordo 9,2 */
+  --bordo-dark: #5A1F2A;    /* hover */
+  --gold: #B8975A;          /* WYŁĄCZNIE dekoracja: nigdy tekst, nigdy przycisk (2,8 ❌) */
+  --on-bordo: #FFFFFF;
+
+  /* --- fonty --- */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Jost', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  /* --- skala typografii (mobile → desktop, płynnie 400–1440 px) --- */
+  --fs-h1: clamp(2.25rem, 1.769rem + 1.923vw, 3.5rem);     /* 36 → 56 px */
+  --fs-h2: clamp(1.75rem, 1.462rem + 1.154vw, 2.5rem);     /* 28 → 40 px */
+  --fs-h3: clamp(1.25rem, 1.154rem + 0.385vw, 1.5rem);     /* 20 → 24 px */
+  --fs-body: 1.0625rem;                                     /* 17 px */
+  --fs-small: 0.9375rem;                                    /* 15 px */
+  --fs-overline: 0.8125rem;                                 /* 13 px */
+  --lh-body: 1.65;
+  --lh-heading: 1.2;
+  --ls-overline: 0.18em;
+
+  /* --- odstępy (skala 4/8) --- */
+  --s-1: 0.25rem;   /* 4  */
+  --s-2: 0.5rem;    /* 8  */
+  --s-3: 0.75rem;   /* 12 */
+  --s-4: 1rem;      /* 16 */
+  --s-5: 1.5rem;    /* 24 */
+  --s-6: 2rem;      /* 32 */
+  --s-7: 3rem;      /* 48 */
+  --s-8: 4rem;      /* 64 */
+  --s-9: 6rem;      /* 96 */
+  --sekcja-py: clamp(3rem, 2rem + 4vw, 6rem);
+
+  /* --- układ --- */
+  --kontener: 1200px;
+  --kontener-px: clamp(1.25rem, 0.769rem + 1.923vw, 2rem); /* 20 → 32 px */
+  --radius: 2px;
+  --radius-chip: 999px;
+  --btn-h: 48px;
+  --dotyk-min: 44px;
+  --naglowek-h: 72px;
+
+  /* --- ruch: jeden rytm, jedno easing --- */
+  --t-fast: 200ms;
+  --t-base: 300ms;
+  --t-slow: 500ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0ms;
+    --t-base: 0ms;
+    --t-slow: 0ms;
+  }
+}

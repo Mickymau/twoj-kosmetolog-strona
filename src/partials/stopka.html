@@ -1,0 +1,21 @@
+<footer class="stopka">
+  <div class="kontener">
+    <div class="stopka__siatka">
+      <div>
+        <img class="stopka__logo" src="/assets/img/marka/tk-logo-champagne-256.png" width="64" height="64" alt="" loading="lazy">
+        <p class="stopka__nazwa">{{firma:nazwa}}</p>
+      </div>
+      <address>
+        {{firma:ulica}}, {{firma:pietro}}<br>
+        {{firma:kodPocztowy}} {{firma:miasto}} ({{firma:dzielnica}})<br>
+        <a href="{{firma:telefonHref}}">{{firma:telefon}}</a><br>
+        <a href="{{firma:emailHref}}">{{firma:email}}</a>
+      </address>
+      <div>
+        <p><a href="{{firma:booksy}}" rel="noopener" data-umow="stopka">Umów wizytę w Booksy</a></p>
+        <p><a href="/polityka-prywatnosci/">Polityka prywatności</a></p>
+      </div>
+    </div>
+    <p class="stopka__dol">© {{firma:nazwaKrotka}}</p>
+  </div>
+</footer>
