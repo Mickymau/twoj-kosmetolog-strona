@@ -1,0 +1,158 @@
+/* uklad.css — nagłówek, menu, stopka, dolny pasek „Umów” (telefon). */
+
+/* ============ NAGŁÓWEK ============ */
+.naglowek {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line-header);
+  transition: box-shadow var(--t-base) var(--ease);
+}
+.naglowek--przewiniety { box-shadow: 0 6px 24px -18px rgb(43 37 34 / 0.45); }
+
+.naglowek__wnetrze {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: var(--naglowek-h);
+  transition: min-height var(--t-base) var(--ease);
+}
+.naglowek--przewiniety .naglowek__wnetrze { min-height: 60px; }
+
+.naglowek__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: var(--dotyk-min);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.1;
+  text-decoration: none;
+}
+.naglowek__logo:hover { color: var(--text); }
+.naglowek__logo img {
+  width: 44px;
+  height: 44px;
+  transition: width var(--t-base) var(--ease), height var(--t-base) var(--ease);
+}
+
+/* przycisk menu (telefon/tablet) */
+.menu-przycisk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-width: var(--dotyk-min);
+  min-height: var(--dotyk-min);
+  padding: 0 var(--s-2);
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+.menu-przycisk__ikona { position: relative; width: 22px; height: 14px; }
+.menu-przycisk__ikona::before,
+.menu-przycisk__ikona::after,
+.menu-przycisk__ikona span {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--t-base) var(--ease), opacity var(--t-fast) var(--ease);
+}
+.menu-przycisk__ikona::before { top: 0; }
+.menu-przycisk__ikona span { top: 6.25px; }
+.menu-przycisk__ikona::after { bottom: 0; }
+.menu-przycisk[aria-expanded="true"] .menu-przycisk__ikona::before { transform: translateY(6.25px) rotate(45deg); }
+.menu-przycisk[aria-expanded="true"] .menu-przycisk__ikona::after { transform: translateY(-6.25px) rotate(-45deg); }
+.menu-przycisk[aria-expanded="true"] .menu-przycisk__ikona span { opacity: 0; }
+
+.menu ul { list-style: none; padding: 0; }
+.menu a {
+  display: flex;
+  align-items: center;
+  min-height: var(--dotyk-min);
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+}
+.menu a:hover, .menu a[aria-current="page"] { color: var(--bordo); }
+.menu__umow { display: none; }
+
+/* --- telefon / tablet: menu rozwijane pod nagłówkiem --- */
+@media (max-width: 1023.98px) {
+  .naglowek__umow { display: none; }
+  .menu {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    padding: var(--s-2) var(--kontener-px) var(--s-5);
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 16px 32px -24px rgb(43 37 34 / 0.5);
+  }
+  .menu li + li { border-top: 1px solid var(--line-header); }
+  .menu a { min-height: 52px; font-size: 1.125rem; }
+  .menu__umow { display: block; margin-top: var(--s-4); }
+  .menu__umow .btn { width: 100%; }
+  /* z JS menu jest domyślnie zwinięte; bez JS — zawsze widoczne pod nagłówkiem */
+  .js .menu { visibility: hidden; opacity: 0; transform: translateY(-8px);
+    transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease), visibility 0s linear var(--t-base); }
+  .js .menu.menu--otwarte { visibility: visible; opacity: 1; transform: none;
+    transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease); }
+  html:not(.js) .naglowek { position: relative; }
+  html:not(.js) .menu { position: static; box-shadow: none; padding-inline: 0; }
+  html:not(.js) .naglowek__wnetrze { flex-wrap: wrap; }
+  html:not(.js) .menu-przycisk { display: none; }
+}
+
+/* --- desktop --- */
+@media (min-width: 1024px) {
+  .menu-przycisk { display: none; }
+  .menu ul { display: flex; gap: var(--s-6); }
+  .menu a { font-size: var(--fs-small); }
+  .naglowek__logo img { width: 56px; height: 56px; }
+  .naglowek--przewiniety .naglowek__logo img { width: 44px; height: 44px; }
+}
+
+/* ============ STOPKA ============ */
+.stopka {
+  padding-block: var(--s-8) var(--s-6);
+  background: var(--bordo-dark);
+  color: rgb(255 255 255 / 0.88);
+  font-size: var(--fs-small);
+}
+.stopka a { color: var(--on-bordo); }
+.stopka a:hover { color: var(--bg-cream); }
+.stopka__siatka { display: grid; gap: var(--s-6); grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+.stopka__logo { width: 72px; height: 72px; margin-bottom: var(--s-3); }
+.stopka__nazwa { color: var(--on-bordo); font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.3; }
+.stopka__tytul { margin-bottom: var(--s-3); color: var(--on-bordo); font-size: var(--fs-overline); font-weight: 600; letter-spacing: var(--ls-overline); text-transform: uppercase; }
+.stopka address { font-style: normal; }
+.stopka ul { list-style: none; padding: 0; }
+.stopka li a { display: inline-flex; align-items: center; min-height: var(--dotyk-min); }
+.stopka__dol { margin-top: var(--s-7); padding-top: var(--s-4); border-top: 1px solid rgb(255 255 255 / 0.2); }
+
+/* ============ DOLNY PASEK „UMÓW” (telefon) ============ */
+.umow-mobile {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 60;
+  padding: var(--s-2) var(--kontener-px) calc(var(--s-2) + env(safe-area-inset-bottom));
+  background: rgb(255 255 255 / 0.96);
+  border-top: 1px solid var(--line);
+  transition: transform var(--t-base) var(--ease);
+}
+.umow-mobile .btn { width: 100%; }
+.js .umow-mobile--ukryty { transform: translateY(110%); }
+@media (max-width: 767.98px) {
+  body { padding-bottom: calc(var(--btn-h) + var(--s-4) + env(safe-area-inset-bottom)); }
+}
+@media (min-width: 768px) {
+  .umow-mobile { display: none; }
+}

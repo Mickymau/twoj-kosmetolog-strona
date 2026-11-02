@@ -11,6 +11,7 @@
 //   {{czas:id}} {{czas:id/wariant}}
 //   {{booksy:id}} {{booksy:id/wariant}}
 //   {{firma:pole}}                   z firma.json (+ pola wyliczane: adres, telefonHref, emailHref)
+//   {{suma:id1,id2}} {{roznica:id1,id2}}  suma / różnica dwóch cen (np. „590 zł zamiast 640 zł”)
 // Nieznany znacznik, id, pole lub partial = błąd i przerwanie builda.
 
 import fs from 'node:fs';
@@ -194,7 +195,22 @@ const ZNACZNIKI = {
   firma(arg, kto) {
     return esc(poleFirmy(arg, kto));
   },
+  // {{suma:a,b}} / {{roznica:a,b}} — np. „590 zł zamiast 640 zł”, „dopłacisz 300 zł”;
+  // tylko usługi z jedną ceną (bez „od”), żeby wynik był jednoznaczny
+  suma: (arg, kto) => esc(fmtZl(dzialanie(arg, kto, 'suma').reduce((a, b) => a + b))),
+  roznica: (arg, kto) => esc(fmtZl(dzialanie(arg, kto, 'roznica').reduce((a, b) => a - b))),
 };
+
+function dzialanie(arg, kto, nazwa) {
+  const ids = (arg || '').split(',').map((s) => s.trim());
+  if (ids.length !== 2 || ids.some((i) => !i)) throw `${kto}: {{${nazwa}:…}} wymaga dwóch id po przecinku`;
+  return ids.map((id) => {
+    const { u, pozycje } = znajdzUsluge(id, kto);
+    if (pozycje.length !== 1 || pozycje[0].od) throw `${kto}: {{${nazwa}}}: „${id}” nie ma jednej, stałej ceny`;
+    sprawdzStatus(u, pozycje, kto);
+    return pozycje[0].cena;
+  });
+}
 
 const FIRMA_WYLICZANE = {
   adres: (k) => `${poleFirmy('ulica', k)}, ${poleFirmy('kodPocztowy', k)} ${poleFirmy('miasto', k)}`,
@@ -316,7 +332,7 @@ fs.writeFileSync(path.join(DIST, 'sitemap.xml'),
 // ---------- zdjęcia STOCK- ----------
 const stocki = [...pliki(path.join(SRC, 'assets', 'img'))].filter((p) => path.basename(p).startsWith('STOCK-'));
 if (PROD && stocki.length && !ZGODA_STOCK)
-  blad(`zdjęcia STOCK- w buildzie produkcyjnym: ${stocki.length} — dodaj --zgoda-stock tylko po świadomej decyzji Michała`);
+  blad(`pliki STOCK- w buildzie produkcyjnym: ${stocki.length} — dodaj --zgoda-stock tylko po świadomej decyzji Michała`);
 
 // ---------- podsumowanie ----------
 stop();
@@ -326,4 +342,5 @@ if (ostrzezenia.size) {
 }
 console.log(`\n✔ Build ${PROD ? 'PRODUKCYJNY' : 'deweloperski'} OK → ${rel(DIST) || DIST}`);
 console.log(`  strony: ${strony.length} · w sitemap: ${urle.length} · usługi w cenniku: ${uslugi.size}`);
-console.log(`  STOCK: ${stocki.length}${stocki.length ? ' → ' + stocki.map((p) => path.basename(p)).join(', ') : ''}\n`);
+const stockZdjecia = [...new Set(stocki.map((p) => path.basename(p).replace(/-\d+\.\w+$/, '')))];
+console.log(`  STOCK: ${stockZdjecia.length} zdjęć (${stocki.length} plików)${stockZdjecia.length ? ' → ' + stockZdjecia.join(', ') : ''}\n`);

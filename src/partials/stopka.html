@@ -2,20 +2,34 @@
   <div class="kontener">
     <div class="stopka__siatka">
       <div>
-        <img class="stopka__logo" src="/assets/img/marka/tk-logo-champagne-256.png" width="64" height="64" alt="" loading="lazy">
+        <img class="stopka__logo" src="/assets/img/marka/tk-logo-champagne-256.png" width="72" height="72" alt="" loading="lazy">
         <p class="stopka__nazwa">{{firma:nazwa}}</p>
       </div>
-      <address>
-        {{firma:ulica}}, {{firma:pietro}}<br>
-        {{firma:kodPocztowy}} {{firma:miasto}} ({{firma:dzielnica}})<br>
-        <a href="{{firma:telefonHref}}">{{firma:telefon}}</a><br>
-        <a href="{{firma:emailHref}}">{{firma:email}}</a>
-      </address>
       <div>
-        <p><a href="{{firma:booksy}}" rel="noopener" data-umow="stopka">Umów wizytę w Booksy</a></p>
-        <p><a href="/polityka-prywatnosci/">Polityka prywatności</a></p>
+        <p class="stopka__tytul">Gabinet</p>
+        <address>
+          {{firma:ulica}}, {{firma:pietro}}<br>
+          {{firma:kodPocztowy}} {{firma:miasto}} – {{firma:dzielnica}}
+        </address>
+        <p><a href="/kontakt/">Jak trafić do gabinetu</a></p>
+      </div>
+      <div>
+        <p class="stopka__tytul">Kontakt</p>
+        <ul>
+          <li><a href="{{firma:telefonHref}}">{{firma:telefon}}</a></li>
+          <li><a href="{{firma:emailHref}}">{{firma:email}}</a></li>
+        </ul>
+        <p>{{firma:godziny}}</p>
+      </div>
+      <div>
+        <p class="stopka__tytul">Na skróty</p>
+        <ul>
+          <li><a href="{{firma:booksy}}" rel="noopener" data-umow="stopka">Umów wizytę w Booksy</a></li>
+          <li><a href="/zabiegi/">Zabiegi i cennik</a></li>
+          <li><a href="/polityka-prywatnosci/">Polityka prywatności</a></li>
+        </ul>
       </div>
     </div>
-    <p class="stopka__dol">© {{firma:nazwaKrotka}}</p>
+    <p class="stopka__dol">© {{firma:nazwa}}</p>
   </div>
 </footer>

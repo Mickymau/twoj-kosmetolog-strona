@@ -1,0 +1,315 @@
+/* komponenty.css — klocki wielokrotnego użytku + wizualizacje 1 (ścieżka) i 2 (opcje).
+   Złoto (--gold) wyłącznie jako dekoracja: obramowania, linie, kreski SVG. */
+
+/* ============ NAGŁÓWEK SEKCJI ============ */
+.sekcja__glowa { max-width: 46rem; margin-bottom: var(--s-7); }
+.sekcja__glowa--srodek { margin-inline: auto; text-align: center; }
+.sekcja__glowa--srodek p { margin-inline: auto; }
+.sekcja__glowa h2 + p, .sekcja__glowa h2 + .lead { margin-top: var(--s-4); }
+.lead { font-size: 1.125rem; color: var(--text-2); }
+.cytat {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+/* ============ PRZYCISKI I LINKI ============ */
+.przyciski { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-6); }
+@media (max-width: 479.98px) { .przyciski .btn { flex: 1 1 100%; } }
+.link-strzalka {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--dotyk-min);
+  font-weight: 500;
+  text-decoration: none;
+}
+.link-strzalka::after { content: "→"; transition: transform var(--t-fast) var(--ease); }
+.link-strzalka:hover::after { transform: translateX(4px); }
+
+/* ============ CHIPY (problemy skóry) ============ */
+.chipy { display: flex; flex-wrap: wrap; gap: var(--s-3); list-style: none; padding: 0; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--dotyk-min);
+  padding: var(--s-2) var(--s-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-chip);
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), background-color var(--t-fast) var(--ease);
+}
+.chip:hover { border-color: var(--bordo); color: var(--bordo); }
+
+/* ============ KARTY ============ */
+.karta {
+  position: relative;
+  padding: var(--s-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.karta h3 { margin-bottom: var(--s-3); }
+.siatka { display: grid; gap: var(--s-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+
+.etykieta {
+  display: inline-block;
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--radius);
+  background: var(--bordo);
+  color: var(--on-bordo);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* ============ LISTY ============ */
+.lista-ptaszki { list-style: none; padding: 0; display: grid; gap: var(--s-3); }
+.lista-ptaszki li { position: relative; padding-left: 2rem; }
+.lista-ptaszki li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A2E3A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m8 12.5 2.5 2.5L16 9.5'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* ============ DEKORACJE MARKI ============ */
+.separator { display: block; width: min(240px, 60%); height: auto; margin-block: var(--s-6); }
+.separator--srodek { margin-inline: auto; }
+.separator path, .separator circle { stroke: var(--gold); }
+.separator .kropka { fill: var(--gold); stroke: none; }
+
+/* panel w miejscu zdjęcia, dopóki nie ma prawdziwego (bez obcych twarzy, bez stocku AI) */
+.panel-marki {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 0.9) 0 28%, transparent 62%),
+    var(--bg-cream);
+}
+.panel-marki::before {
+  content: "";
+  position: absolute;
+  inset: var(--s-4);
+  border: 1px solid var(--gold);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.panel-marki img { width: min(56%, 220px); height: auto; }
+.panel-marki--poziomy { aspect-ratio: 4 / 3; }
+
+/* ============ AKORDEON ============ */
+.akordeon { border-top: 1px solid var(--line); }
+.akordeon details { border-bottom: 1px solid var(--line); interpolate-size: allow-keywords; }
+.akordeon summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: 56px;
+  padding-block: var(--s-3);
+  color: var(--text);
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+.akordeon summary::-webkit-details-marker { display: none; }
+.akordeon summary::after {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-right: 1.5px solid var(--bordo);
+  border-bottom: 1.5px solid var(--bordo);
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform var(--t-base) var(--ease);
+}
+.akordeon details[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+.akordeon details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size var(--t-base) var(--ease), content-visibility var(--t-base) allow-discrete;
+}
+.akordeon details[open]::details-content { block-size: auto; }
+.akordeon__tresc { padding-bottom: var(--s-5); }
+
+/* ============ HERO ============ */
+.hero { padding-block: var(--s-7) var(--sekcja-py); }
+.hero__siatka { display: grid; gap: var(--s-7); align-items: center; }
+.hero h1 { max-width: 14ch; }
+.hero .lead { margin-top: var(--s-5); max-width: 36rem; }
+.zaufanie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  margin-top: var(--s-6);
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}
+.zaufanie li { display: inline-flex; align-items: center; gap: var(--s-2); }
+.zaufanie li + li::before { content: "·"; margin-right: var(--s-2); color: var(--text-muted); }
+.zaufanie a { color: var(--text-muted); }
+.zaufanie a:hover { color: var(--bordo); }
+.gwiazdka { color: var(--bordo); }
+@media (min-width: 900px) {
+  .hero { padding-top: var(--s-8); }
+  .hero__siatka { grid-template-columns: 1.15fr 0.85fr; gap: var(--s-8); }
+}
+
+/* ============ UKŁAD: TEKST + PANEL ============ */
+.duet { display: grid; gap: var(--s-7); align-items: center; }
+@media (min-width: 900px) {
+  .duet { grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+  .duet--odwrocony > :first-child { order: 2; }
+}
+
+/* ============ WIZUALIZACJA 1: ŚCIEŻKA KLIENTKI ============ */
+.sciezka { list-style: none; padding: 0; display: grid; gap: var(--s-5); counter-reset: krok; }
+.sciezka li { position: relative; display: grid; grid-template-columns: 56px 1fr; gap: var(--s-4); counter-increment: krok; }
+.sciezka__znak {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 0 0 4px var(--bg), inset 0 0 0 4px var(--bg), inset 0 0 0 5px rgb(184 151 90 / 0.35);
+  color: var(--bordo);
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+}
+.sciezka__znak::before { content: counter(krok); }
+.sekcja--krem .sciezka__znak { box-shadow: 0 0 0 4px var(--bg-cream), inset 0 0 0 4px var(--bg), inset 0 0 0 5px rgb(184 151 90 / 0.35); }
+/* linia łącząca — pion na telefonie */
+.sciezka li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 27.5px;
+  top: 56px;
+  bottom: calc(-1 * var(--s-5));
+  width: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+.sciezka h3 { font-size: 1.125rem; margin-bottom: var(--s-1); padding-top: var(--s-3); }
+.sciezka p { font-size: var(--fs-small); color: var(--text-2); }
+@media (min-width: 960px) {
+  .sciezka { grid-template-columns: repeat(5, 1fr); gap: var(--s-5); }
+  .sciezka li { grid-template-columns: 1fr; gap: var(--s-3); }
+  .sciezka li:not(:last-child)::after { left: 56px; right: calc(-1 * var(--s-5)); top: 27.5px; bottom: auto; width: auto; height: 1px; }
+  .sciezka h3 { padding-top: var(--s-2); }
+}
+
+/* ============ WIZUALIZACJA 2: TRZY OPCJE ============ */
+.opcje { display: grid; gap: var(--s-5); align-items: stretch; }
+@media (min-width: 960px) { .opcje { grid-template-columns: repeat(3, 1fr); } }
+.opcja { display: flex; flex-direction: column; gap: var(--s-4); padding-top: var(--s-7); }
+.opcja--wyrozniona { border: 2px solid var(--bordo); }
+.opcja .etykieta { position: absolute; top: 0; left: var(--s-6); transform: translateY(-50%); }
+.opcja h3 { margin-bottom: 0; }
+.opcja__cena { color: var(--text); font-family: var(--font-serif); font-size: 2rem; line-height: 1; }
+.opcja__czas { margin-left: var(--s-2); color: var(--text-muted); font-family: var(--font-sans); font-size: var(--fs-small); }
+.opcja__pytanie { color: var(--text); font-weight: 500; }
+.opcja__dopisek { font-size: var(--fs-small); color: var(--text-muted); }
+.opcja .btn { margin-top: auto; }
+
+.postep { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-1); }
+.postep li {
+  padding-top: var(--s-2);
+  border-top: 3px solid var(--line);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.postep .aktywny { border-top-color: var(--bordo); color: var(--bordo); }
+.postep .za-toba { border-top-style: dashed; border-top-color: var(--text-muted); }
+
+.uwaga-7dni {
+  margin-top: var(--s-6);
+  padding: var(--s-5) var(--s-6);
+  border-left: 2px solid var(--gold);
+  background: var(--bg);
+}
+.sekcja--krem .uwaga-7dni { background: var(--bg); }
+
+/* ============ KAFLE (pasek: laser + prezent) ============ */
+.kafle { display: grid; gap: var(--s-5); }
+@media (min-width: 768px) { .kafle { grid-template-columns: 1fr 1fr; } }
+.kafel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text-2);
+  text-decoration: none;
+  transition: border-color var(--t-fast) var(--ease), transform var(--t-base) var(--ease);
+}
+.kafel:hover { border-color: var(--bordo); color: var(--text-2); transform: translateY(-2px); }
+.kafel h3 { color: var(--text); }
+.kafel .link-strzalka { color: var(--bordo); margin-top: auto; }
+
+/* ============ KONTAKT — skrót ============ */
+.kontakt-skrot { display: grid; gap: var(--s-6); }
+@media (min-width: 768px) { .kontakt-skrot { grid-template-columns: repeat(3, 1fr); } }
+.kontakt-skrot h3 { font-size: 1.125rem; margin-bottom: var(--s-2); }
+.kontakt-skrot address { font-style: normal; }
+
+/* ============ FAKTY (O mnie) ============ */
+.fakty { display: flex; flex-wrap: wrap; gap: var(--s-6); margin-top: var(--s-6); padding: 0; list-style: none; }
+.fakty strong { display: block; color: var(--text); font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400; line-height: 1.2; }
+.fakty span { font-size: var(--fs-small); color: var(--text-muted); }
+
+/* ============ POPRAWKI TELEFON ============ */
+.zaufanie a { display: inline-flex; align-items: center; gap: var(--s-2); min-height: var(--dotyk-min); }
+@media (max-width: 599.98px) {
+  .zaufanie { flex-direction: column; gap: 0; }
+  .zaufanie li { min-height: 32px; }
+  .zaufanie li + li::before { content: none; }
+  .karta { padding: var(--s-5); }
+  .opcja { padding-top: var(--s-6); }
+  .opcja .etykieta { left: var(--s-5); }
+}
+@media (max-width: 899.98px) {
+  .hero .panel-marki { aspect-ratio: 3 / 2; }
+  .hero .panel-marki img { width: min(40%, 180px); }
+}
+
+/* ============ ZDJĘCIA ============ */
+.zdjecie {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--bg-cream);
+}
+.zdjecie--poziome { aspect-ratio: 4 / 3; }
+@media (max-width: 899.98px) {
+  .zdjecie--hero { aspect-ratio: 3 / 2; object-position: 35% 40%; }
+}
