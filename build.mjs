@@ -50,6 +50,9 @@ const NAZWY_PROBLEMOW = {
 const BLOKI_POZNIEJ = {};
 // podstrony z PODSTRONY, które są zwykłymi plikami w src/pages (nie generowane z JSON)
 const STRONY_STATYCZNE = ['depilacja-laserowa'];
+const STATYCZNE_OPISY = {
+  'depilacja-laserowa': { tytul: 'Depilacja laserowa', opis: 'Epilacja laserowa — 21 obszarów i pakietów, od twarzy po całe nogi.' },
+};
 
 // ---------- raportowanie ----------
 const bledy = new Set();
@@ -394,10 +397,13 @@ Object.assign(ZNACZNIKI, {
   // lista A–Z wszystkich podstron zabiegów z atrybutem do filtra po problemie (/zabiegi/)
   'zabiegi-az'(arg, kto) {
     if (arg) throw `${kto}: {{zabiegi-az}} nie przyjmuje argumentu`;
-    const karty = [...zabiegi.values()].sort((a, b) => a.nazwa.localeCompare(b.nazwa, 'pl'))
-      .map((z) => ({ z, lista: widoczne(uslugiPodstrony(z.slug).flatMap(pozycje)) })).filter((x) => x.lista.length)
-      .map(({ z, lista }) => kartaZabiegu({ tytul: z.nazwa, href: linkZabiegu(z.slug), opis: z.podtytul, lista })
-        .replace('<li>', `<li data-problemy="${problemyPodstrony(z.slug).join(' ')}">`));
+    // zabiegi z JSON + podstrony statyczne (depilacja laserowa — bez tagów problemów, BRIEF 5)
+    const wpisy = [...zabiegi.values()].map((z) => ({ slug: z.slug, tytul: z.nazwa, opis: z.podtytul }))
+      .concat(STRONY_STATYCZNE.map((slug) => ({ slug, ...STATYCZNE_OPISY[slug] })));
+    const karty = wpisy.sort((a, b) => a.tytul.localeCompare(b.tytul, 'pl'))
+      .map((w) => ({ w, lista: widoczne(uslugiPodstrony(w.slug).flatMap(pozycje)) })).filter((x) => x.lista.length)
+      .map(({ w, lista }) => kartaZabiegu({ tytul: w.tytul, href: linkZabiegu(w.slug), opis: w.opis, lista })
+        .replace('<li>', `<li data-problemy="${problemyPodstrony(w.slug).join(' ')}">`));
     return `<ul class="karty-zabiegow" role="list" data-filtrowane>${karty.join('')}</ul>`;
   },
   'zobacz-tez'(arg, kto) {
