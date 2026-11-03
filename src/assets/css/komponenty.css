@@ -46,6 +46,85 @@
 }
 .chip:hover { border-color: var(--bordo); color: var(--bordo); }
 
+/* ============ KAFELKI PROBLEMÓW (strona główna) ============
+   Zdjęcie 4:5 + ciemna nakładka + tytuł na środku. 2 kolumny na telefonie (ostatni kafelek
+   na całą szerokość, żeby nie został sam), 3 od 640 px. Złoto tylko jako dekoracyjna kreska. */
+.kafle-problemow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-3);
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .kafle-problemow { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); }
+}
+.problem-kafel {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--text);
+  color: var(--on-bordo);
+  text-decoration: none;
+}
+@media (max-width: 639px) {
+  .kafle-problemow li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .kafle-problemow li:last-child:nth-child(odd) .problem-kafel { aspect-ratio: 2 / 1; }
+}
+.problem-kafel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-slow) var(--ease);
+}
+.problem-kafel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* jednolite przyciemnienie + mocniejsze za tytułem (biały tekst ≥ 4,5:1 także na jasnych zdjęciach) */
+  background:
+    radial-gradient(ellipse 100% 36% at 50% 50%, rgb(43 37 34 / 0.7), rgb(43 37 34 / 0)),
+    rgb(43 37 34 / 0.38);
+  transition: background-color var(--t-base) var(--ease);
+}
+.problem-kafel__tytul {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+  max-width: 100%;
+  padding: var(--s-3);
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: var(--lh-heading);
+  text-align: center;
+  text-shadow: 0 0 6px rgb(0 0 0 / 0.45), 0 1px 16px rgb(0 0 0 / 0.5);
+  overflow-wrap: anywhere;
+}
+@media (min-width: 640px) { .problem-kafel__tytul { padding: var(--s-5); font-size: var(--fs-h3); } }
+.problem-kafel__tytul::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  transition: width var(--t-base) var(--ease);
+}
+.problem-kafel:hover::before,
+.problem-kafel:focus-visible::before { background: rgb(90 31 42 / 0.7); }
+.problem-kafel:hover img { transform: scale(1.05); }
+.problem-kafel:hover .problem-kafel__tytul::after,
+.problem-kafel:focus-visible .problem-kafel__tytul::after { width: 56px; }
+.problem-kafel:focus-visible { outline: 3px solid var(--bordo); outline-offset: 3px; }
+
 /* ============ KARTY ============ */
 .karta {
   position: relative;
