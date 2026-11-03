@@ -27,6 +27,8 @@ const PROD = flag('--prod');
 const PODGLAD = flag('--podglad') && !PROD;
 const PUBLICZNY = PROD || PODGLAD; // build trafiający do internetu: bez znaczników dev i stron roboczych
 const ZGODA_STOCK = flag('--zgoda-stock');
+// --baza=/nazwa-repo: strona pod podkatalogiem (GitHub Pages z repo projektowego) — prefiks dla ścieżek od „/”
+const BAZA = opt('baza', '').replace(/\/+$/, '');
 const ROOT = path.dirname(decodeURIComponent(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]:)/, '$1'));
 const SRC = path.resolve(ROOT, opt('src', 'src'));
 const DIST = path.resolve(ROOT, opt('dist', 'dist'));
@@ -757,6 +759,24 @@ const kopiuj = (zrodlo, cel) => {
 };
 kopiuj(path.join(SRC, 'assets'), path.join(DIST, 'assets'));
 kopiuj(path.join(SRC, 'static'), DIST);
+
+// ---------- --baza: prefiks podkatalogu w ścieżkach od „/” (HTML i CSS) ----------
+if (BAZA) {
+  const pre = (u) => (u.startsWith('/') && !u.startsWith('//') ? BAZA + u : u);
+  for (const p of pliki(DIST)) {
+    if (p.endsWith('.html')) {
+      let h = fs.readFileSync(p, 'utf8');
+      h = h.replace(/(href|src|action|poster)="(\/(?!\/)[^"]*)"/g, (_, at, u) => `${at}="${pre(u)}"`);
+      h = h.replace(/(srcset|imagesrcset)="([^"]*)"/g, (_, at, v) =>
+        `${at}="${v.split(',').map((x) => { const t = x.trim(); return pre(t); }).join(', ')}"`);
+      fs.writeFileSync(p, h);
+    } else if (p.endsWith('.css')) {
+      const c = fs.readFileSync(p, 'utf8').replace(/url\((['"]?)(\/(?!\/))/g, (_, q, sl) => `url(${q}${BAZA}${sl}`);
+      fs.writeFileSync(p, c);
+    }
+  }
+}
+
 
 // ---------- strażnik złota: #B8975A nigdy jako kolor tekstu ani tło przycisku ----------
 for (const p of pliki(path.join(SRC, 'assets', 'css'))) {
