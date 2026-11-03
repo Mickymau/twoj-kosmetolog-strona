@@ -1,0 +1,18 @@
+{
+  "_opis": "Wizualizacja 5 (BRIEF 8.3): przypisanie wariantów z cennik.json do obszarów mapy ciała. Obszary: twarz, pachy, ramiona, klatka, brzuch, bikini, plecy, posladki, uda, lydki (łydki i kolana).",
+  "depilacja-laserowa": {
+    "wasik-broda": ["twarz"], "2-okolice-twarzy": ["twarz"], "3-okolice-twarzy": ["twarz"],
+    "pachy": ["pachy"], "plecy": ["plecy"], "plecy-czesciowo": ["plecy"],
+    "klatka": ["klatka"], "klatka-czesciowo": ["klatka", "brzuch"], "ramiona": ["ramiona"],
+    "lydki-kolana": ["lydki"], "uda": ["uda"], "cale-nogi": ["uda", "lydki"], "posladki": ["posladki"],
+    "bikini-plytkie": ["bikini"], "bikini-glebokie": ["bikini"], "bikini-pachy": ["bikini", "pachy"],
+    "pachy-lydki-kolana": ["pachy", "lydki"], "lydki-kolana-bikini": ["lydki", "bikini"],
+    "cale-nogi-bikini": ["uda", "lydki", "bikini"], "cale-nogi-pachy": ["uda", "lydki", "pachy"],
+    "cale-nogi-bikini-pachy": ["uda", "lydki", "bikini", "pachy"]
+  },
+  "karboksyterapia-ciala": {
+    "kolana": ["lydki"], "brzuch-boczki": ["brzuch"], "uda": ["uda"],
+    "uda-posladki-bryczesy": ["uda", "posladki"], "cale-nogi": ["uda", "lydki"],
+    "ramiona": ["ramiona"], "posladki-bryczesy": ["posladki"], "uda-brzuch-boczki": ["uda", "brzuch"]
+  }
+}

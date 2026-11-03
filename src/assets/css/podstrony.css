@@ -163,3 +163,56 @@
 .filtr__licznik { min-height: 1.5em; margin-bottom: var(--s-4); }
 [data-filtrowane] > li[hidden] { display: none; }
 .karty-problemow .karta-zabiegu h3 { font-size: 1.375rem; }
+
+/* ============ WIZ. 5: MAPA CIAŁA ============ */
+.mapa { display: grid; gap: var(--s-6); align-items: start; }
+@media (min-width: 960px) { .mapa { grid-template-columns: minmax(16rem, 22rem) 1fr; gap: var(--s-7); } .mapa__sylwetki { position: sticky; top: calc(var(--naglowek-h) + var(--s-4)); } }
+.mapa__sylwetki { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); padding: var(--s-5); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
+.mapa__sylwetki figure { margin: 0; text-align: center; }
+.mapa__sylwetki figcaption { margin-top: var(--s-2); font-size: 0.8125rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.mapa__podpowiedz { grid-column: 1 / -1; margin-top: var(--s-2); text-align: center; }
+.mapa__svg { width: 100%; max-height: 22rem; }
+.mapa__svg > *, .mapa__tlo > * { fill: var(--bg-cream); stroke: var(--line); stroke-width: 1.2; }
+.mapa__obszar { cursor: pointer; outline: none; }
+.mapa__obszar > * { fill: #F3ECE1; stroke: #CDBFAA; stroke-width: 1.2; transition: fill var(--t-fast) var(--ease), stroke var(--t-fast) var(--ease); }
+.mapa__obszar:hover > *, .mapa__obszar.aktywny > * { fill: rgb(122 46 58 / 0.28); stroke: var(--bordo); }
+.mapa__obszar:focus-visible > * { stroke: var(--bordo); stroke-width: 2.5; }
+.mapa .cennik tr { transition: background-color var(--t-fast) var(--ease); }
+.mapa .cennik tr.podswietlony { background: rgb(122 46 58 / 0.07); }
+.mapa .cennik tr.przygaszony { opacity: 0.45; }
+
+/* ============ KONTAKT ============ */
+.kontakt-h { font-size: 1.125rem; margin-bottom: var(--s-2); }
+.kroki--pion { grid-template-columns: 1fr !important; }
+.mapa-dojazd { margin: 0; }
+.mapa-dojazd img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.mapa-dojazd figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s-2) var(--s-4); margin-top: var(--s-3); }
+
+/* ============ FORMULARZ ============ */
+.formularz { display: grid; gap: var(--s-5); padding: var(--s-6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-cream); }
+.pole { display: grid; gap: var(--s-2); }
+.pole label { color: var(--text); font-weight: 500; }
+.pole input[type="text"], .pole textarea {
+  width: 100%;
+  min-height: var(--btn-h);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid #B9AA97;
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: var(--fs-body);
+  transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.pole input:focus, .pole textarea:focus { border-color: var(--bordo); box-shadow: 0 0 0 3px rgb(122 46 58 / 0.15); outline: none; }
+.pole textarea { resize: vertical; min-height: 8rem; }
+.pole__opis { font-size: var(--fs-small); color: var(--text-muted); }
+.pole--zgoda { grid-template-columns: auto 1fr; align-items: start; gap: var(--s-3); }
+.pole--zgoda input { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--bordo); }
+.pole--zgoda label { font-weight: 400; font-size: var(--fs-small); color: var(--text-2); }
+.formularz__ukryte { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.formularz .btn { justify-self: start; }
+@media (max-width: 599.98px) { .formularz { padding: var(--s-5); } .formularz .btn { justify-self: stretch; } }
+
+/* ============ TEKST PRAWNY ============ */
+.tresc-prawna h2 { font-size: var(--fs-h3); margin: var(--s-7) 0 var(--s-3); }
+.tresc-prawna h2:first-child { margin-top: 0; }

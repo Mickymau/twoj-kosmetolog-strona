@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <title>Kontakt i dojazd – gabinet kosmetologiczny Warszawa Włochy | Twój Kosmetolog</title>
+  <!-- [N:claude-draft] meta i mikrocopy formularza do akceptacji Malwiny -->
+  <meta name="description" content="Gabinet Twój Kosmetolog: ul. Łopuszańska 55 lok. 138, Warszawa Włochy. Jak trafić, godziny, telefon i formularz „Nie wiem, od czego zacząć”.">
+  <!-- @include head -->
+</head>
+<body>
+  <!-- @include naglowek -->
+  <main id="tresc">
+    <section class="naglowek-strony" data-hero aria-labelledby="kt">
+      <div class="kontener">
+        <nav class="okruszki" aria-label="Okruszki"><ol><li><a href="/">Strona główna</a></li><li aria-current="page">Kontakt</li></ol></nav>
+        <span class="nadtytul">Kontakt i dojazd</span>
+        <h1 id="kt">Zapraszam do gabinetu</h1>
+        <div class="kontakt-skrot" style="margin-top:var(--s-6)">
+          <div>
+            <h2 class="kontakt-h">Adres</h2>
+            <address>{{firma:nazwaKrotka}}<br>{{firma:ulica}}, {{firma:pietro}}<br>{{firma:kodPocztowy}} {{firma:miasto}} – {{firma:dzielnica}}</address>
+          </div>
+          <div>
+            <h2 class="kontakt-h">Telefon i e-mail</h2>
+            <p><a href="{{firma:telefonHref}}">{{firma:telefon}}</a><br><a href="{{firma:emailHref}}">{{firma:email}}</a></p>
+          </div>
+          <div>
+            <h2 class="kontakt-h">Godziny</h2>
+            <p>{{firma:godziny}}</p>
+          </div>
+        </div>
+        <div class="przyciski">
+          <a class="btn" href="{{firma:booksy}}" rel="noopener" data-umow="kontakt-hero">Umów wizytę w Booksy</a>
+          <a class="btn btn--kontur" href="#formularz">Napisz do mnie</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jak trafić — z opisu adresu w Booksy (BRIEF 6.7). Mapa: statyczny obraz OpenStreetMap, bez osadzonej mapy Google -->
+    <section class="sekcja sekcja--krem" aria-labelledby="kt-dojazd">
+      <div class="kontener duet duet--start">
+        <div>
+          <h2 id="kt-dojazd">Jak trafić</h2>
+          <ol class="kroki kroki--pion" role="list" style="margin-top:var(--s-5)">
+            <li><span class="kroki__ikona"><svg class="ikona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span><span class="kroki__nr">1</span><p>Szukaj bloku z Żabką przy ul. Łopuszańskiej 55.</p></li>
+            <li><span class="kroki__ikona"><svg class="ikona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="1"/><circle cx="12" cy="10" r="1.5"/><path d="M10 15h4"/></svg></span><span class="kroki__nr">2</span><p>Wejście furtką — dzwonek <strong>2138</strong>.</p></li>
+            <li><span class="kroki__ikona"><svg class="ikona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h12"/><path d="M12 6l6 6-6 6"/></svg></span><span class="kroki__nr">3</span><p>Za szlabanem w prawo, <strong>klatka 4</strong>.</p></li>
+            <li><span class="kroki__ikona"><svg class="ikona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4v-4h4v-4h4V8h4"/></svg></span><span class="kroki__nr">4</span><p><strong>I piętro</strong>, lokal 138.</p></li>
+          </ol>
+          <p class="tekst-maly" style="margin-top:var(--s-5)">Parking dostępny.</p>
+        </div>
+        <figure class="mapa-dojazd">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=%C5%81opusza%C5%84ska+55%2C+02-232+Warszawa" rel="noopener" target="_blank">
+            <img src="/assets/img/mapa-dojazd.webp" width="720" height="440" alt="Mapa okolicy gabinetu — ul. Łopuszańska 55, Warszawa Włochy (budynek przy Żabce)" loading="lazy">
+          </a>
+          <figcaption>
+            <a class="link-strzalka" href="https://www.google.com/maps/search/?api=1&amp;query=%C5%81opusza%C5%84ska+55%2C+02-232+Warszawa" rel="noopener" target="_blank">Otwórz w Google Maps</a>
+            <span class="tekst-maly">Mapa © <a href="https://www.openstreetmap.org/copyright" rel="noopener">autorzy OpenStreetMap</a></span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Formularz „Nie wiem, od czego zacząć” — Netlify Forms (BRIEF 6.7). Treść: dok. 07 sekcja 7 -->
+    <section class="sekcja" id="formularz" aria-labelledby="kt-form">
+      <div class="kontener duet duet--start">
+        <div>
+          <span class="nadtytul">Nie wiem, od czego zacząć</span>
+          <h2 id="kt-form">Napisz do mnie</h2>
+          <p class="lead" style="margin-top:var(--s-4)">Napisz do mnie krótko, z czym obecnie zmaga się Twoja skóra. Podpowiem Ci, od której usługi najlepiej zacząć.</p>
+        </div>
+        <form class="formularz" name="kontakt" method="POST" action="/dziekuje/" data-netlify="true" netlify-honeypot="pole-dodatkowe">
+          <input type="hidden" name="form-name" value="kontakt">
+          <p class="formularz__ukryte" aria-hidden="true"><label>Nie wypełniaj tego pola: <input name="pole-dodatkowe" tabindex="-1" autocomplete="off"></label></p>
+          <p class="pole">
+            <label for="f-imie">Imię</label>
+            <input id="f-imie" name="imie" type="text" autocomplete="given-name" required>
+          </p>
+          <p class="pole">
+            <label for="f-kontakt">E-mail lub telefon</label>
+            <input id="f-kontakt" name="kontakt" type="text" autocomplete="email" required aria-describedby="f-kontakt-opis">
+            <span class="pole__opis" id="f-kontakt-opis">Odpowiem w ten sposób, który podasz.</span>
+          </p>
+          <p class="pole">
+            <label for="f-wiadomosc">Z czym zmaga się Twoja skóra?</label>
+            <textarea id="f-wiadomosc" name="wiadomosc" rows="5" required></textarea>
+          </p>
+          <p class="pole pole--zgoda">
+            <input id="f-zgoda" name="zgoda" type="checkbox" value="tak" required>
+            <label for="f-zgoda">Wyrażam zgodę na przetwarzanie moich danych w celu odpowiedzi na wiadomość. Szczegóły w <a href="/polityka-prywatnosci/">polityce prywatności</a>.</label>
+          </p>
+          <button class="btn" type="submit">Wyślij wiadomość</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- @include stopka -->
+  <!-- @include umow-mobile -->
+</body>
+</html>

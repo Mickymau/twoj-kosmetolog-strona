@@ -56,4 +56,34 @@
     const z = new URLSearchParams(location.search).get('problem');
     if (z) ustaw(z);
   }
+  // --- mapa ciała: obszar ↔ wiersze cennika ---
+  for (const mapa of document.querySelectorAll('[data-mapa]')) {
+    const obszary = [...mapa.querySelectorAll('[data-obszar]')];
+    const wiersze = [...mapa.querySelectorAll('tr[data-obszary]')];
+    let przypiety = null;
+    const pokaz = (id) => {
+      for (const o of obszary) o.classList.toggle('aktywny', !!id && o.dataset.obszar === id);
+      for (const w of wiersze) {
+        const ma = !!id && w.dataset.obszary.split(' ').includes(id);
+        w.classList.toggle('podswietlony', ma);
+        w.classList.toggle('przygaszony', !!id && !ma);
+      }
+    };
+    const pokazWiersz = (w) => {
+      const ids = w ? w.dataset.obszary.split(' ') : [];
+      for (const o of obszary) o.classList.toggle('aktywny', ids.includes(o.dataset.obszar));
+    };
+    for (const o of obszary) {
+      o.addEventListener('mouseenter', () => pokaz(o.dataset.obszar));
+      o.addEventListener('mouseleave', () => pokaz(przypiety));
+      o.addEventListener('focus', () => pokaz(o.dataset.obszar));
+      const wybierz = () => { przypiety = przypiety === o.dataset.obszar ? null : o.dataset.obszar; pokaz(przypiety); };
+      o.addEventListener('click', wybierz);
+      o.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); wybierz(); } });
+    }
+    for (const w of wiersze) {
+      w.addEventListener('mouseenter', () => { if (!przypiety) pokazWiersz(w); });
+      w.addEventListener('mouseleave', () => { if (!przypiety) pokazWiersz(null); });
+    }
+  }
 })();

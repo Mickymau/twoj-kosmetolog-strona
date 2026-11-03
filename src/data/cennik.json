@@ -233,7 +233,7 @@
       "booksyUrl": null,
       "cena": 650,
       "czas": 100,
-      "zweryfikowano": null
+      "zweryfikowano": "2026-11-04"
     },
     {
       "id": "kwasy-depigmentacyjne",
@@ -299,14 +299,14 @@
           "nazwa": "Geneo Hydrate+",
           "cena": 380,
           "czas": 90,
-          "zweryfikowano": null
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "balance",
           "nazwa": "Geneo Balance+",
           "cena": 380,
           "czas": 90,
-          "zweryfikowano": null
+          "zweryfikowano": "2026-11-04"
         }
       ],
       "dodatki": [
@@ -413,7 +413,7 @@
       "booksyUrl": null,
       "cena": 300,
       "czas": 75,
-      "zweryfikowano": null,
+      "zweryfikowano": "2026-11-04",
       "pakiety": [
         {
           "zabiegi": 3,
@@ -423,7 +423,7 @@
     },
     {
       "id": "mezoterapia-nawilzajaca",
-      "nazwa": "Mezoterapia nawilżająca — twarz / + szyja / + dekolt",
+      "nazwa": "Mezoterapia igłowa twarzy — nawilżająca",
       "kategoria": "starzenie",
       "problemy": [
         "cera-sucha",
@@ -432,10 +432,9 @@
       "podstrona": null,
       "booksyUrl": null,
       "cena": 450,
-      "od": true,
+      "od": false,
       "czas": null,
-      "zweryfikowano": null,
-      "uwagi": "Szablon: 450–650 zł, 1 h 30–1 h 40 — ceny wariantów do zebrania z Booksy."
+      "zweryfikowano": "2026-11-04"
     },
     {
       "id": "polinukleotydy",
@@ -449,7 +448,7 @@
       "booksyUrl": null,
       "cena": 890,
       "czas": 90,
-      "zweryfikowano": null,
+      "zweryfikowano": "2026-11-04",
       "dodatki": [
         {
           "nazwa": "Dopłata zależnie od preparatu",
@@ -467,25 +466,28 @@
       ],
       "podstrona": "sunekos",
       "booksyUrl": null,
-      "zweryfikowano": null,
+      "zweryfikowano": "2026-11-04",
       "warianty": [
         {
           "id": "200",
           "nazwa": "Sunekos 200",
           "cena": 690,
-          "czas": 90
+          "czas": 90,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "1200",
           "nazwa": "Sunekos 1200",
           "cena": 990,
-          "czas": 90
+          "czas": 90,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "laczona",
           "nazwa": "Sunekos — terapia łączona",
           "cena": 1400,
-          "czas": 90
+          "czas": 90,
+          "zweryfikowano": "2026-11-04"
         }
       ]
     },
@@ -501,25 +503,28 @@
       ],
       "podstrona": "xela-rederm",
       "booksyUrl": null,
-      "zweryfikowano": null,
+      "zweryfikowano": "2026-11-04",
       "warianty": [
         {
           "id": "1-1",
           "nazwa": "Xela Rederm 1,1% — okolica oczu",
           "cena": 650,
-          "czas": 60
+          "czas": 60,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "1-8",
           "nazwa": "Xela Rederm 1,8%",
           "cena": 850,
-          "czas": 100
+          "czas": 100,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "2-2",
           "nazwa": "Xela Rederm 2,2%",
           "cena": 950,
-          "czas": 100
+          "czas": 100,
+          "zweryfikowano": "2026-11-04"
         }
       ]
     },
@@ -534,7 +539,7 @@
       "booksyUrl": null,
       "cena": 1000,
       "czas": 120,
-      "zweryfikowano": null
+      "zweryfikowano": "2026-11-04"
     },
     {
       "id": "karboksyterapia-twarzy",
@@ -601,29 +606,33 @@
       "warianty": [
         {
           "id": "obszary",
-          "nazwa": "Carbolift® — od owal + szyja do twarz + szyja + owal + dekolt",
+          "nazwa": "Carbolift® — lifting i poprawa owalu",
           "cena": 450,
           "od": true,
           "czas": null,
-          "uwagi": "Szablon: 450–750 zł, 1 h – 1 h 50 — ceny obszarów do zebrania z Booksy."
+          "uwagi": "Booksy: od 450 zł (cena zależna od obszaru).",
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "karboksyterapia",
           "nazwa": "Carbolift® + karboksyterapia",
           "cena": 590,
-          "czas": 100
+          "czas": 100,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "mezoterapia-rrs",
           "nazwa": "Carbolift® + mezoterapia RRS",
           "cena": 650,
-          "czas": 100
+          "czas": 100,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "oczy",
           "nazwa": "Carbolift® na okolicę oczu",
           "cena": 400,
-          "czas": 50
+          "czas": 50,
+          "zweryfikowano": "2026-11-04"
         }
       ]
     },
@@ -651,22 +660,44 @@
       "booksyUrl": null,
       "cena": 450,
       "czas": 60,
-      "zweryfikowano": null
+      "zweryfikowano": "2026-11-04"
     },
     {
       "id": "mezoterapia-oczu",
-      "nazwa": "Mezoterapia okolicy oczu — rozjaśniająca / Glow / stymulująca",
+      "nazwa": "Mezoterapie okolicy oczu i twarzy",
       "kategoria": "oczy",
       "problemy": [
         "okolica-oczu"
       ],
       "podstrona": null,
       "booksyUrl": null,
-      "cena": 259,
-      "od": true,
-      "czas": null,
-      "zweryfikowano": null,
-      "uwagi": "Szablon: 259–400 zł, 45 min – 1 h 15 — ceny wariantów do zebrania z Booksy."
+      "zweryfikowano": "2026-11-04",
+      "warianty": [
+        {
+          "id": "rozjasniajaca",
+          "nazwa": "Mezoterapia rozjaśniająca",
+          "cena": 300,
+          "czas": null
+        },
+        {
+          "id": "glow",
+          "nazwa": "Mezoterapia z efektem Glow",
+          "cena": 259,
+          "czas": null
+        },
+        {
+          "id": "stymulujaca",
+          "nazwa": "Mezoterapia stymulująca",
+          "cena": 400,
+          "czas": null
+        },
+        {
+          "id": "cienie-obrzeki",
+          "nazwa": "Mezoterapia igłowa — redukcja cieni i obrzęków",
+          "cena": 300,
+          "czas": null
+        }
+      ]
     },
     {
       "id": "karboksyterapia-blizny-rozstepy",
@@ -833,54 +864,24 @@
           "nazwa": "Ramiona",
           "cena": 250,
           "czas": null,
-          "zweryfikowano": null,
-          "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.",
-          "pakiety": [
-            {
-              "zabiegi": 4,
-              "cena": 900
-            },
-            {
-              "zabiegi": 8,
-              "cena": 1700
-            }
-          ]
+          "zweryfikowano": "2026-11-04",
+          "uwagi": "Cena z Booksy; pakiety tej pozycji do potwierdzenia."
         },
         {
           "id": "posladki-bryczesy",
           "nazwa": "Pośladki + bryczesy",
           "cena": 280,
           "czas": null,
-          "zweryfikowano": null,
-          "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.",
-          "pakiety": [
-            {
-              "zabiegi": 4,
-              "cena": 1008
-            },
-            {
-              "zabiegi": 8,
-              "cena": 1904
-            }
-          ]
+          "zweryfikowano": "2026-11-04",
+          "uwagi": "Cena z Booksy; pakiety tej pozycji do potwierdzenia."
         },
         {
           "id": "uda-brzuch-boczki",
           "nazwa": "Uda + brzuch + boczki",
-          "cena": 450,
+          "cena": 400,
           "czas": null,
-          "zweryfikowano": null,
-          "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.",
-          "pakiety": [
-            {
-              "zabiegi": 4,
-              "cena": 1620
-            },
-            {
-              "zabiegi": 8,
-              "cena": 3060
-            }
-          ]
+          "zweryfikowano": "2026-11-04",
+          "uwagi": "Booksy 400 zł (dokument: 450 zł — nieaktualne). Pakiety do potwierdzenia."
         }
       ]
     },
@@ -891,44 +892,36 @@
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
-      "zweryfikowano": null,
+      "zweryfikowano": "2026-11-04",
       "warianty": [
         {
           "id": "karboksyterapia",
           "nazwa": "Karboksyterapia skóry głowy",
           "cena": 200,
-          "czas": 60
+          "czas": 60,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "oxybrazja",
           "nazwa": "Oxybrazja skóry głowy z ampułką",
           "cena": 230,
-          "czas": 40
+          "czas": 40,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "mezoterapia",
           "nazwa": "Mezoterapia igłowa skóry głowy — koktajl",
           "cena": 260,
           "czas": 30,
-          "pakiety": [
-            {
-              "zabiegi": 4,
-              "cena": 960
-            }
-          ]
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "dr-cyj",
           "nazwa": "Dr Cyj Hair Filler",
           "cena": 590,
           "czas": null,
-          "uwagi": "Szablon: 30–50 min.",
-          "pakiety": [
-            {
-              "zabiegi": 4,
-              "cena": 1980
-            }
-          ]
+          "uwagi": "Cena z Booksy; czas i pakiet do potwierdzenia.",
+          "zweryfikowano": "2026-11-04"
         }
       ]
     },
@@ -1013,16 +1006,26 @@
     },
     {
       "id": "stylizacja-brwi-rzes",
-      "nazwa": "Stylizacja brwi i rzęs (pozostałe usługi)",
+      "nazwa": "Henna rzęs i komplety",
       "kategoria": "pozostale",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
-      "cena": 30,
-      "od": true,
-      "czas": null,
-      "zweryfikowano": null,
-      "uwagi": "Szablon: 30–80 zł, 20–50 min."
+      "zweryfikowano": "2026-11-04",
+      "warianty": [
+        {
+          "id": "henna-rzes",
+          "nazwa": "Henna / farbka rzęs",
+          "cena": 40,
+          "czas": null
+        },
+        {
+          "id": "komplet",
+          "nazwa": "Komplet (henna brwi i rzęs z regulacją)",
+          "cena": 80,
+          "czas": null
+        }
+      ]
     },
     {
       "id": "depilacja-laserowa",
@@ -1031,11 +1034,136 @@
       "problemy": [],
       "podstrona": "depilacja-laserowa",
       "booksyUrl": null,
-      "cena": 120,
-      "od": true,
-      "czas": null,
-      "zweryfikowano": null,
-      "uwagi": "21 obszarów i pakietów (szablon: 120–720 zł, 20 min – 1 h 15) — do zebrania z Booksy. Start w Booksy 08.11.2026."
+      "zweryfikowano": "2026-11-04",
+      "uwagi": "Ceny z Booksy 2026-11-04; czasy (20 min – 1 h 15) do zebrania.",
+      "warianty": [
+        {
+          "id": "wasik-broda",
+          "nazwa": "Wąsik lub broda",
+          "cena": 120,
+          "czas": null
+        },
+        {
+          "id": "2-okolice-twarzy",
+          "nazwa": "2 okolice twarzy (np. wąsik i broda)",
+          "cena": 150,
+          "czas": null
+        },
+        {
+          "id": "3-okolice-twarzy",
+          "nazwa": "3 okolice twarzy (np. broda, wąsik i baki)",
+          "cena": 200,
+          "czas": null
+        },
+        {
+          "id": "pachy",
+          "nazwa": "Pachy",
+          "cena": 150,
+          "czas": null
+        },
+        {
+          "id": "plecy",
+          "nazwa": "Plecy",
+          "cena": 299,
+          "czas": null
+        },
+        {
+          "id": "plecy-czesciowo",
+          "nazwa": "Plecy częściowo (np. okolica karku)",
+          "cena": 199,
+          "czas": null
+        },
+        {
+          "id": "klatka",
+          "nazwa": "Klatka piersiowa",
+          "cena": 299,
+          "czas": null
+        },
+        {
+          "id": "klatka-czesciowo",
+          "nazwa": "Klatka piersiowa częściowo (np. podbrzusze, piersi)",
+          "cena": 199,
+          "czas": null
+        },
+        {
+          "id": "ramiona",
+          "nazwa": "Ramiona i przedramiona",
+          "cena": 350,
+          "czas": null
+        },
+        {
+          "id": "lydki-kolana",
+          "nazwa": "Łydki + kolana",
+          "cena": 300,
+          "czas": null
+        },
+        {
+          "id": "uda",
+          "nazwa": "Uda",
+          "cena": 280,
+          "czas": null
+        },
+        {
+          "id": "cale-nogi",
+          "nazwa": "Całe nogi",
+          "cena": 480,
+          "czas": null
+        },
+        {
+          "id": "posladki",
+          "nazwa": "Pośladki",
+          "cena": 200,
+          "czas": null
+        },
+        {
+          "id": "bikini-plytkie",
+          "nazwa": "Bikini płytkie",
+          "cena": 250,
+          "czas": null
+        },
+        {
+          "id": "bikini-glebokie",
+          "nazwa": "Bikini głębokie",
+          "cena": 280,
+          "czas": null
+        },
+        {
+          "id": "bikini-pachy",
+          "nazwa": "Bikini + pachy",
+          "cena": 370,
+          "czas": null
+        },
+        {
+          "id": "pachy-lydki-kolana",
+          "nazwa": "Pachy + łydki + kolana",
+          "cena": 390,
+          "czas": null
+        },
+        {
+          "id": "lydki-kolana-bikini",
+          "nazwa": "Łydki + kolana + bikini głębokie",
+          "cena": 490,
+          "czas": null
+        },
+        {
+          "id": "cale-nogi-bikini",
+          "nazwa": "Całe nogi + bikini",
+          "cena": 620,
+          "czas": null
+        },
+        {
+          "id": "cale-nogi-pachy",
+          "nazwa": "Całe nogi + pachy",
+          "cena": 540,
+          "czas": null
+        },
+        {
+          "id": "cale-nogi-bikini-pachy",
+          "nazwa": "Całe nogi + bikini + pachy",
+          "cena": 720,
+          "czas": null
+        }
+      ]
     },
     {
       "id": "depilacja-woskiem",
@@ -1044,11 +1172,39 @@
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
-      "cena": 30,
-      "od": true,
-      "czas": null,
-      "zweryfikowano": null,
-      "uwagi": "Szablon: 30–50 zł, 15–30 min."
+      "zweryfikowano": "2026-11-04",
+      "warianty": [
+        {
+          "id": "brwi",
+          "nazwa": "Depilacja woskiem — brwi",
+          "cena": 30,
+          "czas": null
+        },
+        {
+          "id": "wasik",
+          "nazwa": "Depilacja woskiem — wąsik",
+          "cena": 30,
+          "czas": null
+        },
+        {
+          "id": "broda",
+          "nazwa": "Depilacja woskiem — broda",
+          "cena": 30,
+          "czas": null
+        },
+        {
+          "id": "wasik-broda-podbrodek",
+          "nazwa": "Depilacja woskiem — wąsik, broda i podbródek",
+          "cena": 50,
+          "czas": null
+        },
+        {
+          "id": "pachy",
+          "nazwa": "Depilacja woskiem — pachy",
+          "cena": 40,
+          "czas": null
+        }
+      ]
     },
     {
       "id": "dlonie",
@@ -1057,19 +1213,21 @@
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
-      "zweryfikowano": null,
+      "zweryfikowano": "2026-11-04",
       "warianty": [
         {
           "id": "karboksyterapia",
           "nazwa": "Karboksyterapia — biorewitalizacja dłoni",
           "cena": 150,
-          "czas": 30
+          "czas": 30,
+          "zweryfikowano": "2026-11-04"
         },
         {
           "id": "mezoterapia",
           "nazwa": "Mezoterapia dłoni",
           "cena": 350,
-          "czas": 60
+          "czas": 60,
+          "zweryfikowano": "2026-11-04"
         }
       ]
     },

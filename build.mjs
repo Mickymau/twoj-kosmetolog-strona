@@ -48,6 +48,8 @@ const NAZWY_PROBLEMOW = {
   'blizny-i-rozstepy': 'Blizny i rozstępy', cellulit: 'Cellulit i ciało',
 };
 const BLOKI_POZNIEJ = {};
+// podstrony z PODSTRONY, które są zwykłymi plikami w src/pages (nie generowane z JSON)
+const STRONY_STATYCZNE = ['depilacja-laserowa'];
 
 // ---------- raportowanie ----------
 const bledy = new Set();
@@ -330,19 +332,20 @@ const problemyPodstrony = (slug) => [...new Set(uslugiPodstrony(slug).flatMap((u
 
 // --- tabela cennika (podstrona zabiegu i /zabiegi/) ---
 function tabelaCennika(lista, { linkuj = false, pokazKat = false } = {}) {
+  const zCzasem = lista.some((p) => p.czas);
   const wiersze = lista.map((p) => {
-    const nazwa = linkuj && p.u.podstrona && zabiegi.has(p.u.podstrona)
+    const nazwa = linkuj && p.u.podstrona && (zabiegi.has(p.u.podstrona) || STRONY_STATYCZNE.includes(p.u.podstrona))
       ? `<a href="${linkZabiegu(p.u.podstrona)}">${esc(p.nazwa)}</a>` : esc(p.nazwa);
     const pakiety = p.pakiety.length
       ? `<span class="cennik__pakiety">${p.pakiety.map((k) => `pakiet ${k.zabiegi} zabiegów: ${esc(fmtZl(k.cena))}`).join(' · ')}</span>` : '';
     return `<tr><th scope="row">${nazwa}${devUwaga(p)}${pakiety}</th>`
-      + `<td class="cennik__czas">${esc(p.czas ? fmtMin(p.czas) : '')}</td>`
+      + (zCzasem ? `<td class="cennik__czas">${esc(p.czas ? fmtMin(p.czas) : '')}</td>` : '')
       + `<td class="cennik__cena">${esc((p.od ? 'od ' : '') + fmtZl(p.cena))}</td>`
       + `<td class="cennik__umow"><a class="btn btn--maly btn--kontur" href="${esc(p.booksy)}" rel="noopener" data-umow="cennik-${esc(p.u.id)}">Umów<span class="sr-only"> — ${esc(p.nazwa)}</span></a></td></tr>`;
   });
   const dodatki = [...new Set(lista.flatMap((p) => (p.w ? [] : []).concat(p.u.dodatki || [])
     .map((d) => `${d.nazwa}: +${fmtZl(d.cena)}`)))];
-  return `<div class="cennik-tabela"><table class="cennik"><thead><tr><th scope="col">Usługa</th><th scope="col">Czas</th><th scope="col">Cena</th><th scope="col"><span class="sr-only">Rezerwacja</span></th></tr></thead><tbody>${wiersze.join('')}</tbody></table>`
+  return `<div class="cennik-tabela"><table class="cennik"><thead><tr><th scope="col">Usługa</th>${zCzasem ? '<th scope="col">Czas</th>' : ''}<th scope="col">Cena</th><th scope="col"><span class="sr-only">Rezerwacja</span></th></tr></thead><tbody>${wiersze.join('')}</tbody></table>`
     + (dodatki.length ? `<p class="cennik__dodatki">Dodatkowo: ${esc(dodatki.join(' · '))}</p>` : '') + '</div>';
 }
 
@@ -408,6 +411,40 @@ Object.assign(ZNACZNIKI, {
     return karty.length ? `<ul class="karty-zabiegow" role="list">${karty.map(kartaZabiegu).join('')}</ul>` : '';
   },
 });
+
+// --- mapa ciała (wizualizacja 5) ---
+const mapaDane = fs.existsSync(path.join(SRC, 'data', 'mapa-ciala.json')) ? wczytajJson('mapa-ciala.json') : {};
+const OBSZARY = { twarz: 'Twarz', pachy: 'Pachy', ramiona: 'Ramiona', klatka: 'Klatka piersiowa', brzuch: 'Brzuch i boczki', bikini: 'Bikini', plecy: 'Plecy', posladki: 'Pośladki', uda: 'Uda', lydki: 'Łydki i kolana' };
+function sylwetka(strona) {
+  const o = (id, ksztalt) => OBSZARY[id] ? `<g class="mapa__obszar" data-obszar="${id}" tabindex="0" role="button" aria-label="${OBSZARY[id]}">${ksztalt}</g>` : ksztalt;
+  const glowa = '<ellipse cx="100" cy="38" rx="20" ry="25"/>';
+  const szyja = '<path class="mapa__tlo" d="M92 60h16v14H92z"/>';
+  const rece = '<path d="M70 82c-12 4-16 14-18 30l-6 70c-1 8 8 10 10 2l12-62z"/><path d="M130 82c12 4 16 14 18 30l6 70c1 8-8 10-10 2l-12-62z"/>';
+  const uda = '<path d="M76 196h23l-3 92H80z"/><path d="M101 196h23l-4 92h-16z"/>';
+  const lydki = '<path d="M80 292h16l-2 90h-12z"/><path d="M104 292h16l-2 90h-12z"/>';
+  if (strona === 'przod') return `<svg viewBox="30 0 140 400" class="mapa__svg" aria-hidden="false" role="group" aria-label="Przód sylwetki">
+${o('twarz', glowa)}${szyja}${o('ramiona', rece)}
+${o('klatka', '<path d="M72 78h56l-3 56H75z"/>')}${o('pachy', '<ellipse cx="73" cy="96" rx="6" ry="9"/><ellipse cx="127" cy="96" rx="6" ry="9"/>')}
+${o('brzuch', '<path d="M75 136h50l-1 50H76z"/>')}${o('bikini', '<path d="M76 188h48l-14 22h-20z"/>')}
+${o('uda', uda)}${o('lydki', lydki)}</svg>`;
+  return `<svg viewBox="30 0 140 400" class="mapa__svg" role="group" aria-label="Tył sylwetki">
+<g class="mapa__tlo">${glowa}</g>${szyja}${o('ramiona', rece)}
+${o('plecy', '<path d="M72 78h56l-2 108H74z"/>')}${o('posladki', '<path d="M75 188h50l-2 26H77z"/>')}
+${o('uda', uda.replace(/196/g, '216'))}${o('lydki', lydki)}</svg>`;
+}
+ZNACZNIKI['mapa-ciala'] = (arg, kto) => {
+  const u = uslugi.get(arg);
+  if (!u || !u.warianty) throw `${kto}: {{mapa-ciala:…}} — usługa „${arg}” nie istnieje albo nie ma wariantów`;
+  const map = mapaDane[arg];
+  if (!map) throw `${kto}: brak przypisań obszarów dla „${arg}” w mapa-ciala.json`;
+  for (const w of u.warianty) if (!map[w.id]) blad(`mapa-ciala.json: „${arg}/${w.id}” nie ma przypisanych obszarów`);
+  const lista = widoczne(pozycje(u));
+  const tabela = tabelaCennika(lista).replace(/<tr><th scope="row">/g, () => '<tr data-obszary="__"><th scope="row">');
+  let i = 0;
+  const tabelaZObszarami = tabela.replace(/data-obszary="__"/g, () => `data-obszary="${(map[lista[i++].w.id] || []).join(' ')}"`);
+  return `<div class="mapa" data-mapa><div class="mapa__sylwetki"><figure>${sylwetka('przod')}<figcaption>Przód</figcaption></figure><figure>${sylwetka('tyl')}<figcaption>Tył</figcaption></figure>
+<p class="tekst-maly mapa__podpowiedz">Wskaż obszar, żeby zobaczyć jego ceny.</p></div><div class="mapa__cennik">${tabelaZObszarami}</div></div>`;
+};
 
 // --- ikony liniowe kroków (wizualizacja 6) ---
 const IKONY = {
@@ -510,7 +547,7 @@ function stronaZabiegu(z) {
   // 6. seria
   if (z.seria) s.push(sekcja('seria', 'Seria i częstotliwość', osCzasu(z.seria) + akapity(z.seria.tekst)));
   // 7. cennik
-  s.push(sekcja('cennik', 'Cennik', (listaCen.length ? tabelaCennika(listaCen) : '') + `<p class="tekst-maly">Aktualne ceny i wolne terminy sprawdzisz w Booksy.</p>`, 'Warianty i ceny'));
+  s.push(sekcja('cennik', 'Cennik', z.mapaCiala ? `{{mapa-ciala:${gId}}}` : (listaCen.length ? tabelaCennika(listaCen) : '') + `<p class="tekst-maly">Aktualne ceny i wolne terminy sprawdzisz w Booksy.</p>`, 'Warianty i ceny'));
   // 8–10. akordeony
   const akord = (id, tytul, wnetrze) => `<details id="${id}"><summary>${tytul}</summary><div class="akordeon__tresc">${wnetrze}</div></details>`;
   const tekstLubLista = (x) => (typeof x === 'string' ? akapity(x) : lista(x, 'lista-kropki'));

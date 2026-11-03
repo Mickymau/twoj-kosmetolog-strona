@@ -1,22 +1,103 @@
 {
   "_opis": "Dane firmy (BRIEF sekcja 10). Każde pole: wartosc + status (F = potwierdzone, N = niepotwierdzone, ❓ = brak danych / do wyjaśnienia) + zrodlo. Build: wartosc null = błąd zawsze; status ❓ = ostrzeżenie w dev, błąd w --prod.",
-  "nazwa":          { "wartosc": "Twój Kosmetolog — Malwina Witkowska-Łysiak", "status": "F", "zrodlo": "repro Booksy 2026-11-02" },
-  "nazwaKrotka":    { "wartosc": "Twój Kosmetolog", "status": "F", "zrodlo": "repro Booksy 2026-11-02" },
-  "ulica":          { "wartosc": "ul. Łopuszańska 55 lok. 138", "status": "F", "zrodlo": "repro Booksy 2026-11-02" },
-  "pietro":         { "wartosc": "I piętro", "status": "F", "zrodlo": "repro Booksy 2026-11-02" },
-  "kodPocztowy":    { "wartosc": "02-232", "status": "F", "zrodlo": "repro Booksy 2026-11-02" },
-  "miasto":         { "wartosc": "Warszawa", "status": "F", "zrodlo": "repro Booksy 2026-11-02" },
-  "dzielnica":      { "wartosc": "Włochy", "status": "F", "zrodlo": "repro Booksy 2026-11-02" },
-  "telefon":        { "wartosc": "+48 508 200 171", "status": "N", "zrodlo": "szablon Malwiny (pytanie 5 w DO-MALWINY)" },
-  "email":          { "wartosc": "malwina.wit@wp.pl", "status": "❓", "zrodlo": "tymczasowo; docelowo skrzynka w domenie (pytanie 6)" },
-  "godziny":        { "wartosc": "pn–pt 9:00–21:00, sob 9:00–15:00", "status": "❓", "zrodlo": "szablon; Booksy (pn) 10–21 — pytanie 4" },
-  "booksy":         { "wartosc": "https://booksy.com/pl-pl/21327_twoj-kosmetolog-malwina-witkowska-lysiak_salon-kosmetyczny_3_warszawa", "status": "F", "zrodlo": "BRIEF sekcja 0" },
-  "booksyMasaze":   { "wartosc": "https://oksimassage.booksy.com", "status": "N", "zrodlo": "cennik-booksy-2026-11-02 (Inne)" },
-  "instagram":      { "wartosc": null, "status": "❓", "zrodlo": "pytanie 7" },
-  "facebook":       { "wartosc": null, "status": "❓", "zrodlo": "pytanie 7" },
-  "firmaPrawna":    { "wartosc": "M.Estetic – salon mobilny Malwina Witkowska-Łysiak", "status": "❓", "zrodlo": "Booksy — aktualność do potwierdzenia (pytanie 8)" },
-  "nip":            { "wartosc": null, "status": "❓", "zrodlo": "pytanie 8" },
-  "ocena":          { "wartosc": "5.0", "status": "F", "zrodlo": "repro Booksy 2026-11-02 (aktualizować ręcznie)" },
-  "liczbaOpinii":   { "wartosc": "314", "status": "F", "zrodlo": "repro Booksy 2026-11-02 (aktualizować ręcznie)" },
-  "domena":         { "wartosc": "https://twojkosmetolog.warszawa.pl", "status": "❓", "zrodlo": "BRIEF 9.2 — domena do kupienia" }
+  "nazwa": {
+    "wartosc": "Twój Kosmetolog — Malwina Witkowska-Łysiak",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02"
+  },
+  "nazwaKrotka": {
+    "wartosc": "Twój Kosmetolog",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02"
+  },
+  "ulica": {
+    "wartosc": "ul. Łopuszańska 55 lok. 138",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02"
+  },
+  "pietro": {
+    "wartosc": "I piętro",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02"
+  },
+  "kodPocztowy": {
+    "wartosc": "02-232",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02"
+  },
+  "miasto": {
+    "wartosc": "Warszawa",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02"
+  },
+  "dzielnica": {
+    "wartosc": "Włochy",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02"
+  },
+  "telefon": {
+    "wartosc": "+48 508 200 171",
+    "status": "N",
+    "zrodlo": "szablon Malwiny (pytanie 5 w DO-MALWINY)"
+  },
+  "email": {
+    "wartosc": "malwina.wit@wp.pl",
+    "status": "❓",
+    "zrodlo": "tymczasowo; docelowo skrzynka w domenie (pytanie 6)"
+  },
+  "godziny": {
+    "wartosc": "pn 10:00–21:00, wt–sob 9:00–21:00, nd 10:00–14:00",
+    "status": "❓",
+    "zrodlo": "Booksy 2026-11-04 (szablon: pn–pt 9–21, sob 9–15) — potwierdzić, pytanie 4"
+  },
+  "booksy": {
+    "wartosc": "https://booksy.com/pl-pl/21327_twoj-kosmetolog-malwina-witkowska-lysiak_salon-kosmetyczny_3_warszawa",
+    "status": "F",
+    "zrodlo": "BRIEF sekcja 0"
+  },
+  "booksyMasaze": {
+    "wartosc": "https://oksimassage.booksy.com",
+    "status": "N",
+    "zrodlo": "cennik-booksy-2026-11-02 (Inne)"
+  },
+  "instagram": {
+    "wartosc": null,
+    "status": "❓",
+    "zrodlo": "pytanie 7"
+  },
+  "facebook": {
+    "wartosc": null,
+    "status": "❓",
+    "zrodlo": "pytanie 7"
+  },
+  "firmaPrawna": {
+    "wartosc": "M.Estetic – salon mobilny Malwina Witkowska-Łysiak",
+    "status": "❓",
+    "zrodlo": "Booksy — aktualność do potwierdzenia (pytanie 8)"
+  },
+  "nip": {
+    "wartosc": null,
+    "status": "❓",
+    "zrodlo": "pytanie 8"
+  },
+  "ocena": {
+    "wartosc": "5.0",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02 (aktualizować ręcznie)"
+  },
+  "liczbaOpinii": {
+    "wartosc": "314",
+    "status": "F",
+    "zrodlo": "repro Booksy 2026-11-02 (aktualizować ręcznie)"
+  },
+  "domena": {
+    "wartosc": "https://twojkosmetolog.warszawa.pl",
+    "status": "❓",
+    "zrodlo": "BRIEF 9.2 — domena do kupienia"
+  },
+  "wspolrzedne": {
+    "wartosc": "52.1933508,20.9385846",
+    "status": "F",
+    "zrodlo": "OpenStreetMap (Nominatim) 2026-11-04"
+  }
 }
