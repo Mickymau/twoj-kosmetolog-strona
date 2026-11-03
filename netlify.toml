@@ -1,9 +1,0 @@
-# Netlify — budowanie strony z repozytorium (BRIEF 9.2). Bez zależności: tylko Node.
-# Do czasu domeny i akceptu tekstów przez Malwinę: wersja testowa (--podglad = noindex).
-# Po zakupie domeny: zmienić komendę na "node build.mjs --prod" (dopiero gdy build --prod przechodzi).
-[build]
-  command = "node build.mjs --podglad"
-  publish = "dist"
-
-[build.environment]
-  NODE_VERSION = "22"

@@ -23,7 +23,7 @@ const flag = (n) => args.includes(n);
 const opt = (n, d) => (args.find((a) => a.startsWith(`--${n}=`)) || '').split('=').slice(1).join('=') || d;
 
 const PROD = flag('--prod');
-// --podglad: wersja testowa online (netlify.app) — jak produkcja w treści, ale pola ❓ dozwolone, całość noindex
+// --podglad: wersja testowa online (GitHub Pages) — jak produkcja w treści, ale pola ❓ dozwolone, całość noindex
 const PODGLAD = flag('--podglad') && !PROD;
 const PUBLICZNY = PROD || PODGLAD; // build trafiający do internetu: bez znaczników dev i stron roboczych
 const ZGODA_STOCK = flag('--zgoda-stock');
