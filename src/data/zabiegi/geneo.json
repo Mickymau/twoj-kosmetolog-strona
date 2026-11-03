@@ -1,0 +1,74 @@
+{
+  "slug": "geneo",
+  "nazwa": "Oxygen (Geneo) TriPollar",
+  "podtytul": "Wieloetapowy zabieg rozświetlający — Illuminate+ (warianty Hydrate+ i Balance+ w cenniku)",
+  "glownaUsluga": "geneo",
+  "zrodlo": "opis usługi „Oxygen (Geneo) TriPollar Iluminate+” w Booksy (pobrany 2026-11-04)",
+  "meta": {
+    "opis": "Oxygen (Geneo) TriPollar Illuminate+ — złuszczanie z dotlenieniem, masaż RF i serum wprowadzane ultradźwiękami. Rozświetlenie i wyrównanie kolorytu. Warszawa Włochy."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Innowacyjny zabieg, oparty na unikalnej technologii, dający efekt „GLOW” — rozświetlenie i odświeżenie cery. Zabieg wieloetapowy wykonywany na twarz, szyję i dekolt.",
+    "Opisany poniżej wariant to <strong>Illuminate+</strong>. W cenniku znajdziesz też warianty Hydrate+ i Balance+."
+  ],
+  "sklad": {
+    "tytul": "Składy preparatów (Illuminate+)",
+    "lista": [
+      "<strong>Kapsułka Geneo:</strong> kwas kojowy, witamina C, alfa-arbutyna, ekstrakt z opuncji figowej, ekstrakt z marchwi.",
+      "<strong>Serum:</strong> kompleks olejów (olej jojoba i olej arganowy), kompleks ekstraktów (ekstrakt z wanilii i ekstrakt ze skrzypu polnego), undecylenian fenyloalaniny, diacetyl boldyny, trójgliceryd kaprylowy/kaprynowy."
+    ]
+  },
+  "dlaKogo": [
+    "Każdy rodzaj cery wymagającej rozświetlenia i odświeżenia.",
+    "Zabieg koktajlowy — doskonały przed „wielkim wyjściem”.",
+    "Cery poszarzałe, z przebarwieniami, cera palacza."
+  ],
+  "efekty": [
+    "Rozjaśnienie przebarwień.",
+    "Wyrównanie pigmentacji skóry.",
+    "Poprawa struktury skóry.",
+    "Rewitalizacja z efektem „GLOW”."
+  ],
+  "przebieg": [
+    "Demakijaż i oczyszczenie.",
+    "Aktywne złuszczenie i silne dotlenienie dzięki zachodzącemu zjawisku Bohra.",
+    "Masaż głowicą TriPollar RF stymulujący produkcję kolagenu i wzmacniający strukturę skóry.",
+    "Aplikacja i wprowadzenie serum równoważącego za pomocą ultradźwięków.",
+    "Aplikacja kremu dobranego indywidualnie do potrzeb cery."
+  ],
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 10–14 dni",
+    "tekst": [
+      "Zalecana seria 3 zabiegów w odstępach 10–14-dniowych."
+    ]
+  },
+  "laczone": {
+    "tytul": "Dodatki do zabiegu",
+    "lista": [
+      "maska algowa,",
+      "masaż,",
+      "oczyszczanie manualne."
+    ],
+    "tekst": [
+      "Cenę dodatków znajdziesz w cenniku powyżej."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Na jakie okolice wykonuje się zabieg?",
+      "o": "Na twarz, szyję i dekolt."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Zalecana jest seria 3 zabiegów w odstępach 10–14-dniowych."
+    },
+    {
+      "p": "Czy to dobry zabieg przed ważnym wyjściem?",
+      "o": "Tak — to zabieg koktajlowy, polecany m.in. przed „wielkim wyjściem”, dla cery wymagającej rozświetlenia i odświeżenia."
+    }
+  ]
+}

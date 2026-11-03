@@ -1,333 +1,1089 @@
 {
   "_opis": "JEDYNE źródło cen, czasów i linków Booksy. Źródło prawdy: Booksy. Start: data/cennik-booksy-2026-11-02.md. cena = liczba zł (od: true → 'od X zł'); czas = minuty (null = nieznany); zweryfikowano = data sprawdzenia w Booksy (null = niezweryfikowane → blokada w --prod); wariant dziedziczy zweryfikowano/booksyUrl po usłudze, jeśli nie ma własnych; booksyUrl null → profil z firma.json; doWyjasnienia: true → blokada w --prod.",
   "kategorie": [
-    { "id": "diagnostyka",   "nazwa": "Diagnostyka skóry i Beauty Plan" },
-    { "id": "tradzik",       "nazwa": "Trądzik" },
-    { "id": "naczynka",      "nazwa": "Trądzik różowaty i naczynka" },
-    { "id": "cera-sucha",    "nazwa": "Cera sucha" },
-    { "id": "przebarwienia", "nazwa": "Przebarwienia" },
-    { "id": "starzenie",     "nazwa": "Oznaki starzenia, jędrność i nawilżenie" },
-    { "id": "owal",          "nazwa": "Owal twarzy i szyja" },
-    { "id": "oczy",          "nazwa": "Okolica oczu" },
-    { "id": "blizny",        "nazwa": "Blizny i rozstępy" },
-    { "id": "cialo",         "nazwa": "Cellulit i ciało" },
-    { "id": "wlosy",         "nazwa": "Włosy i skóra głowy" },
-    { "id": "rytualy",       "nazwa": "Rytuały z masażem" },
-    { "id": "pozostale",     "nazwa": "Pozostałe" }
+    {
+      "id": "diagnostyka",
+      "nazwa": "Diagnostyka skóry i Beauty Plan"
+    },
+    {
+      "id": "tradzik",
+      "nazwa": "Trądzik"
+    },
+    {
+      "id": "naczynka",
+      "nazwa": "Trądzik różowaty i naczynka"
+    },
+    {
+      "id": "cera-sucha",
+      "nazwa": "Cera sucha"
+    },
+    {
+      "id": "przebarwienia",
+      "nazwa": "Przebarwienia"
+    },
+    {
+      "id": "starzenie",
+      "nazwa": "Oznaki starzenia, jędrność i nawilżenie"
+    },
+    {
+      "id": "owal",
+      "nazwa": "Owal twarzy i szyja"
+    },
+    {
+      "id": "oczy",
+      "nazwa": "Okolica oczu"
+    },
+    {
+      "id": "blizny",
+      "nazwa": "Blizny i rozstępy"
+    },
+    {
+      "id": "cialo",
+      "nazwa": "Cellulit i ciało"
+    },
+    {
+      "id": "wlosy",
+      "nazwa": "Włosy i skóra głowy"
+    },
+    {
+      "id": "rytualy",
+      "nazwa": "Rytuały z masażem"
+    },
+    {
+      "id": "pozostale",
+      "nazwa": "Pozostałe"
+    }
   ],
   "uslugi": [
     {
-      "id": "konsultacja", "nazwa": "Konsultacja kosmetologiczna (podstawowa)",
-      "kategoria": "diagnostyka", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 100, "czas": 30, "zweryfikowano": "2026-11-02"
+      "id": "konsultacja",
+      "nazwa": "Konsultacja kosmetologiczna (podstawowa)",
+      "kategoria": "diagnostyka",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 100,
+      "czas": 30,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "lumiscan", "nazwa": "Komputerowa analiza skóry Lumiscan™ + konsultacja",
-      "kategoria": "diagnostyka", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 290, "czas": 80, "zweryfikowano": "2026-11-02"
+      "id": "lumiscan",
+      "nazwa": "Komputerowa analiza skóry Lumiscan™ + konsultacja",
+      "kategoria": "diagnostyka",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 290,
+      "czas": 80,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "lumiscan-beauty-plan", "nazwa": "Kompleksowa analiza skóry Lumiscan™ + Beauty Plan",
-      "kategoria": "diagnostyka", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 590, "czas": 90, "zweryfikowano": "2026-11-02"
+      "id": "lumiscan-beauty-plan",
+      "nazwa": "Kompleksowa analiza skóry Lumiscan™ + Beauty Plan",
+      "kategoria": "diagnostyka",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 590,
+      "czas": 90,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "beauty-plan-po-lumiscan", "nazwa": "Twój Indywidualny Beauty Plan (po wcześniejszym Lumiscan)",
-      "kategoria": "diagnostyka", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 350, "czas": 60, "zweryfikowano": "2026-11-02"
+      "id": "beauty-plan-po-lumiscan",
+      "nazwa": "Twój Indywidualny Beauty Plan (po wcześniejszym Lumiscan)",
+      "kategoria": "diagnostyka",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 350,
+      "czas": 60,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "kontrolny-lumiscan", "nazwa": "Kontrolny Lumiscan w okresie 6-miesięcznej opieki",
-      "kategoria": "diagnostyka", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 90, "czas": null, "zweryfikowano": "2026-11-02",
+      "id": "kontrolny-lumiscan",
+      "nazwa": "Kontrolny Lumiscan w okresie 6-miesięcznej opieki",
+      "kategoria": "diagnostyka",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 90,
+      "czas": null,
+      "zweryfikowano": "2026-11-02",
       "uwagi": "Cena z opisu usługi w Booksy, nie osobna pozycja."
     },
-
     {
-      "id": "bezpieczne-oczyszczanie-manualne", "nazwa": "Bezpieczne manualne oczyszczanie z ozonoterapią",
-      "kategoria": "tradzik", "problemy": ["tradzik"], "podstrona": "bezpieczne-oczyszczanie-manualne", "booksyUrl": null,
-      "cena": 280, "czas": 120, "zweryfikowano": "2026-11-02",
-      "dodatki": [
-        { "nazwa": "Maska borowinowa", "cena": 30 },
-        { "nazwa": "Terapia kwasowa", "cena": 30 }
-      ]
-    },
-    {
-      "id": "peeling-kawitacyjny", "nazwa": "Peeling kawitacyjny z pielęgnacją",
-      "kategoria": "tradzik", "problemy": ["tradzik", "przebarwienia"], "podstrona": "peeling-kawitacyjny", "booksyUrl": null,
-      "cena": 280, "czas": 100, "zweryfikowano": "2026-11-02"
-    },
-    {
-      "id": "oxybrazja", "nazwa": "Oxybrazja — peeling wodno-tlenowy",
-      "kategoria": "tradzik", "problemy": ["tradzik"], "podstrona": "oxybrazja", "booksyUrl": null,
-      "zweryfikowano": "2026-11-02",
-      "warianty": [
-        { "id": "ampulka",      "nazwa": "Oxybrazja + peeling + ampułka + maska", "cena": 290, "czas": 90 },
-        { "id": "oczyszczanie", "nazwa": "Oxybrazja + peeling + oczyszczanie manualne + maska", "cena": 320, "czas": 105 },
-        { "id": "kwasy",        "nazwa": "Oxybrazja + kwasy + sonoforeza / infuzja tlenowa + maska", "cena": 340, "czas": 105 }
-      ]
-    },
-    {
-      "id": "terapia-kwasami", "nazwa": "Indywidualna terapia kwasami",
-      "kategoria": "tradzik", "problemy": ["tradzik", "przebarwienia", "starzenie-skory"], "podstrona": "terapia-kwasami", "booksyUrl": null,
-      "cena": 270, "czas": 90, "zweryfikowano": "2026-11-02"
-    },
-
-    {
-      "id": "anti-redness", "nazwa": "Anti-Redness — zabieg kojący dla cery naczynkowej",
-      "kategoria": "naczynka", "problemy": ["naczynka"], "podstrona": "anti-redness", "booksyUrl": null,
-      "cena": 320, "czas": 100, "zweryfikowano": "2026-11-02"
-    },
-
-    {
-      "id": "mezoterapia-neauvia", "nazwa": "Mezoterapia igłowa Neauvia Organic Hydro Deluxe",
-      "kategoria": "cera-sucha", "problemy": ["cera-sucha", "starzenie-skory"], "podstrona": "mezoterapia-neauvia", "booksyUrl": null,
-      "cena": 650, "czas": 100, "zweryfikowano": null
-    },
-
-    {
-      "id": "kwasy-depigmentacyjne", "nazwa": "Złuszczanie kwasami o działaniu depigmentacyjnym",
-      "kategoria": "przebarwienia", "problemy": ["przebarwienia"], "podstrona": "kwasy-depigmentacyjne", "booksyUrl": null,
-      "cena": 290, "czas": 80, "zweryfikowano": "2026-11-02"
-    },
-    {
-      "id": "dermapen-biorepeel", "nazwa": "Dermapen + BioRePeelCl₃®",
-      "kategoria": "przebarwienia", "problemy": ["przebarwienia", "blizny-i-rozstepy", "starzenie-skory"], "podstrona": "dermapen-biorepeel", "booksyUrl": null,
-      "cena": 500, "czas": 90, "zweryfikowano": "2026-11-02"
-    },
-    {
-      "id": "dermapen-prx-t33", "nazwa": "Dermapen + PRX-T33®",
-      "kategoria": "przebarwienia", "problemy": ["przebarwienia", "blizny-i-rozstepy"], "podstrona": "dermapen-prx-t33", "booksyUrl": null,
-      "cena": 550, "czas": 90, "zweryfikowano": "2026-11-02"
-    },
-    {
-      "id": "geneo", "nazwa": "Oxygen (Geneo) TriPollar",
-      "kategoria": "przebarwienia", "problemy": ["przebarwienia"], "podstrona": "geneo", "booksyUrl": null,
-      "warianty": [
-        { "id": "illuminate", "nazwa": "Geneo Illuminate+", "cena": 380, "czas": 80, "zweryfikowano": "2026-11-02" },
-        { "id": "hydrate",    "nazwa": "Geneo Hydrate+",    "cena": 380, "czas": 90, "zweryfikowano": null },
-        { "id": "balance",    "nazwa": "Geneo Balance+",    "cena": 380, "czas": 90, "zweryfikowano": null }
+      "id": "bezpieczne-oczyszczanie-manualne",
+      "nazwa": "Bezpieczne manualne oczyszczanie z ozonoterapią",
+      "kategoria": "tradzik",
+      "problemy": [
+        "tradzik"
       ],
-      "dodatki": [ { "nazwa": "Dodatki do zabiegu", "cena": 30 } ],
-      "uwagi": "Dodatki +30 zł wg Booksy — nazwy dodatków do uzupełnienia."
-    },
-    {
-      "id": "retix-c", "nazwa": "Retix C",
-      "kategoria": "przebarwienia", "problemy": ["przebarwienia", "starzenie-skory"], "podstrona": "retix-c", "booksyUrl": null,
+      "podstrona": "bezpieczne-oczyszczanie-manualne",
+      "booksyUrl": null,
+      "cena": 280,
+      "czas": 120,
       "zweryfikowano": "2026-11-02",
-      "warianty": [
-        { "id": "twarz",        "nazwa": "Retix C — twarz", "cena": 280, "czas": 40 },
-        { "id": "szyja",        "nazwa": "Retix C — twarz + szyja", "cena": 300, "czas": 50 },
-        { "id": "szyja-dekolt", "nazwa": "Retix C — twarz + szyja + dekolt", "cena": 320, "czas": 30, "doWyjasnienia": true, "uwagi": "Czas 30 min w Booksy wygląda na błąd." }
-      ]
-    },
-
-    {
-      "id": "dermapen", "nazwa": "Dermapen — mikronakłuwanie",
-      "kategoria": "starzenie", "problemy": ["starzenie-skory", "blizny-i-rozstepy"], "podstrona": "dermapen", "booksyUrl": null,
-      "zweryfikowano": "2026-11-02",
-      "warianty": [
-        { "id": "twarz",              "nazwa": "Dermapen + pielęgnacja — twarz", "cena": 400, "czas": 80 },
-        { "id": "szyja",              "nazwa": "Dermapen — twarz + szyja", "cena": 500, "czas": 90 },
-        { "id": "szyja-dekolt",       "nazwa": "Dermapen — twarz + szyja + dekolt", "cena": 550, "czas": 100 },
-        { "id": "mezo-twarz",         "nazwa": "Dermapen + mezoterapia — twarz", "cena": 650, "czas": 90 },
-        { "id": "mezo-szyja",         "nazwa": "Dermapen + mezoterapia — twarz + szyja", "cena": 800, "czas": 100 },
-        { "id": "mezo-szyja-dekolt",  "nazwa": "Dermapen + mezoterapia — twarz + szyja + dekolt", "cena": 950, "czas": 120 }
+      "dodatki": [
+        {
+          "nazwa": "Maska borowinowa",
+          "cena": 30
+        },
+        {
+          "nazwa": "Terapia kwasowa",
+          "cena": 30
+        }
       ]
     },
     {
-      "id": "prx-t33", "nazwa": "PRX-T33® — bezigłowa biorewitalizacja",
-      "kategoria": "starzenie", "problemy": ["starzenie-skory", "przebarwienia", "blizny-i-rozstepy"], "podstrona": "prx-t33", "booksyUrl": null,
-      "cena": 300, "czas": 75, "zweryfikowano": null,
-      "pakiety": [ { "zabiegi": 3, "cena": 810 } ]
+      "id": "peeling-kawitacyjny",
+      "nazwa": "Peeling kawitacyjny z pielęgnacją",
+      "kategoria": "tradzik",
+      "problemy": [
+        "tradzik",
+        "przebarwienia"
+      ],
+      "podstrona": "peeling-kawitacyjny",
+      "booksyUrl": null,
+      "cena": 280,
+      "czas": 100,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "mezoterapia-nawilzajaca", "nazwa": "Mezoterapia nawilżająca — twarz / + szyja / + dekolt",
-      "kategoria": "starzenie", "problemy": ["cera-sucha", "starzenie-skory"], "podstrona": null, "booksyUrl": null,
-      "cena": 450, "od": true, "czas": null, "zweryfikowano": null,
+      "id": "oxybrazja",
+      "nazwa": "Oxybrazja — peeling wodno-tlenowy",
+      "kategoria": "tradzik",
+      "problemy": [
+        "tradzik"
+      ],
+      "podstrona": "oxybrazja",
+      "booksyUrl": null,
+      "zweryfikowano": "2026-11-02",
+      "warianty": [
+        {
+          "id": "ampulka",
+          "nazwa": "Oxybrazja + peeling + ampułka + maska",
+          "cena": 290,
+          "czas": 90
+        },
+        {
+          "id": "oczyszczanie",
+          "nazwa": "Oxybrazja + peeling + oczyszczanie manualne + maska",
+          "cena": 320,
+          "czas": 105
+        },
+        {
+          "id": "kwasy",
+          "nazwa": "Oxybrazja + kwasy + sonoforeza / infuzja tlenowa + maska",
+          "cena": 340,
+          "czas": 105
+        }
+      ],
+      "dodatki": [
+        {
+          "nazwa": "Odpowiednio dobrane kwasy",
+          "cena": 30
+        },
+        {
+          "nazwa": "Oczyszczanie manualne",
+          "cena": 30
+        },
+        {
+          "nazwa": "Ampułka, sonoforeza lub infuzja tlenowa",
+          "cena": 30
+        }
+      ]
+    },
+    {
+      "id": "terapia-kwasami",
+      "nazwa": "Indywidualna terapia kwasami",
+      "kategoria": "tradzik",
+      "problemy": [
+        "tradzik",
+        "przebarwienia",
+        "starzenie-skory"
+      ],
+      "podstrona": "terapia-kwasami",
+      "booksyUrl": null,
+      "cena": 270,
+      "czas": 90,
+      "zweryfikowano": "2026-11-02"
+    },
+    {
+      "id": "anti-redness",
+      "nazwa": "Anti-Redness — zabieg kojący dla cery naczynkowej",
+      "kategoria": "naczynka",
+      "problemy": [
+        "naczynka"
+      ],
+      "podstrona": "anti-redness",
+      "booksyUrl": null,
+      "cena": 320,
+      "czas": 100,
+      "zweryfikowano": "2026-11-02"
+    },
+    {
+      "id": "mezoterapia-neauvia",
+      "nazwa": "Mezoterapia igłowa Neauvia Organic Hydro Deluxe",
+      "kategoria": "cera-sucha",
+      "problemy": [
+        "cera-sucha",
+        "starzenie-skory"
+      ],
+      "podstrona": "mezoterapia-neauvia",
+      "booksyUrl": null,
+      "cena": 650,
+      "czas": 100,
+      "zweryfikowano": null
+    },
+    {
+      "id": "kwasy-depigmentacyjne",
+      "nazwa": "Złuszczanie kwasami o działaniu depigmentacyjnym",
+      "kategoria": "przebarwienia",
+      "problemy": [
+        "przebarwienia"
+      ],
+      "podstrona": "kwasy-depigmentacyjne",
+      "booksyUrl": null,
+      "cena": 290,
+      "czas": 80,
+      "zweryfikowano": "2026-11-02"
+    },
+    {
+      "id": "dermapen-biorepeel",
+      "nazwa": "Dermapen + BioRePeelCl₃®",
+      "kategoria": "przebarwienia",
+      "problemy": [
+        "przebarwienia",
+        "blizny-i-rozstepy",
+        "starzenie-skory"
+      ],
+      "podstrona": "dermapen-biorepeel",
+      "booksyUrl": null,
+      "cena": 500,
+      "czas": 90,
+      "zweryfikowano": "2026-11-02"
+    },
+    {
+      "id": "dermapen-prx-t33",
+      "nazwa": "Dermapen + PRX-T33®",
+      "kategoria": "przebarwienia",
+      "problemy": [
+        "przebarwienia",
+        "blizny-i-rozstepy"
+      ],
+      "podstrona": "dermapen-prx-t33",
+      "booksyUrl": null,
+      "cena": 550,
+      "czas": 90,
+      "zweryfikowano": "2026-11-02"
+    },
+    {
+      "id": "geneo",
+      "nazwa": "Oxygen (Geneo) TriPollar",
+      "kategoria": "przebarwienia",
+      "problemy": [
+        "przebarwienia"
+      ],
+      "podstrona": "geneo",
+      "booksyUrl": null,
+      "warianty": [
+        {
+          "id": "illuminate",
+          "nazwa": "Geneo Illuminate+",
+          "cena": 380,
+          "czas": 80,
+          "zweryfikowano": "2026-11-02"
+        },
+        {
+          "id": "hydrate",
+          "nazwa": "Geneo Hydrate+",
+          "cena": 380,
+          "czas": 90,
+          "zweryfikowano": null
+        },
+        {
+          "id": "balance",
+          "nazwa": "Geneo Balance+",
+          "cena": 380,
+          "czas": 90,
+          "zweryfikowano": null
+        }
+      ],
+      "dodatki": [
+        {
+          "nazwa": "Maska algowa, masaż lub oczyszczanie manualne",
+          "cena": 30
+        }
+      ]
+    },
+    {
+      "id": "retix-c",
+      "nazwa": "Retix C",
+      "kategoria": "przebarwienia",
+      "problemy": [
+        "przebarwienia",
+        "starzenie-skory"
+      ],
+      "podstrona": "retix-c",
+      "booksyUrl": null,
+      "zweryfikowano": "2026-11-02",
+      "warianty": [
+        {
+          "id": "twarz",
+          "nazwa": "Retix C — twarz",
+          "cena": 280,
+          "czas": 40
+        },
+        {
+          "id": "szyja",
+          "nazwa": "Retix C — twarz + szyja",
+          "cena": 300,
+          "czas": 50
+        },
+        {
+          "id": "szyja-dekolt",
+          "nazwa": "Retix C — twarz + szyja + dekolt",
+          "cena": 320,
+          "czas": 30,
+          "doWyjasnienia": true,
+          "uwagi": "Czas 30 min w Booksy wygląda na błąd."
+        }
+      ]
+    },
+    {
+      "id": "dermapen",
+      "nazwa": "Dermapen — mikronakłuwanie",
+      "kategoria": "starzenie",
+      "problemy": [
+        "starzenie-skory",
+        "blizny-i-rozstepy"
+      ],
+      "podstrona": "dermapen",
+      "booksyUrl": null,
+      "zweryfikowano": "2026-11-02",
+      "warianty": [
+        {
+          "id": "twarz",
+          "nazwa": "Dermapen + pielęgnacja — twarz",
+          "cena": 400,
+          "czas": 80
+        },
+        {
+          "id": "szyja",
+          "nazwa": "Dermapen — twarz + szyja",
+          "cena": 500,
+          "czas": 90
+        },
+        {
+          "id": "szyja-dekolt",
+          "nazwa": "Dermapen — twarz + szyja + dekolt",
+          "cena": 550,
+          "czas": 100
+        },
+        {
+          "id": "mezo-twarz",
+          "nazwa": "Dermapen + mezoterapia — twarz",
+          "cena": 650,
+          "czas": 90
+        },
+        {
+          "id": "mezo-szyja",
+          "nazwa": "Dermapen + mezoterapia — twarz + szyja",
+          "cena": 800,
+          "czas": 100
+        },
+        {
+          "id": "mezo-szyja-dekolt",
+          "nazwa": "Dermapen + mezoterapia — twarz + szyja + dekolt",
+          "cena": 950,
+          "czas": 120
+        }
+      ]
+    },
+    {
+      "id": "prx-t33",
+      "nazwa": "PRX-T33® — bezigłowa biorewitalizacja",
+      "kategoria": "starzenie",
+      "problemy": [
+        "starzenie-skory",
+        "przebarwienia",
+        "blizny-i-rozstepy"
+      ],
+      "podstrona": "prx-t33",
+      "booksyUrl": null,
+      "cena": 300,
+      "czas": 75,
+      "zweryfikowano": null,
+      "pakiety": [
+        {
+          "zabiegi": 3,
+          "cena": 810
+        }
+      ]
+    },
+    {
+      "id": "mezoterapia-nawilzajaca",
+      "nazwa": "Mezoterapia nawilżająca — twarz / + szyja / + dekolt",
+      "kategoria": "starzenie",
+      "problemy": [
+        "cera-sucha",
+        "starzenie-skory"
+      ],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 450,
+      "od": true,
+      "czas": null,
+      "zweryfikowano": null,
       "uwagi": "Szablon: 450–650 zł, 1 h 30–1 h 40 — ceny wariantów do zebrania z Booksy."
     },
     {
-      "id": "polinukleotydy", "nazwa": "Stymulacja skóry polinukleotydami",
-      "kategoria": "starzenie", "problemy": ["starzenie-skory", "cera-sucha"], "podstrona": "polinukleotydy", "booksyUrl": null,
-      "cena": 890, "czas": 90, "zweryfikowano": null,
-      "dodatki": [ { "nazwa": "Dopłata zależnie od preparatu", "cena": 100 } ]
-    },
-    {
-      "id": "sunekos", "nazwa": "Sunekos",
-      "kategoria": "starzenie", "problemy": ["starzenie-skory", "cera-sucha"], "podstrona": "sunekos", "booksyUrl": null,
+      "id": "polinukleotydy",
+      "nazwa": "Stymulacja skóry polinukleotydami",
+      "kategoria": "starzenie",
+      "problemy": [
+        "starzenie-skory",
+        "cera-sucha"
+      ],
+      "podstrona": "polinukleotydy",
+      "booksyUrl": null,
+      "cena": 890,
+      "czas": 90,
       "zweryfikowano": null,
-      "warianty": [
-        { "id": "200",      "nazwa": "Sunekos 200", "cena": 690, "czas": 90 },
-        { "id": "1200",     "nazwa": "Sunekos 1200", "cena": 990, "czas": 90 },
-        { "id": "laczona",  "nazwa": "Sunekos — terapia łączona", "cena": 1400, "czas": 90 }
+      "dodatki": [
+        {
+          "nazwa": "Dopłata zależnie od preparatu",
+          "cena": 100
+        }
       ]
     },
     {
-      "id": "xela-rederm", "nazwa": "Mezoterapia bursztynowa Xela Rederm",
-      "kategoria": "starzenie", "problemy": ["okolica-oczu", "cera-sucha", "starzenie-skory", "przebarwienia"], "podstrona": "xela-rederm", "booksyUrl": null,
+      "id": "sunekos",
+      "nazwa": "Sunekos",
+      "kategoria": "starzenie",
+      "problemy": [
+        "starzenie-skory",
+        "cera-sucha"
+      ],
+      "podstrona": "sunekos",
+      "booksyUrl": null,
       "zweryfikowano": null,
       "warianty": [
-        { "id": "1-1", "nazwa": "Xela Rederm 1,1% — okolica oczu", "cena": 650, "czas": 60 },
-        { "id": "1-8", "nazwa": "Xela Rederm 1,8%", "cena": 850, "czas": 100 },
-        { "id": "2-2", "nazwa": "Xela Rederm 2,2%", "cena": 950, "czas": 100 }
+        {
+          "id": "200",
+          "nazwa": "Sunekos 200",
+          "cena": 690,
+          "czas": 90
+        },
+        {
+          "id": "1200",
+          "nazwa": "Sunekos 1200",
+          "cena": 990,
+          "czas": 90
+        },
+        {
+          "id": "laczona",
+          "nazwa": "Sunekos — terapia łączona",
+          "cena": 1400,
+          "czas": 90
+        }
       ]
     },
     {
-      "id": "mezoterapia-kolagenowa", "nazwa": "Mezoterapia kolagenowa — atelokolagen 5 ml",
-      "kategoria": "starzenie", "problemy": ["starzenie-skory"], "podstrona": null, "booksyUrl": null,
-      "cena": 1000, "czas": 120, "zweryfikowano": null
+      "id": "xela-rederm",
+      "nazwa": "Mezoterapia bursztynowa Xela Rederm",
+      "kategoria": "starzenie",
+      "problemy": [
+        "okolica-oczu",
+        "cera-sucha",
+        "starzenie-skory",
+        "przebarwienia"
+      ],
+      "podstrona": "xela-rederm",
+      "booksyUrl": null,
+      "zweryfikowano": null,
+      "warianty": [
+        {
+          "id": "1-1",
+          "nazwa": "Xela Rederm 1,1% — okolica oczu",
+          "cena": 650,
+          "czas": 60
+        },
+        {
+          "id": "1-8",
+          "nazwa": "Xela Rederm 1,8%",
+          "cena": 850,
+          "czas": 100
+        },
+        {
+          "id": "2-2",
+          "nazwa": "Xela Rederm 2,2%",
+          "cena": 950,
+          "czas": 100
+        }
+      ]
     },
-
     {
-      "id": "karboksyterapia-twarzy", "nazwa": "Karboksyterapia twarzy, szyi i dekoltu",
-      "kategoria": "owal", "problemy": ["owal-twarzy", "starzenie-skory"], "podstrona": "karboksyterapia-twarzy", "booksyUrl": null,
+      "id": "mezoterapia-kolagenowa",
+      "nazwa": "Mezoterapia kolagenowa — atelokolagen 5 ml",
+      "kategoria": "starzenie",
+      "problemy": [
+        "starzenie-skory"
+      ],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 1000,
+      "czas": 120,
+      "zweryfikowano": null
+    },
+    {
+      "id": "karboksyterapia-twarzy",
+      "nazwa": "Karboksyterapia twarzy, szyi i dekoltu",
+      "kategoria": "owal",
+      "problemy": [
+        "owal-twarzy",
+        "starzenie-skory"
+      ],
+      "podstrona": "karboksyterapia-twarzy",
+      "booksyUrl": null,
       "zweryfikowano": "2026-11-02",
       "warianty": [
-        { "id": "bruzdy",                   "nazwa": "Bruzdy nosowo-wargowe", "cena": 150, "czas": 30 },
-        { "id": "szyja-owal",               "nazwa": "Szyja + owal", "cena": 220, "czas": 60 },
-        { "id": "twarz-owal",               "nazwa": "Twarz + owal", "cena": 250, "czas": 60 },
-        { "id": "szyja-dekolt-owal",        "nazwa": "Szyja + dekolt + owal", "cena": 280, "czas": 70 },
-        { "id": "twarz-owal-szyja",         "nazwa": "Twarz + owal + szyja", "cena": 300, "czas": 60 },
-        { "id": "twarz-owal-szyja-dekolt",  "nazwa": "Twarz + owal + szyja + dekolt", "cena": 350, "czas": 75 }
+        {
+          "id": "bruzdy",
+          "nazwa": "Bruzdy nosowo-wargowe",
+          "cena": 150,
+          "czas": 30
+        },
+        {
+          "id": "szyja-owal",
+          "nazwa": "Szyja + owal",
+          "cena": 220,
+          "czas": 60
+        },
+        {
+          "id": "twarz-owal",
+          "nazwa": "Twarz + owal",
+          "cena": 250,
+          "czas": 60
+        },
+        {
+          "id": "szyja-dekolt-owal",
+          "nazwa": "Szyja + dekolt + owal",
+          "cena": 280,
+          "czas": 70
+        },
+        {
+          "id": "twarz-owal-szyja",
+          "nazwa": "Twarz + owal + szyja",
+          "cena": 300,
+          "czas": 60
+        },
+        {
+          "id": "twarz-owal-szyja-dekolt",
+          "nazwa": "Twarz + owal + szyja + dekolt",
+          "cena": 350,
+          "czas": 75
+        }
       ]
     },
     {
-      "id": "carbolift", "nazwa": "Carbolift®",
-      "kategoria": "owal", "problemy": ["owal-twarzy", "starzenie-skory", "okolica-oczu"], "podstrona": "carbolift", "booksyUrl": null,
+      "id": "carbolift",
+      "nazwa": "Carbolift®",
+      "kategoria": "owal",
+      "problemy": [
+        "owal-twarzy",
+        "starzenie-skory",
+        "okolica-oczu"
+      ],
+      "podstrona": "carbolift",
+      "booksyUrl": null,
       "zweryfikowano": null,
       "warianty": [
-        { "id": "obszary",           "nazwa": "Carbolift® — od owal + szyja do twarz + szyja + owal + dekolt", "cena": 450, "od": true, "czas": null, "uwagi": "Szablon: 450–750 zł, 1 h – 1 h 50 — ceny obszarów do zebrania z Booksy." },
-        { "id": "karboksyterapia",   "nazwa": "Carbolift® + karboksyterapia", "cena": 590, "czas": 100 },
-        { "id": "mezoterapia-rrs",   "nazwa": "Carbolift® + mezoterapia RRS", "cena": 650, "czas": 100 },
-        { "id": "oczy",              "nazwa": "Carbolift® na okolicę oczu", "cena": 400, "czas": 50 }
+        {
+          "id": "obszary",
+          "nazwa": "Carbolift® — od owal + szyja do twarz + szyja + owal + dekolt",
+          "cena": 450,
+          "od": true,
+          "czas": null,
+          "uwagi": "Szablon: 450–750 zł, 1 h – 1 h 50 — ceny obszarów do zebrania z Booksy."
+        },
+        {
+          "id": "karboksyterapia",
+          "nazwa": "Carbolift® + karboksyterapia",
+          "cena": 590,
+          "czas": 100
+        },
+        {
+          "id": "mezoterapia-rrs",
+          "nazwa": "Carbolift® + mezoterapia RRS",
+          "cena": 650,
+          "czas": 100
+        },
+        {
+          "id": "oczy",
+          "nazwa": "Carbolift® na okolicę oczu",
+          "cena": 400,
+          "czas": 50
+        }
       ]
     },
-
     {
-      "id": "karboksyterapia-oczu", "nazwa": "Karboksyterapia okolicy oczu (cienie, obrzęki, zmarszczki)",
-      "kategoria": "oczy", "problemy": ["okolica-oczu"], "podstrona": "karboksyterapia-oczu", "booksyUrl": null,
-      "cena": 150, "czas": 40, "zweryfikowano": "2026-11-02"
+      "id": "karboksyterapia-oczu",
+      "nazwa": "Karboksyterapia okolicy oczu (cienie, obrzęki, zmarszczki)",
+      "kategoria": "oczy",
+      "problemy": [
+        "okolica-oczu"
+      ],
+      "podstrona": "karboksyterapia-oczu",
+      "booksyUrl": null,
+      "cena": 150,
+      "czas": 40,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "pro-eyes", "nazwa": "Autorski zabieg PRO EYES",
-      "kategoria": "oczy", "problemy": ["okolica-oczu"], "podstrona": null, "booksyUrl": null,
-      "cena": 450, "czas": 60, "zweryfikowano": null
+      "id": "pro-eyes",
+      "nazwa": "Autorski zabieg PRO EYES",
+      "kategoria": "oczy",
+      "problemy": [
+        "okolica-oczu"
+      ],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 450,
+      "czas": 60,
+      "zweryfikowano": null
     },
     {
-      "id": "mezoterapia-oczu", "nazwa": "Mezoterapia okolicy oczu — rozjaśniająca / Glow / stymulująca",
-      "kategoria": "oczy", "problemy": ["okolica-oczu"], "podstrona": null, "booksyUrl": null,
-      "cena": 259, "od": true, "czas": null, "zweryfikowano": null,
+      "id": "mezoterapia-oczu",
+      "nazwa": "Mezoterapia okolicy oczu — rozjaśniająca / Glow / stymulująca",
+      "kategoria": "oczy",
+      "problemy": [
+        "okolica-oczu"
+      ],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 259,
+      "od": true,
+      "czas": null,
+      "zweryfikowano": null,
       "uwagi": "Szablon: 259–400 zł, 45 min – 1 h 15 — ceny wariantów do zebrania z Booksy."
     },
-
     {
-      "id": "karboksyterapia-blizny-rozstepy", "nazwa": "Karboksyterapia — blizny i rozstępy",
-      "kategoria": "blizny", "problemy": ["blizny-i-rozstepy", "tradzik"], "podstrona": "karboksyterapia-blizny-rozstepy", "booksyUrl": null,
+      "id": "karboksyterapia-blizny-rozstepy",
+      "nazwa": "Karboksyterapia — blizny i rozstępy",
+      "kategoria": "blizny",
+      "problemy": [
+        "blizny-i-rozstepy",
+        "tradzik"
+      ],
+      "podstrona": "karboksyterapia-blizny-rozstepy",
+      "booksyUrl": null,
       "zweryfikowano": "2026-11-02",
       "warianty": [
-        { "id": "blizna-mala",          "nazwa": "Blizna mała — do 10 cm", "cena": 100, "czas": 30 },
-        { "id": "blizna-duza",          "nazwa": "Blizna duża — powyżej 10 cm", "cena": 110, "od": true, "czas": 45 },
-        { "id": "blizny-potradzikowe",  "nazwa": "Blizny potrądzikowe", "cena": 250, "czas": 60 },
-        { "id": "rozstepy-ramiona",     "nazwa": "Rozstępy — ramiona", "cena": 200, "czas": 50 },
-        { "id": "rozstepy-piersi",      "nazwa": "Rozstępy — piersi", "cena": 250, "czas": 40 },
-        { "id": "rozstepy-brzuch",      "nazwa": "Rozstępy — brzuch + boczki", "cena": 250, "czas": 50 },
-        { "id": "rozstepy-uda",         "nazwa": "Rozstępy — uda", "cena": 250, "czas": 50 },
-        { "id": "rozstepy-posladki",    "nazwa": "Rozstępy — pośladki", "cena": 250, "czas": 50 },
-        { "id": "rozstepy-plecy",       "nazwa": "Rozstępy — plecy", "cena": 300, "czas": 40 }
+        {
+          "id": "blizna-mala",
+          "nazwa": "Blizna mała — do 10 cm",
+          "cena": 100,
+          "czas": 30
+        },
+        {
+          "id": "blizna-duza",
+          "nazwa": "Blizna duża — powyżej 10 cm",
+          "cena": 110,
+          "od": true,
+          "czas": 45
+        },
+        {
+          "id": "blizny-potradzikowe",
+          "nazwa": "Blizny potrądzikowe",
+          "cena": 250,
+          "czas": 60
+        },
+        {
+          "id": "rozstepy-ramiona",
+          "nazwa": "Rozstępy — ramiona",
+          "cena": 200,
+          "czas": 50
+        },
+        {
+          "id": "rozstepy-piersi",
+          "nazwa": "Rozstępy — piersi",
+          "cena": 250,
+          "czas": 40
+        },
+        {
+          "id": "rozstepy-brzuch",
+          "nazwa": "Rozstępy — brzuch + boczki",
+          "cena": 250,
+          "czas": 50
+        },
+        {
+          "id": "rozstepy-uda",
+          "nazwa": "Rozstępy — uda",
+          "cena": 250,
+          "czas": 50
+        },
+        {
+          "id": "rozstepy-posladki",
+          "nazwa": "Rozstępy — pośladki",
+          "cena": 250,
+          "czas": 50
+        },
+        {
+          "id": "rozstepy-plecy",
+          "nazwa": "Rozstępy — plecy",
+          "cena": 300,
+          "czas": 40
+        }
       ]
     },
-
     {
-      "id": "karboksyterapia-ciala", "nazwa": "Karboksyterapia ciała — cellulit i tkanka tłuszczowa",
-      "kategoria": "cialo", "problemy": ["cellulit"], "podstrona": "karboksyterapia-ciala", "booksyUrl": null,
+      "id": "karboksyterapia-ciala",
+      "nazwa": "Karboksyterapia ciała — cellulit i tkanka tłuszczowa",
+      "kategoria": "cialo",
+      "problemy": [
+        "cellulit"
+      ],
+      "podstrona": "karboksyterapia-ciala",
+      "booksyUrl": null,
       "zweryfikowano": "2026-11-02",
       "warianty": [
-        { "id": "kolana",                "nazwa": "Kolana", "cena": 150, "czas": 30, "pakiety": [ { "zabiegi": 4, "cena": 540 }, { "zabiegi": 8, "cena": 1020 } ] },
-        { "id": "brzuch-boczki",         "nazwa": "Brzuch + boczki", "cena": 250, "czas": 40, "pakiety": [ { "zabiegi": 4, "cena": 900 }, { "zabiegi": 8, "cena": 1700 } ] },
-        { "id": "uda",                   "nazwa": "Uda przód i tył", "cena": 300, "czas": 45, "pakiety": [ { "zabiegi": 4, "cena": 1080 }, { "zabiegi": 8, "cena": 2040 } ] },
-        { "id": "uda-posladki-bryczesy", "nazwa": "Uda + pośladki + bryczesy", "cena": 380, "czas": 60, "pakiety": [ { "zabiegi": 4, "cena": 1368 }, { "zabiegi": 8, "cena": 2584 } ] },
-        { "id": "cale-nogi",             "nazwa": "Całe nogi: uda, kolana, łydki", "cena": 380, "czas": 60, "pakiety": [ { "zabiegi": 4, "cena": 1368 }, { "zabiegi": 8, "cena": 2584 } ] },
-        { "id": "ramiona",               "nazwa": "Ramiona", "cena": 250, "czas": null, "zweryfikowano": null, "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.", "pakiety": [ { "zabiegi": 4, "cena": 900 }, { "zabiegi": 8, "cena": 1700 } ] },
-        { "id": "posladki-bryczesy",     "nazwa": "Pośladki + bryczesy", "cena": 280, "czas": null, "zweryfikowano": null, "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.", "pakiety": [ { "zabiegi": 4, "cena": 1008 }, { "zabiegi": 8, "cena": 1904 } ] },
-        { "id": "uda-brzuch-boczki",     "nazwa": "Uda + brzuch + boczki", "cena": 450, "czas": null, "zweryfikowano": null, "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.", "pakiety": [ { "zabiegi": 4, "cena": 1620 }, { "zabiegi": 8, "cena": 3060 } ] }
+        {
+          "id": "kolana",
+          "nazwa": "Kolana",
+          "cena": 150,
+          "czas": 30,
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 540
+            },
+            {
+              "zabiegi": 8,
+              "cena": 1020
+            }
+          ]
+        },
+        {
+          "id": "brzuch-boczki",
+          "nazwa": "Brzuch + boczki",
+          "cena": 250,
+          "czas": 40,
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 900
+            },
+            {
+              "zabiegi": 8,
+              "cena": 1700
+            }
+          ]
+        },
+        {
+          "id": "uda",
+          "nazwa": "Uda przód i tył",
+          "cena": 300,
+          "czas": 45,
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 1080
+            },
+            {
+              "zabiegi": 8,
+              "cena": 2040
+            }
+          ]
+        },
+        {
+          "id": "uda-posladki-bryczesy",
+          "nazwa": "Uda + pośladki + bryczesy",
+          "cena": 380,
+          "czas": 60,
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 1368
+            },
+            {
+              "zabiegi": 8,
+              "cena": 2584
+            }
+          ]
+        },
+        {
+          "id": "cale-nogi",
+          "nazwa": "Całe nogi: uda, kolana, łydki",
+          "cena": 380,
+          "czas": 60,
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 1368
+            },
+            {
+              "zabiegi": 8,
+              "cena": 2584
+            }
+          ]
+        },
+        {
+          "id": "ramiona",
+          "nazwa": "Ramiona",
+          "cena": 250,
+          "czas": null,
+          "zweryfikowano": null,
+          "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.",
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 900
+            },
+            {
+              "zabiegi": 8,
+              "cena": 1700
+            }
+          ]
+        },
+        {
+          "id": "posladki-bryczesy",
+          "nazwa": "Pośladki + bryczesy",
+          "cena": 280,
+          "czas": null,
+          "zweryfikowano": null,
+          "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.",
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 1008
+            },
+            {
+              "zabiegi": 8,
+              "cena": 1904
+            }
+          ]
+        },
+        {
+          "id": "uda-brzuch-boczki",
+          "nazwa": "Uda + brzuch + boczki",
+          "cena": 450,
+          "czas": null,
+          "zweryfikowano": null,
+          "uwagi": "Ukryte w Booksy za „Pokaż wszystkie” — wartości z dokumentu.",
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 1620
+            },
+            {
+              "zabiegi": 8,
+              "cena": 3060
+            }
+          ]
+        }
       ]
     },
-
     {
-      "id": "trychologia", "nazwa": "Włosy i skóra głowy",
-      "kategoria": "wlosy", "problemy": [], "podstrona": null, "booksyUrl": null,
+      "id": "trychologia",
+      "nazwa": "Włosy i skóra głowy",
+      "kategoria": "wlosy",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
       "zweryfikowano": null,
       "warianty": [
-        { "id": "karboksyterapia",  "nazwa": "Karboksyterapia skóry głowy", "cena": 200, "czas": 60 },
-        { "id": "oxybrazja",        "nazwa": "Oxybrazja skóry głowy z ampułką", "cena": 230, "czas": 40 },
-        { "id": "mezoterapia",      "nazwa": "Mezoterapia igłowa skóry głowy — koktajl", "cena": 260, "czas": 30, "pakiety": [ { "zabiegi": 4, "cena": 960 } ] },
-        { "id": "dr-cyj",           "nazwa": "Dr Cyj Hair Filler", "cena": 590, "czas": null, "uwagi": "Szablon: 30–50 min.", "pakiety": [ { "zabiegi": 4, "cena": 1980 } ] }
+        {
+          "id": "karboksyterapia",
+          "nazwa": "Karboksyterapia skóry głowy",
+          "cena": 200,
+          "czas": 60
+        },
+        {
+          "id": "oxybrazja",
+          "nazwa": "Oxybrazja skóry głowy z ampułką",
+          "cena": 230,
+          "czas": 40
+        },
+        {
+          "id": "mezoterapia",
+          "nazwa": "Mezoterapia igłowa skóry głowy — koktajl",
+          "cena": 260,
+          "czas": 30,
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 960
+            }
+          ]
+        },
+        {
+          "id": "dr-cyj",
+          "nazwa": "Dr Cyj Hair Filler",
+          "cena": 590,
+          "czas": null,
+          "uwagi": "Szablon: 30–50 min.",
+          "pakiety": [
+            {
+              "zabiegi": 4,
+              "cena": 1980
+            }
+          ]
+        }
       ]
     },
-
     {
-      "id": "zabieg-indywidualny", "nazwa": "Zabieg Indywidualny",
-      "kategoria": "rytualy", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 100, "od": true, "czas": 100, "zweryfikowano": "2026-11-02"
+      "id": "zabieg-indywidualny",
+      "nazwa": "Zabieg Indywidualny",
+      "kategoria": "rytualy",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 100,
+      "od": true,
+      "czas": 100,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "morska-bryza", "nazwa": "Morska Bryza — kolagenowy rytuał nawilżający",
-      "kategoria": "rytualy", "problemy": ["cera-sucha", "starzenie-skory"], "podstrona": "morska-bryza", "booksyUrl": null,
-      "cena": 320, "czas": 100, "zweryfikowano": "2026-11-02"
+      "id": "morska-bryza",
+      "nazwa": "Morska Bryza — kolagenowy rytuał nawilżający",
+      "kategoria": "rytualy",
+      "problemy": [
+        "cera-sucha",
+        "starzenie-skory"
+      ],
+      "podstrona": "morska-bryza",
+      "booksyUrl": null,
+      "cena": 320,
+      "czas": 100,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "zabieg-ujedrniajacy", "nazwa": "Zabieg ujędrniający z termiczną maską modelującą",
-      "kategoria": "rytualy", "problemy": ["starzenie-skory"], "podstrona": "zabieg-ujedrniajacy", "booksyUrl": null,
-      "cena": 340, "czas": 105, "zweryfikowano": "2026-11-02"
+      "id": "zabieg-ujedrniajacy",
+      "nazwa": "Zabieg ujędrniający z termiczną maską modelującą",
+      "kategoria": "rytualy",
+      "problemy": [
+        "starzenie-skory"
+      ],
+      "podstrona": "zabieg-ujedrniajacy",
+      "booksyUrl": null,
+      "cena": 340,
+      "czas": 105,
+      "zweryfikowano": "2026-11-02"
     },
     {
-      "id": "wyjatkowy-prezent", "nazwa": "Zabieg Wyjątkowy Prezent",
-      "kategoria": "rytualy", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 330, "czas": 105, "zweryfikowano": "2026-11-02"
+      "id": "wyjatkowy-prezent",
+      "nazwa": "Zabieg Wyjątkowy Prezent",
+      "kategoria": "rytualy",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 330,
+      "czas": 105,
+      "zweryfikowano": "2026-11-02"
     },
-
     {
-      "id": "brwi", "nazwa": "Brwi",
-      "kategoria": "pozostale", "problemy": [], "podstrona": null, "booksyUrl": null,
+      "id": "brwi",
+      "nazwa": "Brwi",
+      "kategoria": "pozostale",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
       "zweryfikowano": "2026-11-02",
       "warianty": [
-        { "id": "henna",             "nazwa": "Henna brwi z regulacją", "cena": 60, "czas": 40 },
-        { "id": "regulacja-damska",  "nazwa": "Regulacja brwi — damska", "cena": 30, "czas": 20 },
-        { "id": "regulacja-meska",   "nazwa": "Regulacja brwi — męska", "cena": 40, "czas": 30 }
+        {
+          "id": "henna",
+          "nazwa": "Henna brwi z regulacją",
+          "cena": 60,
+          "czas": 40
+        },
+        {
+          "id": "regulacja-damska",
+          "nazwa": "Regulacja brwi — damska",
+          "cena": 30,
+          "czas": 20
+        },
+        {
+          "id": "regulacja-meska",
+          "nazwa": "Regulacja brwi — męska",
+          "cena": 40,
+          "czas": 30
+        }
       ]
     },
     {
-      "id": "stylizacja-brwi-rzes", "nazwa": "Stylizacja brwi i rzęs (pozostałe usługi)",
-      "kategoria": "pozostale", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 30, "od": true, "czas": null, "zweryfikowano": null,
+      "id": "stylizacja-brwi-rzes",
+      "nazwa": "Stylizacja brwi i rzęs (pozostałe usługi)",
+      "kategoria": "pozostale",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 30,
+      "od": true,
+      "czas": null,
+      "zweryfikowano": null,
       "uwagi": "Szablon: 30–80 zł, 20–50 min."
     },
     {
-      "id": "depilacja-laserowa", "nazwa": "Epilacja laserowa — Nowy Quattro",
-      "kategoria": "pozostale", "problemy": [], "podstrona": "depilacja-laserowa", "booksyUrl": null,
-      "cena": 120, "od": true, "czas": null, "zweryfikowano": null,
+      "id": "depilacja-laserowa",
+      "nazwa": "Epilacja laserowa — Nowy Quattro",
+      "kategoria": "pozostale",
+      "problemy": [],
+      "podstrona": "depilacja-laserowa",
+      "booksyUrl": null,
+      "cena": 120,
+      "od": true,
+      "czas": null,
+      "zweryfikowano": null,
       "uwagi": "21 obszarów i pakietów (szablon: 120–720 zł, 20 min – 1 h 15) — do zebrania z Booksy. Start w Booksy 08.11.2026."
     },
     {
-      "id": "depilacja-woskiem", "nazwa": "Depilacja woskiem",
-      "kategoria": "pozostale", "problemy": [], "podstrona": null, "booksyUrl": null,
-      "cena": 30, "od": true, "czas": null, "zweryfikowano": null,
+      "id": "depilacja-woskiem",
+      "nazwa": "Depilacja woskiem",
+      "kategoria": "pozostale",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 30,
+      "od": true,
+      "czas": null,
+      "zweryfikowano": null,
       "uwagi": "Szablon: 30–50 zł, 15–30 min."
     },
     {
-      "id": "dlonie", "nazwa": "Zabiegi na dłonie",
-      "kategoria": "pozostale", "problemy": [], "podstrona": null, "booksyUrl": null,
+      "id": "dlonie",
+      "nazwa": "Zabiegi na dłonie",
+      "kategoria": "pozostale",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
       "zweryfikowano": null,
       "warianty": [
-        { "id": "karboksyterapia", "nazwa": "Karboksyterapia — biorewitalizacja dłoni", "cena": 150, "czas": 30 },
-        { "id": "mezoterapia",     "nazwa": "Mezoterapia dłoni", "cena": 350, "czas": 60 }
+        {
+          "id": "karboksyterapia",
+          "nazwa": "Karboksyterapia — biorewitalizacja dłoni",
+          "cena": 150,
+          "czas": 30
+        },
+        {
+          "id": "mezoterapia",
+          "nazwa": "Mezoterapia dłoni",
+          "cena": 350,
+          "czas": 60
+        }
       ]
     },
     {
-      "id": "masaze", "nazwa": "Masaże (Oksana, dyplomowana masażystka — osobny profil Booksy)",
-      "kategoria": "pozostale", "problemy": [], "podstrona": null, "booksyUrl": "https://oksimassage.booksy.com",
-      "cena": 50, "od": true, "czas": null, "zweryfikowano": "2026-11-02"
+      "id": "masaze",
+      "nazwa": "Masaże (Oksana, dyplomowana masażystka — osobny profil Booksy)",
+      "kategoria": "pozostale",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": "https://oksimassage.booksy.com",
+      "cena": 50,
+      "od": true,
+      "czas": null,
+      "zweryfikowano": "2026-11-02"
     }
   ]
 }

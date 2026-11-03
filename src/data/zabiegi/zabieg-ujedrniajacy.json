@@ -1,0 +1,58 @@
+{
+  "slug": "zabieg-ujedrniajacy",
+  "nazwa": "Zabieg ujędrniający z termiczną maską modelującą",
+  "podtytul": "Autorski zabieg dla skóry wymagającej regeneracji, ujędrnienia i poprawy elastyczności",
+  "glownaUsluga": "zabieg-ujedrniajacy",
+  "zrodlo": "opis usługi w Booksy (pobrany 2026-11-04)",
+  "meta": {
+    "opis": "Zabieg ujędrniający z termiczną maską modelującą Norel Dr Wilsz — złuszczanie, serum ujędrniające i masaż. Dla skóry dojrzałej i wiotkiej. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Mój autorski zabieg pielęgnacyjny z termiczną maską modelującą, stworzony dla skóry wymagającej regeneracji, ujędrnienia i poprawy elastyczności. Łączy indywidualnie dobrane złuszczanie, serum ujędrniające oraz pielęgnację maskami z relaksującym masażem.",
+    "Ważnym elementem zabiegu jest <strong>termiczna maska modelująca marki Norel Dr Wilsz</strong>, która wytwarza ciepło i stopniowo zastyga, tworząc modelujący okład. Wspomaga wchłanianie substancji aktywnych zawartych w nałożonych wcześniej preparatach oraz pobudza mikrokrążenie, sprzyjając lepszemu dotlenieniu skóry. Pomaga poprawić jej napięcie i uzyskać pielęgnacyjny efekt liftingu."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie cerze:",
+  "dlaKogo": [
+    "dojrzałej i z oznakami starzenia,",
+    "wiotkiej, o obniżonej elastyczności i napięciu,",
+    "poszarzałej, zmęczonej i pozbawionej blasku,",
+    "wymagającej intensywnej regeneracji i ujędrnienia."
+  ],
+  "efekty": [
+    "poprawa napięcia i elastyczności skóry,",
+    "pielęgnacyjny efekt liftingu,",
+    "wygładzenie i zmiękczenie naskórka,",
+    "poprawa komfortu i kondycji cery,",
+    "świeższy, bardziej promienny wygląd,",
+    "odprężenie dzięki masażowi."
+  ],
+  "przebieg": [
+    "Oczyszczenie i tonizacja.",
+    "Peeling — dobrany indywidualnie do potrzeb cery.",
+    "Serum ujędrniające.",
+    "Maska ujędrniająco-witaminowa lub dotleniająca.",
+    "Termiczna maska modelująca Norel Dr Wilsz.",
+    "Masaż.",
+    "Krem przeciwzmarszczkowy."
+  ],
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 3–4 tygodnie",
+    "tekst": [
+      "Rekomenduję serię 3 zabiegów w odstępach co 3–4 tygodnie. Dobór preparatów dostosowuję do aktualnych potrzeb i kondycji skóry."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Jak działa termiczna maska modelująca?",
+      "o": "Wytwarza ciepło i stopniowo zastyga, tworząc modelujący okład. Wspomaga wchłanianie substancji aktywnych z nałożonych wcześniej preparatów oraz pobudza mikrokrążenie."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Rekomenduję serię 3 zabiegów w odstępach co 3–4 tygodnie."
+    }
+  ]
+}

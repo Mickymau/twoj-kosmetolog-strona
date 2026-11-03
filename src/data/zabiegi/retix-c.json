@@ -1,0 +1,71 @@
+{
+  "slug": "retix-c",
+  "nazwa": "Retix C — zabieg z efektem „baby face”",
+  "podtytul": "Zabieg stymulująco-złuszczający z 4% retinolem, witaminą C i proteoglikanami",
+  "glownaUsluga": "retix-c",
+  "zrodlo": "opis usługi w Booksy (pobrany 2026-11-04)",
+  "meta": {
+    "opis": "Retix C — zabieg stymulująco-złuszczający z 4% retinolem i witaminą C. Przebarwienia, koloryt, drobne zmarszczki, jędrność. Twarz, szyja, dekolt. Warszawa Włochy."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Retix C to innowacyjny, profesjonalny zabieg stymulująco-złuszczający z 4% retinolem, witaminą C i proteoglikanami.",
+    "Maska pozostaje na skórze po wyjściu z gabinetu. Po czasie ustalonym indywidualnie — najczęściej od 4 do 8 godzin — należy zmyć ją w domu zgodnie z przekazaną instrukcją."
+  ],
+  "dlaKogoWstep": "Zabieg polecam w przypadku:",
+  "dlaKogo": [
+    "przebarwień i nierównego kolorytu,",
+    "drobnych zmarszczek i oznak fotostarzenia,",
+    "utraty jędrności i elastyczności,",
+    "szarej, pozbawionej blasku skóry,",
+    "widocznych porów i niedoskonałości,",
+    "nierównej struktury oraz powierzchownych blizn potrądzikowych."
+  ],
+  "efekty": [
+    "wygładzenie i rozświetlenie skóry,",
+    "wyrównanie kolorytu,",
+    "zmniejszenie widoczności przebarwień,",
+    "poprawa jędrności i napięcia,",
+    "spłycenie drobnych zmarszczek,",
+    "poprawa wyglądu porów i blizn."
+  ],
+  "przebieg": [
+    "Konsultacja i przygotowanie skóry.",
+    "Aplikacja serum z witaminą C i antyoksydantami.",
+    "Nałożenie maski z 4% retinolem."
+  ],
+  "przebiegUwaga": "Maskę zmywasz w domu — najczęściej po 4–8 godzinach, zgodnie z przekazaną instrukcją.",
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 3–4 tygodnie",
+    "tekst": [
+      "Zalecana terapia obejmuje minimum 3 zabiegi wykonywane co 3–4 tygodnie."
+    ]
+  },
+  "przeciwwskazania": [
+    "ciąża i karmienie piersią,",
+    "terapia izotretynoiną,",
+    "aktywna infekcja, opryszczka,",
+    "zmiany ropne lub wysiękowe,",
+    "silne podrażnienie,",
+    "świeżo opalona skóra."
+  ],
+  "przeciwwskazaniaUwaga": "To m.in. sytuacje, w których zabiegu nie wykonuję. Pozostałe przeciwwskazania wykluczam podczas konsultacji.",
+  "poZabiegu": "Po zabiegu może wystąpić zaczerwienienie, suchość, napięcie i złuszczanie naskórka. Konieczne są łagodna pielęgnacja regenerująca oraz codzienna ochrona SPF 50.",
+  "faq": [
+    {
+      "p": "Jak długo maska zostaje na skórze?",
+      "o": "Maska pozostaje na skórze po wyjściu z gabinetu. Po czasie ustalonym indywidualnie — najczęściej od 4 do 8 godzin — zmywasz ją w domu zgodnie z przekazaną instrukcją."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Zalecana terapia obejmuje minimum 3 zabiegi wykonywane co 3–4 tygodnie."
+    },
+    {
+      "p": "Jak wygląda skóra po zabiegu?",
+      "o": "Może wystąpić zaczerwienienie, suchość, napięcie i złuszczanie naskórka. Konieczne są łagodna pielęgnacja regenerująca oraz codzienna ochrona SPF 50."
+    }
+  ]
+}

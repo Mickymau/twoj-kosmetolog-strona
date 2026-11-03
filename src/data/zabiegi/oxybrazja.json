@@ -1,0 +1,80 @@
+{
+  "slug": "oxybrazja",
+  "nazwa": "Oxybrazja — peeling wodno-tlenowy",
+  "podtytul": "Delikatny peeling dla skóry trądzikowej, wrażliwej, wymagającej oczyszczenia i dotlenienia",
+  "glownaUsluga": "oxybrazja",
+  "zrodlo": "opis usługi w Booksy (pobrany 2026-11-04)",
+  "meta": {
+    "opis": "Oxybrazja — peeling wodno-tlenowy dla skóry trądzikowej, mieszanej, tłustej i zaskórnikowej. Trzy warianty zabiegu. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Oxybrazja, nazywana mikrodermabrazją wodno-tlenową, to delikatny zabieg oczyszczający i złuszczający. Strumień tlenu pod ciśnieniem oraz rozpylonych kropelek soli fizjologicznej pomaga usunąć powierzchniowe warstwy zrogowaciałego naskórka i znajdujące się na nim zanieczyszczenia.",
+    "To doskonały peeling przygotowujący skórę do dalszych etapów zabiegu. Szczególnie dobrze sprawdza się przy cerze trądzikowej, mieszanej, tłustej i zaskórnikowej. Zakres i kolejność poszczególnych etapów dobieram indywidualnie po ocenie aktualnego stanu cery."
+  ],
+  "dlaKogoWstep": "Zabieg polecam w przypadku:",
+  "dlaKogo": [
+    "zaskórników i niedoskonałości,",
+    "nadmiernego wydzielania sebum,",
+    "widocznych porów,",
+    "nadmiernego rogowacenia naskórka,",
+    "nierównej i szorstkiej powierzchni skóry,",
+    "szarego kolorytu i utraty blasku,",
+    "skóry wymagającej łagodnego złuszczenia."
+  ],
+  "efekty": [
+    "oczyszczenie i odświeżenie skóry,",
+    "usunięcie nadmiaru zrogowaciałego naskórka,",
+    "wygładzenie powierzchni cery,",
+    "zmniejszenie widoczności zaskórników i porów,",
+    "poprawa kolorytu i poziomu nawilżenia,",
+    "przygotowanie skóry do kolejnych etapów terapii."
+  ],
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "Oksybrazję można wykonać jednorazowo lub w serii. Jej podstawowa wersja może być wykonywana również latem, przy zachowaniu odpowiedniej ochrony przeciwsłonecznej."
+    ]
+  },
+  "przeciwwskazania": [
+    "aktywne zmiany ropne i wysiękowe,",
+    "silny stan zapalny,",
+    "przerwana ciągłość skóry,",
+    "infekcja, opryszczka,",
+    "zaostrzenie chorób dermatologicznych."
+  ],
+  "przeciwwskazaniaUwaga": "W tych sytuacjach zabiegu nie wykonuję.",
+  "laczone": {
+    "tytul": "Zabieg może zostać rozszerzony o",
+    "lista": [
+      "odpowiednio dobrane kwasy,",
+      "oczyszczanie manualne,",
+      "ampułkę, sonoforezę lub infuzję tlenową."
+    ],
+    "tekst": [
+      "Ceny rozszerzeń znajdziesz w cenniku powyżej. Zakres i kolejność etapów dobieram po ocenie cery."
+    ]
+  },
+  "diagnostyka": {
+    "tytul": "Trądzik utrzymuje się pomimo pielęgnacji?",
+    "tekst": [
+      "Jeżeli trądzik utrzymuje się pomimo pielęgnacji i kolejnych zabiegów, proponuję komputerową diagnostykę skóry Lumiscan™."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Czy oxybrazję można robić latem?",
+      "o": "Tak — podstawowa wersja zabiegu może być wykonywana również latem, przy zachowaniu odpowiedniej ochrony przeciwsłonecznej."
+    },
+    {
+      "p": "Czym różnią się warianty?",
+      "o": "Zakresem dodatkowych etapów: podstawową oxybrazję z peelingiem, ampułką i maską można rozszerzyć np. o oczyszczanie manualne, kwasy, sonoforezę lub infuzję tlenową."
+    },
+    {
+      "p": "Jednorazowo czy w serii?",
+      "o": "Oksybrazję można wykonać jednorazowo lub w serii."
+    }
+  ]
+}
