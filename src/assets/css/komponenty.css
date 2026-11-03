@@ -423,3 +423,10 @@
 .etapy__nr { font-family: var(--font-serif); font-size: 1.75rem; line-height: 1; color: var(--bordo); }
 .etapy strong { font-size: var(--fs-body); font-weight: 600; }
 .etapy li > span:last-child { font-size: var(--fs-small); line-height: 1.6; color: var(--text-2); }
+
+/* Hasła oferty pod paskiem zaufania (home, hero) */
+.zaufanie--hasla { margin-top: var(--s-2); }
+@media (max-width: 599.98px) {
+  .zaufanie--hasla { flex-direction: row; flex-wrap: wrap; gap: 0 var(--s-4); }
+  .zaufanie--hasla li { min-height: 28px; }
+}
