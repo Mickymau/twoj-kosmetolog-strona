@@ -1,5 +1,5 @@
-# Publikacja na GitHub Pages: po każdym pushu na master buduje stronę (Node, bez zależności)
-# i wdraża katalog dist/. Wersja testowa (--podglad): noindex. Po zakupie domeny: --prod i bez --baza.
+# Publikacja na GitHub Pages pod własną domeną (twojkosmetolog.warszawa.pl): po każdym pushu na master buduje stronę (Node, bez zależności)
+# i wdraża katalog dist/. Wersja testowa (--podglad): noindex, robots.txt Disallow. Do indeksacji w Google: zmienić na --prod (po akceptacji treści przez Malwinę).
 name: Publikacja strony
 
 on:
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node build.mjs --podglad --baza=/twoj-kosmetolog-strona
+      - run: node build.mjs --podglad
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
