@@ -86,4 +86,23 @@
       w.addEventListener('mouseleave', () => { if (!przypiety) pokazWiersz(null); });
     }
   }
+  // --- pojawianie się przy przewijaniu (raz, z opóźnieniem dla kolejnych elementów) ---
+  const bezRuchu = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!bezRuchu && 'IntersectionObserver' in window) {
+    const SELEKTORY = '.sekcja__glowa, .karta, .karta-zabiegu, .kafel, .kroki > li, .sciezka > li, .os > li, .opcja, .przekroj, .baner-diagnostyka, .pytania > li, .wybor > li, .zdjecie, .mapa__sylwetki, .przygotowanie';
+    const el = [...document.querySelectorAll(SELEKTORY)].filter((e) => !e.closest('[data-hero]'));
+    const obs = new IntersectionObserver((wpisy) => {
+      for (const w of wpisy) if (w.isIntersecting) { w.target.classList.add('widoczny'); obs.unobserve(w.target); }
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    for (const e of el) {
+      const rodzenstwo = e.parentElement ? [...e.parentElement.children].filter((x) => x.matches(SELEKTORY)) : [];
+      e.style.setProperty('--opoznienie', `${Math.min(rodzenstwo.indexOf(e), 6) * 70}ms`);
+      e.classList.add('pojaw');
+      obs.observe(e);
+    }
+    for (const sch of document.querySelectorAll('.sciezka, .os')) {
+      sch.classList.add('rysuj');
+      new IntersectionObserver(([w], o) => { if (w.isIntersecting) { sch.classList.add('narysowana'); o.disconnect(); } }, { threshold: 0.3 }).observe(sch);
+    }
+  }
 })();

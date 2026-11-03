@@ -387,3 +387,13 @@
 .cta-koniec { text-align: center; }
 .cta-koniec p { margin-inline: auto; }
 .cta-koniec .przyciski { justify-content: center; }
+
+/* ============ ANIMACJE: pojawianie się i rysowanie schematów (BRIEF 8.5, pkt 2–3) ============ */
+.pojaw { opacity: 0; transform: translateY(14px); transition: opacity var(--t-slow) var(--ease) var(--opoznienie, 0ms), transform var(--t-slow) var(--ease) var(--opoznienie, 0ms); }
+.pojaw.widoczny { opacity: 1; transform: none; }
+.rysuj > li:not(:last-child)::after { transform-origin: left top; transition: transform 900ms var(--ease) 150ms; }
+@media (min-width: 960px) { .rysuj.sciezka > li:not(:last-child)::after { transform: scaleX(0); } .rysuj.narysowana.sciezka > li:not(:last-child)::after { transform: scaleX(1); } }
+@media (max-width: 959.98px) { .rysuj.sciezka > li:not(:last-child)::after { transform: scaleY(0); } .rysuj.narysowana.sciezka > li:not(:last-child)::after { transform: scaleY(1); } }
+.rysuj.os > li:not(:last-child)::after { transform: scaleX(0); }
+.rysuj.narysowana.os > li:not(:last-child)::after { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) { .pojaw { opacity: 1; transform: none; } }
