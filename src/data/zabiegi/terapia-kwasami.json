@@ -1,0 +1,96 @@
+{
+  "slug": "terapia-kwasami",
+  "nazwa": "Indywidualna terapia kwasami",
+  "podtytul": "Rodzaj kwasu i intensywność złuszczania dobrane do Twojej skóry",
+  "glownaUsluga": "terapia-kwasami",
+  "zrodlo": "Indywidualna_terapia_kwasami_material_do_Claude.pdf",
+  "meta": {
+    "opis": "Indywidualna terapia kwasami — kwas i intensywność dobrane do skóry: trądzik, zaskórniki, przebarwienia, koloryt, drobne zmarszczki. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Nie każda skóra potrzebuje tego samego kwasu i takiej samej intensywności złuszczania. Dlatego zabieg nie opiera się na jednym, gotowym schemacie. Rodzaj preparatu, jego działanie oraz przebieg terapii dobieram indywidualnie do aktualnego stanu, potrzeb i wrażliwości skóry.",
+    "Podczas zabiegu mogę zastosować preparat oparty na odpowiednio dobranym pojedynczym kwasie albo zaplanować terapię łączoną. W zależności od potrzeb skóry kuracja może zostać rozszerzona między innymi o mikronakłuwanie, peeling kawitacyjny lub procedurę z zastosowaniem retinolu. Nie wszystkie elementy muszą być wykonywane podczas jednej wizyty — czasami najlepsze efekty daje ich odpowiednie rozłożenie i połączenie w przemyślany program zabiegowy."
+  ],
+  "sklad": {
+    "tytul": "Konsultacja przed zabiegiem",
+    "lista": [
+      "określam aktualne potrzeby i problemy skóry,",
+      "dobieram rodzaj oraz intensywność terapii,",
+      "wykluczam przeciwwskazania,",
+      "omawiam możliwe reakcje skóry i spodziewane efekty,",
+      "przekazuję zalecenia dotyczące pielęgnacji domowej,",
+      "w razie potrzeby ustalam program kolejnych zabiegów."
+    ]
+  },
+  "dlaKogoWstep": "Indywidualną terapię kwasami polecam szczególnie w przypadku:",
+  "dlaKogo": [
+    "skóry mieszanej, tłustej i zanieczyszczonej,",
+    "zaskórników i skłonności do powstawania niedoskonałości,",
+    "trądziku zaskórnikowego i zmian trądzikowych,",
+    "nadmiernego wydzielania sebum i widocznych porów,",
+    "przebarwień pozapalnych oraz nierównego kolorytu,",
+    "przebarwień o różnym pochodzeniu,",
+    "powierzchownych blizn i nierównej struktury skóry,",
+    "szarego, ziemistego i pozbawionego blasku kolorytu,",
+    "nadmiernego rogowacenia i szorstkości naskórka,",
+    "drobnych zmarszczek i pierwszych oznak starzenia,",
+    "utraty jędrności i elastyczności,",
+    "fotostarzenia skóry,",
+    "skóry suchej lub przesuszonej wymagającej odpowiednio dobranej terapii,",
+    "rogowacenia okołomieszkowego."
+  ],
+  "dlaKogoUwaga": "W przypadku skóry ze stwierdzonym trądzikiem różowatym, nasilonym rumieniem lub dużą wrażliwością możliwość wykonania zabiegu oceniam indywidualnie. Rodzaj kwasu i intensywność terapii muszą być dopasowane do aktualnej kondycji skóry.",
+  "efekty": [
+    "oczyszczenie i odświeżenie skóry,",
+    "zmniejszenie liczby zaskórników i niedoskonałości,",
+    "ograniczenie nadmiernego wydzielania sebum,",
+    "wygładzenie powierzchni skóry,",
+    "poprawa kolorytu i rozświetlenie cery,",
+    "zmniejszenie widoczności przebarwień pozapalnych,",
+    "poprawa wyglądu porów i nierówności,",
+    "wsparcie naturalnych procesów odnowy naskórka,",
+    "poprawa jędrności i elastyczności,",
+    "zmniejszenie widoczności drobnych zmarszczek i oznak fotostarzenia."
+  ],
+  "zastrzezenie": "Rezultaty zależą od rodzaju problemu, kondycji skóry oraz jej indywidualnej reakcji.",
+  "przebieg": [
+    "Konsultacja i ocena aktualnego stanu skóry.",
+    "Demakijaż i przygotowanie skóry.",
+    "Dobór odpowiedniego preparatu lub terapii łączonej.",
+    "Kontrolowana aplikacja kwasu.",
+    "Zakończenie procedury zgodnie z zastosowanym preparatem.",
+    "Nałożenie pielęgnacji łagodzącej, regenerującej i ochronnej.",
+    "Przekazanie zaleceń pozabiegowych."
+  ],
+  "przebiegUwaga": "Przebieg każdej wizyty może wyglądać nieco inaczej, ponieważ jest ustalany po ocenie skóry.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "W niektórych przypadkach wystarczy pojedynczy zabieg, natomiast przy trądziku, przebarwieniach lub bardziej utrwalonych zmianach najlepsze efekty przynosi odpowiednio zaplanowana seria."
+    ]
+  },
+  "przeciwwskazania": "Zabiegów kwasowych nie wykonuje się bezpośrednio po intensywnej ekspozycji na słońce ani na skórze świeżo opalonej, podrażnionej lub z uszkodzoną barierą ochronną. O możliwości przeprowadzenia terapii zawsze decyduję po wcześniejszej ocenie skóry.",
+  "diagnostyka": {
+    "tytul": "Trądzik lub przebarwienia nie ustępują pomimo stosowanej pielęgnacji i kolejnych zabiegów?",
+    "tekst": [
+      "Jeżeli problem utrzymuje się od dłuższego czasu, proponuję rozpocząć od komputerowej diagnostyki skóry Lumiscan™. Badanie pomaga dokładniej ocenić poziom sebum, widoczność porów, obraz porfiryn w świetle UV oraz zmiany pigmentacyjne. Pozwala to świadomie zaplanować pielęgnację domową i terapię gabinetową, zamiast wybierać kolejne zabiegi metodą prób i błędów."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Jaki kwas zostanie zastosowany?",
+      "o": "Rodzaj preparatu dobieram indywidualnie do aktualnego stanu, potrzeb i wrażliwości skóry — może to być odpowiednio dobrany pojedynczy kwas albo terapia łączona."
+    },
+    {
+      "p": "Czy wystarczy jeden zabieg?",
+      "o": "Czasem tak. Przy trądziku, przebarwieniach lub bardziej utrwalonych zmianach najlepsze efekty przynosi odpowiednio zaplanowana seria."
+    },
+    {
+      "p": "Czy mogę zrobić zabieg po urlopie na słońcu?",
+      "o": "Zabiegów kwasowych nie wykonuje się bezpośrednio po intensywnej ekspozycji na słońce ani na skórze świeżo opalonej."
+    }
+  ]
+}

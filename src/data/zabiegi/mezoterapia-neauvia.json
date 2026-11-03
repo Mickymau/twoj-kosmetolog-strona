@@ -1,0 +1,65 @@
+{
+  "slug": "mezoterapia-neauvia",
+  "nazwa": "Mezoterapia igłowa Neauvia Organic Hydro Deluxe",
+  "podtytul": "Intensywne nawilżenie, rewitalizacja i poprawa elastyczności skóry twarzy",
+  "glownaUsluga": "mezoterapia-neauvia",
+  "zrodlo": "Mezoterapia_Neauvia_Hydro_Deluxe_Booksy_Claude.pdf",
+  "meta": {
+    "opis": "Mezoterapia igłowa Neauvia Organic Hydro Deluxe — kwas hialuronowy, hydroksyapatyt wapnia i aminokwasy. Dla skóry suchej, odwodnionej i zmęczonej. Warszawa Włochy."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Zabieg dla skóry wymagającej intensywnego nawilżenia, rewitalizacji i poprawy elastyczności. Polega na podaniu preparatu Neauvia Organic Hydro Deluxe poprzez serię drobnych wkłuć w skórę twarzy.",
+    "Preparat łączy nieusieciowany kwas hialuronowy o stężeniu 18 mg/ml z hydroksyapatytem wapnia oraz aminokwasami — glicyną i L-proliną. Zabieg pomaga poprawić nawilżenie, gładkość i jakość skóry, przywracając cerze świeższy, bardziej wypoczęty wygląd."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie skórze:",
+  "dlaKogo": [
+    "suchej i odwodnionej,",
+    "zmęczonej, poszarzałej i pozbawionej blasku,",
+    "o obniżonej jędrności i elastyczności,",
+    "z drobnymi zmarszczkami i oznakami starzenia,",
+    "wymagającej regeneracji i poprawy kondycji."
+  ],
+  "efekty": [
+    "poprawa nawilżenia skóry,",
+    "wygładzenie drobnych linii,",
+    "poprawa elastyczności i jędrności,",
+    "bardziej świeża i promienna cera."
+  ],
+  "zastrzezenie": "Plan dobieram indywidualnie do kondycji skóry i jej reakcji na zabieg.",
+  "przebieg": [
+    "Demakijaż i tonizacja.",
+    "Peeling.",
+    "Aplikacja znieczulenia.",
+    "Mezoterapia igłowa preparatem Neauvia Organic Hydro Deluxe.",
+    "Nałożenie kremu ochronnego i regenerującego."
+  ],
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 3–4 tygodnie",
+    "tekst": [
+      "Rekomenduję serię 3 zabiegów w odstępach co 3–4 tygodnie. Plan dobieram indywidualnie do kondycji skóry i jej reakcji na zabieg."
+    ]
+  },
+  "poZabiegu": "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, drobne grudki w miejscach wkłuć oraz siniaki. Przed zabiegiem przeprowadzam wywiad i ocenę przeciwwskazań, a po jego wykonaniu przekazuję zalecenia dotyczące pielęgnacji.",
+  "faq": [
+    {
+      "p": "Co zawiera preparat?",
+      "o": "Nieusieciowany kwas hialuronowy o stężeniu 18 mg/ml, hydroksyapatyt wapnia oraz aminokwasy — glicynę i L-prolinę."
+    },
+    {
+      "p": "Czy zabieg jest wykonywany ze znieczuleniem?",
+      "o": "Tak — przed mezoterapią aplikuję znieczulenie."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Rekomenduję serię 3 zabiegów w odstępach co 3–4 tygodnie."
+    },
+    {
+      "p": "Jak wygląda skóra po zabiegu?",
+      "o": "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, drobne grudki w miejscach wkłuć oraz siniaki."
+    }
+  ]
+}

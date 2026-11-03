@@ -1,0 +1,56 @@
+{
+  "slug": "morska-bryza",
+  "nazwa": "Morska Bryza",
+  "podtytul": "Kolagenowy rytuał nawilżający",
+  "glownaUsluga": "morska-bryza",
+  "zrodlo": "Morska_Bryza_Booksy_Claude.pdf",
+  "meta": {
+    "opis": "Morska Bryza — autorski kolagenowy rytuał nawilżający: AteloCollagen Norel Dr Wilsz, oksybrazja i masaż. Dla skóry suchej, odwodnionej i zmęczonej. Warszawa Włochy."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Mój autorski rytuał łączący pielęgnację preparatami AteloCollagen marki Norel Dr Wilsz z odświeżającą oksybrazją i relaksującym masażem. Stworzony dla skóry potrzebującej nawilżenia, wygładzenia i przywrócenia komfortu.",
+    "Atelokolagen pomaga zatrzymać wodę na powierzchni skóry, nadając jej miękkość i jedwabistą gładkość. Kwas hialuronowy, ekstrakt z fitoplanktonu oraz morska woda głębinowa uzupełniają pielęgnację nawilżającą. Oksybrazja i odpowiednio dobrany peeling przygotowują cerę do kolejnych etapów, a serum i maska kolagenowa pomagają zmniejszyć uczucie suchości i ściągnięcia."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie cerze:",
+  "dlaKogo": [
+    "suchej, odwodnionej, szorstkiej i z uczuciem ściągnięcia,",
+    "z oznakami starzenia, zmarszczkami, „kurzymi łapkami” i utratą elastyczności,",
+    "z objawami zmęczenia i niedotlenienia — matowej, poszarzałej i pozbawionej blasku,",
+    "narażonej na działanie czynników zewnętrznych, takich jak promieniowanie UV, smog, spaliny i dym papierosowy."
+  ],
+  "efekty": [
+    "poprawa nawilżenia i komfortu skóry,",
+    "wygładzenie i zmniejszenie widoczności drobnych linii wynikających z odwodnienia,",
+    "przywrócenie miękkości i poprawa elastyczności skóry,",
+    "bardziej świeża i promienna cera,",
+    "odprężenie dzięki masażowi."
+  ],
+  "przebieg": [
+    "Demakijaż i tonizacja.",
+    "Oksybrazja.",
+    "Peeling cukrowy, enzymatyczny lub chemiczny — dobrany do potrzeb i wrażliwości skóry.",
+    "Serum kolagenowe.",
+    "Maska kolagenowa.",
+    "Masaż."
+  ],
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 3 tygodnie",
+    "tekst": [
+      "Zabieg można wykonać jednorazowo, aby odświeżyć cerę i poprawić jej nawilżenie. W przypadku skóry bardziej wymagającej oraz dojrzałej zalecam serię 3 zabiegów w odstępach co 3 tygodnie."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Czy wystarczy jeden zabieg?",
+      "o": "Zabieg można wykonać jednorazowo, aby odświeżyć cerę i poprawić jej nawilżenie. Przy skórze bardziej wymagającej oraz dojrzałej zalecam serię 3 zabiegów co 3 tygodnie."
+    },
+    {
+      "p": "Czym jest atelokolagen?",
+      "o": "Składnikiem preparatów AteloCollagen marki Norel Dr Wilsz, który pomaga zatrzymać wodę na powierzchni skóry, nadając jej miękkość i jedwabistą gładkość."
+    }
+  ]
+}

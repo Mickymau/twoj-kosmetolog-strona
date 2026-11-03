@@ -1,0 +1,119 @@
+{
+  "slug": "xela-rederm",
+  "nazwa": "Mezoterapia bursztynowa Xela Rederm",
+  "podtytul": "Redermalizacja skóry — warianty 1,1%, 1,8% i 2,2%",
+  "glownaUsluga": "xela-rederm",
+  "zrodlo": "Xela_Rederm_3_Opisy_Booksy_Claude.pdf",
+  "meta": {
+    "opis": "Mezoterapia bursztynowa Xela Rederm 1,1% / 1,8% / 2,2% — redermalizacja skóry: nawilżenie, elastyczność, koloryt, okolica oczu. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Redermalizacja to terapia ukierunkowana na poprawę jakości skóry, jej elastyczności i kolorytu. Preparaty Xela Rederm łączą hialuronian sodu z bursztynianem sodu o stężeniu 16 mg/ml. Połączenie tych składników wspiera nawilżenie i procesy regeneracyjne skóry.",
+    "Wariant preparatu i plan terapii dobieram indywidualnie do potrzeb skóry."
+  ],
+  "sklad": {
+    "tytul": "Warianty preparatu",
+    "lista": [
+      "<strong>Xela Rederm 1,1%</strong> — hialuronian sodu 11 mg/ml. Szczególnie polecany do poprawy kondycji delikatnej skóry wokół oczu: nawilżenie, drobne linie, cienie i oznaki zmęczenia. Dobór obszaru zabiegowego zależy od indywidualnej oceny skóry.",
+      "<strong>Xela Rederm 1,8%</strong> — hialuronian sodu 18 mg/ml. Dla cery suchej, odwodnionej i z oznakami starzenia, wymagającej poprawy elastyczności oraz wygładzenia; również dla skóry, której kondycja i koloryt pogorszyły się pod wpływem promieniowania słonecznego.",
+      "<strong>Xela Rederm 2,2%</strong> — hialuronian sodu 22 mg/ml. Dla cery dojrzałej, o obniżonej jędrności i z wyraźniejszymi oznakami starzenia. To wariant o najwyższym stężeniu hialuronianu sodu w tej linii, dobierany do skóry wymagającej intensywniejszej terapii."
+    ]
+  },
+  "dlaKogo": [
+    {
+      "grupa": "Xela Rederm 1,1%",
+      "lista": [
+        "delikatnej skóry wokół oczu, z cieniami i oznakami zmęczenia,",
+        "cery zmęczonej, matowej i pozbawionej blasku,",
+        "skóry odwodnionej i z drobnymi liniami,",
+        "cery tłustej lub mieszanej, wymagającej poprawy jakości skóry,",
+        "skóry o nierównym kolorycie i z przebarwieniami,",
+        "skóry z nierówną strukturą po przebytym trądziku — po indywidualnej ocenie."
+      ]
+    },
+    {
+      "grupa": "Xela Rederm 1,8%",
+      "lista": [
+        "skóry suchej i odwodnionej,",
+        "skóry z oznakami starzenia i drobnymi zmarszczkami,",
+        "cery o obniżonej elastyczności i napięciu,",
+        "skóry z oznakami fotostarzenia,",
+        "cery o nierównym kolorycie i z przebarwieniami."
+      ]
+    },
+    {
+      "grupa": "Xela Rederm 2,2%",
+      "lista": [
+        "skóry dojrzałej, z wyraźnymi oznakami starzenia,",
+        "skóry wiotkiej i o obniżonej elastyczności,",
+        "cery ze zmarszczkami i utrwalonymi zagnieceniami,",
+        "skóry wymagającej poprawy napięcia i struktury,",
+        "skóry odwodnionej, z jednoczesną utratą jędrności."
+      ]
+    }
+  ],
+  "efekty": [
+    {
+      "grupa": "Xela Rederm 1,1%",
+      "lista": [
+        "poprawa nawilżenia i elastyczności,",
+        "zmniejszenie widoczności cieni i oznak zmęczenia w okolicy oczu,",
+        "odświeżenie i bardziej promienny wygląd cery,",
+        "poprawa równomierności kolorytu,",
+        "wygładzenie drobnych linii i struktury skóry."
+      ]
+    },
+    {
+      "grupa": "Xela Rederm 1,8%",
+      "lista": [
+        "poprawa nawilżenia i zmniejszenie uczucia suchości,",
+        "poprawa elastyczności i napięcia,",
+        "wygładzenie drobnych zmarszczek,",
+        "poprawa struktury i kolorytu skóry,",
+        "bardziej świeża i promienna cera."
+      ]
+    },
+    {
+      "grupa": "Xela Rederm 2,2%",
+      "lista": [
+        "poprawa jędrności i elastyczności,",
+        "poprawa napięcia i jakości skóry,",
+        "wygładzenie struktury oraz zmniejszenie widoczności zmarszczek,",
+        "poprawa nawilżenia,",
+        "bardziej wypoczęty wygląd."
+      ]
+    }
+  ],
+  "przebieg": [
+    "Demakijaż i tonizacja.",
+    "Peeling.",
+    "Aplikacja znieczulenia.",
+    "Redermalizacja preparatem Xela Rederm w dobranym wariancie (1,1%, 1,8% lub 2,2%).",
+    "Nałożenie kremu ochronnego i regenerującego."
+  ],
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 2 tygodnie",
+    "tekst": [
+      "Rekomenduję serię 3 zabiegów w odstępach co 2 tygodnie. Wariant preparatu i plan terapii dobieram indywidualnie do potrzeb skóry."
+    ]
+  },
+  "poZabiegu": "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, drobne grudki w miejscach wkłuć oraz siniaki. Przed zabiegiem przeprowadzam wywiad i ocenę przeciwwskazań, a po jego wykonaniu przekazuję zalecenia dotyczące pielęgnacji.",
+  "faq": [
+    {
+      "p": "Czym różnią się warianty 1,1%, 1,8% i 2,2%?",
+      "o": "Stężeniem hialuronianu sodu (11, 18 lub 22 mg/ml). Wariant 1,1% polecam szczególnie do okolicy oczu, 1,8% dla skóry suchej, odwodnionej i z oznakami starzenia, a 2,2% dla cery dojrzałej, wymagającej intensywniejszej terapii."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Rekomenduję serię 3 zabiegów w odstępach co 2 tygodnie."
+    },
+    {
+      "p": "Jak wygląda skóra po zabiegu?",
+      "o": "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, drobne grudki w miejscach wkłuć oraz siniaki."
+    }
+  ]
+}

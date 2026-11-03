@@ -1,0 +1,87 @@
+{
+  "slug": "sunekos",
+  "nazwa": "Sunekos — stymulacja aminokwasami",
+  "podtytul": "Sunekos 200, Sunekos 1200 i terapia łączona",
+  "glownaUsluga": "sunekos",
+  "zrodlo": "Sunekos_200_1200_Booksy_Claude.docx + Sunekos_Terapia_Laczona_Booksy_Claude.docx",
+  "meta": {
+    "opis": "Sunekos 200, Sunekos 1200 i terapia łączona — kwas hialuronowy z kompleksem aminokwasów. Nawilżenie, elastyczność i jędrność skóry. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Preparaty Sunekos zawierają nieusieciowany kwas hialuronowy oraz kompleks sześciu aminokwasów — glicyny, proliny, lizyny, alaniny, waliny i leucyny. Aminokwasy są składnikami budulcowymi białek, w tym kolagenu i elastyny. Ich odpowiednio opracowane połączenie z kwasem hialuronowym wspiera naturalne procesy odnowy skóry, pomagając poprawić jej nawilżenie, sprężystość i strukturę.",
+    "<strong>Sunekos 200</strong> zawiera kwas hialuronowy o niskiej masie cząsteczkowej. To zabieg regeneracyjny dla skóry wymagającej nawilżenia, wygładzenia i poprawy elastyczności. Może stanowić samodzielną terapię lub część programu łączonego z Sunekos 1200.",
+    "<strong>Sunekos 1200</strong> zawiera kwas hialuronowy o wyższej masie cząsteczkowej niż w Sunekos 200. Pełni funkcję wspierającą w terapii skóry wiotkiej i z bardziej widocznymi zmarszczkami — w programie łączonym tworzy nawilżające podparcie tkanek, a Sunekos 200 uzupełnia terapię ukierunkowaną na regenerację i poprawę jakości skóry."
+  ],
+  "dlaKogo": [
+    {
+      "grupa": "Sunekos 200",
+      "lista": [
+        "suchej i odwodnionej,",
+        "cienkiej, o obniżonej elastyczności,",
+        "z drobnymi zmarszczkami i oznakami fotostarzenia,",
+        "zmęczonej i pozbawionej blasku."
+      ]
+    },
+    {
+      "grupa": "Sunekos 1200 i terapia łączona",
+      "lista": [
+        "dojrzałej, z wyraźnymi oznakami starzenia,",
+        "wiotkiej, o obniżonej jędrności i napięciu,",
+        "z widocznymi zmarszczkami i zagnieceniami,",
+        "z utratą naturalnej pełności tkanek,",
+        "odwodnionej i wymagającej poprawy struktury."
+      ]
+    }
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie skórze:",
+  "efekty": [
+    {
+      "grupa": "Sunekos 200",
+      "lista": [
+        "poprawa nawilżenia i elastyczności,",
+        "wygładzenie drobnych linii,",
+        "stopniowa poprawa napięcia i jakości skóry,",
+        "bardziej świeży, wypoczęty wygląd."
+      ]
+    },
+    {
+      "grupa": "Sunekos 1200 i terapia łączona",
+      "lista": [
+        "poprawa nawilżenia i sprężystości,",
+        "stopniowa poprawa jędrności i napięcia,",
+        "poprawa podparcia i napięcia skóry,",
+        "wygładzenie zmarszczek,",
+        "poprawa jakości i struktury skóry,",
+        "bardziej świeży, wypoczęty wygląd twarzy."
+      ]
+    }
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo i zależą od indywidualnej reakcji skóry.",
+  "seria": {
+    "zabiegi": 4,
+    "odstep": "co 7–10 dni",
+    "tekst": [
+      "<strong>Sunekos 200:</strong> rekomendowana jest seria 4 zabiegów w odstępach co 7–10 dni. Dla podtrzymania rezultatów producent zaleca powtórzenie serii po około 6 miesiącach.",
+      "<strong>Terapia łączona:</strong> zgodnie z protokołem producenta obejmuje jeden zabieg Sunekos 1200 jako pierwszy etap, a następnie cztery zabiegi Sunekos 200 w odstępach co 7–10 dni. Pierwszy zabieg Sunekos 200 wykonuje się tego samego dnia lub w ciągu 1–2 dni po zastosowaniu Sunekos 1200. Dla podtrzymania rezultatów producent przewiduje zabieg łączony Sunekos 1200 + Sunekos 200 po 4 i 7 miesiącach od rozpoczęcia terapii.",
+      "Plan terapii dobieram indywidualnie do kondycji skóry i oczekiwanych rezultatów."
+    ]
+  },
+  "poZabiegu": "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, drobne grudki w miejscach wkłuć oraz siniaki. Przed zabiegiem przeprowadzam wywiad i ocenę przeciwwskazań, a po jego wykonaniu przekazuję zalecenia dotyczące pielęgnacji.",
+  "faq": [
+    {
+      "p": "Czym różni się Sunekos 200 od Sunekos 1200?",
+      "o": "Masą cząsteczkową kwasu hialuronowego. Sunekos 200 (niska masa) wspiera regenerację, wygładzenie i elastyczność, a Sunekos 1200 (wyższa masa) tworzy nawilżające podparcie tkanek przy skórze wiotkiej i z bardziej widocznymi zmarszczkami."
+    },
+    {
+      "p": "Jak wygląda terapia łączona?",
+      "o": "Jeden zabieg Sunekos 1200, a następnie cztery zabiegi Sunekos 200 co 7–10 dni — pierwszy tego samego dnia lub w ciągu 1–2 dni po Sunekos 1200."
+    },
+    {
+      "p": "Jak podtrzymać efekty?",
+      "o": "Przy Sunekos 200 producent zaleca powtórzenie serii po około 6 miesiącach; w terapii łączonej — zabieg łączony po 4 i 7 miesiącach od rozpoczęcia terapii."
+    }
+  ]
+}

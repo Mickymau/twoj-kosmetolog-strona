@@ -1,0 +1,55 @@
+{
+  "slug": "polinukleotydy",
+  "nazwa": "Stymulacja skóry polinukleotydami",
+  "podtytul": "Regeneracja skóry oraz poprawa jej jakości, nawilżenia i elastyczności",
+  "glownaUsluga": "polinukleotydy",
+  "zrodlo": "Stymulacja_Polinukleotydami_Booksy_Claude.pdf",
+  "meta": {
+    "opis": "Stymulacja skóry polinukleotydami — regeneracja, nawilżenie i elastyczność skóry z oznakami starzenia. Preparaty DIVES med., Promoitalia, Mastelli. Warszawa Włochy."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Zabieg ukierunkowany na regenerację skóry oraz poprawę jej jakości, nawilżenia i elastyczności. Polecany cerze wymagającej odnowy, z oznakami starzenia i utratą jędrności.",
+    "<strong>Czym są polinukleotydy?</strong> To łańcuchy nukleotydów — naturalnych elementów budujących kwasy nukleinowe, takie jak DNA. W preparatach zabiegowych wykorzystuje się wysokooczyszczone fragmenty DNA, pozyskiwane najczęściej z ryb, takich jak łosoś lub pstrąg. Surowiec przechodzi specjalistyczne procesy oczyszczania; technologia jego przygotowania zależy od producenta.",
+    "Polinukleotydy wiążą wodę i pomagają stworzyć korzystne warunki dla naturalnych procesów regeneracji skóry. Wspierają aktywność fibroblastów — komórek odpowiedzialnych za wytwarzanie kolagenu i elastyny — oraz pomagają ograniczać skutki stresu oksydacyjnego. Dzięki temu terapia jest ukierunkowana na stopniową poprawę struktury, elastyczności i napięcia skóry.",
+    "W zabiegu wykorzystuję preparaty firm DIVES med., Promoitalia i Mastelli. Preparat dobieram indywidualnie do aktualnej kondycji skóry, jej potrzeb oraz celu terapii. W zależności od dobranego preparatu cena zabiegu może być wyższa o 100 zł — ostateczny koszt ustalamy przed wykonaniem zabiegu."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie skórze:",
+  "dlaKogo": [
+    "z oznakami starzenia i zmarszczkami,",
+    "wiotkiej, o obniżonej jędrności i elastyczności,",
+    "suchej i odwodnionej,",
+    "zmęczonej, poszarzałej i pozbawionej blasku,",
+    "z oznakami fotostarzenia,",
+    "wymagającej regeneracji i poprawy struktury."
+  ],
+  "efekty": [
+    "poprawa nawilżenia i elastyczności,",
+    "stopniowa poprawa jędrności i napięcia,",
+    "wygładzenie drobnych zmarszczek,",
+    "poprawa jakości skóry i bardziej promienny wygląd."
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo i zależą od indywidualnej reakcji skóry.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "Liczbę zabiegów i odstępy między wizytami dobieram do zastosowanego preparatu oraz potrzeb skóry."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Skąd pochodzą polinukleotydy?",
+      "o": "W preparatach zabiegowych wykorzystuje się wysokooczyszczone fragmenty DNA, pozyskiwane najczęściej z ryb, takich jak łosoś lub pstrąg."
+    },
+    {
+      "p": "Z jakich preparatów korzystam?",
+      "o": "Z preparatów firm DIVES med., Promoitalia i Mastelli — dobieram je indywidualnie do kondycji skóry i celu terapii."
+    },
+    {
+      "p": "Od czego zależy cena?",
+      "o": "W zależności od dobranego preparatu cena zabiegu może być wyższa o 100 zł. Ostateczny koszt ustalamy przed wykonaniem zabiegu."
+    }
+  ]
+}

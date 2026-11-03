@@ -1,0 +1,77 @@
+{
+  "slug": "bezpieczne-oczyszczanie-manualne",
+  "nazwa": "Bezpieczne manualne oczyszczanie z ozonoterapią",
+  "podtytul": "Dokładne, a jednocześnie staranne oczyszczenie skóry",
+  "glownaUsluga": "bezpieczne-oczyszczanie-manualne",
+  "zrodlo": "Bezpieczne_manualne_oczyszczanie_material_do_Claude.docx",
+  "meta": {
+    "opis": "Bezpieczne manualne oczyszczanie skóry z ozonoterapią — dla cery mieszanej, tłustej, z zaskórnikami. Etapy dobierane do stanu skóry. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Wieloetapowy zabieg przeznaczony do dokładnego, a jednocześnie starannego oczyszczenia skóry. Każdy etap dobieram indywidualnie do jej aktualnego stanu, potrzeb i wrażliwości.",
+    "Oczyszczanie manualne wykonuję z poszanowaniem naturalnej bariery ochronnej skóry. Zabieg uzupełnia ozonoterapia, która wspomaga dezynfekcję oraz wyciszenie skóry po oczyszczaniu."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie osobom, których skóra jest:",
+  "dlaKogo": [
+    "mieszana, tłusta lub zanieczyszczona,",
+    "skłonna do powstawania zaskórników i niedoskonałości,",
+    "z widocznymi lub zablokowanymi ujściami gruczołów łojowych,",
+    "nadmiernie przetłuszczająca się,",
+    "nierówna, szorstka i pozbawiona świeżości,",
+    "wymagająca dokładniejszego oczyszczenia niż podczas standardowego zabiegu pielęgnacyjnego."
+  ],
+  "dlaKogoUwaga": "Zabieg może być również elementem pielęgnacji skóry u osób ze stwierdzonym trądzikiem, szczególnie zaskórnikowym. Możliwość jego wykonania zawsze oceniam indywidualnie, uwzględniając rodzaj, nasilenie oraz aktualny stan zmian.",
+  "efekty": [
+    "dokładne oczyszczenie skóry,",
+    "usunięcie zaskórników i zalegających zanieczyszczeń,",
+    "zmniejszenie widoczności zablokowanych porów,",
+    "wygładzenie i poprawa struktury skóry,",
+    "ograniczenie nadmiaru sebum znajdującego się na jej powierzchni,",
+    "bardziej świeży, czysty i zadbany wygląd cery,",
+    "ukojenie skóry po zakończeniu oczyszczania."
+  ],
+  "zastrzezenie": "Zakres oczyszczania oraz spodziewane efekty zależą od wyjściowego stanu skóry. Przy większej liczbie zaskórników lub nasilonych problemach może być potrzebna odpowiednio zaplanowana terapia.",
+  "przebieg": [
+    "Demakijaż i tonizacja.",
+    "Peeling drobnoziarnisty lub enzymatyczny.",
+    "Maska przygotowująca i rozpulchniająca skórę.",
+    "Dokładne oczyszczanie manualne.",
+    "Dezynfekcja skóry z zastosowaniem ozonoterapii.",
+    "Maska łagodząca.",
+    "Krem dobrany do aktualnych potrzeb skóry."
+  ],
+  "przebiegUwaga": "To podstawowy schemat zabiegu. W zależności od aktualnego stanu i potrzeb skóry jego przebieg może zostać delikatnie zmodyfikowany.",
+  "laczone": {
+    "tytul": "Możliwość rozszerzenia zabiegu",
+    "lista": [
+      "maska borowinowa o działaniu detoksykująco-regenerującym,",
+      "indywidualnie dobrana terapia kwasowa."
+    ],
+    "tekst": [
+      "O zastosowaniu dodatkowych etapów decyduję po wcześniejszej ocenie skóry. Ceny rozszerzeń znajdziesz w cenniku powyżej."
+    ]
+  },
+  "diagnostyka": {
+    "tytul": "Kiedy warto rozważyć diagnostykę Lumiscan?",
+    "tekst": [
+      "Od dłuższego czasu walczysz z trądzikiem, a stosowana pielęgnacja i dotychczasowe terapie nie przynoszą oczekiwanej poprawy? W takiej sytuacji proponuję rozpocząć od komputerowej diagnostyki skóry Lumiscan™. Badanie pozwala dokładniej ocenić kondycję skóry, przyjrzeć się obszarom niewidocznym podczas standardowej obserwacji oraz świadomie wyznaczyć dalszy kierunek pielęgnacji i terapii gabinetowej."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Czy oczyszczanie narusza barierę ochronną skóry?",
+      "o": "Oczyszczanie manualne wykonuję z poszanowaniem naturalnej bariery ochronnej skóry, a ozonoterapia wspomaga dezynfekcję oraz wyciszenie skóry po oczyszczaniu."
+    },
+    {
+      "p": "Czy mogę skorzystać z zabiegu przy trądziku?",
+      "o": "Zabieg może być elementem pielęgnacji skóry ze stwierdzonym trądzikiem, szczególnie zaskórnikowym. Możliwość jego wykonania zawsze oceniam indywidualnie."
+    },
+    {
+      "p": "Czy zabieg można rozszerzyć?",
+      "o": "Tak — o maskę borowinową lub indywidualnie dobraną terapię kwasową. Decyduję o tym po ocenie skóry."
+    }
+  ]
+}

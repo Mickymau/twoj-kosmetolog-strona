@@ -1,0 +1,61 @@
+{
+  "slug": "anti-redness",
+  "nazwa": "Anti-Redness",
+  "podtytul": "Zabieg kojący dla cery naczynkowej",
+  "glownaUsluga": "anti-redness",
+  "zrodlo": "Anti_Redness_Booksy_Claude.pdf",
+  "meta": {
+    "opis": "Anti-Redness — autorski zabieg kojący dla cery naczynkowej, wrażliwej i skłonnej do rumienia. Preparaty Norel Dr Wilsz, sonoforeza i masaż. Warszawa Włochy."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Mój autorski zabieg pielęgnacyjny wykorzystujący głównie preparaty z linii Anti-Redness marki Norel Dr Wilsz. Stworzony dla skóry naczynkowej, wrażliwej i skłonnej do zaczerwienień. Preparaty oraz przebieg zabiegu dobieram indywidualnie do aktualnych potrzeb i reaktywności cery.",
+    "Zabieg pomaga wyciszyć nadreaktywną skórę, złagodzić podrażnienia i przywrócić jej komfort. Formuły zawierające Redyless®, hydrolat z kocanki oraz ekstrakt z kasztanowca standaryzowany na escynę wspierają pielęgnację cery z rumieniem i kruchymi naczynkami."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie cerze:",
+  "dlaKogo": [
+    "naczynkowej, z widocznymi „pajączkami”,",
+    "wrażliwej i nadreaktywnej,",
+    "z tendencją do zaczerwienień oraz nagłego rumienia (flushing),",
+    "z trądzikiem różowatym — jako pielęgnację wspierającą, dobraną do aktualnego stanu skóry,",
+    "wymagającej ukojenia i złagodzenia podrażnień."
+  ],
+  "efekty": [
+    "zmniejszenie widoczności zaczerwienień,",
+    "ukojenie i złagodzenie uczucia dyskomfortu,",
+    "poprawa nawilżenia i komfortu skóry,",
+    "spokojniejszy, bardziej wyrównany wygląd cery,",
+    "odprężenie dzięki masażowi."
+  ],
+  "przebieg": [
+    "Demakijaż i tonizacja.",
+    "Peeling — dobrany indywidualnie do potrzeb i wrażliwości skóry.",
+    "Serum do cery naczynkowej i sonoforeza.",
+    "Maska algowa lub inna — dobrana do aktualnych potrzeb cery.",
+    "Masaż.",
+    "Krem redukujący rumień."
+  ],
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 2–3 tygodnie",
+    "tekst": [
+      "Zalecam serię 3 zabiegów w odstępach co 2–3 tygodnie."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Czy zabieg jest odpowiedni przy trądziku różowatym?",
+      "o": "Tak — jako pielęgnacja wspierająca, dobrana do aktualnego stanu skóry. Preparaty i przebieg zabiegu dobieram do reaktywności cery."
+    },
+    {
+      "p": "Jakich preparatów używam?",
+      "o": "Głównie preparatów z linii Anti-Redness marki Norel Dr Wilsz — m.in. z Redyless®, hydrolatem z kocanki i ekstraktem z kasztanowca standaryzowanym na escynę."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Zalecam serię 3 zabiegów w odstępach co 2–3 tygodnie."
+    }
+  ]
+}

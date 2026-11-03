@@ -1,0 +1,57 @@
+{
+  "slug": "kwasy-depigmentacyjne",
+  "nazwa": "Złuszczanie kwasami depigmentacyjnymi",
+  "podtytul": "Zmniejszenie widoczności przebarwień, wyrównanie kolorytu i rozświetlenie skóry",
+  "glownaUsluga": "kwasy-depigmentacyjne",
+  "zrodlo": "Zluszczanie_kwasami_depigmentacyjnymi_Claude.pdf + Booksy (seria 3–6)",
+  "meta": {
+    "opis": "Złuszczanie kwasami depigmentacyjnymi — przebarwienia posłoneczne i pozapalne, nierówny koloryt. Preparaty Mesoestetic i Peel Mission. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "naskorek"
+  ],
+  "naCzymPolega": [
+    "Indywidualnie dobrana terapia ukierunkowana na zmniejszenie widoczności przebarwień, wyrównanie kolorytu i rozświetlenie skóry. W zabiegach wykorzystuję profesjonalne preparaty uznanych marek, m.in. Mesoestetic i Peel Mission.",
+    "Terapia łączy działanie peelingów chemicznych ze składnikami regulującymi powstawanie i rozmieszczenie barwnika w naskórku. W zależności od potrzeb skóry wykorzystuję preparaty oparte na kwasach takich jak kojowy, traneksamowy, azelainowy, fitowy i inne.",
+    "Wybrane formuły wzbogacone są o niacynamid, N-acetyloglukozaminę i peptydy, które uzupełniają działanie depigmentacyjne. Dzięki temu terapia wspomaga zarówno rozjaśnianie istniejących przebarwień, jak i ograniczanie procesów sprzyjających powstawaniu kolejnych.",
+    "Rodzaj preparatu oraz intensywność zabiegu dobieram indywidualnie do charakteru przebarwień, wrażliwości i aktualnej kondycji skóry. Przed zabiegiem oceniam skórę, wykluczam przeciwwskazania oraz omawiam zalecenia pielęgnacyjne."
+  ],
+  "dlaKogo": [
+    "Przebarwienia posłoneczne.",
+    "Brązowe ślady pozapalne, np. po trądziku.",
+    "Nierównomierny koloryt skóry.",
+    "Skóra matowa, wymagająca rozświetlenia."
+  ],
+  "efekty": [
+    "Stopniowe rozjaśnienie przebarwień i zmniejszenie ich widoczności.",
+    "Wyrównanie kolorytu skóry.",
+    "Wygładzenie i odświeżenie naskórka.",
+    "Poprawa promienności skóry."
+  ],
+  "zastrzezenie": "Zakres poprawy zależy od rodzaju i głębokości przebarwień, indywidualnej reakcji skóry oraz systematyczności pielęgnacji domowej.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "Najczęściej zalecana jest terapia w serii — zwykle 3–6 zabiegów. Liczbę zabiegów oraz odstępy między nimi ustalam indywidualnie, w zależności od zastosowanego preparatu, kondycji i reakcji skóry."
+    ]
+  },
+  "poZabiegu": [
+    "Podstawą terapii jest codzienna ochrona przeciwsłoneczna SPF 50 z ochroną UVA, ograniczenie ekspozycji na słońce oraz pielęgnacja wspierająca regenerację skóry i podtrzymująca efekty rozjaśniania.",
+    "Po zabiegu może wystąpić przejściowe zaczerwienienie, uczucie napięcia i złuszczanie naskórka. Ich nasilenie zależy od zastosowanej procedury i indywidualnej reakcji skóry."
+  ],
+  "poZabieguUwaga": "Szczegółowe zalecenia pozabiegowe otrzymasz podczas wizyty.",
+  "faq": [
+    {
+      "p": "Jakich preparatów używam?",
+      "o": "Profesjonalnych preparatów uznanych marek, m.in. Mesoestetic i Peel Mission — opartych na kwasach takich jak kojowy, traneksamowy, azelainowy czy fitowy."
+    },
+    {
+      "p": "Od czego zależy efekt?",
+      "o": "Od rodzaju i głębokości przebarwień, indywidualnej reakcji skóry oraz systematyczności pielęgnacji domowej. Podstawą terapii jest codzienna ochrona SPF 50 z ochroną UVA."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Najczęściej zalecana jest terapia w serii, zwykle 3–6 zabiegów. Liczbę i odstępy ustalam indywidualnie."
+    }
+  ]
+}
