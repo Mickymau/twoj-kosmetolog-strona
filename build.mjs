@@ -41,8 +41,13 @@ const PODSTRONY = [
   'xela-rederm', 'sunekos', 'polinukleotydy', 'anti-redness', 'morska-bryza',
   'zabieg-ujedrniajacy', 'depilacja-laserowa',
 ];
-// znaczniki blokowe — powstaną w kolejnych etapach
-const BLOKI_POZNIEJ = { cennik: 'etap 7', 'lista-zabiegow': 'etap 6', 'zobacz-tez': 'etap 5' };
+const NAZWY_PROBLEMOW = {
+  tradzik: 'Trądzik i zaskórniki', przebarwienia: 'Przebarwienia', naczynka: 'Naczynka i zaczerwienienia',
+  'cera-sucha': 'Cera sucha i odwodniona', 'starzenie-skory': 'Oznaki starzenia i jędrność',
+  'owal-twarzy': 'Owal twarzy i szyja', 'okolica-oczu': 'Okolica oczu',
+  'blizny-i-rozstepy': 'Blizny i rozstępy', cellulit: 'Cellulit i ciało',
+};
+const BLOKI_POZNIEJ = {};
 
 // ---------- raportowanie ----------
 const bledy = new Set();
@@ -233,8 +238,10 @@ const reZnacznik = /<!--\s*@include\s+([^\s]+?)\s*-->|\{\{([^{}]*)\}\}/g;
 const liniaZ = (txt, i) => txt.slice(0, i).split('\n').length;
 
 function renderuj(plik, stos = []) {
-  const kod = fs.readFileSync(plik, 'utf8');
-  const nazwa = rel(plik);
+  return renderujKod(fs.readFileSync(plik, 'utf8'), rel(plik), [...stos, plik]);
+}
+
+function renderujKod(kod, nazwa, stos = []) {
   const wynik = kod.replace(reZnacznik, (cale, include, znacznik, idx) => {
     const kto = `${nazwa}:${liniaZ(kod, idx)}`;
     try {
@@ -243,7 +250,7 @@ function renderuj(plik, stos = []) {
         const p = path.join(SRC, 'partials', include + '.html');
         if (!fs.existsSync(p)) throw `${kto}: brak partiala „${include}” (src/partials/${include}.html)`;
         if (stos.includes(p)) throw `${kto}: zapętlony include „${include}”`;
-        return renderuj(p, [...stos, plik]).replace(/\n$/, '');
+        return renderuj(p, stos).replace(/\n$/, '');
       }
       const [typ, ...reszta] = znacznik.trim().split(':');
       const arg = reszta.length ? reszta.join(':').trim() : undefined;
@@ -261,6 +268,322 @@ function renderuj(plik, stos = []) {
   for (const m of bezZnacznikow.matchAll(/\{\{|\}\}|@include/g))
     blad(`${nazwa}:${liniaZ(kod, m.index)}: niedomknięty lub uszkodzony znacznik „${m[0]}”`);
   return wynik;
+}
+
+// ======================================================================
+// TREŚCI: zabiegi (src/data/zabiegi/*.json) i problemy (src/data/problemy.json)
+// ======================================================================
+const zabiegi = new Map();
+for (const p of pliki(path.join(SRC, 'data', 'zabiegi'))) {
+  if (!p.endsWith('.json')) continue;
+  let z;
+  try { z = JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { blad(`${rel(p)}: ${e.message}`); continue; }
+  const g = rel(p);
+  if (path.basename(p, '.json') !== z.slug) blad(`${g}: nazwa pliku musi być równa „slug”`);
+  if (!PODSTRONY.includes(z.slug)) blad(`${g}: slug „${z.slug}” spoza listy podstron (BRIEF 5)`);
+  for (const pole of ['nazwa', 'podtytul', 'glownaUsluga', 'naCzymPolega', 'dlaKogo', 'efekty', 'przebieg', 'przeciwwskazania'])
+    if (!z[pole] || (Array.isArray(z[pole]) && !z[pole].length)) blad(`${g}: brak wymaganej sekcji „${pole}” (BRIEF 6.1)`);
+  for (const pole of ['poZabiegu', 'seria', 'faq', 'meta'])
+    if (!z[pole]) ostrzezenia.add(`${g}: brak sekcji „${pole}” — nie wyrenderuje się`);
+  if (z.glownaUsluga && !uslugi.has(z.glownaUsluga.split('/')[0])) blad(`${g}: nieznana glownaUsluga „${z.glownaUsluga}”`);
+  if (![...uslugi.values()].some((u) => u.podstrona === z.slug)) blad(`${g}: żadna usługa w cenniku nie wskazuje podstrony „${z.slug}”`);
+  for (const w of z.warstwy || []) if (!['naskorek', 'skora-wlasciwa', 'tkanka-podskorna'].includes(w)) blad(`${g}: nieznana warstwa „${w}”`);
+  zabiegi.set(z.slug, z);
+}
+const problemyDane = fs.existsSync(path.join(SRC, 'data', 'problemy.json')) ? wczytajJson('problemy.json') : null;
+stop();
+
+// --- pozycje cennika (usługa / wariant) ---
+function pozycje(u) {
+  const booksy = (w) => (w && w.booksyUrl) || u.booksyUrl || poleFirmy('booksy', 'cennik');
+  return (u.warianty || [null]).map((w) => {
+    const o = w || u;
+    const zw = zweryfikowano(u, w);
+    return {
+      u, w, nazwa: o.nazwa, cena: o.cena, od: !!o.od, czas: o.czas, pakiety: o.pakiety || [],
+      booksy: booksy(w), niepewna: zw === null || !!(o.doWyjasnienia || u.doWyjasnienia), uwagi: o.uwagi,
+    };
+  });
+}
+// w --prod pozycje niezweryfikowane nie trafiają do list ani tabel (lista w podsumowaniu builda)
+const pominiete = new Set();
+const widoczne = (lista) => lista.filter((p) => {
+  if (PROD && p.niepewna) { pominiete.add(`${p.u.id}${p.w ? '/' + p.w.id : ''}`); return false; }
+  return true;
+});
+const devUwaga = (p) => (!PROD && p.niepewna)
+  ? ` <span class="dev-uwaga" title="${esc(p.uwagi || 'Cena niezweryfikowana w Booksy — w buildzie produkcyjnym ukryta')}">❓ do weryfikacji</span>` : '';
+const cenaTxt = (lista) => {
+  if (!lista.length) return '';
+  const min = Math.min(...lista.map((p) => p.cena));
+  return (lista.length > 1 || lista.some((p) => p.od) ? 'od ' : '') + fmtZl(min);
+};
+const czasTxt = (lista) => {
+  const c = lista.map((p) => p.czas).filter((x) => x !== null && x !== undefined);
+  if (!c.length) return '';
+  const a = Math.min(...c), b = Math.max(...c);
+  return a === b ? fmtMin(a) : `${fmtMin(a)} – ${fmtMin(b)}`;
+};
+const linkZabiegu = (slug) => `/zabiegi/${slug}/`;
+const uslugiPodstrony = (slug) => [...uslugi.values()].filter((u) => u.podstrona === slug);
+const problemyPodstrony = (slug) => [...new Set(uslugiPodstrony(slug).flatMap((u) => u.problemy))];
+
+// --- tabela cennika (podstrona zabiegu i /zabiegi/) ---
+function tabelaCennika(lista, { linkuj = false, pokazKat = false } = {}) {
+  const wiersze = lista.map((p) => {
+    const nazwa = linkuj && p.u.podstrona && zabiegi.has(p.u.podstrona)
+      ? `<a href="${linkZabiegu(p.u.podstrona)}">${esc(p.nazwa)}</a>` : esc(p.nazwa);
+    const pakiety = p.pakiety.length
+      ? `<span class="cennik__pakiety">${p.pakiety.map((k) => `pakiet ${k.zabiegi} zabiegów: ${esc(fmtZl(k.cena))}`).join(' · ')}</span>` : '';
+    return `<tr><th scope="row">${nazwa}${devUwaga(p)}${pakiety}</th>`
+      + `<td class="cennik__czas">${esc(p.czas ? fmtMin(p.czas) : '')}</td>`
+      + `<td class="cennik__cena">${esc((p.od ? 'od ' : '') + fmtZl(p.cena))}</td>`
+      + `<td class="cennik__umow"><a class="btn btn--maly btn--kontur" href="${esc(p.booksy)}" rel="noopener" data-umow="cennik-${esc(p.u.id)}">Umów<span class="sr-only"> — ${esc(p.nazwa)}</span></a></td></tr>`;
+  });
+  const dodatki = [...new Set(lista.flatMap((p) => (p.w ? [] : []).concat(p.u.dodatki || [])
+    .map((d) => `${d.nazwa}: +${fmtZl(d.cena)}`)))];
+  return `<div class="cennik-tabela"><table class="cennik"><thead><tr><th scope="col">Usługa</th><th scope="col">Czas</th><th scope="col">Cena</th><th scope="col"><span class="sr-only">Rezerwacja</span></th></tr></thead><tbody>${wiersze.join('')}</tbody></table>`
+    + (dodatki.length ? `<p class="cennik__dodatki">Dodatkowo: ${esc(dodatki.join(' · '))}</p>` : '') + '</div>';
+}
+
+// --- karta zabiegu / usługi (listy na stronach problemów, „Zobacz też”) ---
+function kartaZabiegu({ tytul, href, lista, zewn, opis }) {
+  const cena = cenaTxt(lista), czas = czasTxt(lista);
+  return `<li><a class="karta-zabiegu" href="${esc(href)}"${zewn ? ' rel="noopener" data-umow="lista"' : ''}>`
+    + `<h3>${esc(tytul)}</h3>${opis ? `<p>${esc(opis)}</p>` : ''}`
+    + `<p class="karta-zabiegu__cena">${esc(cena)}${czas ? ` <span>· ${esc(czas)}</span>` : ''}${lista.some((p) => p.niepewna) && !PROD ? ' <span class="dev-uwaga">❓</span>' : ''}</p>`
+    + `<span class="link-strzalka">${zewn ? 'Umów w Booksy' : 'Zobacz zabieg'}</span></a></li>`;
+}
+
+function kartyDlaProblemu(problem) {
+  const karty = [], uzyte = new Set();
+  for (const u of uslugi.values()) {
+    if (!u.problemy.includes(problem)) continue;
+    if (u.podstrona && zabiegi.has(u.podstrona)) {
+      if (uzyte.has(u.podstrona)) continue;
+      uzyte.add(u.podstrona);
+      const lista = widoczne(uslugiPodstrony(u.podstrona).flatMap(pozycje));
+      if (lista.length) karty.push({ tytul: zabiegi.get(u.podstrona).nazwa, href: linkZabiegu(u.podstrona), lista, opis: zabiegi.get(u.podstrona).podtytul });
+    } else {
+      const lista = widoczne(pozycje(u));
+      if (lista.length) karty.push({ tytul: u.nazwa, href: lista[0].booksy, lista, zewn: true });
+    }
+  }
+  return karty;
+}
+
+// --- znaczniki blokowe ---
+Object.assign(ZNACZNIKI, {
+  cennik(arg, kto) {
+    if (arg) throw `${kto}: {{cennik}} nie przyjmuje argumentu`;
+    return cennik.kategorie.map((k) => {
+      const lista = widoczne([...uslugi.values()].filter((u) => u.kategoria === k.id).flatMap(pozycje));
+      if (!lista.length) return '';
+      return `<section class="cennik-grupa" id="cennik-${k.id}" aria-labelledby="cg-${k.id}"><h3 id="cg-${k.id}">${esc(k.nazwa)}</h3>${tabelaCennika(lista, { linkuj: true })}</section>`;
+    }).join('\n');
+  },
+  'lista-zabiegow'(arg, kto) {
+    if (!PROBLEMY.includes(arg)) throw `${kto}: {{lista-zabiegow:…}} — nieznany problem „${arg}”`;
+    const karty = kartyDlaProblemu(arg);
+    if (!karty.length) throw `${kto}: brak zabiegów dla problemu „${arg}”`;
+    return `<ul class="karty-zabiegow" role="list">${karty.map(kartaZabiegu).join('')}</ul>`;
+  },
+  'zobacz-tez'(arg, kto) {
+    if (!zabiegi.has(arg)) throw `${kto}: {{zobacz-tez:…}} — nieznany zabieg „${arg}”`;
+    const moje = problemyPodstrony(arg);
+    const inne = [...zabiegi.keys()].filter((s) => s !== arg)
+      .map((s) => ({ s, wspolne: problemyPodstrony(s).filter((p) => moje.includes(p)).length }))
+      .filter((x) => x.wspolne).sort((a, b) => b.wspolne - a.wspolne).slice(0, 6);
+    const karty = inne.map(({ s }) => ({ tytul: zabiegi.get(s).nazwa, href: linkZabiegu(s), opis: zabiegi.get(s).podtytul, lista: widoczne(uslugiPodstrony(s).flatMap(pozycje)) }))
+      .filter((k) => k.lista.length);
+    return karty.length ? `<ul class="karty-zabiegow" role="list">${karty.map(kartaZabiegu).join('')}</ul>` : '';
+  },
+});
+
+// --- ikony liniowe kroków (wizualizacja 6) ---
+const IKONY = {
+  konsultacja: '<path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',
+  oczyszczanie: '<path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/>',
+  peeling: '<path d="M4 8l8-4 8 4-8 4z"/><path d="M4 12l8 4 8-4"/><path d="M4 16l8 4 8-4"/>',
+  znieczulenie: '<rect x="8" y="3" width="8" height="5" rx="1"/><path d="M7 8h10l-1 13H8z"/>',
+  dezynfekcja: '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/>',
+  igla: '<path d="M14 4l6 6"/><path d="M17 7L8 16l-3 1 1-3 9-9"/><path d="M5 19l-2 2"/><path d="M11 9l4 4"/>',
+  kropla: '<path d="M9 3h6"/><path d="M12 3v4"/><rect x="9" y="7" width="6" height="7" rx="1"/><path d="M12 14v3"/><path d="M12 20.5a1 1 0 1 0 0-.01"/>',
+  urzadzenie: '<rect x="7" y="3" width="10" height="13" rx="2"/><path d="M12 16v5"/><path d="M10 7h4M10 10h4"/>',
+  maska: '<path d="M12 3c4 0 7 3 7 8 0 5-3 10-7 10s-7-5-7-10c0-5 3-8 7-8z"/><path d="M9 10h.01M15 10h.01M10 15c1.2.8 2.8.8 4 0"/>',
+  masaz: '<path d="M7 11V5a1.5 1.5 0 0 1 3 0v5"/><path d="M10 10V4a1.5 1.5 0 0 1 3 0v6"/><path d="M13 10V5a1.5 1.5 0 0 1 3 0v6"/><path d="M16 11V8a1.5 1.5 0 0 1 3 0v5a8 8 0 0 1-8 8h-1a6 6 0 0 1-5-3l-2-4a1.5 1.5 0 0 1 2.5-1.5L7 14"/>',
+  pielegnacja: '<path d="M7 9h10v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/><path d="M8 9V6h8v3"/><path d="M10 14h4"/>',
+  slonce: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/>',
+  zalecenia: '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 10h6M9 14h6M9 18h3"/>',
+  punkt: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/>',
+};
+const SLOWA_IKON = [
+  [/konsult|wywiad|kwalifik|ocen/i, 'konsultacja'], [/dezynfek/i, 'dezynfekcja'], [/znieczul/i, 'znieczulenie'],
+  [/demakij|oczyszcz|mycie|ozon|ekstrakc/i, 'oczyszczanie'], [/peeling|kwas|złuszcz|eksfol/i, 'peeling'],
+  [/mikronak|dermapen|nakłu|iniekc|igł|co₂|co2|dwutlen|mezoterap|podani/i, 'igla'],
+  [/kawitac|oxybraz|tripollar|geneo|sonofor|infuzj|urządzen|głowic/i, 'urzadzenie'],
+  [/mask/i, 'maska'], [/masaż/i, 'masaz'], [/serum|ampuł|koktajl|preparat|aplikac/i, 'kropla'],
+  [/spf|słońc|przeciwsłon/i, 'slonce'], [/krem|pielęgnac|zalec/i, 'pielegnacja'],
+];
+const ikona = (nazwa) => `<svg class="ikona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${IKONY[nazwa] || IKONY.punkt}</svg>`;
+const ikonaDla = (tekst) => (SLOWA_IKON.find(([re]) => re.test(tekst)) || [null, 'punkt'])[1];
+
+// --- przekrój skóry (wizualizacja 4) — schemat poglądowy, ❓ do akceptacji Malwiny ---
+function przekrojSkory(warstwy = []) {
+  const W = { naskorek: 'Naskórek', 'skora-wlasciwa': 'Skóra właściwa', 'tkanka-podskorna': 'Tkanka podskórna' };
+  const akt = (w) => warstwy.includes(w) ? ' aktywna' : '';
+  const komorki = Array.from({ length: 9 }, (_, i) => `<ellipse cx="${30 + i * 30}" cy="${178 + (i % 2) * 14}" rx="13" ry="10"/>`).join('');
+  const wlokna = Array.from({ length: 6 }, (_, i) => `<path d="M${14 + i * 46} ${70 + (i % 3) * 18}c14-10 22 10 36 0"/>`).join('');
+  return `<figure class="przekroj">
+<svg viewBox="0 0 300 220" role="img" aria-label="Schemat przekroju skóry. Zabieg działa w warstwie: ${esc(warstwy.map((w) => W[w]).join(', '))}">
+<path class="przekroj__warstwa przekroj__warstwa--tp${akt('tkanka-podskorna')}" d="M0 150h300v70H0z"/>
+<g class="przekroj__komorki${akt('tkanka-podskorna')}">${komorki}</g>
+<path class="przekroj__warstwa przekroj__warstwa--sw${akt('skora-wlasciwa')}" d="M0 46c50-6 100 6 150 0s100-6 150 0v104H0z"/>
+<g class="przekroj__wlokna${akt('skora-wlasciwa')}">${wlokna}</g>
+<path class="przekroj__warstwa przekroj__warstwa--n${akt('naskorek')}" d="M0 22c50-8 100 8 150 0s100-8 150 0v24c-50-6-100 6-150 0S50 40 0 46z"/>
+</svg>
+<ul class="przekroj__legenda" role="list">${Object.entries(W).map(([k, v]) => `<li class="${warstwy.includes(k) ? 'aktywna' : ''}"><span></span>${v}${warstwy.includes(k) ? ' <strong>— tu działa zabieg</strong>' : ''}</li>`).join('')}</ul>
+<figcaption>Schemat poglądowy.</figcaption>
+</figure>`;
+}
+
+// --- oś czasu serii (wizualizacja 3) ---
+function osCzasu(seria) {
+  if (!seria.zabiegi) return '';
+  const kropki = Array.from({ length: seria.zabiegi }, (_, i) => `<li><span class="os__znak" aria-hidden="true">${i + 1}</span><span class="os__opis">${i === 0 ? 'Zabieg 1' : `Zabieg ${i + 1}${seria.odstep ? `<small>${esc(seria.odstep)}</small>` : ''}`}</span></li>`).join('');
+  const ocena = seria.ocena ? `<li class="os__ocena"><span class="os__znak" aria-hidden="true">✓</span><span class="os__opis">Ocena efektu<small>${esc(seria.ocena)}</small></span></li>` : '';
+  return `<ol class="os" aria-label="Seria: ${seria.zabiegi} zabiegi">${kropki}${ocena}</ol>`;
+}
+
+// --- pomocnicze: akapity, listy (płaskie lub w grupach) ---
+const akapity = (a) => (Array.isArray(a) ? a : [a]).map((t) => `<p>${t}</p>`).join('');
+function lista(dane, klasa = 'lista-ptaszki') {
+  if (!dane || !dane.length) return '';
+  if (typeof dane[0] === 'object' && dane[0].grupa)
+    return dane.map((g) => `<h3 class="lista-grupa">${esc(g.grupa)}</h3>${lista(g.lista, klasa)}`).join('');
+  return `<ul class="${klasa}">${dane.map((t) => `<li>${t}</li>`).join('')}</ul>`;
+}
+const uwaga = (t) => t ? `<p class="tekst-maly uwaga-zrodla">${t}</p>` : '';
+const sekcjaTlo = (() => { let i = 0; return (reset) => { if (reset) { i = 0; return ''; } return (i++ % 2) ? ' sekcja--krem' : ''; }; })();
+
+// --- STRONA ZABIEGU (BRIEF 6.1 — stały układ) ---
+function stronaZabiegu(z) {
+  const problemy = problemyPodstrony(z.slug);
+  const listaCen = widoczne(uslugiPodstrony(z.slug).flatMap(pozycje));
+  const [gId] = z.glownaUsluga.split('/');
+  sekcjaTlo(true);
+  sekcjaTlo(); // nagłówek = białe tło
+  const s = [];
+  const sekcja = (id, tytul, wnetrze, nadtytul) =>
+    `<section class="sekcja${sekcjaTlo()}" id="${id}" aria-labelledby="${id}-t"><div class="kontener">`
+    + `<div class="sekcja__glowa">${nadtytul ? `<span class="nadtytul">${nadtytul}</span>` : ''}<h2 id="${id}-t">${tytul}</h2></div>${wnetrze}</div></section>`;
+
+  // 1. nagłówek
+  s.push(`<section class="naglowek-strony naglowek-zabiegu" data-hero aria-labelledby="z-tytul"><div class="kontener">
+<nav class="okruszki" aria-label="Okruszki"><ol><li><a href="/">Strona główna</a></li><li><a href="/zabiegi/">Zabiegi</a></li><li aria-current="page">${z.nazwa}</li></ol></nav>
+<ul class="chipy chipy--male" aria-label="Problemy skóry">${problemy.map((p) => `<li><a class="chip" href="/problemy-skory/${p}/">${NAZWY_PROBLEMOW[p]}</a></li>`).join('')}</ul>
+<h1 id="z-tytul">${z.nazwa}</h1>
+<p class="lead">${z.podtytul}</p>
+<p class="naglowek-zabiegu__cena"><strong>{{cena:${z.glownaUsluga}}}</strong> <span>· {{czas:${z.glownaUsluga}}}</span></p>
+<div class="przyciski"><a class="btn" href="{{booksy:${z.glownaUsluga}}}" rel="noopener" data-umow="zabieg-${z.slug}">Umów w Booksy</a><a class="btn btn--kontur" href="#cennik">Cennik wariantów</a></div>
+</div></section>`);
+
+  // 2. na czym polega + przekrój
+  s.push(sekcja('na-czym-polega', 'Na czym polega zabieg',
+    `<div class="duet duet--start"><div class="tresc">${akapity(z.naCzymPolega)}</div>${z.warstwy ? przekrojSkory(z.warstwy) : ''}</div>`));
+  // 3. dla kogo
+  s.push(sekcja('dla-kogo', 'Dla kogo', lista(z.dlaKogo) + uwaga(z.dlaKogoUwaga)));
+  // 4. efekty
+  s.push(sekcja('efekty', 'Efekty', lista(z.efekty) + (z.zastrzezenie ? `<p class="zastrzezenie">${z.zastrzezenie}</p>` : '')));
+  // 5. przebieg
+  s.push(sekcja('przebieg', 'Przebieg zabiegu',
+    `<ol class="kroki" role="list">${z.przebieg.map((k, i) => `<li><span class="kroki__ikona">${ikona(ikonaDla(k))}</span><span class="kroki__nr">${i + 1}</span><p>${k}</p></li>`).join('')}</ol>` + uwaga(z.przebiegUwaga)));
+  // 6. seria
+  if (z.seria) s.push(sekcja('seria', 'Seria i częstotliwość', osCzasu(z.seria) + akapity(z.seria.tekst)));
+  // 7. cennik
+  s.push(sekcja('cennik', 'Cennik', (listaCen.length ? tabelaCennika(listaCen) : '') + `<p class="tekst-maly">Aktualne ceny i wolne terminy sprawdzisz w Booksy.</p>`, 'Warianty i ceny'));
+  // 8–10. akordeony
+  const akord = (id, tytul, wnetrze) => `<details id="${id}"><summary>${tytul}</summary><div class="akordeon__tresc">${wnetrze}</div></details>`;
+  const ak = [akord('przeciwwskazania', 'Przeciwwskazania', lista(z.przeciwwskazania, 'lista-kropki') + uwaga(z.przeciwwskazaniaUwaga))];
+  if (z.poZabiegu) ak.push(akord('po-zabiegu', 'Po zabiegu', lista(z.poZabiegu, 'lista-kropki') + uwaga(z.poZabieguUwaga)));
+  s.push(sekcja('bezpieczenstwo', 'Przeciwwskazania i zalecenia', `<div class="akordeon">${ak.join('')}</div>`));
+  if (z.faq && z.faq.length)
+    s.push(sekcja('faq', 'Najczęstsze pytania', `<!-- [N:claude-draft] FAQ wyłącznie z faktów źródła — do akceptacji Malwiny -->`
+      + `<div class="akordeon" data-faq>${z.faq.map((f) => `<details><summary>${f.p}</summary><div class="akordeon__tresc"><p>${f.o}</p></div></details>`).join('')}</div>`));
+  // 11. terapie łączone
+  if (z.laczone) s.push(sekcja('laczone', z.laczone.tytul || 'Chcesz rozszerzyć terapię?', akapity(z.laczone.tekst || []) + lista(z.laczone.lista)));
+  if (z.przypisy) s.push(sekcja('zrodla', 'Źródła', `<ol class="przypisy">${z.przypisy.map((p) => `<li>${p}</li>`).join('')}</ol>`));
+  // 12. nie wiesz?
+  s.push(`<section class="sekcja${sekcjaTlo()}" aria-labelledby="niewiesz-t"><div class="kontener"><div class="baner-diagnostyka">
+<div><h2 id="niewiesz-t">Nie wiesz, czy to zabieg dla Ciebie?</h2>
+<p>Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania. Jeśli chcesz najpierw dokładnie poznać swoją skórę, zacznij od diagnostyki Lumiscan — albo umów konsultację kosmetologiczną ({{cena:konsultacja}}).</p></div>
+<div class="przyciski"><a class="btn" href="/diagnostyka-skory/">Poznaj diagnostykę</a><a class="btn btn--kontur" href="{{booksy:konsultacja}}" rel="noopener" data-umow="zabieg-${z.slug}-konsultacja">Umów konsultację</a></div>
+</div></div></section>`);
+  // 13. zobacz też
+  s.push(`<section class="sekcja${sekcjaTlo()}" aria-labelledby="zobacz-t"><div class="kontener"><div class="sekcja__glowa"><span class="nadtytul">Na te same problemy</span><h2 id="zobacz-t">Zobacz też</h2></div>{{zobacz-tez:${z.slug}}}</div></section>`);
+
+  return szkieletStrony({
+    tytul: z.meta?.tytul || `${z.nazwa.replace(/<[^>]+>/g, '')} – Warszawa Włochy | Twój Kosmetolog`,
+    opis: z.meta?.opis || '', komentarz: `Źródło treści: ${z.zrodlo || '—'}. Generowane z src/data/zabiegi/${z.slug}.json`,
+    tresc: s.join('\n'),
+  });
+}
+
+// --- STRONA PROBLEMU (BRIEF 6.2) ---
+function stronaProblemu(p) {
+  const ma = {};
+  return szkieletStrony({
+    tytul: p.tytul, opis: p.meta, komentarz: '[N:claude-draft] teksty: teksty/problemy-skory-robocze.md — do akceptacji Malwiny',
+    tresc: `<section class="naglowek-strony" data-hero aria-labelledby="p-tytul"><div class="kontener">
+<nav class="okruszki" aria-label="Okruszki"><ol><li><a href="/">Strona główna</a></li><li><a href="/problemy-skory/">Problemy skóry</a></li><li aria-current="page">${p.nazwa}</li></ol></nav>
+<span class="nadtytul">Problemy skóry</span>
+<h1 id="p-tytul">${p.h1}</h1>
+<div class="tresc lead-tresc">${akapity(p.opis)}</div>
+</div></section>
+<section class="sekcja sekcja--krem" aria-labelledby="p-diag"><div class="kontener"><div class="baner-diagnostyka">
+<div><h2 id="p-diag">${p.diagnostykaTytul || 'Kiedy warto zacząć od diagnostyki?'}</h2><p>${p.diagnostyka}</p></div>
+<div class="przyciski"><a class="btn" href="/diagnostyka-skory/">Poznaj diagnostykę</a><a class="btn btn--kontur" href="{{booksy:konsultacja}}" rel="noopener" data-umow="problem-${p.slug}-konsultacja">Umów konsultację</a></div>
+</div></div></section>
+<section class="sekcja" aria-labelledby="p-zab"><div class="kontener">
+<div class="sekcja__glowa"><span class="nadtytul">Zabiegi, które mogą pomóc</span><h2 id="p-zab">Zabiegi — ${p.nazwa.toLowerCase()}</h2></div>
+{{lista-zabiegow:${p.slug}}}
+${p.linki ? `<ul class="linki-pomocnicze" role="list">${p.linki.map((l) => `<li><a class="link-strzalka" href="${l.href}">${l.tekst}</a></li>`).join('')}</ul>` : ''}
+</div></section>
+<section class="sekcja sekcja--krem cta-koniec" aria-labelledby="p-cta"><div class="kontener">
+<h2 id="p-cta">Umów wizytę</h2>
+<p class="lead">Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania.</p>
+<div class="przyciski"><a class="btn" href="{{firma:booksy}}" rel="noopener" data-umow="problem-${p.slug}">Umów wizytę w Booksy</a></div>
+</div></section>`,
+  });
+}
+
+function szkieletStrony({ tytul, opis, komentarz, tresc, head = '' }) {
+  return `<!doctype html>
+<html lang="pl">
+<head>
+  <title>${tytul}</title>
+  <meta name="description" content="${esc(opis)}">
+  <!-- @include head -->${head}
+</head>
+<body>
+  <!-- @include naglowek -->
+  <main id="tresc">
+  <!-- ${komentarz} -->
+${tresc}
+  </main>
+  <!-- @include stopka -->
+  <!-- @include umow-mobile -->
+</body>
+</html>
+`;
+}
+
+// lista stron generowanych: [ścieżka względna w dist, html, nazwa do komunikatów]
+const generowane = [];
+for (const z of zabiegi.values()) generowane.push([path.join('zabiegi', z.slug, 'index.html'), stronaZabiegu(z), `src/data/zabiegi/${z.slug}.json`]);
+if (problemyDane) for (const p of problemyDane.problemy) {
+  if (!PROBLEMY.includes(p.slug)) { blad(`problemy.json: nieznany problem „${p.slug}”`); continue; }
+  generowane.push([path.join('problemy-skory', p.slug, 'index.html'), stronaProblemu(p), `src/data/problemy.json [${p.slug}]`]);
 }
 
 // ---------- pliki ----------
@@ -291,6 +614,14 @@ for (const p of pliki(KAT_STRON)) {
     fs.writeFileSync(cel, html);
     strony.push({ r, html });
   } else fs.copyFileSync(p, cel);
+}
+for (const [r, kod, nazwa] of generowane) {
+  const cel = path.join(DIST, r);
+  if (fs.existsSync(cel)) { blad(`${nazwa}: kolizja — strona ${r} istnieje też w src/pages`); continue; }
+  fs.mkdirSync(path.dirname(cel), { recursive: true });
+  const html = renderujKod(kod, nazwa);
+  fs.writeFileSync(cel, html);
+  strony.push({ r, html });
 }
 
 // assets (bez plików .md — to dokumentacja robocza) i static (do katalogu głównego)

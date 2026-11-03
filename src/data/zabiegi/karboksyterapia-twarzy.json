@@ -1,0 +1,77 @@
+{
+  "slug": "karboksyterapia-twarzy",
+  "nazwa": "Karboksyterapia twarzy, szyi i dekoltu",
+  "podtytul": "Biorewitalizacja i ujędrnianie skóry",
+  "glownaUsluga": "karboksyterapia-twarzy",
+  "zrodlo": "Karboksyterapia_twarz_WWW_Booksy_cennik.pdf (wersja WWW; cena oczu 180 zł z pliku nie obowiązuje). ❓ „74 godziny” — DO-MALWINY pytanie 2",
+  "meta": { "opis": "Karboksyterapia twarzy, szyi i dekoltu — medyczny CO₂ podawany cienką igłą. Ujędrnianie, owal twarzy, bruzdy nosowo-wargowe. Gabinet w Warszawie (Włochy)." },
+  "warstwy": ["skora-wlasciwa"],
+  "naCzymPolega": [
+    "Karboksyterapia polega na precyzyjnym podawaniu kontrolowanych dawek medycznego dwutlenku węgla (CO₂) za pomocą cienkiej igły. Zabieg wykonywany urządzeniem CARBOXYTHERAPY™ DUAL XT wspiera naturalne procesy regeneracji skóry.",
+    "Podanie CO₂ pobudza lokalne mikrokrążenie, zwiększając dostępność tlenu i składników odżywczych w tkankach. Stymuluje również aktywność fibroblastów — komórek odpowiedzialnych za produkcję kolagenu i elastyny, które odpowiadają za jędrność i sprężystość skóry.",
+    "Celem terapii jest poprawa gęstości, napięcia i elastyczności skóry, wygładzenie drobnych zmarszczek oraz regeneracja skóry twarzy, szyi i dekoltu. Zabieg może obejmować również owal twarzy, bruzdy nosowo-wargowe i okolice oczu."
+  ],
+  "dlaKogo": [
+    "Utrata jędrności, napięcia i elastyczności skóry.",
+    "Drobne zmarszczki na twarzy, szyi i dekolcie.",
+    "Wiotkość skóry w obrębie owalu twarzy.",
+    "Widoczne bruzdy nosowo-wargowe.",
+    "Cienie pod oczami, szczególnie sinawe, o podłożu naczyniowym.",
+    "Worki i obrzęki pod oczami — po ocenie ich przyczyny.",
+    "Skóra wymagająca regeneracji i rewitalizacji."
+  ],
+  "efekty": [
+    "Poprawa jędrności, napięcia i elastyczności skóry.",
+    "Poprawa gęstości i struktury skóry.",
+    "Wygładzenie drobnych zmarszczek.",
+    "Możliwe zmniejszenie widoczności bruzd nosowo-wargowych dzięki poprawie jakości skóry.",
+    "Zmniejszenie widoczności cieni pod oczami o podłożu naczyniowym.",
+    "Możliwa poprawa wyglądu obrzęków pod oczami, zależnie od ich przyczyny.",
+    "Bardziej wypoczęty wygląd skóry."
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo i zależą od kondycji skóry oraz jej reakcji na terapię. Poprawa wyglądu cieni i obrzęków zależy od ich przyczyny. Karboksyterapia nie wypełnia bruzd; poprawa ich wyglądu wynika z regeneracji i ujędrniania skóry.",
+  "przebieg": [
+    "Konsultacja, ocena skóry i wykluczenie przeciwwskazań.",
+    "Oczyszczenie skóry i demakijaż.",
+    "Dokładna dezynfekcja obszaru zabiegowego.",
+    "Podanie kontrolowanych dawek medycznego CO₂ za pomocą cienkiej igły.",
+    "Przekazanie zaleceń pozabiegowych."
+  ],
+  "przebiegUwaga": "Podczas aplikacji można odczuwać rozpieranie, pieczenie, mrowienie lub ciepło. Nasilenie odczuć zależy od okolicy i indywidualnej wrażliwości.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": ["Zazwyczaj co 10–14 dni. Terapia wykonywana jest w serii.", "Efekty regeneracji rozwijają się również po zakończeniu serii. Końcową poprawę można oceniać po około 4–5 tygodniach od ostatniego zabiegu."]
+  },
+  "przeciwwskazania": [
+    "Ciąża i karmienie piersią.",
+    "Choroby nowotworowe oraz okres do 5 lat po chorobie nowotworowej.",
+    "Epilepsja i jaskra.",
+    "Ostra niewydolność serca, niedawny zawał, dławica piersiowa lub niedawny udar.",
+    "Ciężka niewydolność nerek lub wątroby.",
+    "Niedawne przyjęcie aspiryny lub leków przeciwzapalnych wpływających na krzepnięcie.",
+    "Trądzik różowaty i poikilodermia.",
+    "Zaburzenia gojenia, choroby tkanki łącznej oraz skłonność do bliznowców.",
+    "Choroby immunologiczne: toczeń, bielactwo i liszaj płaski.",
+    "Aktywna łuszczyca w miejscu zabiegu.",
+    "Zakażenia bakteryjne, wirusowe lub grzybicze w obszarze zabiegowym.",
+    "Guzki niewiadomego pochodzenia.",
+    "Przyjmowanie antybiotyków, infekcja lub ogólny zły stan zdrowia.",
+    "Niedawna operacja albo inne zabiegi estetyczne w obszarze planowanej terapii — wymagają oceny odpowiedniego odstępu.",
+    "Silny lęk przed igłami."
+  ],
+  "poZabiegu": [
+    "Nie pocieraj, nie rozcieraj ani nie masuj obszaru zabiegowego.",
+    "Przez 12 godzin unikaj intensywnego wysiłku fizycznego.",
+    "Przez 74 godziny nie korzystaj z sauny, basenu ani solarium.",
+    "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, tkliwość lub siniaki.",
+    "W przypadku nasilających się lub niepokojących objawów skontaktuj się z gabinetem.",
+    "Po zabiegu w okolicy oczu ból oka lub zaburzenia widzenia wymagają pilnej konsultacji lekarskiej."
+  ],
+  "poZabieguUwaga": "Szczegółowe zalecenia pozabiegowe przekazywane są indywidualnie.",
+  "faq": [
+    { "p": "Jak często wykonuje się zabiegi?", "o": "Zazwyczaj co 10–14 dni. Terapia wykonywana jest w serii." },
+    { "p": "Czy karboksyterapia wypełnia bruzdy?", "o": "Nie. Poprawa wyglądu bruzd wynika z regeneracji i ujędrniania skóry." },
+    { "p": "Co czuć podczas zabiegu?", "o": "Podczas aplikacji można odczuwać rozpieranie, pieczenie, mrowienie lub ciepło. Nasilenie odczuć zależy od okolicy i indywidualnej wrażliwości." },
+    { "p": "Kiedy ocenia się efekty?", "o": "Efekty regeneracji rozwijają się również po zakończeniu serii. Końcową poprawę można oceniać po około 4–5 tygodniach od ostatniego zabiegu." }
+  ]
+}

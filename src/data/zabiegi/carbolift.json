@@ -1,0 +1,109 @@
+{
+  "slug": "carbolift",
+  "nazwa": "Carbolift®",
+  "podtytul": "Ujędrnianie i regeneracja skóry — twarz, owal, szyja i okolica oczu",
+  "glownaUsluga": "carbolift",
+  "zrodlo": "Carbolift_twarz_WWW_Booksy.pdf + Carbolift_oczy_WWW_Booksy.pdf (wersje WWW)",
+  "meta": {
+    "opis": "Carbolift® — mikronakłuwanie z jednoczesnym podawaniem medycznego CO₂. Ujędrnianie i regeneracja skóry twarzy, owalu i okolicy oczu. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": ["skora-wlasciwa"],
+  "naCzymPolega": [
+    "Carbolift® łączy kontrolowane mikronakłuwanie z jednoczesnym podawaniem medycznego dwutlenku węgla (CO₂). Zabieg wykonywany urządzeniem CARBOXYTHERAPY™ DUAL XT wspiera naturalne procesy regeneracji oraz stymulację produkcji kolagenu i elastyny.",
+    "Celem terapii jest poprawa gęstości, napięcia i elastyczności skóry, wygładzenie drobnych zmarszczek oraz uzyskanie naturalnego efektu ujędrnienia twarzy. Parametry dobierane są indywidualnie do potrzeb skóry i obszaru zabiegowego.",
+    "<strong>Okolica oczu.</strong> Terapia ukierunkowana jest na poprawę jędrności i elastyczności delikatnej skóry wokół oczu, wygładzenie drobnych zmarszczek oraz zmniejszenie widoczności cieni o podłożu naczyniowym. Może być również rozważana przy workach i obrzękach pod oczami — po ocenie ich przyczyny i kwalifikacji do zabiegu."
+  ],
+  "dlaKogo": [
+    { "grupa": "Twarz, owal i szyja", "lista": [
+      "Utrata jędrności, elastyczności i napięcia skóry.",
+      "Pierwsze oznaki starzenia oraz drobne zmarszczki.",
+      "Skóra wymagająca regeneracji i rewitalizacji.",
+      "Potrzeba poprawy sprężystości, wygładzenia i ogólnej kondycji skóry."
+    ]},
+    { "grupa": "Okolica oczu", "lista": [
+      "Drobne zmarszczki wokół oczu.",
+      "Utrata jędrności, napięcia i elastyczności skóry.",
+      "Cienie pod oczami, szczególnie sinawe, związane z zaburzeniami mikrokrążenia.",
+      "Worki i obrzęki pod oczami — po indywidualnej ocenie.",
+      "Skóra wymagająca regeneracji i rewitalizacji."
+    ]}
+  ],
+  "efekty": [
+    { "grupa": "Twarz, owal i szyja", "lista": [
+      "Poprawa jędrności i napięcia skóry.",
+      "Zwiększenie elastyczności i sprężystości.",
+      "Wygładzenie drobnych zmarszczek.",
+      "Poprawa gęstości i struktury skóry.",
+      "Naturalny efekt ujędrnienia twarzy."
+    ]},
+    { "grupa": "Okolica oczu", "lista": [
+      "Wygładzenie drobnych zmarszczek.",
+      "Poprawa napięcia, jędrności i elastyczności skóry.",
+      "Poprawa struktury i kondycji skóry wokół oczu.",
+      "Zmniejszenie widoczności cieni o podłożu naczyniowym.",
+      "Możliwe zmniejszenie obrzęków, zależnie od ich przyczyny.",
+      "Bardziej wypoczęty wygląd okolicy oczu."
+    ]}
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo wraz z regeneracją i przebudową skóry. Ich zakres zależy od indywidualnej kondycji skóry, w okolicy oczu — także od przyczyny cieni i obrzęków, oraz od reakcji na terapię.",
+  "przebieg": [
+    "Konsultacja i wykluczenie przeciwwskazań.",
+    "Oczyszczenie skóry i demakijaż.",
+    "Aplikacja znieczulenia.",
+    "Dokładna dezynfekcja skóry.",
+    "Mikronakłuwanie z jednoczesną mikroinfuzją medycznego CO₂.",
+    "Aplikacja serum lub ampułki dobranej do potrzeb skóry i przeznaczonej do stosowania po mikronakłuwaniu.",
+    "Pielęgnacja pozabiegowa wspierająca regenerację."
+  ],
+  "przebiegUwaga": "W okolicy oczu znieczulenie aplikuję, jeśli jest wskazane i odpowiednie dla obszaru zabiegowego. Parametry i zakres zabiegu dobierane są indywidualnie.",
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "ok. 30 dni po poprzednim",
+    "tekst": "Rekomendowana seria: 3 zabiegi w odstępach około 30 dni. Plan terapii dobierany jest indywidualnie."
+  },
+  "przeciwwskazania": [
+    "Ciąża i karmienie piersią.",
+    "Choroby nowotworowe oraz okres do 5 lat po chorobie nowotworowej.",
+    "Epilepsja i jaskra.",
+    "Ostra niewydolność serca, niedawny zawał, dławica piersiowa lub niedawny udar.",
+    "Ciężka niewydolność nerek lub wątroby.",
+    "Niedawne przyjęcie aspiryny lub leków przeciwzapalnych wpływających na krzepnięcie.",
+    "Trądzik różowaty i poikilodermia.",
+    "Zaburzenia gojenia, choroby tkanki łącznej oraz skłonność do bliznowców.",
+    "Choroby immunologiczne: toczeń, bielactwo i liszaj płaski.",
+    "Aktywna łuszczyca w miejscu zabiegu.",
+    "Zakażenia bakteryjne, wirusowe lub grzybicze w obszarze zabiegowym.",
+    "Guzki niewiadomego pochodzenia.",
+    "Przyjmowanie antybiotyków, infekcja lub ogólny zły stan zdrowia.",
+    "Niedawna operacja albo inne zabiegi estetyczne w obszarze planowanej terapii — wymagają oceny odpowiedniego odstępu.",
+    "Silny lęk przed igłami."
+  ],
+  "przeciwwskazaniaUwaga": "Przed zabiegiem przeprowadzany jest wywiad i wypełniany kwestionariusz zabiegowy. Przy zabiegu w okolicy oczu należy zgłosić również choroby oczu i wcześniejsze zabiegi okulistyczne. Nie należy samodzielnie odstawiać leków w celu wykonania zabiegu.",
+  "poZabiegu": [
+    { "grupa": "Twarz, owal i szyja", "lista": [
+      "Stosuj delikatną pielęgnację i preparat regenerujący zalecony przez kosmetologa.",
+      "Nie pocieraj i nie masuj skóry; nie wykonuj peelingów do czasu jej wygojenia.",
+      "Do czasu regeneracji zrezygnuj z retinoidów, kwasów i innych preparatów drażniących.",
+      "Unikaj ekspozycji na słońce i stosuj ochronę przeciwsłoneczną SPF 50.",
+      "Termin powrotu do makijażu, ćwiczeń, sauny i basenu ustal z kosmetologiem zgodnie z zaleceniami dla wykonanej procedury.",
+      "W przypadku nasilającego się bólu, zaczerwienienia, obrzęku lub innych niepokojących objawów skontaktuj się z gabinetem."
+    ]},
+    { "grupa": "Okolica oczu", "lista": [
+      "Stosuj delikatną pielęgnację i zalecony preparat regenerujący, odpowiedni do okolicy oczu.",
+      "Nie pocieraj ani nie masuj skóry.",
+      "Do czasu wygojenia unikaj peelingów, retinoidów, kwasów i innych preparatów drażniących w obszarze zabiegowym.",
+      "Unikaj ekspozycji na słońce; stosuj odpowiednią ochronę SPF 50 i okulary przeciwsłoneczne.",
+      "Powrót do makijażu, ćwiczeń, sauny i basenu ustal z kosmetologiem.",
+      "Po zabiegu mogą wystąpić przejściowe zaczerwienienie, obrzęk lub siniaki.",
+      "Przy nasilających się objawach skontaktuj się z gabinetem. Ból oka lub zaburzenia widzenia wymagają pilnej konsultacji lekarskiej."
+    ]}
+  ],
+  "poZabieguUwaga": "Szczegółowe zalecenia pozabiegowe przekazywane są indywidualnie.",
+  "faq": [
+    { "p": "Czy zabieg wymaga znieczulenia?", "o": "Przed mikronakłuwaniem aplikuję znieczulenie. W okolicy oczu stosuję je, jeśli jest wskazane i odpowiednie dla tego obszaru." },
+    { "p": "Ile zabiegów potrzeba?", "o": "Rekomendowana seria to 3 zabiegi w odstępach około 30 dni. Plan terapii dobieram indywidualnie." },
+    { "p": "Kiedy widać efekty?", "o": "Efekty rozwijają się stopniowo wraz z regeneracją i przebudową skóry. Ich zakres zależy od indywidualnej kondycji skóry oraz reakcji na terapię." },
+    { "p": "Czy Carbolift® można wykonać przy trądziku różowatym?", "o": "Nie. Trądzik różowaty i poikilodermia są przeciwwskazaniem do tego zabiegu." },
+    { "p": "Kiedy mogę wrócić do makijażu i ćwiczeń?", "o": "Termin powrotu do makijażu, ćwiczeń, sauny i basenu ustalamy indywidualnie, zgodnie z zaleceniami dla wykonanej procedury." }
+  ]
+}
