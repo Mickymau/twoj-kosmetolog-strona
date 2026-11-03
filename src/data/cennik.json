@@ -222,6 +222,21 @@
       "zweryfikowano": "2026-11-02"
     },
     {
+      "id": "kwas-azelainowy",
+      "nazwa": "Kwas azelainowy + pielęgnacja — terapia na rumień",
+      "kategoria": "naczynka",
+      "problemy": [
+        "naczynka",
+        "przebarwienia"
+      ],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 280,
+      "czas": null,
+      "zweryfikowano": "2026-11-04",
+      "uwagi": "Booksy: dla skóry naczyniowej, reaktywnej, z utrwalonym rumieniem i trądzikiem różowatym. Czas do zebrania."
+    },
+    {
       "id": "mezoterapia-neauvia",
       "nazwa": "Mezoterapia igłowa Neauvia Organic Hydro Deluxe",
       "kategoria": "cera-sucha",
@@ -437,6 +452,21 @@
       "zweryfikowano": "2026-11-04"
     },
     {
+      "id": "mezoterapia-rewitalizujaca",
+      "nazwa": "Mezoterapia rewitalizująca (skin booster)",
+      "kategoria": "starzenie",
+      "problemy": [
+        "starzenie-skory",
+        "cera-sucha"
+      ],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 600,
+      "czas": null,
+      "zweryfikowano": "2026-11-04",
+      "uwagi": "Booksy: kwas hialuronowy, polinukleotydy, niacynamid; seria 3–4 zabiegi. Czas do zebrania."
+    },
+    {
       "id": "polinukleotydy",
       "nazwa": "Stymulacja skóry polinukleotydami",
       "kategoria": "starzenie",
@@ -517,14 +547,26 @@
           "nazwa": "Xela Rederm 1,8%",
           "cena": 850,
           "czas": 100,
-          "zweryfikowano": "2026-11-04"
+          "zweryfikowano": "2026-11-04",
+          "pakiety": [
+            {
+              "zabiegi": 3,
+              "cena": 2420
+            }
+          ]
         },
         {
           "id": "2-2",
           "nazwa": "Xela Rederm 2,2%",
           "cena": 950,
           "czas": 100,
-          "zweryfikowano": "2026-11-04"
+          "zweryfikowano": "2026-11-04",
+          "pakiety": [
+            {
+              "zabiegi": 3,
+              "cena": 2700
+            }
+          ]
         }
       ]
     },
@@ -1230,6 +1272,18 @@
           "zweryfikowano": "2026-11-04"
         }
       ]
+    },
+    {
+      "id": "mezoterapia-piersi",
+      "nazwa": "Mezoterapia igłowa — piersi",
+      "kategoria": "cialo",
+      "problemy": [],
+      "podstrona": null,
+      "booksyUrl": null,
+      "cena": 350,
+      "czas": null,
+      "zweryfikowano": "2026-11-04",
+      "uwagi": "Booksy: brak opisu. Czas do zebrania."
     },
     {
       "id": "masaze",

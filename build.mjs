@@ -570,7 +570,7 @@ function stronaZabiegu(z) {
   // 12. nie wiesz?
   s.push(`<section class="sekcja${sekcjaTlo()}" aria-labelledby="niewiesz-t"><div class="kontener"><div class="baner-diagnostyka">
 <div><h2 id="niewiesz-t">${z.diagnostyka?.tytul || 'Nie wiesz, czy to zabieg dla Ciebie?'}</h2>
-${z.diagnostyka ? akapity(z.diagnostyka.tekst) : '<p>Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania. Jeśli chcesz najpierw dokładnie poznać swoją skórę, zacznij od diagnostyki Lumiscan — albo umów konsultację kosmetologiczną ({{cena:konsultacja}}).</p>'}</div>
+${z.diagnostyka ? akapity(z.diagnostyka.tekst) : '<p>Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania. Jeśli chcesz najpierw dokładnie poznać swoją skórę, zacznij od diagnostyki Lumiscan™ — albo umów konsultację kosmetologiczną ({{cena:konsultacja}}).</p>'}</div>
 <div class="przyciski"><a class="btn" href="/diagnostyka-skory/">Poznaj diagnostykę</a><a class="btn btn--kontur" href="{{booksy:konsultacja}}" rel="noopener" data-umow="zabieg-${z.slug}-konsultacja">Umów konsultację</a></div>
 </div></div></section>`);
   // 13. zobacz też
