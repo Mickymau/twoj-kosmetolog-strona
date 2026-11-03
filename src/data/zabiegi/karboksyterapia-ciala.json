@@ -1,0 +1,87 @@
+{
+  "slug": "karboksyterapia-ciala",
+  "nazwa": "Karboksyterapia ciała",
+  "podtytul": "Terapia cellulitu i redukcja miejscowej tkanki tłuszczowej",
+  "glownaUsluga": "karboksyterapia-ciala",
+  "zrodlo": "Karboksyterapia_cialo_WWW_Booksy_cennik.pdf (wersja WWW). ❓ „74 godziny” — pytanie 2",
+  "meta": {
+    "opis": "Karboksyterapia ciała — cellulit i miejscowa tkanka tłuszczowa. Obszary od kolan po uda, brzuch i ramiona, pakiety 4 i 8 zabiegów. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "tkanka-podskorna"
+  ],
+  "mapaCiala": true,
+  "naCzymPolega": [
+    "Karboksyterapia polega na kontrolowanym podawaniu medycznego dwutlenku węgla (CO₂) za pomocą cienkiej igły. Zabieg wykonywany jest urządzeniem CARBOXYTHERAPY™ DUAL XT, a parametry dobierane są indywidualnie do obszaru i celu terapii.",
+    "Terapia ukierunkowana jest na poprawę wyglądu skóry objętej cellulitem oraz modelowanie obszarów z miejscowym nagromadzeniem tkanki tłuszczowej. Podanie CO₂ wpływa na lokalne mikrokrążenie i dotlenienie tkanek oraz wspiera procesy regeneracyjne.",
+    "Podczas konsultacji ustalamy, czy głównym celem jest zmniejszenie widoczności cellulitu, redukcja miejscowej tkanki tłuszczowej czy praca nad oboma problemami. Zabieg służy miejscowemu modelowaniu sylwetki; nie jest metodą leczenia otyłości."
+  ],
+  "dlaKogo": [
+    "Cellulit i nierówna powierzchnia skóry.",
+    "Miejscowe nagromadzenie tkanki tłuszczowej.",
+    "Nierównomierne rozmieszczenie tkanki tłuszczowej wpływające na kontur sylwetki.",
+    "Potrzeba poprawy wyglądu i kondycji skóry wybranych partii ciała."
+  ],
+  "efekty": [
+    "Zmniejszenie widoczności cellulitu i poprawa gładkości skóry.",
+    "Możliwa redukcja miejscowej tkanki tłuszczowej i poprawa konturu sylwetki.",
+    "Poprawa kondycji skóry w obszarze zabiegowym."
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo i różnią się u poszczególnych osób. Zależą od nasilenia problemu, regularności terapii, reakcji organizmu oraz stylu życia. Zabieg nie gwarantuje określonego spadku masy ciała ani liczby centymetrów.",
+  "przebieg": [
+    "Konsultacja, ocena obszaru i wykluczenie przeciwwskazań.",
+    "Przygotowanie i dezynfekcja skóry.",
+    "Podanie kontrolowanych dawek medycznego CO₂ za pomocą cienkiej igły.",
+    "Przekazanie indywidualnych zaleceń pozabiegowych."
+  ],
+  "przebiegUwaga": "Podczas aplikacji można odczuwać rozpieranie, pieczenie, mrowienie lub ciepło. Nasilenie odczuć zależy od obszaru i indywidualnej wrażliwości.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "Zabiegi wykonywane są średnio co 4–10 dni. Terapia prowadzona jest w serii — przy większych obszarach dostępne są pakiety 4 lub 8 zabiegów (ceny w cenniku poniżej)."
+    ]
+  },
+  "przeciwwskazania": [
+    "Ciąża i karmienie piersią.",
+    "Choroby nowotworowe oraz okres do 5 lat po chorobie nowotworowej.",
+    "Epilepsja i jaskra.",
+    "Ostra niewydolność serca, niedawny zawał, dławica piersiowa lub niedawny udar.",
+    "Ciężka niewydolność nerek lub wątroby.",
+    "Niedawne przyjęcie aspiryny lub leków przeciwzapalnych wpływających na krzepnięcie.",
+    "Zaburzenia gojenia, choroby tkanki łącznej oraz skłonność do bliznowców.",
+    "Choroby immunologiczne: toczeń, bielactwo i liszaj płaski.",
+    "Aktywna łuszczyca w miejscu zabiegu.",
+    "Zakażenia bakteryjne, wirusowe lub grzybicze w obszarze zabiegowym.",
+    "Guzki niewiadomego pochodzenia.",
+    "Przyjmowanie antybiotyków, infekcja lub ogólny zły stan zdrowia.",
+    "Niedawna operacja albo inne zabiegi estetyczne w obszarze planowanej terapii — wymagają oceny odpowiedniego odstępu.",
+    "Silny lęk przed igłami."
+  ],
+  "poZabiegu": [
+    "Nie pocieraj, nie rozcieraj ani nie masuj obszaru zabiegowego.",
+    "Przez 12 godzin unikaj intensywnego wysiłku fizycznego.",
+    "Przez 74 godziny nie korzystaj z sauny, basenu ani solarium.",
+    "Zwykle można wrócić do codziennych zajęć, uwzględniając samopoczucie i reakcję skóry.",
+    "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, tkliwość lub siniaki.",
+    "W przypadku nasilającego się bólu, zaczerwienienia, obrzęku lub innych niepokojących objawów skontaktuj się z gabinetem."
+  ],
+  "poZabieguUwaga": "Szczegółowe zalecenia pozabiegowe przekazywane są indywidualnie.",
+  "faq": [
+    {
+      "p": "Czy karboksyterapia pomoże schudnąć?",
+      "o": "Zabieg służy miejscowemu modelowaniu sylwetki i nie jest metodą leczenia otyłości. Nie gwarantuje określonego spadku masy ciała ani liczby centymetrów."
+    },
+    {
+      "p": "Jak często wykonuje się zabiegi?",
+      "o": "Zabiegi wykonywane są średnio co 4–10 dni."
+    },
+    {
+      "p": "Od czego zależą efekty?",
+      "o": "Od nasilenia problemu, regularności terapii, reakcji organizmu oraz stylu życia. Efekty rozwijają się stopniowo i różnią się u poszczególnych osób."
+    },
+    {
+      "p": "Co czuć podczas zabiegu?",
+      "o": "Podczas aplikacji można odczuwać rozpieranie, pieczenie, mrowienie lub ciepło. Nasilenie odczuć zależy od obszaru i indywidualnej wrażliwości."
+    }
+  ]
+}

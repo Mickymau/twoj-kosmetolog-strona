@@ -281,9 +281,9 @@ for (const p of pliki(path.join(SRC, 'data', 'zabiegi'))) {
   const g = rel(p);
   if (path.basename(p, '.json') !== z.slug) blad(`${g}: nazwa pliku musi być równa „slug”`);
   if (!PODSTRONY.includes(z.slug)) blad(`${g}: slug „${z.slug}” spoza listy podstron (BRIEF 5)`);
-  for (const pole of ['nazwa', 'podtytul', 'glownaUsluga', 'naCzymPolega', 'dlaKogo', 'efekty', 'przebieg', 'przeciwwskazania'])
+  for (const pole of ['nazwa', 'podtytul', 'glownaUsluga', 'naCzymPolega', 'dlaKogo', 'efekty'])
     if (!z[pole] || (Array.isArray(z[pole]) && !z[pole].length)) blad(`${g}: brak wymaganej sekcji „${pole}” (BRIEF 6.1)`);
-  for (const pole of ['poZabiegu', 'seria', 'faq', 'meta'])
+  for (const pole of ['przebieg', 'przeciwwskazania', 'poZabiegu', 'seria', 'faq', 'meta'])
     if (!z[pole]) ostrzezenia.add(`${g}: brak sekcji „${pole}” — nie wyrenderuje się`);
   if (z.glownaUsluga && !uslugi.has(z.glownaUsluga.split('/')[0])) blad(`${g}: nieznana glownaUsluga „${z.glownaUsluga}”`);
   if (![...uslugi.values()].some((u) => u.podstrona === z.slug)) blad(`${g}: żadna usługa w cenniku nie wskazuje podstrony „${z.slug}”`);
@@ -490,13 +490,13 @@ function stronaZabiegu(z) {
 
   // 2. na czym polega + przekrój
   s.push(sekcja('na-czym-polega', 'Na czym polega zabieg',
-    `<div class="duet duet--start"><div class="tresc">${akapity(z.naCzymPolega)}</div>${z.warstwy ? przekrojSkory(z.warstwy) : ''}</div>`));
+    `<div class="duet duet--start"><div class="tresc">${akapity(z.naCzymPolega)}${z.sklad ? `<h3 class="lista-grupa">${esc(z.sklad.tytul)}</h3>${lista(z.sklad.lista, 'lista-kropki')}${z.sklad.uwaga ? `<p>${z.sklad.uwaga}</p>` : ''}` : ''}</div>${z.warstwy ? przekrojSkory(z.warstwy) : ''}</div>`));
   // 3. dla kogo
-  s.push(sekcja('dla-kogo', 'Dla kogo', lista(z.dlaKogo) + uwaga(z.dlaKogoUwaga)));
+  s.push(sekcja('dla-kogo', 'Dla kogo', (z.dlaKogoWstep ? `<p class="lead" style="margin-bottom:var(--s-5)">${z.dlaKogoWstep}</p>` : '') + lista(z.dlaKogo) + uwaga(z.dlaKogoUwaga)));
   // 4. efekty
   s.push(sekcja('efekty', 'Efekty', lista(z.efekty) + (z.zastrzezenie ? `<p class="zastrzezenie">${z.zastrzezenie}</p>` : '')));
   // 5. przebieg
-  s.push(sekcja('przebieg', 'Przebieg zabiegu',
+  if (z.przebieg) s.push(sekcja('przebieg', 'Przebieg zabiegu',
     `<ol class="kroki" role="list">${z.przebieg.map((k, i) => `<li><span class="kroki__ikona">${ikona(ikonaDla(k))}</span><span class="kroki__nr">${i + 1}</span><p>${k}</p></li>`).join('')}</ol>` + uwaga(z.przebiegUwaga)));
   // 6. seria
   if (z.seria) s.push(sekcja('seria', 'Seria i częstotliwość', osCzasu(z.seria) + akapity(z.seria.tekst)));
@@ -504,9 +504,11 @@ function stronaZabiegu(z) {
   s.push(sekcja('cennik', 'Cennik', (listaCen.length ? tabelaCennika(listaCen) : '') + `<p class="tekst-maly">Aktualne ceny i wolne terminy sprawdzisz w Booksy.</p>`, 'Warianty i ceny'));
   // 8–10. akordeony
   const akord = (id, tytul, wnetrze) => `<details id="${id}"><summary>${tytul}</summary><div class="akordeon__tresc">${wnetrze}</div></details>`;
-  const ak = [akord('przeciwwskazania', 'Przeciwwskazania', lista(z.przeciwwskazania, 'lista-kropki') + uwaga(z.przeciwwskazaniaUwaga))];
-  if (z.poZabiegu) ak.push(akord('po-zabiegu', 'Po zabiegu', lista(z.poZabiegu, 'lista-kropki') + uwaga(z.poZabieguUwaga)));
-  s.push(sekcja('bezpieczenstwo', 'Przeciwwskazania i zalecenia', `<div class="akordeon">${ak.join('')}</div>`));
+  const tekstLubLista = (x) => (typeof x === 'string' ? akapity(x) : lista(x, 'lista-kropki'));
+  const ak = [];
+  if (z.przeciwwskazania) ak.push(akord('przeciwwskazania', 'Przeciwwskazania', tekstLubLista(z.przeciwwskazania) + uwaga(z.przeciwwskazaniaUwaga)));
+  if (z.poZabiegu) ak.push(akord('po-zabiegu', 'Po zabiegu', tekstLubLista(z.poZabiegu) + uwaga(z.poZabieguUwaga)));
+  if (ak.length) s.push(sekcja('bezpieczenstwo', z.przeciwwskazania && z.poZabiegu ? 'Przeciwwskazania i zalecenia' : z.przeciwwskazania ? 'Przeciwwskazania' : 'Po zabiegu', `<div class="akordeon">${ak.join('')}</div>`));
   if (z.faq && z.faq.length)
     s.push(sekcja('faq', 'Najczęstsze pytania', `<!-- [N:claude-draft] FAQ wyłącznie z faktów źródła — do akceptacji Malwiny -->`
       + `<div class="akordeon" data-faq>${z.faq.map((f) => `<details><summary>${f.p}</summary><div class="akordeon__tresc"><p>${f.o}</p></div></details>`).join('')}</div>`));

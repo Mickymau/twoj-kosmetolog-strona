@@ -1,0 +1,87 @@
+{
+  "slug": "karboksyterapia-blizny-rozstepy",
+  "nazwa": "Karboksyterapia — blizny i rozstępy",
+  "podtytul": "Zmniejszenie widoczności rozstępów i blizn oraz poprawa struktury skóry",
+  "glownaUsluga": "karboksyterapia-blizny-rozstepy",
+  "zrodlo": "Karboksyterapia_rozstepy_blizny_WWW_Booksy_cennik.pdf (wersja WWW; ceny z dokumentu nie obowiązują — Booksy). ❓ „74 godziny” — pytanie 2",
+  "meta": {
+    "opis": "Karboksyterapia rozstępów i blizn — także potrądzikowych, pooperacyjnych i pourazowych. Medyczny CO₂, seria zabiegów. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Zabieg ukierunkowany na zmniejszenie widoczności rozstępów i blizn oraz poprawę struktury skóry.",
+    "Polega na kontrolowanym podawaniu medycznego dwutlenku węgla (CO₂) za pomocą cienkiej igły, bezpośrednio w obszar wymagający terapii. Karboksyterapia wykonywana urządzeniem CARBOXYTHERAPY™ DUAL XT wspiera lokalne mikrokrążenie oraz procesy regeneracji i przebudowy skóry. Celem terapii jest stopniowa poprawa wyglądu zmian, ich wygładzenie i zwiększenie elastyczności skóry."
+  ],
+  "dlaKogo": [
+    "Rozstępy na piersiach, ramionach, brzuchu i boczkach, plecach, udach oraz pośladkach.",
+    "Blizny po zabiegach chirurgicznych i urazach — po wygojeniu i kwalifikacji.",
+    "Blizny zanikowe, w tym potrądzikowe.",
+    "Nierówna struktura skóry w obszarze blizn i rozstępów."
+  ],
+  "efekty": [
+    "Zmniejszenie widoczności rozstępów i blizn.",
+    "Poprawa struktury i wygładzenie skóry w obszarze zmian.",
+    "Poprawa elastyczności skóry.",
+    "Stopniowa regeneracja i przebudowa tkanek."
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo i zależą od rodzaju, wieku oraz rozległości zmian, a także indywidualnej reakcji skóry. Terapia nie gwarantuje całkowitego usunięcia blizn lub rozstępów.",
+  "przebieg": [
+    "Konsultacja, ocena rodzaju i stanu zmian oraz wykluczenie przeciwwskazań.",
+    "Przygotowanie i dezynfekcja skóry.",
+    "Podanie kontrolowanych dawek medycznego CO₂ w obszar blizn lub rozstępów.",
+    "Przekazanie zaleceń pozabiegowych."
+  ],
+  "przebiegUwaga": "Parametry dobierane są indywidualnie do rodzaju zmian i obszaru. Podczas aplikacji możliwe jest uczucie rozpierania, pieczenia, mrowienia lub ciepła.",
+  "seria": {
+    "zabiegi": 4,
+    "odstep": "7–14 dni po poprzednim",
+    "tekst": [
+      "Rekomendowana seria: minimum 4 zabiegi w odstępach 7–14 dni."
+    ]
+  },
+  "przeciwwskazania": [
+    "Ciąża i karmienie piersią.",
+    "Choroby nowotworowe oraz okres do 5 lat po chorobie nowotworowej.",
+    "Epilepsja i jaskra.",
+    "Ostra niewydolność serca, niedawny zawał, dławica piersiowa lub niedawny udar.",
+    "Ciężka niewydolność nerek lub wątroby.",
+    "Niedawne przyjęcie aspiryny lub leków przeciwzapalnych wpływających na krzepnięcie.",
+    "Zaburzenia gojenia, choroby tkanki łącznej oraz skłonność do bliznowców.",
+    "Choroby immunologiczne: toczeń, bielactwo i liszaj płaski.",
+    "Aktywna łuszczyca w miejscu zabiegu.",
+    "Zakażenia bakteryjne, wirusowe lub grzybicze w obszarze zabiegowym.",
+    "Guzki niewiadomego pochodzenia.",
+    "Przyjmowanie antybiotyków, infekcja lub ogólny zły stan zdrowia.",
+    "Niedawna operacja albo inne zabiegi estetyczne w obszarze planowanej terapii — wymagają oceny odpowiedniego odstępu.",
+    "Silny lęk przed igłami."
+  ],
+  "poZabiegu": [
+    "Nie pocieraj, nie rozcieraj ani nie masuj obszaru zabiegowego.",
+    "Przez 12 godzin unikaj intensywnego wysiłku fizycznego.",
+    "Przez 74 godziny nie korzystaj z sauny, basenu ani solarium.",
+    "Zwykle można wrócić do codziennych zajęć, uwzględniając samopoczucie i reakcję skóry.",
+    "Mogą wystąpić przejściowe zaczerwienienie, obrzęk, tkliwość lub siniaki.",
+    "W przypadku nasilającego się bólu, zaczerwienienia, obrzęku lub innych niepokojących objawów skontaktuj się z gabinetem."
+  ],
+  "poZabieguUwaga": "Szczegółowe zalecenia pozabiegowe przekazywane są indywidualnie.",
+  "faq": [
+    {
+      "p": "Czy karboksyterapia usunie rozstępy?",
+      "o": "Terapia nie gwarantuje całkowitego usunięcia blizn lub rozstępów. Jej celem jest stopniowa poprawa wyglądu zmian, ich wygładzenie i zwiększenie elastyczności skóry."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Rekomendowana seria to minimum 4 zabiegi w odstępach 7–14 dni."
+    },
+    {
+      "p": "Czy mogę zrobić zabieg na świeżą bliznę po operacji?",
+      "o": "Blizny po zabiegach chirurgicznych i urazach kwalifikuję do terapii dopiero po wygojeniu."
+    },
+    {
+      "p": "Czy po zabiegu mogę wrócić do codziennych zajęć?",
+      "o": "Zwykle tak, uwzględniając samopoczucie i reakcję skóry. Przez 12 godzin unikaj intensywnego wysiłku fizycznego."
+    }
+  ]
+}

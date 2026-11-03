@@ -1,0 +1,68 @@
+{
+  "slug": "dermapen-prx-t33",
+  "nazwa": "Dermapen + PRX-T33®",
+  "podtytul": "Rozbudowana terapia przebarwień i blizn",
+  "glownaUsluga": "dermapen-prx-t33",
+  "zrodlo": "Dermapen_PRX-T33_opis_do_Booksy.pdf",
+  "meta": {
+    "opis": "Dermapen + PRX-T33® — mikronakłuwanie połączone z biorewitalizacją. Terapia utrwalonych przebarwień, blizn zanikowych i nierównej struktury skóry. Warszawa Włochy."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Rozbudowany zabieg łączący mikronakłuwanie skóry urządzeniem Dermapen z działaniem biorewitalizującym PRX-T33®. Jest przeznaczony przede wszystkim dla osób, które potrzebują intensywniejszej terapii utrwalonych przebarwień, blizn zanikowych oraz nierównej struktury skóry.",
+    "<strong>Dlaczego łączę te metody?</strong> Kontrolowane mikronakłuwanie uruchamia naturalne procesy regeneracyjne skóry. PRX-T33®, zawierający 33% TCA, 5% kwas kojowy i H₂O₂, uzupełnia terapię o działanie biorewitalizujące oraz wspierające poprawę kolorytu. Zakres procedury i intensywność mikronakłuwania dobieram indywidualnie do rodzaju problemu, kondycji i wrażliwości skóry."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie w przypadku:",
+  "dlaKogo": [
+    "blizn zanikowych i potrądzikowych,",
+    "utrwalonych przebarwień oraz przebarwień pozapalnych,",
+    "nierównej struktury i kolorytu skóry,",
+    "widocznych porów,",
+    "utraty jędrności i napięcia,",
+    "drobnych zmarszczek i oznak fotostarzenia,",
+    "skóry wymagającej intensywnej przebudowy i regeneracji."
+  ],
+  "efekty": [
+    "wygładzenie i poprawa struktury skóry,",
+    "zmniejszenie widoczności blizn zanikowych,",
+    "rozjaśnienie przebarwień i wyrównanie kolorytu,",
+    "poprawa wyglądu porów,",
+    "poprawa napięcia, jędrności i elastyczności,",
+    "rozświetlenie oraz odświeżenie wyglądu skóry,",
+    "wsparcie naturalnych procesów odnowy."
+  ],
+  "zastrzezenie": "Reakcja skóry oraz czas regeneracji są indywidualne.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "W terapii blizn i utrwalonych przebarwień najlepsze rezultaty zwykle przynosi seria. Jej długość oraz odstępy pomiędzy wizytami ustalam indywidualnie po konsultacji."
+    ]
+  },
+  "przeciwwskazania": [
+    "ciąża i karmienie piersią,",
+    "aktywna infekcja lub opryszczka,",
+    "aktywne zmiany ropne i wysiękowe,",
+    "przerwana ciągłość skóry,",
+    "zaburzenia gojenia, skłonność do bliznowców,",
+    "terapia izotretynoiną,",
+    "zaostrzenie choroby dermatologicznej."
+  ],
+  "przeciwwskazaniaUwaga": "To m.in. sytuacje, w których zabiegu nie wykonuję. Pozostałe przeciwwskazania wykluczam podczas konsultacji.",
+  "poZabiegu": "Może wystąpić zaczerwienienie, uczucie ciepła, napięcie, tkliwość, niewielki obrzęk lub złuszczanie. Reakcja oraz czas regeneracji są indywidualne. Konieczne jest przestrzeganie zaleceń pozabiegowych i stosowanie wysokiej ochrony przeciwsłonecznej.",
+  "faq": [
+    {
+      "p": "Czym ten zabieg różni się od samego PRX-T33®?",
+      "o": "Łączy PRX-T33® z mikronakłuwaniem Dermapenem, które uruchamia naturalne procesy regeneracyjne skóry. To rozbudowana terapia — przede wszystkim przy utrwalonych przebarwieniach, bliznach zanikowych i nierównej strukturze skóry."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "W terapii blizn i utrwalonych przebarwień najlepsze rezultaty zwykle przynosi seria. Jej długość oraz odstępy ustalam indywidualnie po konsultacji."
+    },
+    {
+      "p": "Czy mogę wykonać zabieg w trakcie terapii izotretynoiną?",
+      "o": "Nie. Terapia izotretynoiną jest jedną z sytuacji, w których zabiegu nie wykonuję."
+    }
+  ]
+}

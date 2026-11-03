@@ -1,0 +1,81 @@
+{
+  "slug": "dermapen-biorepeel",
+  "nazwa": "Dermapen + BioRePeelCl₃®",
+  "podtytul": "Intensywna terapia przebudowująca",
+  "glownaUsluga": "dermapen-biorepeel",
+  "zrodlo": "Dermapen_BioRePeelCl3_opis_do_Booksy.pdf",
+  "meta": {
+    "opis": "Dermapen + BioRePeelCl₃® — mikronakłuwanie z peelingiem chemicznym. Blizny i przebarwienia pozapalne, pory, nierówna struktura i jędrność skóry. Warszawa Włochy."
+  },
+  "warstwy": [
+    "naskorek",
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Zaawansowany zabieg łączący mikronakłuwanie skóry urządzeniem Dermapen z działaniem peelingu chemicznego BioRePeelCl₃®. Połączenie dwóch metod pozwala intensywnie stymulować procesy odnowy oraz działać na kilka problemów skóry podczas jednej terapii.",
+    "Zabieg poprzedza konsultacja i ocena skóry. Intensywność mikronakłuwania oraz sposób zastosowania preparatu dobieram indywidualnie do problemu, kondycji i wrażliwości cery."
+  ],
+  "sklad": {
+    "tytul": "Co zawiera BioRePeelCl₃®?",
+    "lista": [
+      "35% kwas trójchlorooctowy (TCA),",
+      "kwas laktobionowy,",
+      "kwas salicylowy,",
+      "kwas winowy,",
+      "kwas cytrynowy,",
+      "kwas gamma-aminomasłowy (GABA),",
+      "aminokwasy: glicynę, prolinę, hydroksyprolinę i argininę,",
+      "witaminy C oraz B2."
+    ],
+    "uwaga": "Preparat BioRePeelCl₃® FND stosowany na twarz, szyję i dekolt. Dwufazowa formuła łączy składniki złuszczające, rewitalizujące i wspierające poprawę wyglądu oraz kondycji skóry."
+  },
+  "dlaKogoWstep": "Zabieg polecam w przypadku:",
+  "dlaKogo": [
+    "blizn i przebarwień pozapalnych,",
+    "rozszerzonych porów,",
+    "nierównej struktury skóry,",
+    "drobnych zmarszczek,",
+    "utraty jędrności i elastyczności,",
+    "szarego kolorytu i oznak fotostarzenia,",
+    "skóry wymagającej intensywnej regeneracji."
+  ],
+  "efekty": [
+    "wygładzenie i poprawa struktury skóry,",
+    "zmniejszenie widoczności blizn potrądzikowych,",
+    "poprawa wyglądu porów,",
+    "wyrównanie kolorytu i rozświetlenie cery,",
+    "poprawa jędrności oraz napięcia skóry,",
+    "zmniejszenie widoczności drobnych zmarszczek,",
+    "pobudzenie naturalnych procesów regeneracyjnych."
+  ],
+  "zastrzezenie": "Reakcja skóry i czas regeneracji są indywidualne.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "Najlepsze rezultaty zazwyczaj przynosi odpowiednio zaplanowana seria zabiegów."
+    ]
+  },
+  "przeciwwskazania": [
+    "aktywne zmiany ropne i wysiękowe,",
+    "infekcja, opryszczka,",
+    "przerwana ciągłość skóry,",
+    "zaburzenia gojenia,",
+    "zaostrzenie chorób dermatologicznych."
+  ],
+  "przeciwwskazaniaUwaga": "To m.in. sytuacje, w których zabiegu nie wykonuję. Pozostałe przeciwwskazania wykluczam podczas konsultacji.",
+  "poZabiegu": "Może wystąpić zaczerwienienie, uczucie ciepła, napięcie, tkliwość lub delikatne złuszczanie skóry. Reakcja i czas regeneracji są indywidualne. Należy przestrzegać przekazanych zaleceń oraz stosować wysoką ochronę przeciwsłoneczną.",
+  "faq": [
+    {
+      "p": "Dlaczego łączy się mikronakłuwanie z peelingiem?",
+      "o": "Połączenie dwóch metod pozwala intensywnie stymulować procesy odnowy oraz działać na kilka problemów skóry podczas jednej terapii."
+    },
+    {
+      "p": "Czy skóra będzie się łuszczyć?",
+      "o": "Po zabiegu może wystąpić delikatne złuszczanie skóry, a także zaczerwienienie, uczucie ciepła, napięcie lub tkliwość. Reakcja i czas regeneracji są indywidualne."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Najlepsze rezultaty zazwyczaj przynosi odpowiednio zaplanowana seria zabiegów — jej plan ustalam po konsultacji."
+    }
+  ]
+}

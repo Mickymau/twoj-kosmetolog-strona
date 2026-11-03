@@ -1,0 +1,75 @@
+{
+  "slug": "dermapen",
+  "nazwa": "Dermapen — mezoterapia mikroigłowa",
+  "podtytul": "Stymulacja naturalnej regeneracji skóry: struktura, jędrność, zmarszczki i blizny potrądzikowe",
+  "glownaUsluga": "dermapen",
+  "zrodlo": "Dermapen_Booksy_Claude.docx + Booksy (warianty z mezoterapią)",
+  "meta": {
+    "opis": "Dermapen — mikronakłuwanie z indywidualnie dobranym preparatem. Poprawa struktury, jędrności, zmarszczek i blizn potrądzikowych. Twarz, szyja, dekolt. Warszawa Włochy."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Zabieg stymulujący naturalne procesy regeneracji skóry, polecany w celu poprawy jej struktury, jędrności i elastyczności oraz zmniejszenia widoczności zmarszczek i blizn potrądzikowych.",
+    "Kontrolowane mikronakłucia pobudzają skórę do odnowy i przebudowy. Zabieg uzupełniam indywidualnie dobranym preparatem, dostosowanym do aktualnej kondycji cery i celu terapii.",
+    "Zabieg można wykonać na twarz, szyję i dekolt. Cena zależy od wybranej okolicy zabiegowej."
+  ],
+  "dlaKogo": [
+    "z oznakami starzenia i zmarszczkami,",
+    "o obniżonej jędrności i elastyczności,",
+    "z bliznami potrądzikowymi i nierówną strukturą,",
+    "z widocznymi, rozszerzonymi porami,",
+    "wymagającej regeneracji i poprawy jakości."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie skórze:",
+  "efekty": [
+    "poprawa napięcia, jędrności i elastyczności,",
+    "wygładzenie struktury skóry,",
+    "zmniejszenie widoczności drobnych zmarszczek i blizn potrądzikowych,",
+    "zmniejszenie widoczności porów,",
+    "bardziej świeży i promienny wygląd."
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo wraz z procesami regeneracji skóry.",
+  "przebieg": [
+    "Demakijaż i tonizacja.",
+    "Peeling.",
+    "Aplikacja znieczulenia — na życzenie klientki lub klienta.",
+    "Mikronakłuwanie Dermapenem z indywidualnie dobranym preparatem.",
+    "Maska wyciszająca.",
+    "Krem końcowy."
+  ],
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "ok. 3 tygodnie po poprzednim",
+    "tekst": [
+      "Liczbę zabiegów dobieram do potrzeb skóry i celu terapii. Rekomenduję serię 3–4 zabiegów w odstępach co 3 tygodnie. Efekty rozwijają się stopniowo wraz z procesami regeneracji skóry."
+    ]
+  },
+  "poZabiegu": "Skóra może być przejściowo zaczerwieniona, tkliwa i lekko obrzęknięta; może również pojawić się uczucie ściągnięcia i delikatne złuszczanie. Po zabiegu przekazuję indywidualne zalecenia pielęgnacyjne, w tym dotyczące ochrony przeciwsłonecznej.",
+  "laczone": {
+    "tytul": "Chcesz rozszerzyć terapię?",
+    "tekst": [
+      "Alternatywą dla samego Dermapenu jest <a href=\"/zabiegi/carbolift/\">Carbolift®</a> — zabieg łączący mikronakłuwanie z karboksyterapią. Uzupełnia stymulację mikroigłową o działanie dwutlenku węgla, który pobudza miejscowe mikrokrążenie i sprzyja dotlenieniu tkanek.",
+      "Takie połączenie może być korzystne dla skóry wiotkiej, o obniżonym napięciu i wymagającej intensywniejszej regeneracji. Wybór zabiegu dobieram indywidualnie do kondycji skóry, oczekiwanych efektów i przeciwwskazań."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Czy zabieg jest wykonywany ze znieczuleniem?",
+      "o": "Znieczulenie aplikuję na życzenie klientki lub klienta."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Rekomenduję serię 3–4 zabiegów w odstępach co 3 tygodnie. Liczbę zabiegów dobieram do potrzeb skóry i celu terapii."
+    },
+    {
+      "p": "Jak wygląda skóra po zabiegu?",
+      "o": "Skóra może być przejściowo zaczerwieniona, tkliwa i lekko obrzęknięta; może również pojawić się uczucie ściągnięcia i delikatne złuszczanie."
+    },
+    {
+      "p": "Na jakie okolice można wykonać zabieg?",
+      "o": "Na twarz, szyję i dekolt. Cena zależy od wybranej okolicy zabiegowej."
+    }
+  ]
+}

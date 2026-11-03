@@ -1,0 +1,71 @@
+{
+  "slug": "prx-t33",
+  "nazwa": "PRX-T33®",
+  "podtytul": "Bezigłowa biorewitalizacja skóry",
+  "glownaUsluga": "prx-t33",
+  "zrodlo": "PRX-T33_opis_do_Booksy.pdf",
+  "meta": {
+    "opis": "PRX-T33® — bezigłowa biorewitalizacja skóry (33% TCA, kwas kojowy, H₂O₂). Jędrność, koloryt, przebarwienia i blizny zanikowe. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "PRX-T33® to profesjonalny zabieg biorewitalizujący opracowany we Włoszech. Preparat nakładany jest na skórę bez użycia igieł. Formuła łączy 33% kwas trójchlorooctowy (TCA), 5% kwas kojowy oraz nadtlenek wodoru (H₂O₂). Zabieg wspiera poprawę jakości skóry bez widocznego, intensywnego złuszczania jej powierzchni."
+  ],
+  "dlaKogoWstep": "Zabieg polecam szczególnie w przypadku:",
+  "dlaKogo": [
+    "utraty jędrności, napięcia i elastyczności skóry,",
+    "drobnych zmarszczek i oznak starzenia,",
+    "suchej, wiotkiej i pozbawionej blasku skóry,",
+    "nierównego kolorytu i zmian pigmentacyjnych,",
+    "melasmy oraz przebarwień pozapalnych,",
+    "oznak fotostarzenia,",
+    "blizn zanikowych, w tym potrądzikowych,",
+    "potrzeby rewitalizacji twarzy, szyi, dekoltu, dłoni lub wybranych okolic ciała."
+  ],
+  "efekty": [
+    "poprawa napięcia i elastyczności skóry,",
+    "nawilżenie, wygładzenie i przywrócenie blasku,",
+    "wyrównanie kolorytu,",
+    "zmniejszenie widoczności drobnych zmarszczek,",
+    "poprawa wyglądu przebarwień i blizn,",
+    "świeższy, bardziej wypoczęty wygląd skóry."
+  ],
+  "zastrzezenie": "Efekty oraz reakcja skóry są indywidualne.",
+  "seria": {
+    "zabiegi": 3,
+    "odstep": "co 7–10 dni",
+    "tekst": [
+      "Seria obejmuje najczęściej 3–4 zabiegi wykonywane co 7–10 dni, jednak ostateczną liczbę i częstotliwość dobieram po ocenie skóry."
+    ]
+  },
+  "przeciwwskazania": [
+    "skóra podrażniona lub uszkodzona,",
+    "aktywna infekcja,",
+    "opryszczka,",
+    "aktywne zmiany ropne i wysiękowe,",
+    "zaostrzenie choroby dermatologicznej."
+  ],
+  "przeciwwskazaniaUwaga": "Przed zabiegiem przeprowadzam konsultację i wykluczam przeciwwskazania — powyżej m.in. sytuacje, w których zabiegu nie wykonuję.",
+  "laczone": {
+    "tytul": "Terapia łączona",
+    "tekst": [
+      "PRX-T33® może być wykonywany jako samodzielny zabieg lub jako element indywidualnie zaplanowanej terapii łączonej — np. <a href=\"/zabiegi/dermapen-prx-t33/\">Dermapen + PRX-T33®</a>."
+    ]
+  },
+  "faq": [
+    {
+      "p": "Czy zabieg wymaga użycia igieł?",
+      "o": "Nie. Preparat nakładany jest na skórę bez użycia igieł."
+    },
+    {
+      "p": "Czy skóra mocno się złuszcza?",
+      "o": "Zabieg wspiera poprawę jakości skóry bez widocznego, intensywnego złuszczania jej powierzchni."
+    },
+    {
+      "p": "Ile zabiegów potrzeba?",
+      "o": "Seria obejmuje najczęściej 3–4 zabiegi wykonywane co 7–10 dni. Ostateczną liczbę i częstotliwość dobieram po ocenie skóry."
+    }
+  ]
+}

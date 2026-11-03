@@ -1,0 +1,95 @@
+{
+  "slug": "karboksyterapia-oczu",
+  "nazwa": "Karboksyterapia okolicy oczu",
+  "podtytul": "Cienie, obrzęki i drobne zmarszczki",
+  "glownaUsluga": "karboksyterapia-oczu",
+  "zrodlo": "Karboksyterapia_okolicy_oczu.pdf (ze źródłami PubMed). ❓ „74 godziny” — DO-MALWINY pytanie 2",
+  "meta": {
+    "opis": "Karboksyterapia okolicy oczu — medyczny CO₂ na cienie o podłożu naczyniowym, obrzęki i drobne zmarszczki. Gabinet w Warszawie (Włochy)."
+  },
+  "warstwy": [
+    "skora-wlasciwa"
+  ],
+  "naCzymPolega": [
+    "Karboksyterapia okolicy oczu to zabieg wspierający regenerację delikatnej skóry, poprawę jej jędrności oraz zmniejszenie widoczności cieni i drobnych zmarszczek.",
+    "Polega na precyzyjnym podawaniu kontrolowanych dawek medycznego dwutlenku węgla (CO₂) za pomocą cienkiej igły. Zabieg wykonywany jest urządzeniem CARBOXYTHERAPY™ DUAL XT.",
+    "Podanie CO₂ pobudza miejscowe mikrokrążenie i wspiera dotlenienie tkanek. Stymuluje również fibroblasty — komórki odpowiedzialne za produkcję kolagenu i elastyny. Dzięki temu terapia może poprawić napięcie i elastyczność skóry oraz nadać okolicy oczu bardziej wypoczęty wygląd.",
+    "<strong>Działanie potwierdzone w badaniach.</strong> Badania kliniczne wskazują, że karboksyterapia może zmniejszać widoczność cieni pod oczami, szczególnie o podłożu naczyniowym, oraz poprawiać elastyczność skóry i wygładzać drobne zmarszczki wokół oczu. Efekty zależą od przyczyny problemu i indywidualnej reakcji skóry. <sup><a href=\"#zrodla\">[1, 2]</a></sup>"
+  ],
+  "dlaKogo": [
+    "Cienie pod oczami, szczególnie sinawe, o podłożu naczyniowym.",
+    "Obrzęki i worki pod oczami — po ocenie ich przyczyny.",
+    "Drobne zmarszczki wokół oczu.",
+    "Utrata jędrności i elastyczności skóry.",
+    "Wiotka, cienka skóra wymagająca regeneracji."
+  ],
+  "efekty": [
+    "Zmniejszenie widoczności cieni pod oczami.",
+    "Poprawa jędrności i elastyczności skóry.",
+    "Wygładzenie drobnych zmarszczek.",
+    "Możliwa poprawa wyglądu obrzęków, zależnie od ich przyczyny.",
+    "Bardziej wypoczęty wygląd okolicy oczu."
+  ],
+  "zastrzezenie": "Efekty rozwijają się stopniowo. Cienie i worki pod oczami mogą mieć różne przyczyny, dlatego zakres możliwej poprawy oceniany jest podczas konsultacji. Zabieg nie usuwa przepuklin tłuszczowych ani nie wypełnia doliny łez.",
+  "przebieg": [
+    "Konsultacja, ocena skóry i wykluczenie przeciwwskazań.",
+    "Demakijaż i oczyszczenie okolicy oczu.",
+    "Dezynfekcja obszaru zabiegowego.",
+    "Precyzyjne podanie medycznego CO₂ za pomocą cienkiej igły, z indywidualnie dobranymi parametrami.",
+    "Przekazanie zaleceń pozabiegowych."
+  ],
+  "przebiegUwaga": "Podczas aplikacji można odczuwać rozpieranie, pieczenie, mrowienie lub ciepło. Po zabiegu mogą pojawić się przejściowy obrzęk, zaczerwienienie, tkliwość lub niewielkie siniaki.",
+  "seria": {
+    "zabiegi": null,
+    "tekst": [
+      "Zazwyczaj co 10–14 dni, w serii. Zgodnie z materiałem producenta końcową poprawę można oceniać po około 4–5 tygodniach od ostatniego zabiegu."
+    ]
+  },
+  "przeciwwskazania": [
+    "Ciąża i karmienie piersią.",
+    "Choroby nowotworowe oraz okres do 5 lat po chorobie nowotworowej.",
+    "Epilepsja i jaskra.",
+    "Ostra niewydolność serca, niedawny zawał, dławica piersiowa lub niedawny udar.",
+    "Ciężka niewydolność nerek lub wątroby.",
+    "Niedawne przyjęcie aspiryny lub leków przeciwzapalnych wpływających na krzepnięcie.",
+    "Trądzik różowaty i poikilodermia.",
+    "Zaburzenia gojenia, choroby tkanki łącznej oraz skłonność do bliznowców.",
+    "Choroby immunologiczne: toczeń, bielactwo i liszaj płaski.",
+    "Aktywna łuszczyca w miejscu zabiegu.",
+    "Zakażenia bakteryjne, wirusowe lub grzybicze w obszarze zabiegowym.",
+    "Guzki niewiadomego pochodzenia.",
+    "Przyjmowanie antybiotyków, infekcja lub ogólny zły stan zdrowia.",
+    "Niedawna operacja albo inne zabiegi estetyczne w obszarze planowanej terapii — wymagają oceny odpowiedniego odstępu.",
+    "Silny lęk przed igłami."
+  ],
+  "poZabiegu": [
+    "Nie pocieraj ani nie masuj okolicy oczu.",
+    "Przez 12 godzin unikaj intensywnego wysiłku fizycznego.",
+    "Przez 74 godziny nie korzystaj z sauny, basenu ani solarium.",
+    "W przypadku nasilających się lub niepokojących objawów skontaktuj się z gabinetem.",
+    "Ból oka lub zaburzenia widzenia wymagają pilnej konsultacji lekarskiej."
+  ],
+  "poZabieguUwaga": "Szczegółowe zalecenia pozabiegowe przekazywane są indywidualnie.",
+  "faq": [
+    {
+      "p": "Czy zabieg usunie worki pod oczami?",
+      "o": "Zabieg nie usuwa przepuklin tłuszczowych ani nie wypełnia doliny łez. Cienie i worki pod oczami mogą mieć różne przyczyny, dlatego zakres możliwej poprawy oceniam podczas konsultacji."
+    },
+    {
+      "p": "Jak często wykonuje się zabiegi?",
+      "o": "Zazwyczaj co 10–14 dni, w serii."
+    },
+    {
+      "p": "Kiedy ocenia się efekty?",
+      "o": "Zgodnie z materiałem producenta końcową poprawę można oceniać po około 4–5 tygodniach od ostatniego zabiegu."
+    },
+    {
+      "p": "Czy po zabiegu mogą pojawić się siniaki?",
+      "o": "Po zabiegu mogą pojawić się przejściowy obrzęk, zaczerwienienie, tkliwość lub niewielkie siniaki."
+    }
+  ],
+  "przypisy": [
+    "The Impact of Carboxytherapy and Treatments Combining Carboxytherapy and Selected Chemical Peels on Vascular and Pigmentary Components of the Dark Circles (2024). <a href=\"https://pubmed.ncbi.nlm.nih.gov/39193094/\" rel=\"noopener\">pubmed.ncbi.nlm.nih.gov/39193094</a>",
+    "Objective, measurable assessment of the elasticity of the skin around the eyes following the carboxytherapy treatment (2023). <a href=\"https://pubmed.ncbi.nlm.nih.gov/36718772/\" rel=\"noopener\">pubmed.ncbi.nlm.nih.gov/36718772</a>"
+  ]
+}
