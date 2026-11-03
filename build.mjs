@@ -23,6 +23,9 @@ const flag = (n) => args.includes(n);
 const opt = (n, d) => (args.find((a) => a.startsWith(`--${n}=`)) || '').split('=').slice(1).join('=') || d;
 
 const PROD = flag('--prod');
+// --podglad: wersja testowa online (netlify.app) — jak produkcja w treści, ale pola ❓ dozwolone, całość noindex
+const PODGLAD = flag('--podglad') && !PROD;
+const PUBLICZNY = PROD || PODGLAD; // build trafiający do internetu: bez znaczników dev i stron roboczych
 const ZGODA_STOCK = flag('--zgoda-stock');
 const ROOT = path.dirname(decodeURIComponent(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]:)/, '$1'));
 const SRC = path.resolve(ROOT, opt('src', 'src'));
@@ -313,10 +316,10 @@ function pozycje(u) {
 // w --prod pozycje niezweryfikowane nie trafiają do list ani tabel (lista w podsumowaniu builda)
 const pominiete = new Set();
 const widoczne = (lista) => lista.filter((p) => {
-  if (PROD && p.niepewna) { pominiete.add(`${p.u.id}${p.w ? '/' + p.w.id : ''}`); return false; }
+  if (PUBLICZNY && p.niepewna) { pominiete.add(`${p.u.id}${p.w ? '/' + p.w.id : ''}`); return false; }
   return true;
 });
-const devUwaga = (p) => (!PROD && p.niepewna)
+const devUwaga = (p) => (!PUBLICZNY && p.niepewna)
   ? ` <span class="dev-uwaga" title="${esc(p.uwagi || 'Cena niezweryfikowana w Booksy — w buildzie produkcyjnym ukryta')}">❓ do weryfikacji</span>` : '';
 const cenaTxt = (lista) => {
   if (!lista.length) return '';
@@ -357,7 +360,7 @@ function kartaZabiegu({ tytul, href, lista, zewn, opis }) {
   const cena = cenaTxt(lista), czas = czasTxt(lista);
   return `<li><a class="karta-zabiegu" href="${esc(href)}"${zewn ? ' rel="noopener" data-umow="lista"' : ''}>`
     + `<h3>${esc(tytul)}</h3>${opis ? `<p>${esc(opis)}</p>` : ''}`
-    + `<p class="karta-zabiegu__cena">${esc(cena)}${czas ? ` <span>· ${esc(czas)}</span>` : ''}${lista.some((p) => p.niepewna) && !PROD ? ' <span class="dev-uwaga">❓</span>' : ''}</p>`
+    + `<p class="karta-zabiegu__cena">${esc(cena)}${czas ? ` <span>· ${esc(czas)}</span>` : ''}${lista.some((p) => p.niepewna) && !PUBLICZNY ? ' <span class="dev-uwaga">❓</span>' : ''}</p>`
     + `<span class="link-strzalka">${zewn ? 'Umów w Booksy' : 'Zobacz zabieg'}</span></a></li>`;
 }
 
@@ -701,7 +704,8 @@ function dodajSeo(html, r) {
     `<meta property="og:image" content="${esc(domena)}/assets/img/marka/tk-logo-gold-512.png">`,
     noindex ? '' : `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graf }).replace(/</g, '\\u003c')}</script>`,
   ].filter(Boolean).join('\n  ');
-  return html.replace('</head>', `  ${glowa}\n</head>`);
+  const blokada = PODGLAD && !noindex ? '<meta name="robots" content="noindex, nofollow">\n  ' : '';
+  return html.replace('</head>', `  ${blokada}${glowa}\n</head>`);
 }
 
 // ---------- pliki ----------
@@ -724,7 +728,7 @@ const KAT_STRON = path.join(SRC, 'pages');
 const strony = [];
 for (const p of pliki(KAT_STRON)) {
   const r = path.relative(KAT_STRON, p);
-  if (robocze(r) && PROD) continue;
+  if (robocze(r) && PUBLICZNY) continue;
   const cel = path.join(DIST, r);
   fs.mkdirSync(path.dirname(cel), { recursive: true });
   if (p.endsWith('.html')) {
@@ -778,6 +782,12 @@ const urle = doMapy.map(({ r }) => {
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urle.join('\n')}${urle.length ? '\n' : ''}</urlset>\n`);
 
+// ---------- wersja testowa: blokada indeksowania ----------
+if (PODGLAD) {
+  fs.writeFileSync(path.join(DIST, 'robots.txt'), 'User-agent: *\nDisallow: /\n');
+  fs.writeFileSync(path.join(DIST, '_headers'), '/*\n  X-Robots-Tag: noindex, nofollow\n');
+}
+
 // ---------- zdjęcia STOCK- ----------
 const stocki = [...pliki(path.join(SRC, 'assets', 'img'))].filter((p) => path.basename(p).startsWith('STOCK-'));
 if (PROD && stocki.length && !ZGODA_STOCK)
@@ -789,7 +799,7 @@ if (ostrzezenia.size) {
   console.warn(`\n⚠ Ostrzeżenia (${ostrzezenia.size}) — w --prod część z nich to błędy:`);
   for (const o of ostrzezenia) console.warn('  • ' + o);
 }
-console.log(`\n✔ Build ${PROD ? 'PRODUKCYJNY' : 'deweloperski'} OK → ${rel(DIST) || DIST}`);
+console.log(`\n✔ Build ${PROD ? 'PRODUKCYJNY' : PODGLAD ? 'PODGLĄD (noindex)' : 'deweloperski'} OK → ${rel(DIST) || DIST}`);
 console.log(`  strony: ${strony.length} · w sitemap: ${urle.length} · usługi w cenniku: ${uslugi.size}`);
 const stockZdjecia = [...new Set(stocki.map((p) => path.basename(p).replace(/-\d+\.\w+$/, '')))];
 console.log(`  STOCK: ${stockZdjecia.length} zdjęć (${stocki.length} plików)${stockZdjecia.length ? ' → ' + stockZdjecia.join(', ') : ''}\n`);
