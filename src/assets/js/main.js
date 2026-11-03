@@ -36,4 +36,24 @@
     new IntersectionObserver(([w]) => pasek.classList.toggle('umow-mobile--ukryty', w.isIntersecting))
       .observe(hero);
   }
+  // --- filtr zabiegów po problemie (/zabiegi/) ---
+  const filtr = document.querySelector('[data-filtr]');
+  const lista = document.querySelector('[data-filtrowane]');
+  if (filtr && lista) {
+    const licznik = document.querySelector('[data-filtr-licznik]');
+    const pozycje = [...lista.children];
+    const ustaw = (problem) => {
+      let n = 0;
+      for (const li of pozycje) {
+        const pasuje = !problem || li.dataset.problemy.split(' ').includes(problem);
+        li.hidden = !pasuje;
+        if (pasuje) n++;
+      }
+      for (const b of filtr.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.problem === problem));
+      if (licznik) licznik.textContent = problem ? `Zabiegi: ${n}` : '';
+    };
+    filtr.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) ustaw(b.dataset.problem); });
+    const z = new URLSearchParams(location.search).get('problem');
+    if (z) ustaw(z);
+  }
 })();

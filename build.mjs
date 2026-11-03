@@ -388,6 +388,15 @@ Object.assign(ZNACZNIKI, {
     if (!karty.length) throw `${kto}: brak zabiegów dla problemu „${arg}”`;
     return `<ul class="karty-zabiegow" role="list">${karty.map(kartaZabiegu).join('')}</ul>`;
   },
+  // lista A–Z wszystkich podstron zabiegów z atrybutem do filtra po problemie (/zabiegi/)
+  'zabiegi-az'(arg, kto) {
+    if (arg) throw `${kto}: {{zabiegi-az}} nie przyjmuje argumentu`;
+    const karty = [...zabiegi.values()].sort((a, b) => a.nazwa.localeCompare(b.nazwa, 'pl'))
+      .map((z) => ({ z, lista: widoczne(uslugiPodstrony(z.slug).flatMap(pozycje)) })).filter((x) => x.lista.length)
+      .map(({ z, lista }) => kartaZabiegu({ tytul: z.nazwa, href: linkZabiegu(z.slug), opis: z.podtytul, lista })
+        .replace('<li>', `<li data-problemy="${problemyPodstrony(z.slug).join(' ')}">`));
+    return `<ul class="karty-zabiegow" role="list" data-filtrowane>${karty.join('')}</ul>`;
+  },
   'zobacz-tez'(arg, kto) {
     if (!zabiegi.has(arg)) throw `${kto}: {{zobacz-tez:…}} — nieznany zabieg „${arg}”`;
     const moje = problemyPodstrony(arg);

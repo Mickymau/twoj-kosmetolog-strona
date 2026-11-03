@@ -1,0 +1,111 @@
+{
+  "_opis": "Strony problemów skóry (BRIEF 6.2). Teksty: teksty/problemy-skory-robocze.md — [N:claude-draft 2026-11-02], do akceptacji Malwiny. Listy zabiegów generuje build z tagów w cennik.json.",
+  "problemy": [
+    {
+      "slug": "tradzik", "nazwa": "Trądzik i zaskórniki",
+      "tytul": "Trądzik i zaskórniki – zabiegi | Kosmetolog Warszawa Włochy",
+      "meta": "Zabiegi dla skóry trądzikowej, zaskórnikowej i tłustej: oczyszczanie, peeling kawitacyjny, kwasy, oxybrazja. Dobór po ocenie skóry.",
+      "h1": "Trądzik i zaskórniki",
+      "opis": [
+        "Przy skórze trądzikowej zwykle kilka rzeczy dzieje się jednocześnie: nadmierne wydzielanie sebum, zwiększone rogowacenie naskórka, widoczne pory, zaskórniki i nierówna struktura skóry. Dlatego nie ma jednego zabiegu dla wszystkich — rodzaj oczyszczania, kwasu i intensywność terapii dobieram do aktualnego stanu skóry.",
+        "Przy utrwalonych zmianach najlepsze efekty przynosi zwykle zaplanowana seria zabiegów, a nie pojedyncza wizyta. Zabiegów nie wykonuję przy aktywnych zmianach ropnych, silnym stanie zapalnym ani infekcji."
+      ],
+      "diagnostyka": "Jeśli trądzik utrzymuje się mimo pielęgnacji i kolejnych zabiegów, proponuję zacząć od komputerowej diagnostyki skóry Lumiscan™. Badanie pomaga dokładniej ocenić m.in. poziom sebum, pory, zmiany pigmentacyjne i obraz porfiryn w świetle UV. Razem z wywiadem pozwala świadomie zaplanować dalszą terapię i ocenić, czy warto rozważyć również konsultację lekarską.",
+      "linki": [
+        { "tekst": "Ślady i blizny po trądziku — Blizny i rozstępy", "href": "/problemy-skory/blizny-i-rozstepy/" },
+        { "tekst": "Brązowe plamy po wypryskach — Przebarwienia", "href": "/problemy-skory/przebarwienia/" }
+      ]
+    },
+    {
+      "slug": "przebarwienia", "nazwa": "Przebarwienia",
+      "tytul": "Przebarwienia – zabiegi rozjaśniające | Kosmetolog Warszawa Włochy",
+      "meta": "Przebarwienia posłoneczne i pozapalne, nierówny koloryt. Kwasy depigmentacyjne, Dermapen z PRX-T33, Retix C i inne zabiegi dobierane indywidualnie.",
+      "h1": "Przebarwienia i nierówny koloryt",
+      "opis": [
+        "Przebarwienia mają różne pochodzenie — mogą być posłoneczne albo pozapalne, jak brązowe ślady po trądziku. Część zmian pigmentacyjnych nie jest jeszcze wyraźnie widoczna gołym okiem. Rodzaj zabiegu i jego intensywność dobieram do charakteru przebarwień, wrażliwości i aktualnej kondycji skóry.",
+        "Terapia przebarwień to zwykle seria zabiegów. Jej podstawą jest codzienna ochrona przeciwsłoneczna SPF 50 i odpowiednia pielęgnacja domowa — zakres poprawy zależy od rodzaju i głębokości przebarwień oraz od systematyczności pielęgnacji."
+      ],
+      "diagnostyka": "Lumiscan™ w obrazowaniu UV i w świetle spolaryzowanym uwidacznia zmiany pigmentacyjne, również te, których nie widać jeszcze w zwykłym świetle. Dzięki temu dokładniej widzimy, z czym pracujemy, a zdjęcia wykonane w powtarzalnych warunkach można później porównać i ocenić kierunek terapii."
+    },
+    {
+      "slug": "naczynka", "nazwa": "Naczynka i zaczerwienienia",
+      "tytul": "Cera naczynkowa i zaczerwienienia – zabiegi | Kosmetolog Warszawa Włochy",
+      "meta": "Pielęgnacja skóry naczynkowej, wrażliwej i skłonnej do rumienia. Autorski zabieg Anti-Redness dobierany do reaktywności cery.",
+      "h1": "Naczynka i zaczerwienienia",
+      "opis": [
+        "Skóra naczynkowa i wrażliwa łatwo się czerwieni, reaguje na bodźce i bywa skłonna do nagłego rumienia. Potrzebuje przede wszystkim wyciszenia i ukojenia, a nie intensywnych procedur — dlatego preparaty i przebieg zabiegu dobieram do jej aktualnej reaktywności.",
+        "Przy trądziku różowatym proponuję pielęgnację wspierającą, dopasowaną do stanu skóry. Część zabiegów z mojej oferty nie jest przy nim wskazana — zawsze oceniam to przed zabiegiem."
+      ],
+      "diagnostyka": "Lumiscan™ pozwala przyjrzeć się zaczerwienieniom i obrazowi naczyń w różnych trybach światła. Jeśli nie wiesz, co nasila reakcje Twojej skóry, albo chcesz uporządkować pielęgnację domową, zacznij od diagnostyki — a jeśli potrzebujesz konkretnego planu, od diagnostyki z Beauty Planem."
+    },
+    {
+      "slug": "cera-sucha", "nazwa": "Cera sucha i odwodniona",
+      "tytul": "Cera sucha i odwodniona – zabiegi nawilżające | Kosmetolog Warszawa Włochy",
+      "meta": "Uczucie ściągnięcia, szorstkość, drobne linie z odwodnienia. Rytuały nawilżające, mezoterapia i stymulatory dobierane do potrzeb skóry.",
+      "h1": "Cera sucha i odwodniona",
+      "opis": [
+        "Uczucie ściągnięcia, szorstkość i drobne linie wynikające z odwodnienia to sygnały, że skórze brakuje nawilżenia i komfortu. Zdarza się, że skóra jest przesuszona, mimo że stosujesz kremy nawilżające.",
+        "W gabinecie pracuję na dwa sposoby: pielęgnacyjnie — rytuałami z masażem — oraz zabiegami igłowymi z kwasem hialuronowym, aminokwasami lub polinukleotydami, które wspierają nawilżenie i regenerację skóry. Wybór zależy od kondycji skóry i tego, czy poza nawilżeniem potrzebuje też poprawy elastyczności."
+      ],
+      "diagnostyka": "Podczas diagnostyki wykonuję osobny pomiar poziomu nawilżenia skóry, a Lumiscan™ pokazuje m.in. jej strukturę i teksturę. Pomaga to lepiej zrozumieć, dlaczego skóra jest przesuszona, i dobrać pielęgnację domową, która rzeczywiście odpowiada jej potrzebom."
+    },
+    {
+      "slug": "starzenie-skory", "nazwa": "Oznaki starzenia i jędrność",
+      "tytul": "Oznaki starzenia i utrata jędrności – zabiegi | Kosmetolog Warszawa Włochy",
+      "meta": "Zmarszczki, wiotkość, fotostarzenie. Mezoterapia, stymulatory tkankowe, Dermapen, Carbolift i karboksyterapia — terapie stymulujące regenerację skóry.",
+      "h1": "Oznaki starzenia i jędrność",
+      "opis": [
+        "Z czasem skóra traci jędrność, elastyczność i napięcie, pojawiają się zmarszczki i oznaki fotostarzenia. Fundamentem mojej pracy są zabiegi, które stymulują naturalne procesy regeneracji skóry: mezoterapia, stymulatory tkankowe, mikronakłuwanie i karboksyterapia. Po medycynę estetyczną sięgam dopiero wtedy, gdy ich możliwości zostają wyczerpane — jako uzupełnienie, a nie punkt wyjścia terapii.",
+        "Efekty takich terapii rozwijają się stopniowo, zwykle w serii, i zależą od indywidualnej reakcji skóry."
+      ],
+      "diagnostyka": "Lumiscan™ pozwala ocenić strukturę skóry, drobne linie, zmarszczki i oznaki fotostarzenia, a zdjęcia wykonane w powtarzalnych warunkach można później porównać. Przy terapii anti-aging szczególnie ważna jest kolejność zabiegów i dopasowana pielęgnacja domowa — to właśnie porządkuje Beauty Plan."
+    },
+    {
+      "slug": "owal-twarzy", "nazwa": "Owal twarzy i szyja",
+      "tytul": "Owal twarzy i szyja – Carbolift, karboksyterapia | Kosmetolog Warszawa Włochy",
+      "meta": "Utrata napięcia w obrębie owalu i szyi, wiotkość, bruzdy nosowo-wargowe. Carbolift i karboksyterapia medycznym CO₂.",
+      "h1": "Owal twarzy i szyja",
+      "opis": [
+        "Utrata napięcia skóry w obrębie owalu twarzy i szyi, wiotkość i widoczne bruzdy nosowo-wargowe. W tym obszarze pracuję przede wszystkim zabiegami z medycznym CO₂: karboksyterapią oraz Carboliftem, który łączy ją z mikronakłuwaniem. Wspierają one regenerację skóry oraz stymulację produkcji kolagenu i elastyny.",
+        "Karboksyterapia nie wypełnia bruzd — poprawa ich wyglądu wynika z regeneracji i ujędrnienia skóry. Efekty rozwijają się stopniowo, także po zakończeniu serii."
+      ],
+      "diagnostykaTytul": "Od czego zacząć?",
+      "diagnostyka": "Każdy zabieg poprzedzam oceną skóry i wykluczeniem przeciwwskazań. Jeśli chcesz zadbać nie tylko o owal, ale o kondycję skóry całej twarzy, diagnostyka z Beauty Planem pozwala zaplanować kolejność zabiegów i pielęgnację domową."
+    },
+    {
+      "slug": "okolica-oczu", "nazwa": "Okolica oczu",
+      "tytul": "Cienie, obrzęki i zmarszczki pod oczami – zabiegi | Kosmetolog Warszawa Włochy",
+      "meta": "Karboksyterapia okolicy oczu, Carbolift i mezoterapia Xela Rederm na cienie, obrzęki i drobne zmarszczki. Zakres poprawy oceniany na konsultacji.",
+      "h1": "Okolica oczu — cienie, obrzęki, zmarszczki",
+      "opis": [
+        "Skóra wokół oczu jest cienka i delikatna, dlatego jako pierwsza pokazuje zmęczenie: cienie, obrzęki, drobne zmarszczki i utratę jędrności. Cienie i worki pod oczami mogą mieć różne przyczyny, dlatego zakres możliwej poprawy zawsze oceniam podczas konsultacji.",
+        "Zabiegi wspierają regenerację skóry, jej napięcie i wygląd cieni o podłożu naczyniowym. Nie usuwają przepuklin tłuszczowych ani nie wypełniają doliny łez."
+      ],
+      "diagnostyka": "Jeśli zmęczony wygląd okolicy oczu to tylko część tego, co chcesz poprawić, zacznij od diagnostyki skóry całej twarzy. Przy samej okolicy oczu wystarczy ocena przed zabiegiem."
+    },
+    {
+      "slug": "blizny-i-rozstepy", "nazwa": "Blizny i rozstępy",
+      "tytul": "Blizny i rozstępy – karboksyterapia, Dermapen | Kosmetolog Warszawa Włochy",
+      "meta": "Rozstępy, blizny potrądzikowe, pooperacyjne i pourazowe. Karboksyterapia, Dermapen z PRX-T33 lub BioRePeel — terapia poprawiająca strukturę skóry.",
+      "h1": "Blizny i rozstępy",
+      "opis": [
+        "Rozstępy, blizny zanikowe — w tym potrądzikowe — oraz wygojone blizny po zabiegach chirurgicznych i urazach zmieniają strukturę skóry. Terapia ma na celu stopniową poprawę ich wyglądu: wygładzenie skóry, poprawę jej elastyczności i przebudowę tkanek.",
+        "Efekty zależą od rodzaju, wieku i rozległości zmian oraz od indywidualnej reakcji skóry. Terapia nie gwarantuje całkowitego usunięcia blizn czy rozstępów — jej celem jest zmniejszenie ich widoczności. Najlepsze rezultaty przynosi zaplanowana seria."
+      ],
+      "diagnostyka": "Każdą terapię blizn poprzedza ocena rodzaju i stanu zmian. Blizny pooperacyjne i pourazowe kwalifikuję do zabiegu dopiero po ich wygojeniu. Przy bliznach potrądzikowych, którym towarzyszą przebarwienia lub aktywne zmiany, warto zacząć od diagnostyki Lumiscan™."
+    },
+    {
+      "slug": "cellulit", "nazwa": "Cellulit i ciało",
+      "tytul": "Cellulit i tkanka tłuszczowa – karboksyterapia ciała | Kosmetolog Warszawa Włochy",
+      "meta": "Karboksyterapia ciała na cellulit i miejscowe nagromadzenie tkanki tłuszczowej. Obszary od kolan po uda i brzuch, pakiety 4 i 8 zabiegów.",
+      "h1": "Cellulit i ciało",
+      "opis": [
+        "Cellulit, nierówna powierzchnia skóry i miejscowe nagromadzenie tkanki tłuszczowej to obszary, w których pracuję karboksyterapią — kontrolowanym podawaniem medycznego CO₂. Podczas konsultacji ustalamy, czy celem jest zmniejszenie widoczności cellulitu, redukcja miejscowej tkanki tłuszczowej, czy praca nad oboma problemami.",
+        "Zabieg służy miejscowemu modelowaniu sylwetki i nie jest metodą leczenia otyłości. Nie gwarantuje określonego spadku masy ciała ani liczby centymetrów — efekty zależą od nasilenia problemu, regularności terapii, reakcji organizmu i stylu życia."
+      ],
+      "diagnostykaTytul": "Kiedy warto zacząć od konsultacji?",
+      "diagnostyka": "Przed rozpoczęciem serii oceniam obszar zabiegowy i wykluczam przeciwwskazania. Terapia wykonywana jest w serii, dlatego przy większych obszarach korzystniejsze są pakiety 4 lub 8 zabiegów.",
+      "linki": [{ "tekst": "Rozstępy — karboksyterapia blizn i rozstępów", "href": "/zabiegi/karboksyterapia-blizny-rozstepy/" }]
+    }
+  ]
+}

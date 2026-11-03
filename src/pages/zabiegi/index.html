@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <title>Zabiegi i cennik – kosmetolog Warszawa Włochy | Twój Kosmetolog</title>
+  <!-- [N:claude-draft] meta opis i mikrocopy strony do akceptacji Malwiny -->
+  <meta name="description" content="Wszystkie zabiegi gabinetu Twój Kosmetolog z opisami i pełnym cennikiem: oczyszczanie, kwasy, Dermapen, Carbolift, karboksyterapia, mezoterapia, rytuały. Warszawa Włochy.">
+  <!-- @include head -->
+</head>
+<body>
+  <!-- @include naglowek -->
+  <main id="tresc">
+
+    <section class="naglowek-strony" data-hero aria-labelledby="zt">
+      <div class="kontener">
+        <nav class="okruszki" aria-label="Okruszki"><ol><li><a href="/">Strona główna</a></li><li aria-current="page">Zabiegi</li></ol></nav>
+        <span class="nadtytul">Zabiegi i cennik</span>
+        <h1 id="zt">Zabiegi</h1>
+        <p class="lead">Szczegółowe opisy zabiegów, które wykonuję w gabinecie — na czym polegają, dla kogo są, jak przebiegają i ile kosztują. Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania.</p>
+        <div class="przyciski">
+          <a class="btn btn--kontur" href="#cennik-pelny">Pełny cennik</a>
+          <a class="btn" href="{{firma:booksy}}" rel="noopener" data-umow="zabiegi-hero">Umów wizytę</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sekcja sekcja--krem" aria-labelledby="az">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <h2 id="az">Zabiegi od A do Z</h2>
+          <p class="lead">Wybierz problem, żeby zobaczyć zabiegi, które mogą pomóc.</p>
+        </div>
+        <div class="filtr" role="group" aria-label="Filtruj zabiegi po problemie skóry" data-filtr>
+          <button type="button" class="chip" aria-pressed="true" data-problem="">Wszystkie</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="tradzik">Trądzik i zaskórniki</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="przebarwienia">Przebarwienia</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="naczynka">Naczynka i zaczerwienienia</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="cera-sucha">Cera sucha i odwodniona</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="starzenie-skory">Oznaki starzenia i jędrność</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="owal-twarzy">Owal twarzy i szyja</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="okolica-oczu">Okolica oczu</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="blizny-i-rozstepy">Blizny i rozstępy</button>
+          <button type="button" class="chip" aria-pressed="false" data-problem="cellulit">Cellulit i ciało</button>
+        </div>
+        <p class="filtr__licznik tekst-maly" aria-live="polite" data-filtr-licznik></p>
+        {{zabiegi-az}}
+
+        <!-- Zabieg Indywidualny — wejście dla niezdecydowanych (BRIEF 6.5); tekst: Zabieg_Indywidualny_Booksy_Claude.pdf -->
+        <div class="baner-diagnostyka" style="margin-top:var(--s-7)">
+          <div>
+            <h2>Nie wiesz, co wybrać? Zabieg Indywidualny</h2>
+            <p>Rekomendowany szczególnie na pierwszą wizytę oraz osobom, które nie wiedzą, czego potrzebuje ich cera i jaki zabieg wybrać z oferty. Po konsultacji i ocenie skóry dobieram procedurę, preparaty oraz techniki do jej aktualnych potrzeb. <strong>{{cena:zabieg-indywidualny}}</strong></p>
+            <p class="tekst-maly">W przypadku bardziej złożonych problemów skórnych polecam rozpocząć od konsultacji kosmetologicznej lub szczegółowej konsultacji z komputerową diagnostyką skóry Lumiscan.</p>
+          </div>
+          <div class="przyciski">
+            <a class="btn" href="{{booksy:zabieg-indywidualny}}" rel="noopener" data-umow="zabiegi-indywidualny">Umów Zabieg Indywidualny</a>
+            <a class="btn btn--kontur" href="/diagnostyka-skory/">Poznaj diagnostykę</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sekcja" id="cennik-pelny" aria-labelledby="cp">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <span class="nadtytul">Cennik</span>
+          <h2 id="cp">Pełny cennik</h2>
+          <p class="lead">Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania. Aktualne ceny i wolne terminy sprawdzisz w Booksy.</p>
+        </div>
+        {{cennik}}
+        <p class="tekst-maly" style="margin-top:var(--s-6)">Masaże wykonuje Oksana, dyplomowana masażystka — rezerwacja na jej <a href="{{firma:booksyMasaze}}" rel="noopener">osobnym profilu w Booksy</a>.</p>
+      </div>
+    </section>
+
+  </main>
+  <!-- @include stopka -->
+  <!-- @include umow-mobile -->
+</body>
+</html>
