@@ -156,3 +156,27 @@
 @media (min-width: 768px) {
   .umow-mobile { display: none; }
 }
+
+/* ============ ZNAK WODNY W TLE (jak w wersji 2) ============
+   Grafika (gałązka z liśćmi, SVG bez koloru) jako maska CSS, kolor = złoto przy 10% krycia.
+   Jeden egzemplarz u góry strony, przewija się razem z treścią (absolute, nie fixed), za treścią.
+   Sekcje z nieprzezroczystym tłem (np. .sekcja--krem) go zasłaniają — tak samo jak w wersji 2.
+   Złoto tu wyłącznie jako dekoracja. */
+body { position: relative; overflow: clip; }
+body::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -6vh;
+  right: -22vw;
+  width: 80vh;
+  height: 120vh;
+  background: var(--gold);
+  opacity: 0.10;
+  pointer-events: none;
+  -webkit-mask: url('/assets/img/marka/watermark.svg') top right / contain no-repeat;
+  mask: url('/assets/img/marka/watermark.svg') top right / contain no-repeat;
+}
+@media (min-width: 640px) { body::before { right: -8vw; } }
+@media (min-width: 1024px) { body::before { right: 2vw; } }
+@media print { body::before { display: none; } }
