@@ -161,22 +161,34 @@
    Grafika (gałązka z liśćmi, SVG bez koloru) jako maska CSS, kolor = złoto przy 10% krycia.
    Jeden egzemplarz u góry strony, przewija się razem z treścią (absolute, nie fixed), za treścią.
    Sekcje z nieprzezroczystym tłem (np. .sekcja--krem) go zasłaniają — tak samo jak w wersji 2.
+   Ramka ma szerokość strony, a odsunięcie od prawej robi maska (mask-position) — dzięki temu
+   nic nie wystaje poza stronę i NIE używamy overflow na body (przechodzi na okno i blokuje scroll).
    Złoto tu wyłącznie jako dekoracja. */
-body { position: relative; overflow: clip; }
+body { position: relative; }
 body::before {
   content: "";
   position: absolute;
   z-index: -1;
   top: -6vh;
-  right: -22vw;
-  width: 80vh;
+  left: 0;
+  right: 0;
   height: 120vh;
   background: var(--gold);
   opacity: 0.10;
   pointer-events: none;
-  -webkit-mask: url('/assets/img/marka/watermark.svg') top right / contain no-repeat;
-  mask: url('/assets/img/marka/watermark.svg') top right / contain no-repeat;
+  -webkit-mask: url('/assets/img/marka/watermark.svg') right -22vw top 0 / auto 120vh no-repeat;
+  mask: url('/assets/img/marka/watermark.svg') right -22vw top 0 / auto 120vh no-repeat;
 }
-@media (min-width: 640px) { body::before { right: -8vw; } }
-@media (min-width: 1024px) { body::before { right: 2vw; } }
+@media (min-width: 640px) {
+  body::before {
+    -webkit-mask-position: right -8vw top 0;
+    mask-position: right -8vw top 0;
+  }
+}
+@media (min-width: 1024px) {
+  body::before {
+    -webkit-mask-position: right 2vw top 0;
+    mask-position: right 2vw top 0;
+  }
+}
 @media print { body::before { display: none; } }
