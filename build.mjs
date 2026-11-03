@@ -634,6 +634,70 @@ if (problemyDane) for (const p of problemyDane.problemy) {
   generowane.push([path.join('problemy-skory', p.slug, 'index.html'), stronaProblemu(p), `src/data/problemy.json [${p.slug}]`]);
 }
 
+// ======================================================================
+// SEO (BRIEF 9.3): canonical, Open Graph, JSON-LD — dokładane automatycznie do każdej strony
+// ======================================================================
+const SEO = 'SEO (head)';
+const tekstBezTagow = (h) => h.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+function dodajSeo(html, r) {
+  let domena;
+  try { domena = poleFirmy('domena', SEO).replace(/\/$/, ''); } catch (e) { blad(String(e)); return html; }
+  const sciezka = '/' + r.split(path.sep).join('/').replace(/index\.html$/, '');
+  const url = domena + sciezka;
+  const tytul = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '';
+  const opis = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
+  const noindex = /<meta\s+name=["']robots["'][^>]*noindex/i.test(html);
+  if (!opis && !robocze(r)) ostrzezenia.add(`${r}: brak meta description`);
+
+  const firmaLd = {
+    '@type': 'BeautySalon', '@id': domena + '/#gabinet',
+    name: poleFirmy('nazwa', SEO), url: domena + '/',
+    telephone: poleFirmy('telefon', SEO).replace(/\s/g, ''),
+    image: domena + '/assets/img/marka/tk-logo-gold-512.png',
+    address: { '@type': 'PostalAddress', streetAddress: poleFirmy('ulica', SEO), postalCode: poleFirmy('kodPocztowy', SEO), addressLocality: poleFirmy('miasto', SEO), addressRegion: 'mazowieckie', addressCountry: 'PL' },
+    geo: (([la, lo]) => ({ '@type': 'GeoCoordinates', latitude: Number(la), longitude: Number(lo) }))(poleFirmy('wspolrzedne', SEO).split(',')),
+    areaServed: 'Warszawa Włochy',
+    sameAs: [poleFirmy('booksy', SEO)],
+  };
+  const graf = [firmaLd];
+
+  // okruszki → BreadcrumbList
+  const ok = html.match(/<nav class="okruszki"[\s\S]*?<\/nav>/);
+  if (ok) {
+    const elementy = [...ok[0].matchAll(/<li(?: aria-current="page")?>(?:<a href="([^"]+)">)?([\s\S]*?)(?:<\/a>)?<\/li>/g)];
+    graf.push({ '@type': 'BreadcrumbList', itemListElement: elementy.map((m, i) => ({ '@type': 'ListItem', position: i + 1, name: tekstBezTagow(m[2]), item: domena + (m[1] || sciezka) })) });
+  }
+  // FAQ → FAQPage (akordeon z data-faq albo sekcja id="faq")
+  const faqBlok = html.match(/<div class="akordeon" data-faq>([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/)
+    || html.match(/id="faq"[\s\S]*?<div class="akordeon">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/);
+  if (faqBlok) {
+    const pytania = [...faqBlok[1].matchAll(/<summary>([\s\S]*?)<\/summary>\s*<div class="akordeon__tresc">([\s\S]*?)<\/div><\/details>/g)];
+    if (pytania.length) graf.push({ '@type': 'FAQPage', mainEntity: pytania.map((m) => ({ '@type': 'Question', name: tekstBezTagow(m[1]), acceptedAnswer: { '@type': 'Answer', text: tekstBezTagow(m[2]) } })) });
+  }
+  // podstrona zabiegu → Service z zakresem cen (BEZ AggregateRating — BRIEF 9.3)
+  const slug = (sciezka.match(/^\/zabiegi\/([^/]+)\/$/) || [])[1];
+  if (slug && PODSTRONY.includes(slug)) {
+    const lista = widoczne(uslugiPodstrony(slug).flatMap(pozycje));
+    const nazwaUslugi = tekstBezTagow((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '');
+    const usl = { '@type': 'Service', name: nazwaUslugi, description: opis, provider: { '@id': domena + '/#gabinet' }, areaServed: 'Warszawa' };
+    if (lista.length) usl.offers = { '@type': 'AggregateOffer', priceCurrency: 'PLN', lowPrice: Math.min(...lista.map((p) => p.cena)), highPrice: Math.max(...lista.map((p) => p.cena)), offerCount: lista.length };
+    graf.push(usl);
+  }
+
+  const glowa = [
+    `<link rel="canonical" href="${esc(url)}">`,
+    '<meta property="og:type" content="website">',
+    '<meta property="og:locale" content="pl_PL">',
+    '<meta property="og:site_name" content="Twój Kosmetolog">',
+    `<meta property="og:title" content="${tytul}">`,
+    opis ? `<meta property="og:description" content="${opis}">` : '',
+    `<meta property="og:url" content="${esc(url)}">`,
+    `<meta property="og:image" content="${esc(domena)}/assets/img/marka/tk-logo-gold-512.png">`,
+    noindex ? '' : `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graf }).replace(/</g, '\\u003c')}</script>`,
+  ].filter(Boolean).join('\n  ');
+  return html.replace('</head>', `  ${glowa}\n</head>`);
+}
+
 // ---------- pliki ----------
 function* pliki(dir) {
   if (!fs.existsSync(dir)) return;
@@ -658,7 +722,7 @@ for (const p of pliki(KAT_STRON)) {
   const cel = path.join(DIST, r);
   fs.mkdirSync(path.dirname(cel), { recursive: true });
   if (p.endsWith('.html')) {
-    const html = renderuj(p);
+    const html = dodajSeo(renderuj(p), r);
     fs.writeFileSync(cel, html);
     strony.push({ r, html });
   } else fs.copyFileSync(p, cel);
@@ -667,7 +731,7 @@ for (const [r, kod, nazwa] of generowane) {
   const cel = path.join(DIST, r);
   if (fs.existsSync(cel)) { blad(`${nazwa}: kolizja — strona ${r} istnieje też w src/pages`); continue; }
   fs.mkdirSync(path.dirname(cel), { recursive: true });
-  const html = renderujKod(kod, nazwa);
+  const html = dodajSeo(renderujKod(kod, nazwa), r);
   fs.writeFileSync(cel, html);
   strony.push({ r, html });
 }
