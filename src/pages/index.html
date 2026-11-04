@@ -93,18 +93,16 @@
     <!-- 3. LUMISCAN — tekst: dok. 12 sekcja 3 i 4 (zatwierdzony) -->
     <section class="sekcja" aria-labelledby="lumiscan-tytul">
       <div class="kontener">
-        <!-- Rząd 1: tekst na całą szerokość (nagłówek bez limitu, lead ≤ 46 rem) -->
-        <div class="lumiscan-glowa">
-          <span class="nadtytul">Diagnostyka skóry Lumiscan™</span>
-          <h2 id="lumiscan-tytul">Twoja skóra ma więcej do pokazania, niż widać na pierwszy rzut oka.</h2>
-          <p class="lead" style="margin-top:var(--s-4)">Lumiscan™ pokazuje skórę w różnych trybach światła. Widzimy nie tylko to, co na powierzchni, ale też zmiany, które nie są jeszcze wyraźnie widoczne gołym okiem. Wyniki zawsze interpretuję razem z wywiadem i oceną w lampie z lupą.</p>
-          <div class="przyciski">
-            <a class="btn" href="{{booksy:lumiscan}}" rel="noopener" data-umow="home-lumiscan">Umów diagnostykę</a>
-            <a class="btn btn--kontur" href="/diagnostyka-skory/">Jak wygląda badanie</a>
+        <div class="duet">
+          <div>
+            <span class="nadtytul">Diagnostyka skóry Lumiscan™</span>
+            <h2 id="lumiscan-tytul">Twoja skóra ma więcej do pokazania, niż widać na pierwszy rzut oka.</h2>
+            <p class="lead" style="margin-top:var(--s-4)">Lumiscan™ pokazuje skórę w różnych trybach światła. Widzimy nie tylko to, co na powierzchni, ale też zmiany, które nie są jeszcze wyraźnie widoczne gołym okiem. Wyniki zawsze interpretuję razem z wywiadem i oceną w lampie z lupą.</p>
+            <div class="przyciski">
+              <a class="btn" href="{{booksy:lumiscan}}" rel="noopener" data-umow="home-lumiscan">Umów diagnostykę</a>
+              <a class="btn btn--kontur" href="/diagnostyka-skory/">Jak wygląda badanie</a>
+            </div>
           </div>
-        </div>
-        <!-- Rząd 2: w DOM zdjęcie przed kartą (telefon: zdjęcie, potem wyniki); na desktopie karta po lewej, zdjęcie po prawej (order) -->
-        <div class="lumiscan-rzad">
           <!-- Zdjęcie urządzenia od producenta [N:decyzja Michała 2026-11-04] — tymczasowe, STOCK-; czy to model Malwiny: DO-MALWINY -->
           <figure class="urzadzenie">
             <div class="urzadzenie__scena">
@@ -113,18 +111,18 @@
               </div>
             </div>
           </figure>
-          <!-- Wizualizacja badania — wg designu Malwiny (artboard 15dd8cd198dd); paski poglądowe -->
-          <div class="wizualizacja-badania">
-            <p class="wizualizacja-badania__tytul">Co oceniamy podczas badania</p>
-            <ul class="wizualizacja-badania__lista">
-              <li><span>Przebarwienia i pigmentacja (także w UV)</span><span class="pasek" style="--w:72%" aria-hidden="true"></span></li>
-              <li><span>Pory i struktura skóry</span><span class="pasek" style="--w:58%" aria-hidden="true"></span></li>
-              <li><span>Nawilżenie i sebum</span><span class="pasek" style="--w:44%" aria-hidden="true"></span></li>
-              <li><span>Zaczerwienienia i naczynka</span><span class="pasek" style="--w:36%" aria-hidden="true"></span></li>
-              <li><span>Zmarszczki i elastyczność</span><span class="pasek" style="--w:63%" aria-hidden="true"></span></li>
-            </ul>
-            <p class="wizualizacja-badania__uwaga">Wizualizacja poglądowa – nie są to wyniki klientki.</p>
-          </div>
+        </div>
+        <!-- Wizualizacja badania — wg designu Malwiny (artboard 15dd8cd198dd); paski poglądowe -->
+        <div class="wizualizacja-badania wizualizacja-badania--pozioma">
+          <p class="wizualizacja-badania__tytul">Co oceniamy podczas badania</p>
+          <ul class="wizualizacja-badania__lista">
+            <li><span>Przebarwienia i pigmentacja (także w UV)</span><span class="pasek" style="--w:72%" aria-hidden="true"></span></li>
+            <li><span>Pory i struktura skóry</span><span class="pasek" style="--w:58%" aria-hidden="true"></span></li>
+            <li><span>Nawilżenie i sebum</span><span class="pasek" style="--w:44%" aria-hidden="true"></span></li>
+            <li><span>Zaczerwienienia i naczynka</span><span class="pasek" style="--w:36%" aria-hidden="true"></span></li>
+            <li><span>Zmarszczki i elastyczność</span><span class="pasek" style="--w:63%" aria-hidden="true"></span></li>
+          </ul>
+          <p class="wizualizacja-badania__uwaga">Wizualizacja poglądowa – nie są to wyniki klientki.</p>
         </div>
       </div>
     </section>
