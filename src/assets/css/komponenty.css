@@ -491,12 +491,13 @@
 .wizualizacja-badania .pasek::after { content: ""; display: block; height: 100%; width: var(--w, 50%); background: var(--bordo); }
 .wizualizacja-badania__uwaga { margin: 0; font-size: var(--fs-overline); color: var(--text-muted); }
 @media (max-width: 599.98px) { .wizualizacja-badania { padding: var(--s-5); } }
-/* wariant poziomy (home): karta pod duetem tekst + urządzenie, 5 pasków obok siebie */
-.wizualizacja-badania--pozioma { margin-top: var(--s-7); }
+/* ============ LUMISCAN (home) — rząd 1: tekst na całą szerokość; rząd 2: wyniki | urządzenie ============ */
+.lumiscan-glowa { margin-bottom: var(--s-7); }
+.lumiscan-glowa .lead { max-width: 46rem; } /* nagłówek rozciągnięty, akapit czytelny */
+.lumiscan-rzad { display: grid; gap: var(--s-7); align-items: center; }
 @media (min-width: 900px) {
-  .wizualizacja-badania--pozioma { padding: var(--s-6) var(--s-7); }
-  .wizualizacja-badania--pozioma .wizualizacja-badania__lista { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-5); }
-  .wizualizacja-badania--pozioma .wizualizacja-badania__lista li { justify-content: space-between; } /* paski w jednej linii mimo różnej długości etykiet */
+  .lumiscan-rzad { grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+  .lumiscan-rzad > .wizualizacja-badania { order: -1; } /* w DOM po zdjęciu (mobile), na desktopie po lewej */
 }
 
 /* ============ URZĄDZENIE LUMISCAN (home) — produkt bez tła na kremowej scenie + cień kontaktowy ============ */
