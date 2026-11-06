@@ -17,3 +17,6 @@ data/*.7z
 data/*.zip
 data/*.png
 zrodla-zdjec/
+
+# notatki robocze i dokumentacja (.md) — tylko lokalnie, nie do repozytorium
+*.md
