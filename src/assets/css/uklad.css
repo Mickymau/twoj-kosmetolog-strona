@@ -87,7 +87,6 @@
 }
 .menu a:hover, .menu a[aria-current="page"] { color: var(--bordo); }
 .menu a.btn, .menu a.btn:hover { color: var(--on-bordo); } /* przycisk w menu: tekst jasny, nie kolor linku */
-.menu__prawa { display: block; }
 
 /* --- telefon / tablet: menu rozwijane pod nagłówkiem --- */
 @media (max-width: 1199.98px) {
@@ -101,7 +100,7 @@
   }
   .menu li + li, .menu__lewa + .menu__prawa { border-top: 1px solid var(--line-header); }
   .menu a { min-height: 52px; font-size: 1.125rem; }
-  .menu__umow { display: block; margin-top: var(--s-4); }
+  .menu li.menu__umow { margin-top: var(--s-4); border-top: 0; }
   .menu__umow .btn { width: 100%; }
   /* z JS menu jest domyślnie zwinięte; bez JS — zawsze widoczne pod nagłówkiem */
   .js .menu { visibility: hidden; opacity: 0; transform: translateY(-8px);
@@ -113,18 +112,11 @@
   html:not(.js) .menu-przycisk { display: none; }
 }
 
-/* --- desktop: logo pośrodku, 2 linki po lewej, 3 linki i „Umów wizytę” po prawej ---
-   Pasek na całą szerokość ekranu (max 1680 px). Jedna przerwa (--przerwa) między wszystkimi
-   elementami — także przy logo — rośnie z szerokością okna (ok. 45 → 96 px). Wzór dobrany tak,
-   żeby prawa grupa (najszersza: 3 linki + przycisk) zawsze mieściła się w swojej połowie. */
+/* --- desktop: logo pośrodku, w ramach szerokości treści strony (.kontener) ---
+   Każda połowa to jedna kolumna: pierwszy link stoi na krawędzi treści, ostatni element
+   (przycisk po prawej) na drugiej krawędzi, a między elementami rozkładają się równe przerwy. */
 @media (min-width: 1200px) {
-  .naglowek__wnetrze {
-    --przerwa: clamp(2.5rem, calc((100vw - 820px) / 8.5), 6rem);
-    max-width: 1680px;
-    padding-inline: clamp(1.5rem, 3vw, 3.5rem);
-    column-gap: var(--przerwa);
-    min-height: 128px;
-  }
+  .naglowek__wnetrze { column-gap: var(--s-7); min-height: 128px; }
   .naglowek--przewiniety .naglowek__wnetrze { min-height: 72px; }
   .naglowek__logo img { width: 104px; height: 104px; }
   .naglowek--przewiniety .naglowek__logo img { width: 56px; height: 56px; }
@@ -136,11 +128,11 @@
     grid-template-columns: subgrid;
     align-items: center;
   }
-  .menu ul { display: flex; gap: var(--przerwa); }
+  .menu ul { display: flex; align-items: center; justify-content: space-between; }
   .menu a { font-size: var(--fs-small); }
-  .menu__lewa { grid-column: 1; justify-self: end; }
-  .menu__prawa { grid-column: 3; justify-self: start; display: flex; align-items: center; gap: var(--przerwa); }
-  .menu__umow { display: block; margin: 0; }
+  .menu__lewa { grid-column: 1; }
+  .menu__prawa { grid-column: 3; }
+  .menu__umow { margin: 0; }
 }
 
 /* ============ STOPKA ============ */
