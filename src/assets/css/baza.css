@@ -49,7 +49,8 @@ h1, h2, h3, h4 {
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); font-weight: 500; }
-h1 em, h2 em, h3 em { font-style: italic; }
+/* bez kursywy w nagłówkach — jeden krój w całym nagłówku (uwaga Malwiny) */
+h1 em, h2 em, h3 em { font-style: normal; }
 p { text-wrap: pretty; max-width: 68ch; }
 p + p { margin-top: var(--s-4); }
 strong { font-weight: 600; color: var(--text); }
