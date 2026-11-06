@@ -523,9 +523,6 @@ Object.assign(ZNACZNIKI, {
     const poz = slub.wazne.map((t) => (t === '@zastrzezenieRabaty' ? slub.zastrzezenieRabaty : t));
     return `<ul class="lista-kropki">${poz.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`;
   },
-  'slub-plakietki'() {
-    return `<ul class="slub-plakietki" aria-label="Programy ślubne">${slub.programy.map((p) => `<li><strong>${esc(p.nazwa)}</strong><span>${esc(p.czasKrotko)} przed ślubem</span></li>`).join('')}</ul>`;
-  },
 });
 
 // --- znaczniki blokowe ---

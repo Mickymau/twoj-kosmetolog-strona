@@ -20,3 +20,6 @@ zrodla-zdjec/
 
 # notatki robocze i dokumentacja (.md) — tylko lokalnie, nie do repozytorium
 *.md
+
+# pliki robocze Claude (skrypty, zrzuty ekranu, wyniki researchu) — tylko lokalnie
+.tmp/

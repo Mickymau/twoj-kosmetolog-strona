@@ -656,31 +656,12 @@
   .slub-kupon__rabat { font-size: 2.5rem; }
 }
 
-/* strona główna: szeroki baner „Pakiety ślubne” pod siatką problemów */
-.slub-baner { display: grid; margin-top: var(--s-6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); overflow: hidden; }
-.slub-baner__foto {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 150px;
-  background: radial-gradient(circle at 50% 50%, var(--bg) 0, var(--bg-cream) 80%);
-}
-.slub-baner__foto::before { content: ""; position: absolute; inset: var(--s-3); border: 1px solid rgb(184 151 90 / 0.4); border-radius: var(--radius); }
-.slub-baner__foto .obraczki--duze { width: min(55%, 240px); }
-.slub-baner__tresc { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-4); padding: var(--s-6) var(--s-5); }
-.slub-baner__tresc h3 { margin: 0; font-family: var(--font-serif); font-weight: 400; }
-.slub-baner__tresc .nadtytul { margin-bottom: 0; }
-.slub-plakietki { display: grid; gap: var(--s-2); width: 100%; margin: 0; padding: 0; list-style: none; }
-.slub-plakietki li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-1) var(--s-4); padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-cream); }
-.slub-plakietki strong { font-family: var(--font-serif); font-size: 1.0625rem; font-weight: 400; }
-.slub-plakietki span { color: var(--text-muted); font-size: var(--fs-small); }
-@media (min-width: 640px) {
-  .slub-plakietki { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .slub-plakietki li { display: block; }
-  .slub-plakietki strong, .slub-plakietki span { display: block; }
-}
-@media (min-width: 900px) {
-  .slub-baner { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); }
-  .slub-baner__foto { min-height: 100%; }
-  .slub-baner__tresc { padding: var(--s-7); }
-}
+/* strona główna: szeroki kafel „Pakiety ślubne” pod siatką problemów — te same elementy co kafle problemów
+   (.problem-kafel: zdjęcie, przyciemnienie, biały tytuł, złota kreska, hover); bez zdjęcia: tło w kolorze marki */
+.kafle-problemow + .problem-kafel--slub { margin-top: var(--s-3); aspect-ratio: 2 / 1; }
+@media (min-width: 640px) { .kafle-problemow + .problem-kafel--slub { margin-top: var(--s-5); aspect-ratio: 3 / 1; } }
+@media (min-width: 1000px) { .kafle-problemow + .problem-kafel--slub { aspect-ratio: 4 / 1; } }
+.problem-kafel--bez-zdjecia { background: linear-gradient(135deg, var(--bordo-dark), var(--bordo)); }
+.problem-kafel--bez-zdjecia::before { background: radial-gradient(ellipse 80% 70% at 50% 50%, rgb(0 0 0 / 0.22), rgb(0 0 0 / 0)); }
+.problem-kafel--bez-zdjecia:hover::before, .problem-kafel--bez-zdjecia:focus-visible::before { background: radial-gradient(ellipse 80% 70% at 50% 50%, rgb(0 0 0 / 0.32), rgb(0 0 0 / 0)); }
+.problem-kafel--slub .obraczki { stroke: var(--gold); stroke-width: 1.4; text-shadow: none; }
