@@ -59,6 +59,7 @@
   ],
   "panMlody": {
     "nazwa": "Zadbany Pan Młody",
+    "zdjecie": { "plik": "STOCK-slub-pan-mlody", "alt": "Granatowa marynarka z bordową muchą i butonierką z kwiatów" },
     "opis": "Indywidualny program pielęgnacji skóry mężczyzny przed ślubem.",
     "zawiera": [
       "Diagnostyka Lumiscan™ i indywidualny Beauty Plan.",
@@ -77,6 +78,7 @@
   },
   "razem": {
     "nazwa": "Piękni Razem",
+    "zdjecie": { "plik": "STOCK-slub-dlonie", "alt": "Dłonie narzeczonych z obrączkami, obok gałązki gipsówki" },
     "opis": "Program dla narzeczonych, którzy chcą wspólnie przygotować skórę do ślubu.",
     "zawiera": [
       "Diagnostyka Lumiscan™ dla każdej osoby.",

@@ -545,18 +545,9 @@
 .obraczki { fill: none; stroke: var(--gold); stroke-width: 1.6; }
 .obraczki--duze { width: min(70%, 320px); height: auto; stroke-width: 0.9; }
 
-/* pierwszy ekran: panel z ornamentem (do czasu zdjęcia) */
-.slub-hero__panel {
-  position: relative;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 3 / 2;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: radial-gradient(circle at 50% 42%, var(--bg) 0, var(--bg-cream) 75%);
-}
-.slub-hero__panel::before { content: ""; position: absolute; inset: var(--s-3); border: 1px solid rgb(184 151 90 / 0.4); border-radius: var(--radius); }
-@media (min-width: 900px) { .slub-hero__panel { aspect-ratio: 4 / 5; } }
+/* pierwszy ekran: zdjęcie (kadr bukietu) */
+.zdjecie--slub { object-position: 50% 40%; }
+@media (max-width: 899.98px) { .zdjecie--slub { object-position: 50% 36%; } }
 
 /* wybór „Ile masz czasu do ślubu?” (tylko z JS) */
 .slub-wybor { margin-bottom: var(--s-7); }
@@ -622,7 +613,9 @@
 /* Pan Młody i Piękni Razem */
 .slub-duet { display: grid; gap: var(--s-5); align-items: stretch; }
 @media (min-width: 900px) { .slub-duet { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.slub-karta { display: flex; flex-direction: column; gap: var(--s-4); }
+.slub-karta { --pad: var(--s-6); display: flex; flex-direction: column; gap: var(--s-4); padding: var(--pad); overflow: hidden; }
+@media (max-width: 599.98px) { .slub-karta { --pad: var(--s-5); } }
+.slub-karta__foto { display: block; width: calc(100% + 2 * var(--pad)); max-width: none; margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0; aspect-ratio: 4 / 3; object-fit: cover; background: var(--bg-cream); }
 .slub-karta h3 { margin-bottom: 0; font-family: var(--font-serif); font-weight: 400; }
 .slub-karta .nadtytul { margin-bottom: 0; }
 .slub-karta .slub-etykieta { margin-bottom: 0; }
@@ -661,7 +654,3 @@
 .kafle-problemow + .problem-kafel--slub { margin-top: var(--s-3); aspect-ratio: 2 / 1; }
 @media (min-width: 640px) { .kafle-problemow + .problem-kafel--slub { margin-top: var(--s-5); aspect-ratio: 3 / 1; } }
 @media (min-width: 1000px) { .kafle-problemow + .problem-kafel--slub { aspect-ratio: 4 / 1; } }
-.problem-kafel--bez-zdjecia { background: linear-gradient(135deg, var(--bordo-dark), var(--bordo)); }
-.problem-kafel--bez-zdjecia::before { background: radial-gradient(ellipse 80% 70% at 50% 50%, rgb(0 0 0 / 0.22), rgb(0 0 0 / 0)); }
-.problem-kafel--bez-zdjecia:hover::before, .problem-kafel--bez-zdjecia:focus-visible::before { background: radial-gradient(ellipse 80% 70% at 50% 50%, rgb(0 0 0 / 0.32), rgb(0 0 0 / 0)); }
-.problem-kafel--slub .obraczki { stroke: var(--gold); stroke-width: 1.4; text-shadow: none; }

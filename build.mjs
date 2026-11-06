@@ -212,6 +212,10 @@ stop();
     const o = slub[k];
     if (!o) { blad(`${G}: brak sekcji „${k}”`); continue; }
     txt(o.nazwa, `${k}.nazwa`); txt(o.opis, `${k}.opis`); lista(o.zawiera, `${k}.zawiera`);
+    if (o.zdjecie) {
+      txt(o.zdjecie.alt, `${k}.zdjecie.alt`);
+      for (const w of [480, 800, 1200]) if (!fs.existsSync(path.join(SRC, 'assets', 'img', `${o.zdjecie.plik}-${w}.webp`))) blad(`${G}: ${k}.zdjecie: brak pliku src/assets/img/${o.zdjecie.plik}-${w}.webp`);
+    }
     if (o.zabiegi) zabiegiLista(o.zabiegi, `${k}.zabiegi`);
     if (o.plus) { txt(o.plus.nazwa, `${k}.plus.nazwa`); txt(o.plus.opis, `${k}.plus.opis`); }
   }
@@ -484,7 +488,9 @@ const slubChipy = (zab) => `<ul class="chipy chipy--male slub-zabiegi">${zab.map
   ? `<li><a class="chip" href="${linkZabiegu(z.slug)}">${esc(z.nazwa)}</a></li>`
   : `<li><span class="chip chip--tekst">${esc(z.nazwa)}</span></li>`)).join('')}</ul>`;
 const slubObraczki = '<svg class="obraczki" viewBox="0 0 120 72" width="60" height="36" aria-hidden="true" focusable="false"><circle cx="44" cy="36" r="26"/><circle cx="76" cy="36" r="26"/></svg>';
+const slubFoto = (z) => (z ? `<img class="slub-karta__foto" src="/assets/img/${z.plik}-800.webp" srcset="${[480, 800, 1200].map((w) => `/assets/img/${z.plik}-${w}.webp ${w}w`).join(', ')}" sizes="(min-width: 900px) 580px, 100vw" width="800" height="600" alt="${esc(z.alt)}" loading="lazy">` : '');
 const slubKarta = (o, nadtytul, plus) => `<article class="karta slub-karta">
+  ${slubFoto(o.zdjecie)}
   <span class="nadtytul">${esc(nadtytul)}</span>
   <h3>${esc(o.nazwa)}</h3>
   <p>${esc(o.opis)}</p>
