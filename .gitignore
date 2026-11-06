@@ -23,3 +23,6 @@ zrodla-zdjec/
 
 # pliki robocze Claude (skrypty, zrzuty ekranu, wyniki researchu) — tylko lokalnie
 .tmp/
+
+# lokalne reguły uprawnień Claude (osobiste, nie do repozytorium)
+.claude/settings.local.json
