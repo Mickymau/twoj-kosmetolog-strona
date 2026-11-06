@@ -95,6 +95,18 @@
 .cennik__umow { width: 1%; }
 .cennik__pakiety { display: block; margin-top: var(--s-1); font-weight: 400; color: var(--text-muted); font-size: 0.8125rem; }
 .cennik__dodatki { margin-top: var(--s-3); font-size: var(--fs-small); color: var(--text-muted); }
+.cennik__opis { margin-top: var(--s-1); font-weight: 400; }
+.cennik__opis summary { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 32px; cursor: pointer; color: var(--bordo); font-size: 0.8125rem; text-decoration: underline; text-decoration-color: rgb(122 46 58 / 0.4); text-underline-offset: 3px; list-style: none; }
+.cennik__opis summary::-webkit-details-marker { display: none; }
+.cennik__opis summary::after { content: ""; width: 0.45em; height: 0.45em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-1px) rotate(45deg); transition: transform 0.2s; }
+.cennik__opis[open] summary::after { transform: translateY(1px) rotate(-135deg); }
+.cennik__opis-tresc { margin-top: var(--s-2); padding: var(--s-1) 0 var(--s-1) var(--s-4); border-left: 2px solid var(--line); color: var(--text); font-size: var(--fs-small); line-height: 1.55; }
+.cennik__opis-tresc p { margin: 0 0 var(--s-2); }
+.cennik__opis-tresc .cennik__opis-h { margin-top: var(--s-3); font-weight: 600; }
+.cennik__opis-tresc ul { margin: 0 0 var(--s-2); padding-left: var(--s-5); list-style: disc; }
+.cennik__opis-tresc li { margin-bottom: var(--s-1); }
+.cennik__opis-tresc > :last-child { margin-bottom: 0; }
+@media (prefers-reduced-motion: reduce) { .cennik__opis summary::after { transition: none; } }
 .btn--maly { min-height: var(--dotyk-min); padding: var(--s-2) var(--s-4); font-size: var(--fs-small); }
 .cennik-grupa + .cennik-grupa { margin-top: var(--s-7); }
 .cennik-grupa h3 { margin-bottom: var(--s-3); }

@@ -64,7 +64,29 @@
       "booksyUrl": null,
       "cena": 100,
       "czas": 30,
-      "zweryfikowano": "2026-11-02"
+      "zweryfikowano": "2026-11-02",
+      "opis": [
+        "Pierwszy krok dla osób, które chcą poznać potrzeby swojej skóry, skonsultować problemy z cerą lub dowiedzieć się, jaki zabieg będzie dla nich odpowiedni.",
+        "Podczas spotkania przeprowadzam wywiad kosmetologiczny oraz oceniam skórę pod lupą. Na tej podstawie ustalamy priorytety pielęgnacyjne i proponowany kierunek dalszego postępowania.",
+        {
+          "h": "Konsultacja obejmuje:"
+        },
+        {
+          "lista": [
+            "wywiad dotyczący stanu skóry, zdrowia, przyjmowanych leków i dotychczasowych zabiegów",
+            "oglądową ocenę skóry pod lupą",
+            "ocenę, czy stosowane kosmetyki odpowiadają potrzebom cery",
+            "najważniejsze zalecenia pielęgnacyjne i rekomendację odpowiednich zabiegów",
+            "w razie potrzeby rekomendację dokładniejszej diagnostyki Lumiscan lub konsultacji dermatologicznej"
+          ]
+        },
+        "Konsultacja nie obejmuje komputerowej diagnostyki Lumiscan ani opracowania szczegółowego Beauty Planu.",
+        {
+          "h": "Przygotowanie"
+        },
+        "Rekomenduję przyjście bez makijażu. Jeśli nie będzie to możliwe, wykonam demakijaż na miejscu. Przygotuj również zdjęcia lub listę używanych kosmetyków oraz listę przyjmowanych leków."
+      ],
+      "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
     },
     {
       "id": "lumiscan",
@@ -75,7 +97,32 @@
       "booksyUrl": null,
       "cena": 290,
       "czas": 80,
-      "zweryfikowano": "2026-11-02"
+      "zweryfikowano": "2026-11-02",
+      "opis": [
+        "Pełna konsultacja kosmetologiczna połączona z oceną skóry w lampie z lupą, diagnostyką Lumiscan™, osobnym pomiarem nawilżenia i szczegółowym omówieniem wyników.",
+        {
+          "h": "Podczas diagnostyki możemy dokładniej przyjrzeć się m.in.:"
+        },
+        {
+          "lista": [
+            "przebarwieniom i nagromadzeniu pigmentu, również zmianom mniej widocznym w świetle dziennym",
+            "strukturze i teksturze skóry, drobnym liniom i zmarszczkom",
+            "porom i ich widoczności",
+            "wydzielaniu sebum i obszarom jego zwiększonego występowania",
+            "zaczerwienieniom i obrazowi naczyń",
+            "obrazowi porfiryn w świetle UV, który może dostarczyć dodatkowych informacji m.in. przy skórze ze skłonnością do zaskórników i zmian trądzikowych",
+            "oznakom związanym z fotostarzeniem i działaniem promieniowania UV"
+          ]
+        },
+        "Dodatkowo wykonuję osobny pomiar poziomu nawilżenia skóry. Raport z badania otrzymujesz również na e-mail.",
+        {
+          "link": {
+            "href": "/diagnostyka-skory/",
+            "tekst": "Szczegóły: Diagnostyka skóry i Beauty Plan"
+          }
+        }
+      ],
+      "opisZrodlo": "[N:strona /diagnostyka-skory/ (dok. 12)] Zatwierdzona wersja internetowa; do akceptu Malwiny."
     },
     {
       "id": "lumiscan-beauty-plan",
@@ -86,7 +133,18 @@
       "booksyUrl": null,
       "cena": 590,
       "czas": 90,
-      "zweryfikowano": "2026-11-02"
+      "zweryfikowano": "2026-11-02",
+      "opis": [
+        "Pełna diagnostyka skóry połączona z przygotowaniem Indywidualnego Beauty Planu — strategii pielęgnacji domowej i gabinetowej — oraz z 6-miesięczną opieką.",
+        "Każdy Beauty Plan przygotowuję indywidualnie na podstawie informacji zebranych podczas konsultacji, aktualnego stanu skóry i wyników diagnostyki. Przygotowuję go w ciągu 7 dni.",
+        {
+          "link": {
+            "href": "/diagnostyka-skory/",
+            "tekst": "Szczegóły: Diagnostyka skóry i Beauty Plan"
+          }
+        }
+      ],
+      "opisZrodlo": "[N:strona /diagnostyka-skory/ (dok. 12)] Zatwierdzona wersja internetowa; do akceptu Malwiny."
     },
     {
       "id": "beauty-plan-po-lumiscan",
@@ -97,7 +155,19 @@
       "booksyUrl": null,
       "cena": 350,
       "czas": 60,
-      "zweryfikowano": "2026-11-02"
+      "zweryfikowano": "2026-11-02",
+      "opis": [
+        "Dla osób, które miały już u mnie diagnostykę Lumiscan™ i chcą pójść krok dalej. Jeżeli wcześniejsze wyniki nadal mogą stanowić podstawę do przygotowania Beauty Planu, wykorzystujemy je do stworzenia pełnej indywidualnej strategii dalszego działania.",
+        "Spotkanie zaczynam od krótkiej konsultacji uzupełniającej i aktualnej oceny skóry pod lupą. Pytam przede wszystkim o zmiany, które zaszły od ostatniego badania.",
+        "Po otrzymaniu Beauty Planu przez 6 miesięcy pozostajesz pod moją opieką.",
+        {
+          "link": {
+            "href": "/diagnostyka-skory/",
+            "tekst": "Szczegóły: Diagnostyka skóry i Beauty Plan"
+          }
+        }
+      ],
+      "opisZrodlo": "[N:strona /diagnostyka-skory/ (dok. 12)] Zatwierdzona wersja internetowa; do akceptu Malwiny."
     },
     {
       "id": "kontrolny-lumiscan",
@@ -109,7 +179,18 @@
       "cena": 90,
       "czas": null,
       "zweryfikowano": "2026-11-02",
-      "uwagi": "Cena z opisu usługi w Booksy, nie osobna pozycja."
+      "uwagi": "Cena z opisu usługi w Booksy, nie osobna pozycja.",
+      "opis": [
+        "W okresie 6-miesięcznej opieki po Beauty Planie możesz skorzystać z kontrolnego badania Lumiscan — z własnej inicjatywy lub na moją sugestię.",
+        "Pozwala ono porównać aktualny obraz skóry z wcześniejszymi wynikami i ocenić kierunek dalszego postępowania.",
+        {
+          "link": {
+            "href": "/diagnostyka-skory/",
+            "tekst": "Szczegóły: Diagnostyka skóry i Beauty Plan"
+          }
+        }
+      ],
+      "opisZrodlo": "[N:strona /diagnostyka-skory/ (dok. 12)] Zatwierdzona wersja internetowa; do akceptu Malwiny."
     },
     {
       "id": "bezpieczne-oczyszczanie-manualne",
@@ -234,7 +315,55 @@
       "cena": 280,
       "czas": 90,
       "zweryfikowano": "2026-11-06",
-      "uwagi": "Booksy: dla skóry naczyniowej, reaktywnej, z utrwalonym rumieniem i trądzikiem różowatym."
+      "uwagi": "Booksy: dla skóry naczyniowej, reaktywnej, z utrwalonym rumieniem i trądzikiem różowatym.",
+      "opis": [
+        "Zabieg przeznaczony dla skóry naczyniowej, reaktywnej, z utrwalonym rumieniem oraz trądzikiem różowatym. Kwas azelainowy działa wielokierunkowo — pomaga wyciszyć zaczerwienienie, ograniczyć niedoskonałości i wyrównać koloryt skóry.",
+        {
+          "h": "Zabieg polecam w przypadku:"
+        },
+        {
+          "lista": [
+            "utrwalonego lub nawracającego rumienia",
+            "skóry naczyniowej i nadreaktywnej",
+            "trądziku różowatego w stabilnym okresie",
+            "grudek i niedoskonałości towarzyszących trądzikowi różowatemu",
+            "pieczenia, ściągnięcia i dyskomfortu skóry",
+            "przebarwień pozapalnych i nierównego kolorytu",
+            "skóry mieszanej, która jednocześnie jest wrażliwa i zaczerwieniona"
+          ]
+        },
+        {
+          "h": "Przebieg zabiegu:"
+        },
+        {
+          "lista": [
+            "konsultacja i ocena aktualnego stanu skóry",
+            "delikatne oczyszczenie i przygotowanie cery",
+            "kontrolowana aplikacja kwasu azelainowego",
+            "ampułka oraz maska łagodząca dobrane do potrzeb skóry",
+            "krem regenerujący i ochrona przeciwsłoneczna"
+          ]
+        },
+        {
+          "h": "Możliwe efekty:"
+        },
+        {
+          "lista": [
+            "wyciszenie rumienia i nadreaktywności",
+            "zmniejszenie widoczności niedoskonałości",
+            "wyrównanie kolorytu skóry",
+            "ograniczenie nadmiernego wydzielania sebum",
+            "wygładzenie i poprawa komfortu cery",
+            "wsparcie pielęgnacji skóry z trądzikiem różowatym"
+          ]
+        },
+        "Najlepsze rezultaty zazwyczaj przynosi indywidualnie zaplanowana seria zabiegów połączona z odpowiednią pielęgnacją domową.",
+        {
+          "h": "Ważne"
+        },
+        "Zabiegu nie wykonuję podczas silnego zaostrzenia trądziku różowatego, przy aktywnych zmianach ropnych lub wysiękowych, infekcji, opryszczce, uszkodzeniu skóry ani nasilonym podrażnieniu. W przypadku rozpoznanej choroby dermatologicznej zabieg wspiera pielęgnację skóry, ale nie zastępuje leczenia zaleconego przez dermatologa."
+      ],
+      "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
     },
     {
       "id": "mezoterapia-neauvia",
@@ -466,7 +595,23 @@
           "cena": 650,
           "czas": 100
         }
-      ]
+      ],
+      "opis": [
+        "Rekomendowana na pierwszy zabieg mezoterapii lub przed zabiegami przy użyciu stymulatorów.",
+        "Koktajl dobierany jest indywidualnie do potrzeb cery. Przykłady stosowanych preparatów: RRS Tensor lift HA, RRS Hyalift 75, SRS skin lift i inne.",
+        {
+          "h": "Efekty:"
+        },
+        {
+          "lista": [
+            "nawilżenie",
+            "spłycenie drobnych zmarszczek",
+            "poprawa jakości skóry",
+            "opóźnienie procesów starzenia"
+          ]
+        }
+      ],
+      "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny. Pominięte hasło „Tylko bezpieczne certyfikowane preparaty!”."
     },
     {
       "id": "mezoterapia-rewitalizujaca",
@@ -481,7 +626,13 @@
       "cena": 600,
       "czas": 100,
       "zweryfikowano": "2026-11-06",
-      "uwagi": "Booksy: kwas hialuronowy, polinukleotydy, niacynamid; seria 3–4 zabiegi."
+      "uwagi": "Booksy: kwas hialuronowy, polinukleotydy, niacynamid; seria 3–4 zabiegi.",
+      "opis": [
+        "Mezoterapia skin boosterem dla skóry z oznakami fotostarzenia, suchej i pozbawionej blasku.",
+        "Skład: kwas hialuronowy, polinukleotydy, niacynamid (witamina B3 — nawilża i działa antyoksydacyjnie).",
+        "Zalecana seria: 3–4 zabiegi."
+      ],
+      "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
     },
     {
       "id": "polinukleotydy",
@@ -598,7 +749,11 @@
       "booksyUrl": null,
       "cena": 1000,
       "czas": 120,
-      "zweryfikowano": "2026-11-04"
+      "zweryfikowano": "2026-11-04",
+      "opis": [
+        "Atelokolagen nowej generacji. Kompleksowy zabieg z peelingiem i maską."
+      ],
+      "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
     },
     {
       "id": "karboksyterapia-twarzy",
@@ -745,7 +900,23 @@
       "booksyUrl": null,
       "cena": 450,
       "czas": 60,
-      "zweryfikowano": "2026-11-04"
+      "zweryfikowano": "2026-11-04",
+      "opis": [
+        "Kompleksowy zabieg łączący nowoczesne technologie i substancje aktywne.",
+        {
+          "h": "Efekty:"
+        },
+        {
+          "lista": [
+            "wyrównanie koloru skóry",
+            "redukcja obrzęku limfatycznego",
+            "redukcja zmarszczek",
+            "opóźnienie procesów starzenia"
+          ]
+        },
+        "Zalecana seria 3–5 zabiegów w odstępach 2–3 tygodni."
+      ],
+      "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny. Pominięte określenia „szybciej i skuteczniej”, „skuteczne”."
     },
     {
       "id": "mezoterapia-oczu",
@@ -768,7 +939,12 @@
           "id": "glow",
           "nazwa": "Mezoterapia z efektem Glow",
           "cena": 259,
-          "czas": 75
+          "czas": 75,
+          "opis": [
+            "Zabieg dla „zmęczonych oczu” uzupełniony pielęgnacją i drenażem. Daje efekt rozświetlenia, głębokiego nawilżenia oraz redukcji cieni, obrzęków i drobnych zmarszczek.",
+            "Zalecana seria 6 zabiegów."
+          ],
+          "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny. Pominięta informacja o rabacie w karnecie (do potwierdzenia przez Malwinę)."
         },
         {
           "id": "stymulujaca",
@@ -780,7 +956,11 @@
           "id": "cienie-obrzeki",
           "nazwa": "Mezoterapia igłowa — redukcja cieni i obrzęków",
           "cena": 300,
-          "czas": 45
+          "czas": 45,
+          "opis": [
+            "Koktajl dobrany indywidualnie do problemu."
+          ],
+          "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
         }
       ]
     },
@@ -1011,14 +1191,22 @@
           "nazwa": "Karboksyterapia skóry głowy",
           "cena": 200,
           "czas": 60,
-          "zweryfikowano": "2026-11-06"
+          "zweryfikowano": "2026-11-06",
+          "opis": [
+            "Poprawa krążenia, dotlenienie, regeneracja, stymulacja mieszków włosów."
+          ],
+          "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
         },
         {
           "id": "oxybrazja",
           "nazwa": "Oxybrazja skóry głowy z ampułką",
           "cena": 230,
           "czas": 40,
-          "zweryfikowano": "2026-11-06"
+          "zweryfikowano": "2026-11-06",
+          "opis": [
+            "Zabieg złuszczająco-oczyszczający. Peeling wykonywany jest za pomocą roztworu soli fizjologicznej wyrzucanej pod wysokim ciśnieniem aktywnego tlenu. Na koniec zabiegu podawana jest ampułka dobrana do potrzeb skóry i włosów."
+          ],
+          "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
         },
         {
           "id": "mezoterapia",
@@ -1031,7 +1219,11 @@
               "zabiegi": 4,
               "cena": 960
             }
-          ]
+          ],
+          "opis": [
+            "Koktajl do wyboru: Dermaheal HL, Hair Care, RRS XL Hair."
+          ],
+          "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
         },
         {
           "id": "dr-cyj",
@@ -1058,7 +1250,13 @@
       "cena": 100,
       "od": true,
       "czas": 100,
-      "zweryfikowano": "2026-11-02"
+      "zweryfikowano": "2026-11-02",
+      "opis": [
+        "Rekomendowany szczególnie na pierwszą wizytę oraz osobom, które nie wiedzą, czego potrzebuje ich cera i jaki zabieg wybrać z oferty.",
+        "Po konsultacji i ocenie skóry dobieram procedurę, preparaty oraz techniki do jej aktualnych potrzeb.",
+        "W przypadku bardziej złożonych problemów skórnych polecam rozpocząć od konsultacji kosmetologicznej lub szczegółowej konsultacji z komputerową diagnostyką skóry Lumiscan. Pozwoli to dokładniej ocenić potrzeby cery i zaplanować dalszą pielęgnację oraz zabiegi."
+      ],
+      "opisZrodlo": "[N:Zabieg_Indywidualny_Booksy_Claude.pdf + Booksy 2026-11-06] Tekst Malwiny; do akceptu."
     },
     {
       "id": "morska-bryza",
@@ -1096,7 +1294,12 @@
       "booksyUrl": null,
       "cena": 330,
       "czas": 105,
-      "zweryfikowano": "2026-11-02"
+      "zweryfikowano": "2026-11-02",
+      "opis": [
+        "Rekomendowany na prezent, np. w formie bonu podarunkowego.",
+        "Rytuał pielęgnacyjno-relaksacyjny z dużą dawką masażu, stworzony z myślą o osobach zmęczonych, zestresowanych, spragnionych „dopieszczenia”. Pielęgnacja dobrana indywidualnie do potrzeb cery, z wykorzystaniem odpowiedniej aparatury i starannie dobranych kosmetyków, z masażem twarzy, szyi, dekoltu, karku, dłoni i głowy."
+      ],
+      "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
     },
     {
       "id": "brwi",
@@ -1342,14 +1545,22 @@
           "nazwa": "Karboksyterapia — biorewitalizacja dłoni",
           "cena": 150,
           "czas": 30,
-          "zweryfikowano": "2026-11-04"
+          "zweryfikowano": "2026-11-04",
+          "opis": [
+            "Dla skóry szorstkiej, słabo napiętej, z uczuciem „zimnych dłoni”, skłonnej do odmrożeń itp."
+          ],
+          "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
         },
         {
           "id": "mezoterapia",
           "nazwa": "Mezoterapia dłoni",
           "cena": 350,
           "czas": 60,
-          "zweryfikowano": "2026-11-04"
+          "zweryfikowano": "2026-11-04",
+          "opis": [
+            "W zabiegu uwzględniony jest peeling i krem."
+          ],
+          "opisZrodlo": "[N:booksy 2026-11-06] Opis z profilu Booksy Malwiny — poprawione literówki; do akceptu Malwiny."
         }
       ]
     },

@@ -104,6 +104,27 @@ function walidujCene(o, gdzie) {
     if (!Number.isInteger(p.zabiegi) || !Number.isInteger(p.cena)) blad(`${gdzie}: pakiet #${i + 1} wymaga liczb „zabiegi” i „cena”`);
 }
 
+// opis usługi / wariantu: tablica bloków — tekst (akapit), {h}, {lista:[…]}, {link:{href,tekst}}
+const reZakazane = /diagnoz|gwarant|wykry|wiek biologiczn|wylecz|usunie|bakteri(?!al)/i;
+function walidujOpis(o, gdzie) {
+  if (o.opis === undefined) return;
+  if (!Array.isArray(o.opis) || !o.opis.length) return blad(`${gdzie}: „opis” musi być niepustą tablicą bloków`);
+  if (!o.opisZrodlo) blad(`${gdzie}: opis wymaga pola „opisZrodlo” (źródło i status do akceptu Malwiny)`);
+  const teksty = [];
+  for (const [i, b] of o.opis.entries()) {
+    const g = `${gdzie}: opis #${i + 1}`;
+    if (typeof b === 'string') teksty.push(b);
+    else if (b && typeof b.h === 'string') teksty.push(b.h);
+    else if (b && Array.isArray(b.lista) && b.lista.length && b.lista.every((x) => typeof x === 'string')) teksty.push(...b.lista);
+    else if (b && b.link && typeof b.link.href === 'string' && b.link.href.startsWith('/') && typeof b.link.tekst === 'string') teksty.push(b.link.tekst);
+    else blad(`${g}: niepoprawny blok (tekst, {h}, {lista} albo {link:{href,tekst}})`);
+  }
+  const t = teksty.join(' ');
+  const m = t.match(reZakazane);
+  if (m) blad(`${gdzie}: opis zawiera zakazane sformułowanie „${m[0]}” (BRIEF sekcja 7)`);
+  if (/[0-9]\s?zł/.test(t)) blad(`${gdzie}: w opisie nie wpisujemy cen — ceny tylko z pól „cena” (CLAUDE.md)`);
+}
+
 (function walidujCennik() {
   const G = 'src/data/cennik.json';
   const kategorie = new Set((cennik.kategorie || []).map((k) => k.id));
@@ -142,6 +163,8 @@ function walidujCene(o, gdzie) {
       if (!('zweryfikowano' in u)) blad(`${g}: brak pola „zweryfikowano”`);
       walidujCene(u, g);
     }
+    walidujOpis(u, g);
+    for (const w of u.warianty || []) walidujOpis(w, `${g}/${w.id}`);
     for (const d of u.dodatki || []) if (!d.nazwa || !Number.isInteger(d.cena)) blad(`${g}: dodatek wymaga „nazwa” i liczby „cena”`);
   }
   for (const s of PODSTRONY)
@@ -338,15 +361,32 @@ const linkZabiegu = (slug) => `/zabiegi/${slug}/`;
 const uslugiPodstrony = (slug) => [...uslugi.values()].filter((u) => u.podstrona === slug);
 const problemyPodstrony = (slug) => [...new Set(uslugiPodstrony(slug).flatMap((u) => u.problemy))];
 
+// --- opis pozycji cennika: rozwijany blok „Co obejmuje” (tylko usługi bez własnej podstrony) ---
+function opisHtml(opis) {
+  const html = opis.map((b) => {
+    if (typeof b === 'string') return `<p>${esc(b)}</p>`;
+    if (b.h !== undefined) return `<p class="cennik__opis-h">${esc(b.h)}</p>`;
+    if (b.lista) return `<ul>${b.lista.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`;
+    return `<p><a href="${esc(b.link.href)}">${esc(b.link.tekst)}</a></p>`;
+  }).join('');
+  return `<details class="cennik__opis"><summary>Co obejmuje</summary><div class="cennik__opis-tresc">${html}</div></details>`;
+}
+
 // --- tabela cennika (podstrona zabiegu i /zabiegi/) ---
 function tabelaCennika(lista, { linkuj = false, pokazKat = false } = {}) {
   const zCzasem = lista.some((p) => p.czas);
+  const opisPokazany = new Set();
   const wiersze = lista.map((p) => {
+    let opis = '';
+    if (linkuj && !p.u.podstrona) {
+      if (p.w && p.w.opis) opis = opisHtml(p.w.opis);
+      else if (p.u.opis && !opisPokazany.has(p.u.id)) { opis = opisHtml(p.u.opis); opisPokazany.add(p.u.id); }
+    }
     const nazwa = linkuj && p.u.podstrona && (zabiegi.has(p.u.podstrona) || STRONY_STATYCZNE.includes(p.u.podstrona))
       ? `<a href="${linkZabiegu(p.u.podstrona)}">${esc(p.nazwa)}</a>` : esc(p.nazwa);
     const pakiety = p.pakiety.length
       ? `<span class="cennik__pakiety">${p.pakiety.map((k) => `pakiet ${k.zabiegi} zabiegów: ${esc(fmtZl(k.cena))}`).join(' · ')}</span>` : '';
-    return `<tr><th scope="row">${nazwa}${devUwaga(p)}${pakiety}</th>`
+    return `<tr><th scope="row">${nazwa}${devUwaga(p)}${pakiety}${opis}</th>`
       + (zCzasem ? `<td class="cennik__czas">${esc(p.czas ? fmtMin(p.czas) : '')}</td>` : '')
       + `<td class="cennik__cena">${esc((p.od ? 'od ' : '') + fmtZl(p.cena))}</td>`
       + `<td class="cennik__umow"><a class="btn btn--maly btn--kontur" href="${esc(p.booksy)}" rel="noopener" data-umow="cennik-${esc(p.u.id)}">Umów<span class="sr-only"> — ${esc(p.nazwa)}</span></a></td></tr>`;
