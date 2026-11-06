@@ -113,9 +113,18 @@
   html:not(.js) .menu-przycisk { display: none; }
 }
 
-/* --- desktop: logo pośrodku, 2 linki po lewej, 3 linki i „Umów wizytę” po prawej — grupy przy logo --- */
+/* --- desktop: logo pośrodku, 2 linki po lewej, 3 linki i „Umów wizytę” po prawej ---
+   Pasek na całą szerokość ekranu (max 1680 px). Jedna przerwa (--przerwa) między wszystkimi
+   elementami — także przy logo — rośnie z szerokością okna (ok. 45 → 96 px). Wzór dobrany tak,
+   żeby prawa grupa (najszersza: 3 linki + przycisk) zawsze mieściła się w swojej połowie. */
 @media (min-width: 1200px) {
-  .naglowek__wnetrze { column-gap: var(--s-7); min-height: 128px; }
+  .naglowek__wnetrze {
+    --przerwa: clamp(2.5rem, calc((100vw - 820px) / 8.5), 6rem);
+    max-width: 1680px;
+    padding-inline: clamp(1.5rem, 3vw, 3.5rem);
+    column-gap: var(--przerwa);
+    min-height: 128px;
+  }
   .naglowek--przewiniety .naglowek__wnetrze { min-height: 72px; }
   .naglowek__logo img { width: 104px; height: 104px; }
   .naglowek--przewiniety .naglowek__logo img { width: 56px; height: 56px; }
@@ -127,10 +136,10 @@
     grid-template-columns: subgrid;
     align-items: center;
   }
-  .menu ul { display: flex; gap: var(--s-6); }
+  .menu ul { display: flex; gap: var(--przerwa); }
   .menu a { font-size: var(--fs-small); }
   .menu__lewa { grid-column: 1; justify-self: end; }
-  .menu__prawa { grid-column: 3; justify-self: start; display: flex; align-items: center; gap: var(--s-6); }
+  .menu__prawa { grid-column: 3; justify-self: start; display: flex; align-items: center; gap: var(--przerwa); }
   .menu__umow { display: block; margin: 0; }
 }
 
