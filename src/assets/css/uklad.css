@@ -1,15 +1,27 @@
 /* uklad.css — nagłówek, menu, stopka, dolny pasek „Umów” (telefon). */
 
 /* ============ NAGŁÓWEK ============ */
+/* Tło paska: „mleczne szkło” — półprzezroczysta, lekko ciepła biel z rozmyciem treści pod spodem.
+   Gradient (jaśniej u góry) daje delikatny połysk. Najgorszy przypadek kontrastu (czarne tło pod
+   spodem, przezroczystość 0,62) to nadal ok. 4,9:1 dla tekstu #2B2522. */
 .naglowek {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--bg);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.80), rgb(255 252 247 / 0.62));
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
   border-bottom: 1px solid var(--line-header);
   transition: box-shadow var(--t-base) var(--ease);
 }
 .naglowek--przewiniety { box-shadow: 0 6px 24px -18px rgb(43 37 34 / 0.45); }
+/* przeglądarki bez rozmycia tła albo użytkownik prosi o mniej przezroczystości: pełne tło */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .naglowek { background: var(--bg); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .naglowek { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
 
 .naglowek__wnetrze {
   /* logo na środku; po bokach pusta kolumna (telefon) albo grupy linków (desktop) */
