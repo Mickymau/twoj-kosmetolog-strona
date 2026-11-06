@@ -17,7 +17,7 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && przycisk.getAttribute('aria-expanded') === 'true') { ustaw(false); przycisk.focus(); }
     });
-    matchMedia('(min-width: 1024px)').addEventListener('change', () => ustaw(false));
+    matchMedia('(min-width: 1200px)').addEventListener('change', () => ustaw(false));
   }
 
   // --- nagłówek: cień i zmniejszenie po przewinięciu ---

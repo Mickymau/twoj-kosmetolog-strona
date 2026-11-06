@@ -12,35 +12,38 @@
 .naglowek--przewiniety { box-shadow: 0 6px 24px -18px rgb(43 37 34 / 0.45); }
 
 .naglowek__wnetrze {
-  display: flex;
+  /* logo na środku; po bokach pusta kolumna (telefon) albo grupy linków (desktop) */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--s-4);
-  min-height: var(--naglowek-h);
+  column-gap: var(--s-4);
+  padding-block: var(--s-2);
+  min-height: 76px;
   transition: min-height var(--t-base) var(--ease);
 }
-.naglowek--przewiniety .naglowek__wnetrze { min-height: 60px; }
+.naglowek--przewiniety .naglowek__wnetrze { min-height: 64px; }
 
 .naglowek__logo {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-3);
-  min-height: var(--dotyk-min);
-  color: var(--text);
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  line-height: 1.1;
-  text-decoration: none;
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  z-index: 1; /* nad nawigacją rozciągniętą na cały rząd */
+  display: block;
+  line-height: 0;
+  border-radius: 50%;
 }
-.naglowek__logo:hover { color: var(--text); }
 .naglowek__logo img {
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 60px;
   transition: width var(--t-base) var(--ease), height var(--t-base) var(--ease);
 }
+.naglowek--przewiniety .naglowek__logo img { width: 48px; height: 48px; }
 
 /* przycisk menu (telefon/tablet) */
 .menu-przycisk {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,11 +86,11 @@
   text-decoration: none;
 }
 .menu a:hover, .menu a[aria-current="page"] { color: var(--bordo); }
-.menu__umow { display: none; }
+.menu a.btn, .menu a.btn:hover { color: var(--on-bordo); } /* przycisk w menu: tekst jasny, nie kolor linku */
+.menu__prawa { display: block; }
 
 /* --- telefon / tablet: menu rozwijane pod nagłówkiem --- */
-@media (max-width: 1023.98px) {
-  .naglowek__umow { display: none; }
+@media (max-width: 1199.98px) {
   .menu {
     position: absolute;
     inset: 100% 0 auto 0;
@@ -96,7 +99,7 @@
     border-bottom: 1px solid var(--line);
     box-shadow: 0 16px 32px -24px rgb(43 37 34 / 0.5);
   }
-  .menu li + li { border-top: 1px solid var(--line-header); }
+  .menu li + li, .menu__lewa + .menu__prawa { border-top: 1px solid var(--line-header); }
   .menu a { min-height: 52px; font-size: 1.125rem; }
   .menu__umow { display: block; margin-top: var(--s-4); }
   .menu__umow .btn { width: 100%; }
@@ -106,18 +109,29 @@
   .js .menu.menu--otwarte { visibility: visible; opacity: 1; transform: none;
     transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease); }
   html:not(.js) .naglowek { position: relative; }
-  html:not(.js) .menu { position: static; box-shadow: none; padding-inline: 0; }
-  html:not(.js) .naglowek__wnetrze { flex-wrap: wrap; }
+  html:not(.js) .menu { position: static; grid-column: 1 / -1; grid-row: 2; box-shadow: none; padding-inline: 0; }
   html:not(.js) .menu-przycisk { display: none; }
 }
 
-/* --- desktop --- */
-@media (min-width: 1024px) {
+/* --- desktop: logo pośrodku, 3 linki po lewej, 2 linki i „Umów wizytę” po prawej --- */
+@media (min-width: 1200px) {
+  .naglowek__wnetrze { column-gap: var(--s-7); min-height: 128px; }
+  .naglowek--przewiniety .naglowek__wnetrze { min-height: 72px; }
+  .naglowek__logo img { width: 104px; height: 104px; }
+  .naglowek--przewiniety .naglowek__logo img { width: 56px; height: 56px; }
   .menu-przycisk { display: none; }
+  .menu {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: center;
+  }
   .menu ul { display: flex; gap: var(--s-6); }
   .menu a { font-size: var(--fs-small); }
-  .naglowek__logo img { width: 56px; height: 56px; }
-  .naglowek--przewiniety .naglowek__logo img { width: 44px; height: 44px; }
+  .menu__lewa { grid-column: 1; justify-self: start; }
+  .menu__prawa { grid-column: 3; justify-self: end; display: flex; align-items: center; gap: var(--s-6); }
+  .menu__umow { display: block; margin: 0; }
 }
 
 /* ============ STOPKA ============ */

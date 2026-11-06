@@ -2,23 +2,25 @@
 <header class="naglowek">
   <div class="kontener naglowek__wnetrze">
     <a class="naglowek__logo" href="/">
-      <img src="/assets/img/marka/tk-logo-gold-256.png" width="56" height="56" alt="">
-      <span>{{firma:nazwaKrotka}}</span>
+      <img src="/assets/img/marka/tk-logo-gold-256.png" width="104" height="104" alt="{{firma:nazwaKrotka}} — strona główna">
     </a>
     <button class="menu-przycisk" type="button" aria-expanded="false" aria-controls="menu">
       <span class="menu-przycisk__tekst">Menu</span>
       <span class="menu-przycisk__ikona" aria-hidden="true"><span></span></span>
     </button>
     <nav class="menu" id="menu" aria-label="Menu główne">
-      <ul>
+      <ul class="menu__lewa">
         <li><a href="/diagnostyka-skory/">Diagnostyka i Beauty Plan</a></li>
         <li><a href="/problemy-skory/">Problemy skóry</a></li>
         <li><a href="/zabiegi/">Zabiegi</a></li>
-        <li><a href="/o-mnie/">O mnie</a></li>
-        <li><a href="/kontakt/">Kontakt</a></li>
       </ul>
-      <p class="menu__umow"><a class="btn" href="{{firma:booksy}}" rel="noopener" data-umow="menu">Umów wizytę</a></p>
+      <div class="menu__prawa">
+        <ul>
+          <li><a href="/o-mnie/">O mnie</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+        </ul>
+        <p class="menu__umow"><a class="btn" href="{{firma:booksy}}" rel="noopener" data-umow="menu">Umów wizytę</a></p>
+      </div>
     </nav>
-    <a class="btn naglowek__umow" href="{{firma:booksy}}" rel="noopener" data-umow="naglowek">Umów wizytę</a>
   </div>
 </header>
