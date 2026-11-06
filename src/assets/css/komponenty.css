@@ -649,8 +649,11 @@
   .slub-kupon__rabat { font-size: 2.5rem; }
 }
 
-/* strona główna: szeroki kafel „Pakiety ślubne” pod siatką problemów — te same elementy co kafle problemów
-   (.problem-kafel: zdjęcie, przyciemnienie, biały tytuł, złota kreska, hover); bez zdjęcia: tło w kolorze marki */
-.kafle-problemow + .problem-kafel--slub { margin-top: var(--s-3); aspect-ratio: 2 / 1; }
-@media (min-width: 640px) { .kafle-problemow + .problem-kafel--slub { margin-top: var(--s-5); aspect-ratio: 3 / 1; } }
-@media (min-width: 1000px) { .kafle-problemow + .problem-kafel--slub { aspect-ratio: 4 / 1; } }
+/* strona główna: kafel „Pakiety ślubne” = 10. element siatki problemów (te same elementy co kafle: zdjęcie, przyciemnienie,
+   biały tytuł, złota kreska, hover). Telefon (2 kolumny): zwykły kafel obok „Cellulit i ciało”.
+   Od 640 px: szeroki, na całą szerokość siatki. */
+@media (min-width: 640px) {
+  .kafle-problemow .kafel-szeroki { grid-column: 1 / -1; }
+  .kafel-szeroki .problem-kafel { aspect-ratio: 3 / 1; }
+}
+@media (min-width: 1000px) { .kafel-szeroki .problem-kafel { aspect-ratio: 4 / 1; } }
