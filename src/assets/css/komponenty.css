@@ -539,3 +539,148 @@
   .zaufanie--hasla { flex-direction: row; flex-wrap: wrap; gap: 0 var(--s-4); }
   .zaufanie--hasla li { min-height: 28px; }
 }
+
+/* ============ PAKIETY ŚLUBNE (BRIEF 6.8) ============
+   Złoto tylko jako dekoracja (linie, obrączki), nigdy tekst. Zdjęcia pary — po dostarczeniu zastąpią ornament. */
+.obraczki { fill: none; stroke: var(--gold); stroke-width: 1.6; }
+.obraczki--duze { width: min(70%, 320px); height: auto; stroke-width: 0.9; }
+
+/* pierwszy ekran: panel z ornamentem (do czasu zdjęcia) */
+.slub-hero__panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: radial-gradient(circle at 50% 42%, var(--bg) 0, var(--bg-cream) 75%);
+}
+.slub-hero__panel::before { content: ""; position: absolute; inset: var(--s-3); border: 1px solid rgb(184 151 90 / 0.4); border-radius: var(--radius); }
+@media (min-width: 900px) { .slub-hero__panel { aspect-ratio: 4 / 5; } }
+
+/* wybór „Ile masz czasu do ślubu?” (tylko z JS) */
+.slub-wybor { margin-bottom: var(--s-7); }
+.slub-wybor__pytanie { margin-bottom: var(--s-3); color: var(--text); font-weight: 500; }
+.slub-wybor .chip { cursor: pointer; font: inherit; font-weight: 500; }
+.slub-wybor .chip[aria-pressed="true"] { border-color: var(--bordo); background: var(--bordo); color: var(--on-bordo); }
+.slub-wybor__wynik { margin-top: var(--s-4); color: var(--text); }
+.slub-wybor__wynik:empty { display: none; }
+.slub-wybor__wynik a { color: var(--bordo); }
+
+/* oś czasu: 3 programy od najdłuższego czasu do dnia ślubu */
+.slub-programy { position: relative; display: grid; gap: var(--s-6); margin: 0; padding: 0 0 0 var(--s-6); list-style: none; }
+.slub-programy::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 36px; width: 1px; background: var(--gold); }
+.slub-programy__poz { position: relative; display: flex; flex-direction: column; }
+.slub-programy__czas {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-bottom: var(--s-3);
+  color: var(--bordo);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.slub-programy__czas::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--s-6));
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bordo);
+  box-shadow: 0 0 0 4px var(--bg);
+  transform: translateY(-50%);
+}
+.slub-slub { position: relative; display: flex; align-items: center; gap: var(--s-3); color: var(--text-muted); font-size: var(--fs-small); }
+.slub-slub .obraczki { flex: none; margin-left: calc(-1 * var(--s-6) - 17px); background: var(--bg); }
+.slub-program { display: flex; flex: 1; flex-direction: column; padding-top: var(--s-6); }
+.slub-program h3 { font-family: var(--font-serif); font-weight: 400; }
+.slub-program__polecany { display: none; position: absolute; top: 0; left: var(--s-5); transform: translateY(-50%); }
+.slub-program--polecany { border: 2px solid var(--bordo); }
+.slub-program--polecany .slub-program__polecany { display: inline-block; }
+.slub-etykieta { margin: var(--s-4) 0 var(--s-2); color: var(--text-muted); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.slub-zabiegi { gap: var(--s-2); }
+.slub-zabiegi .chip { font-size: var(--fs-small); }
+.chip--tekst { min-height: 36px; border-radius: 18px; padding: var(--s-1) var(--s-4); border-color: var(--line); background: var(--bg-cream); color: var(--text-2); font-size: var(--fs-small); font-weight: 400; cursor: default; }
+@media (min-width: 900px) {
+  .slub-programy { grid-template-columns: repeat(3, minmax(0, 1fr)) 5.5rem; gap: var(--s-5); padding: 0; }
+  .slub-programy::before { top: 9px; bottom: auto; left: 0; right: 2.75rem; width: auto; height: 1px; }
+  .slub-programy__czas { padding-right: var(--s-3); background: var(--bg); }
+  .slub-programy__czas::before { position: static; display: inline-block; margin-right: var(--s-2); transform: none; box-shadow: none; vertical-align: -1px; }
+  .slub-slub { flex-direction: column; justify-content: flex-start; align-self: start; gap: var(--s-1); margin-top: -4px; text-align: center; }
+  .slub-slub .obraczki { margin-left: 0; }
+}
+
+/* wspólne punkty programów dla Panny Młodej */
+.slub-wspolne { margin-top: var(--s-7); padding: var(--s-6); border-left: 2px solid var(--gold); background: var(--bg-cream); }
+.slub-wspolne h3 { margin-bottom: var(--s-4); font-family: var(--font-serif); font-weight: 400; }
+@media (min-width: 900px) { .slub-wspolne .lista-ptaszki { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-3) var(--s-6); } }
+
+/* Pan Młody i Piękni Razem */
+.slub-duet { display: grid; gap: var(--s-5); align-items: stretch; }
+@media (min-width: 900px) { .slub-duet { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.slub-karta { display: flex; flex-direction: column; gap: var(--s-4); }
+.slub-karta h3 { margin-bottom: 0; font-family: var(--font-serif); font-weight: 400; }
+.slub-karta .nadtytul { margin-bottom: 0; }
+.slub-karta .slub-etykieta { margin-bottom: 0; }
+.slub-karta .btn { align-self: flex-start; margin-top: auto; }
+.slub-plus { padding-top: var(--s-4); border-top: 1px solid var(--line); }
+.slub-plus strong { font-family: var(--font-serif); font-size: 1.125rem; font-weight: 400; }
+.slub-plus p { margin-top: var(--s-2); font-size: var(--fs-small); color: var(--text-2); }
+
+/* Ślubne Przywileje: karta-kupon */
+.slub-kupon {
+  position: relative;
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: var(--s-7) var(--s-6) var(--s-6);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--bg-cream), var(--bg));
+}
+.slub-kupon::before { content: ""; position: absolute; inset: 6px; border: 1px dashed rgb(184 151 90 / 0.5); border-radius: var(--radius); pointer-events: none; }
+.slub-kupon__glowa { display: grid; justify-items: center; gap: var(--s-2); text-align: center; }
+.slub-kupon__glowa h3 { margin: 0; font-family: var(--font-serif); font-weight: 400; }
+.slub-kupon__lista { display: grid; gap: var(--s-4); margin: var(--s-6) 0 0; padding: 0; list-style: none; }
+.slub-kupon__lista li { display: grid; grid-template-columns: 5.5rem 1fr; align-items: center; gap: var(--s-4); padding-bottom: var(--s-4); border-bottom: 1px solid var(--line); }
+.slub-kupon__lista li:last-child { border-bottom: 0; padding-bottom: 0; }
+.slub-kupon__rabat { color: var(--bordo); font-family: var(--font-serif); font-size: 1.75rem; line-height: 1; white-space: nowrap; }
+.slub-kupon__usluga { color: var(--text); font-weight: 500; }
+.slub-kupon__uwaga { position: relative; margin: var(--s-6) auto 0; padding-top: var(--s-4); border-top: 1px solid var(--line); color: var(--text-muted); font-size: var(--fs-small); text-align: center; }
+@media (min-width: 600px) {
+  .slub-kupon { padding-inline: var(--s-8); }
+  .slub-kupon__lista li { grid-template-columns: 8rem 1fr; }
+  .slub-kupon__rabat { font-size: 2.5rem; }
+}
+
+/* strona główna: szeroki baner „Pakiety ślubne” pod siatką problemów */
+.slub-baner { display: grid; margin-top: var(--s-6); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); overflow: hidden; }
+.slub-baner__foto {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 150px;
+  background: radial-gradient(circle at 50% 50%, var(--bg) 0, var(--bg-cream) 80%);
+}
+.slub-baner__foto::before { content: ""; position: absolute; inset: var(--s-3); border: 1px solid rgb(184 151 90 / 0.4); border-radius: var(--radius); }
+.slub-baner__foto .obraczki--duze { width: min(55%, 240px); }
+.slub-baner__tresc { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-4); padding: var(--s-6) var(--s-5); }
+.slub-baner__tresc h3 { margin: 0; font-family: var(--font-serif); font-weight: 400; }
+.slub-baner__tresc .nadtytul { margin-bottom: 0; }
+.slub-plakietki { display: grid; gap: var(--s-2); width: 100%; margin: 0; padding: 0; list-style: none; }
+.slub-plakietki li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-1) var(--s-4); padding: var(--s-3) var(--s-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-cream); }
+.slub-plakietki strong { font-family: var(--font-serif); font-size: 1.0625rem; font-weight: 400; }
+.slub-plakietki span { color: var(--text-muted); font-size: var(--fs-small); }
+@media (min-width: 640px) {
+  .slub-plakietki { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .slub-plakietki li { display: block; }
+  .slub-plakietki strong, .slub-plakietki span { display: block; }
+}
+@media (min-width: 900px) {
+  .slub-baner { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); }
+  .slub-baner__foto { min-height: 100%; }
+  .slub-baner__tresc { padding: var(--s-7); }
+}

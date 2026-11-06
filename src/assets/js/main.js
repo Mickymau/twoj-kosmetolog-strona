@@ -36,6 +36,33 @@
     new IntersectionObserver(([w]) => pasek.classList.toggle('umow-mobile--ukryty', w.isIntersecting))
       .observe(hero);
   }
+  // --- pakiety ślubne: „Ile masz czasu do ślubu?” — podświetla program (bez JS: wszystkie widoczne) ---
+  const wybor = document.querySelector('[data-slub-wybor]');
+  if (wybor) {
+    wybor.hidden = false;
+    const karty = [...document.querySelectorAll('[data-slub-program]')];
+    const wynik = wybor.querySelector('.slub-wybor__wynik');
+    wybor.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-slub-czas]');
+      if (!b) return;
+      const id = b.dataset.slubCzas;
+      wybor.querySelectorAll('[data-slub-czas]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      karty.forEach((k) => k.classList.toggle('slub-program--polecany', k.dataset.slubProgram === id));
+      wynik.textContent = '';
+      if (id === 'mniej') {
+        wynik.append('Mniej niż miesiąc? ');
+        const a = document.createElement('a');
+        a.href = '/kontakt/#formularz';
+        a.textContent = 'Napisz do mnie';
+        wynik.append(a, ' — sprawdzimy, co jest możliwe w tym terminie.');
+        return;
+      }
+      const karta = karty.find((k) => k.dataset.slubProgram === id);
+      if (!karta) return;
+      wynik.textContent = 'Dla Ciebie: ' + karta.querySelector('h3').textContent + '.';
+      karta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
   // --- filtr zabiegów po problemie (/zabiegi/) ---
   const filtr = document.querySelector('[data-filtr]');
   const lista = document.querySelector('[data-filtrowane]');

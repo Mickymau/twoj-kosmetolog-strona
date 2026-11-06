@@ -85,6 +85,7 @@ function wczytajJson(plik) {
 }
 const firma = wczytajJson('firma.json');
 const cennik = wczytajJson('cennik.json');
+const slub = wczytajJson('slub.json');
 stop();
 
 // ---------- walidacja cennik.json ----------
@@ -169,6 +170,59 @@ function walidujOpis(o, gdzie) {
   }
   for (const s of PODSTRONY)
     if (![...uslugi.values()].some((u) => u.podstrona === s)) ostrzezenia.add(`cennik.json: podstrona „${s}” nie ma żadnej pozycji w cenniku`);
+})();
+stop();
+
+// ---------- walidacja slub.json (pakiety ślubne, BRIEF 6.8) ----------
+(function walidujSlub() {
+  const G = 'src/data/slub.json';
+  if (!slub) return;
+  const teksty = [];
+  const txt = (t, gdzie) => {
+    if (typeof t !== 'string' || !t.trim()) { blad(`${G}: ${gdzie}: pusty tekst`); return; }
+    teksty.push([gdzie, t]);
+  };
+  const lista = (a, gdzie) => {
+    if (!Array.isArray(a) || !a.length) blad(`${G}: ${gdzie}: musi być niepustą tablicą`);
+    else a.forEach((t, i) => txt(t, `${gdzie}[${i}]`));
+  };
+  const zabiegiLista = (a, gdzie) => {
+    if (!Array.isArray(a) || !a.length) return blad(`${G}: ${gdzie}: brak listy zabiegów`);
+    for (const [i, z] of a.entries()) {
+      txt(z && z.nazwa, `${gdzie}[${i}].nazwa`);
+      if (z && z.slug !== undefined && !PODSTRONY.includes(z.slug)) blad(`${G}: ${gdzie}[${i}]: nieznana podstrona „${z.slug}”`);
+    }
+  };
+  if (!Array.isArray(slub.przywileje) || !slub.przywileje.some((p) => p.id === 'zabiegi')) blad(`${G}: „przywileje” musi zawierać pozycję o id „zabiegi”`);
+  for (const p of slub.przywileje || []) {
+    txt(p.usluga, `przywileje/${p.id}`);
+    if (!Number.isInteger(p.rabat) || p.rabat < 1 || p.rabat > 50) blad(`${G}: przywileje/${p.id}: „rabat” musi być liczbą całkowitą 1–50 (procent)`);
+  }
+  lista(slub.wspolne, 'wspolne');
+  if (!Array.isArray(slub.programy) || slub.programy.length !== 3) blad(`${G}: „programy” musi mieć 3 pozycje (Przemiana, Harmonia, Blask)`);
+  const ids = new Set();
+  for (const p of slub.programy || []) {
+    const g = `programy/${p.id ?? '?'}`;
+    if (!p.id || !reId.test(p.id) || ids.has(p.id)) blad(`${G}: ${g}: niepoprawne lub zduplikowane „id”`);
+    ids.add(p.id);
+    for (const k of ['nazwa', 'czas', 'czasKrotko', 'dlaKogo']) txt(p[k], `${g}.${k}`);
+    zabiegiLista(p.zabiegi, `${g}.zabiegi`);
+  }
+  for (const k of ['panMlody', 'razem']) {
+    const o = slub[k];
+    if (!o) { blad(`${G}: brak sekcji „${k}”`); continue; }
+    txt(o.nazwa, `${k}.nazwa`); txt(o.opis, `${k}.opis`); lista(o.zawiera, `${k}.zawiera`);
+    if (o.zabiegi) zabiegiLista(o.zabiegi, `${k}.zabiegi`);
+    if (o.plus) { txt(o.plus.nazwa, `${k}.plus.nazwa`); txt(o.plus.opis, `${k}.plus.opis`); }
+  }
+  txt(slub.zastrzezenieRabaty, 'zastrzezenieRabaty');
+  lista((slub.wazne || []).filter((t) => t !== '@zastrzezenieRabaty'), 'wazne');
+  for (const [gdzie, t] of teksty) {
+    const m = t.match(reZakazane);
+    if (m) blad(`${G}: ${gdzie}: zakazane sformułowanie „${m[0]}” (BRIEF sekcja 7)`);
+    if (/[0-9]\s?zł/.test(t)) blad(`${G}: ${gdzie}: cen programów ślubnych nie publikujemy („do ustalenia” w źródle)`);
+    if (/\{(?!rabat\})/.test(t)) blad(`${G}: ${gdzie}: nieznany znacznik w nawiasach klamrowych`);
+  }
 })();
 stop();
 
@@ -422,6 +476,57 @@ function kartyDlaProblemu(problem) {
   }
   return karty;
 }
+
+// --- pakiety ślubne (BRIEF 6.8): bloki z slub.json ---
+const slubRabat = () => slub.przywileje.find((p) => p.id === 'zabiegi').rabat;
+const slubT = (t) => esc(t.replace('{rabat}', String(slubRabat())));
+const slubChipy = (zab) => `<ul class="chipy chipy--male slub-zabiegi">${zab.map((z) => (z.slug
+  ? `<li><a class="chip" href="${linkZabiegu(z.slug)}">${esc(z.nazwa)}</a></li>`
+  : `<li><span class="chip chip--tekst">${esc(z.nazwa)}</span></li>`)).join('')}</ul>`;
+const slubObraczki = '<svg class="obraczki" viewBox="0 0 120 72" width="60" height="36" aria-hidden="true" focusable="false"><circle cx="44" cy="36" r="26"/><circle cx="76" cy="36" r="26"/></svg>';
+const slubKarta = (o, nadtytul, plus) => `<article class="karta slub-karta">
+  <span class="nadtytul">${esc(nadtytul)}</span>
+  <h3>${esc(o.nazwa)}</h3>
+  <p>${esc(o.opis)}</p>
+  <ul class="lista-ptaszki">${o.zawiera.map((t) => `<li>${slubT(t)}</li>`).join('')}</ul>
+  ${o.zabiegi ? `<p class="slub-etykieta">Przykładowe zabiegi</p>${slubChipy(o.zabiegi)}` : ''}
+  ${plus ? `<div class="slub-plus"><strong>${esc(plus.nazwa)}</strong><p>${esc(plus.opis)}</p></div>` : ''}
+  <a class="btn btn--kontur" href="/kontakt/#formularz" data-umow="slub-${esc(nadtytul.toLowerCase().replace(/\s+/g, '-'))}">Napisz do mnie</a>
+</article>`;
+Object.assign(ZNACZNIKI, {
+  'slub-rabat': () => String(slubRabat()),
+  'slub-programy'() {
+    return `<ol class="slub-programy" aria-label="Programy ślubne według czasu do ślubu">${slub.programy.map((p) => `
+<li class="slub-programy__poz"><span class="slub-programy__czas">${esc(p.czas)}</span>
+<article class="karta slub-program" data-slub-program="${esc(p.id)}" aria-labelledby="sp-${esc(p.id)}">
+<span class="etykieta slub-program__polecany">Dla Ciebie</span>
+<h3 id="sp-${esc(p.id)}">${esc(p.nazwa)}</h3>
+<p>${esc(p.dlaKogo)}</p>
+<p class="slub-etykieta">Przykładowe zabiegi</p>${slubChipy(p.zabiegi)}
+</article></li>`).join('')}
+<li class="slub-slub" aria-hidden="true">${slubObraczki}<span>Dzień ślubu</span></li></ol>`;
+  },
+  'slub-wspolne'() {
+    return `<ul class="lista-ptaszki">${slub.wspolne.map((t) => `<li>${slubT(t)}</li>`).join('')}</ul>`;
+  },
+  'slub-pozostale'() {
+    return `<div class="slub-duet">${slubKarta(slub.panMlody, 'Dla Niego', slub.panMlody.plus)}${slubKarta(slub.razem, 'Dla Was')}</div>`;
+  },
+  'slub-przywileje'() {
+    return `<div class="slub-kupon">
+<div class="slub-kupon__glowa">${slubObraczki}<h3>Rabaty w programie ślubnym</h3></div>
+<ul class="slub-kupon__lista">${slub.przywileje.map((p) => `<li><span class="slub-kupon__rabat" aria-hidden="true">−${p.rabat}%</span><span class="slub-kupon__usluga"><span class="sr-only">Rabat ${p.rabat}%: </span>${esc(p.usluga)}</span></li>`).join('')}</ul>
+<p class="slub-kupon__uwaga">${esc(slub.zastrzezenieRabaty)}</p>
+</div>`;
+  },
+  'slub-wazne'() {
+    const poz = slub.wazne.map((t) => (t === '@zastrzezenieRabaty' ? slub.zastrzezenieRabaty : t));
+    return `<ul class="lista-kropki">${poz.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`;
+  },
+  'slub-plakietki'() {
+    return `<ul class="slub-plakietki" aria-label="Programy ślubne">${slub.programy.map((p) => `<li><strong>${esc(p.nazwa)}</strong><span>${esc(p.czasKrotko)} przed ślubem</span></li>`).join('')}</ul>`;
+  },
+});
 
 // --- znaczniki blokowe ---
 Object.assign(ZNACZNIKI, {

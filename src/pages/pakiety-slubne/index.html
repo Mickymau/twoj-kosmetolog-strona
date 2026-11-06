@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <title>Pakiety ślubne – pielęgnacja skóry przed ślubem, Warszawa Włochy | Twój Kosmetolog</title>
+  <!-- [N:claude-draft] meta opis do akceptacji Malwiny -->
+  <meta name="description" content="Ślubny Beauty Plan: diagnostyka Lumiscan™, plan pielęgnacji i harmonogram zabiegów dopasowany do daty ślubu. Dla Panny Młodej, Pana Młodego i par. Warszawa Włochy.">
+  <!-- @include head -->
+</head>
+<body>
+  <!-- @include naglowek -->
+  <main id="tresc">
+  <!-- Treść: data/paczka_zmian/Slubny_Beauty_Plan_Twoj_Kosmetolog_dla_Claude.pdf (zatwierdzona robocza treść oferty).
+       Nazwy programów, rabaty, przedziały czasu i przykłady zabiegów — z src/data/slub.json (jedno źródło).
+       BEZ CEN PROGRAMÓW („do ustalenia” w źródle). Teksty łączące — [N:claude-draft] do akceptu Malwiny:
+       teksty/pakiety-slubne-robocze.md. Zdjęcia: do czasu dostarczenia — ornament (BRIEF 6.8). -->
+
+    <!-- 1. PIERWSZY EKRAN -->
+    <section class="hero" data-hero aria-labelledby="sl-tytul">
+      <div class="kontener hero__siatka">
+        <div>
+          <span class="nadtytul">Pakiety ślubne</span>
+          <h1 id="sl-tytul">Ślubny Beauty Plan</h1>
+          <p class="lead">Piękna skóra zaczyna się od dobrego planu. Przygotuj swoją skórę na jeden z najważniejszych dni w życiu.</p>
+          <p>Każdy program zaczyna się od diagnostyki Lumiscan™ i indywidualnego Beauty Planu. Zabiegi na twarz, szyję i dekolt dobieram do potrzeb skóry oraz daty uroczystości.</p>
+          <div class="przyciski">
+            <a class="btn" href="{{booksy:lumiscan-beauty-plan}}" rel="noopener" data-umow="slub-hero">Umów diagnostykę</a>
+            <a class="btn btn--kontur" href="#programy">Wybierz program</a>
+          </div>
+          <ul class="zaufanie">
+            <li>15 lat doświadczenia</li>
+            <li><a href="{{firma:booksy}}" rel="noopener"><span class="gwiazdka" aria-hidden="true">★</span> {{firma:ocena}} / {{firma:liczbaOpinii}} opinii na Booksy</a></li>
+          </ul>
+        </div>
+        <!-- ZDJECIA.md — miejsce na zdjęcie pary (AI-slub-para-hero); do czasu dostarczenia: ornament -->
+        <div class="slub-hero__panel" aria-hidden="true">
+          <!-- @include obraczki -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. JAK TO DZIAŁA -->
+    <section class="sekcja sekcja--krem" aria-labelledby="sl-jak">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <span class="nadtytul">Jak to działa</span>
+          <h2 id="sl-jak">Od diagnostyki do dnia ślubu</h2>
+          <!-- [N:claude-draft] -->
+          <p class="lead">Nie wybieram zabiegów w ciemno. Najpierw poznajemy Twoją skórę, potem układamy plan na czas, który został do ślubu.</p>
+        </div>
+        <ol class="etapy" aria-label="Kolejność: od diagnostyki do zabiegów">
+          <li><span class="etapy__nr" aria-hidden="true">01</span><strong>Diagnostyka Lumiscan™ i konsultacja</strong><span>Konsultacja kosmetologiczna i diagnostyka skóry to punkt wyjścia każdego programu.</span></li>
+          <li><span class="etapy__nr" aria-hidden="true">02</span><strong>Indywidualny Beauty Plan</strong><span>Pielęgnacja domowa i harmonogram zabiegów dopasowany do daty ślubu.</span></li>
+          <li><span class="etapy__nr" aria-hidden="true">03</span><strong>Zabiegi w gabinecie</strong><span>Zabiegi na twarz, szyję i dekolt dobrane do potrzeb skóry i terminu.</span></li>
+        </ol>
+        <p style="margin-top:var(--s-6)"><a class="link-strzalka" href="/diagnostyka-skory/">Wszystko o diagnostyce i Beauty Planie</a></p>
+      </div>
+    </section>
+
+    <!-- 3. WYBÓR PROGRAMU: ILE MASZ CZASU DO ŚLUBU -->
+    <section class="sekcja" id="programy" aria-labelledby="sl-programy">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <span class="nadtytul">Dla Panny Młodej</span>
+          <h2 id="sl-programy">Ile masz czasu do ślubu?</h2>
+          <!-- [N:claude-draft] -->
+          <p class="lead">Wybierz, ile czasu zostało — pokażę, który program jest dla Ciebie.</p>
+        </div>
+
+        <!-- bez JS: ukryte (wszystkie programy i tak są widoczne poniżej) -->
+        <div class="slub-wybor" data-slub-wybor hidden>
+          <p class="slub-wybor__pytanie" id="sw-etykieta">Do ślubu zostało:</p>
+          <div class="chipy" role="group" aria-labelledby="sw-etykieta">
+            <button type="button" class="chip" aria-pressed="false" data-slub-czas="przemiana">6–12 miesięcy</button>
+            <button type="button" class="chip" aria-pressed="false" data-slub-czas="harmonia">3–6 miesięcy</button>
+            <button type="button" class="chip" aria-pressed="false" data-slub-czas="blask">1–2 miesiące</button>
+            <button type="button" class="chip" aria-pressed="false" data-slub-czas="mniej">Mniej niż miesiąc</button>
+          </div>
+          <p class="slub-wybor__wynik" aria-live="polite"></p>
+        </div>
+
+        {{slub-programy}}
+
+        <div class="slub-wspolne">
+          <h3>W każdym programie dla Panny Młodej</h3>
+          {{slub-wspolne}}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. DLA NIEGO I DLA WAS -->
+    <section class="sekcja sekcja--krem" aria-labelledby="sl-pozostale">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <span class="nadtytul">Dla Niego i dla Was</span>
+          <h2 id="sl-pozostale">Ślub to dwie osoby</h2>
+          <!-- [N:claude-draft] -->
+          <p class="lead">Program dla Pana Młodego oraz dla narzeczonych, którzy chcą wspólnie przygotować skórę do ślubu.</p>
+        </div>
+        {{slub-pozostale}}
+      </div>
+    </section>
+
+    <!-- 5. ŚLUBNE PRZYWILEJE -->
+    <section class="sekcja" aria-labelledby="sl-przywileje">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <span class="nadtytul">Rabaty</span>
+          <h2 id="sl-przywileje">Ślubne Przywileje</h2>
+          <!-- [N:claude-draft] -->
+          <p class="lead">Do każdego programu dochodzą rabaty na wybrane usługi: nie tylko na zabiegi z Twojego planu.</p>
+        </div>
+        {{slub-przywileje}}
+      </div>
+    </section>
+
+    <!-- 6. BEAUTY PLAN -->
+    <section class="sekcja sekcja--krem" aria-labelledby="sl-plan">
+      <div class="kontener duet">
+        <div>
+          <span class="nadtytul">Indywidualny Beauty Plan</span>
+          <h2 id="sl-plan">Twoja skóra nie potrzebuje wszystkiego. Potrzebuje tego, co jest właściwe dla niej.</h2>
+          <!-- zdanie z dok. 12 (zatwierdzony) + „datę ślubu” ze źródła ślubnego -->
+          <p class="lead" style="margin-top:var(--s-4)">To nie jest kolejna przypadkowa lista kosmetyków. To indywidualna strategia pielęgnacji: uporządkowany plan działania, który łączy pielęgnację domową, odpowiednio dobrane zabiegi gabinetowe oraz wskazówki dotyczące dalszego postępowania.</p>
+          <p>W programie ślubnym dopasowuję go do daty ślubu.</p>
+          <!-- @include separator -->
+          <p class="cytat">Nie zdradzę Ci tutaj całej zawartości Beauty Planu. 😉 Każdy z nich jest inny, bo każda skóra opowiada inną historię.</p>
+        </div>
+        <!-- ZDJECIA.md — okładka Beauty Planu (makieta z paczki zmian) -->
+        <img class="zdjecie zdjecie--poziome" src="/assets/img/beauty-plan-okladka-800.webp" srcset="/assets/img/beauty-plan-okladka-480.webp 480w, /assets/img/beauty-plan-okladka-800.webp 800w, /assets/img/beauty-plan-okladka-1098.webp 1098w" sizes="(min-width: 900px) 540px, 100vw" width="800" height="533" loading="lazy" decoding="async" alt="Okładka Indywidualnego Beauty Planu: „Twój przewodnik po świadomej pielęgnacji skóry”, leżąca na biurku">
+      </div>
+    </section>
+
+    <!-- 7. WAŻNE INFORMACJE -->
+    <section class="sekcja" aria-labelledby="sl-wazne">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <h2 id="sl-wazne">Ważne informacje</h2>
+        </div>
+        {{slub-wazne}}
+      </div>
+    </section>
+
+    <!-- 8. FAQ — [N:claude-draft] wyłącznie z faktów źródła ślubnego i dok. 12; do akceptu Malwiny -->
+    <section class="sekcja sekcja--krem" id="faq" aria-labelledby="sl-faq">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <h2 id="sl-faq">Najczęstsze pytania</h2>
+        </div>
+        <div class="akordeon">
+          <details><summary>Kiedy zacząć przygotowania skóry do ślubu?</summary><div class="akordeon__tresc"><p>To zależy od tego, ile czasu zostało: Ślubna Przemiana jest na 6–12 miesięcy przed ślubem, Ślubna Harmonia na 3–6 miesięcy, a Ślubny Blask na 1–2 miesiące. Przedziały są orientacyjne. Datę ślubu poznam na konsultacji i na jej podstawie ułożę harmonogram zabiegów.</p></div></details>
+          <details><summary>Czy zabiegi są wliczone w program?</summary><div class="akordeon__tresc"><p>Nie. Program to diagnostyka Lumiscan™ z konsultacją, indywidualny Beauty Plan z pielęgnacją domową i harmonogram zabiegów dopasowany do daty ślubu. Zabiegi gabinetowe są płatne oddzielnie, z uwzględnieniem przysługującego rabatu ({{slub-rabat}}% na zabiegi uwzględnione w Ślubnym Beauty Planie).</p></div></details>
+          <details><summary>Czy zabiegi wymienione przy programach na pewno wykonam?</summary><div class="akordeon__tresc"><p>To przykłady, nie gotowy zestaw. O doborze zabiegów decydują potrzeby Twojej skóry, wywiad i ewentualne przeciwwskazania.</p></div></details>
+          <details><summary>Czy rabaty się łączą?</summary><div class="akordeon__tresc"><p>Nie. Promocje i rabaty nie łączą się ze sobą — wybierasz jedną, korzystniejszą ofertę.</p></div></details>
+          <details><summary>Co jeśli do ślubu zostało mniej czasu?</summary><div class="akordeon__tresc"><p>Ślubny Blask jest przeznaczony na ostatni okres przygotowań, czyli 1–2 miesiące przed ślubem. Jeśli do ślubu zostało mniej, <a href="/kontakt/#formularz">napisz do mnie</a> — sprawdzimy, co jest możliwe w tym terminie.</p></div></details>
+          <details><summary>Czy z programu może skorzystać Pan Młody?</summary><div class="akordeon__tresc"><p>Tak. Dla Pana Młodego jest program Zadbany Pan Młody (także w wersji PLUS), a dla narzeczonych, którzy chcą przygotować skórę razem — Piękni Razem, z diagnostyką Lumiscan™ dla każdej osoby i osobnym Beauty Planem dla każdego z Was.</p></div></details>
+          <details><summary>Czy Beauty Plan to gotowa rozpiska, taka sama dla wszystkich?</summary><div class="akordeon__tresc"><p>Nie. Każdy Beauty Plan przygotowuję indywidualnie na podstawie informacji zebranych podczas konsultacji, aktualnego stanu skóry i wyników diagnostyki.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. ZAMKNIĘCIE -->
+    <section class="sekcja cta-koniec" aria-labelledby="sl-cta">
+      <div class="kontener">
+        <h2 id="sl-cta">Piękna skóra zaczyna się od dobrego planu.</h2>
+        <!-- @include separator -->
+        <!-- [N:claude-draft] -->
+        <p class="lead">Zacznij od diagnostyki Lumiscan™ i indywidualnego Beauty Planu dopasowanego do daty Twojego ślubu.</p>
+        <div class="przyciski">
+          <a class="btn" href="{{booksy:lumiscan-beauty-plan}}" rel="noopener" data-umow="slub-koniec">Umów diagnostykę</a>
+          <a class="btn btn--kontur" href="/kontakt/#formularz">Napisz do mnie</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- @include stopka -->
+  <!-- @include umow-mobile -->
+</body>
+</html>

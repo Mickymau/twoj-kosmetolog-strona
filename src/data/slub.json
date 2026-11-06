@@ -1,0 +1,95 @@
+{
+  "_opis": "Pakiety ślubne (BRIEF 6.8). JEDYNE źródło nazw programów, przedziałów czasu, rabatów i przykładowych zabiegów. Treść dosłownie z data/paczka_zmian/Slubny_Beauty_Plan_Twoj_Kosmetolog_dla_Claude.pdf (zatwierdzona robocza treść oferty, notka redakcyjna: nazwy, rabaty i przykłady zachować; teksty krótkie i wypunktowane; bez niezatwierdzonych cen i usług). ZAKAZ: cen programów (w źródle „do ustalenia”). rabat = liczba całkowita w procentach. zabiegi[].slug = podstrona zabiegu w serwisie albo brak (zwykły tekst).",
+  "zrodlo": "[F:klientka dokument 'Ślubny Beauty Plan' — zatwierdzona robocza treść oferty; wykorzystanie na stronie do akceptu Malwiny]",
+  "przywileje": [
+    { "id": "masaz", "usluga": "Masaż całego ciała – 60 minut", "rabat": 10 },
+    { "id": "peeling", "usluga": "Peeling całego ciała", "rabat": 10 },
+    { "id": "henna", "usluga": "Henna brwi i rzęs z regulacją", "rabat": 20 },
+    { "id": "zabiegi", "usluga": "Zabiegi wskazane w Ślubnym Beauty Planie", "rabat": 10 }
+  ],
+  "wspolne": [
+    "Diagnostyka skóry Lumiscan™ i konsultacja kosmetologiczna.",
+    "Indywidualny Beauty Plan z pielęgnacją domową.",
+    "Harmonogram zabiegów dopasowany do daty ślubu.",
+    "{rabat}% rabatu na zabiegi uwzględnione w Ślubnym Beauty Planie.",
+    "Dodatkowe Ślubne Przywileje."
+  ],
+  "programy": [
+    {
+      "id": "przemiana",
+      "nazwa": "Ślubna Przemiana",
+      "czas": "6–12 miesięcy przed ślubem",
+      "czasKrotko": "6–12 mies.",
+      "dlaKogo": "Dla osób, które chcą kompleksowo zadbać o skórę, również przy trądziku, przebarwieniach, bliznach, rumieniu czy utracie jędrności.",
+      "zabiegi": [
+        { "nazwa": "Dermapen", "slug": "dermapen" },
+        { "nazwa": "Carbolift", "slug": "carbolift" },
+        { "nazwa": "mezoterapia igłowa" },
+        { "nazwa": "terapie kwasowe i depigmentacyjne" },
+        { "nazwa": "zabiegi przeciwrumieniowe i regenerujące" }
+      ]
+    },
+    {
+      "id": "harmonia",
+      "nazwa": "Ślubna Harmonia",
+      "czas": "3–6 miesięcy przed ślubem",
+      "czasKrotko": "3–6 mies.",
+      "dlaKogo": "Dla osób, które chcą poprawić nawilżenie, jędrność, koloryt i strukturę skóry przed ślubem.",
+      "zabiegi": [
+        { "nazwa": "mezoterapia igłowa" },
+        { "nazwa": "Dermapen", "slug": "dermapen" },
+        { "nazwa": "BioRePeelCl₃", "slug": "dermapen-biorepeel" },
+        { "nazwa": "PRX-T33", "slug": "prx-t33" },
+        { "nazwa": "peelingi chemiczne" },
+        { "nazwa": "zabiegi nawilżające i regenerujące" }
+      ]
+    },
+    {
+      "id": "blask",
+      "nazwa": "Ślubny Blask",
+      "czas": "1–2 miesiące przed ślubem",
+      "czasKrotko": "1–2 mies.",
+      "dlaKogo": "Dla osób, którym zależy na nawilżeniu, wygładzeniu i promiennym wyglądzie skóry w ostatnim okresie przygotowań.",
+      "zabiegi": [
+        { "nazwa": "Morska Bryza z AteloCollagen", "slug": "morska-bryza" },
+        { "nazwa": "zabiegi nawilżające, regenerujące i łagodzące" },
+        { "nazwa": "delikatne peelingi" }
+      ]
+    }
+  ],
+  "panMlody": {
+    "nazwa": "Zadbany Pan Młody",
+    "opis": "Indywidualny program pielęgnacji skóry mężczyzny przed ślubem.",
+    "zawiera": [
+      "Diagnostyka Lumiscan™ i indywidualny Beauty Plan.",
+      "Dobór pielęgnacji domowej i harmonogramu zabiegów.",
+      "Ślubne Przywileje."
+    ],
+    "zabiegi": [
+      { "nazwa": "oczyszczanie" },
+      { "nazwa": "peelingi chemiczne" },
+      { "nazwa": "zabiegi nawilżające, regenerujące i przeciwstarzeniowe" }
+    ],
+    "plus": {
+      "nazwa": "Zadbany Pan Młody PLUS",
+      "opis": "Wariant rozszerzony m.in. o pielęgnację okolicy oczu, poprawę jędrności lub pielęgnację skóry głowy – zależnie od potrzeb."
+    }
+  },
+  "razem": {
+    "nazwa": "Piękni Razem",
+    "opis": "Program dla narzeczonych, którzy chcą wspólnie przygotować skórę do ślubu.",
+    "zawiera": [
+      "Diagnostyka Lumiscan™ dla każdej osoby.",
+      "Dwa indywidualne Beauty Plany i osobne harmonogramy zabiegów.",
+      "{rabat}% rabatu na zabiegi wskazane w planach.",
+      "Ślubne Przywileje dla obojga narzeczonych."
+    ]
+  },
+  "zastrzezenieRabaty": "Promocje i rabaty nie łączą się ze sobą; wybierasz jedną, korzystniejszą ofertę.",
+  "wazne": [
+    "Zabiegi są przykładami, nie gotowym zestawem; o doborze decydują potrzeby skóry, wywiad i przeciwwskazania.",
+    "Zabiegi gabinetowe są płatne oddzielnie, z uwzględnieniem przysługującego rabatu.",
+    "@zastrzezenieRabaty",
+    "Przedziały czasowe są orientacyjne."
+  ]
+}
