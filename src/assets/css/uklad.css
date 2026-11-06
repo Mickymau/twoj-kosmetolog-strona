@@ -114,9 +114,10 @@
 
 /* --- desktop: logo pośrodku, w ramach szerokości treści strony (.kontener) ---
    Każda połowa to jedna kolumna: pierwszy link stoi na krawędzi treści, ostatni element
-   (przycisk po prawej) na drugiej krawędzi, a między elementami rozkładają się równe przerwy. */
+   (przycisk po prawej) na drugiej krawędzi. Pusta rozpórka przy logo (::after / ::before) sprawia,
+   że przerwa przy logo jest taka sama jak przerwy między elementami w danej połowie. */
 @media (min-width: 1200px) {
-  .naglowek__wnetrze { column-gap: var(--s-7); min-height: 128px; }
+  .naglowek__wnetrze { column-gap: 0; min-height: 128px; }
   .naglowek--przewiniety .naglowek__wnetrze { min-height: 72px; }
   .naglowek__logo img { width: 104px; height: 104px; }
   .naglowek--przewiniety .naglowek__logo img { width: 56px; height: 56px; }
@@ -132,6 +133,7 @@
   .menu a { font-size: var(--fs-small); }
   .menu__lewa { grid-column: 1; }
   .menu__prawa { grid-column: 3; }
+  .menu__lewa::after, .menu__prawa::before { content: ""; }
   .menu__umow { margin: 0; }
 }
 
