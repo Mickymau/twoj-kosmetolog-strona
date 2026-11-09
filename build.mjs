@@ -472,9 +472,9 @@ function opisHtml(opis) {
 }
 
 // --- tabela cennika (podstrona zabiegu i /zabiegi/) ---
-function tabelaCennika(lista, { linkuj = false, pokazKat = false, stale = false } = {}) {
-  // stale: pełny cennik — zawsze kolumny Usługa / Czas / Cena / Rezerwacja o stałych szerokościach (jednakowe we wszystkich kategoriach)
-  const zCzasem = stale || lista.some((p) => p.czas);
+function tabelaCennika(lista, { linkuj = false, pokazKat = false } = {}) {
+  // zawsze kolumny Usługa / Czas / Cena / Rezerwacja o stałych szerokościach (CSS) — jednakowe w każdej tabeli cen na stronie
+  const zCzasem = true;
   const opisPokazany = new Set();
   const wiersze = lista.map((p) => {
     let opis = '';
@@ -589,7 +589,7 @@ Object.assign(ZNACZNIKI, {
     return cennik.grupy.map((k) => {
       const lista = pozycjeGrupy(k);
       if (!lista.length) return '';
-      return `<section class="cennik-grupa" id="cennik-${k.id}" aria-labelledby="cg-${k.id}"><h3 id="cg-${k.id}">${esc(k.nazwa)}</h3>${tabelaCennika(lista, { linkuj: true, stale: true })}</section>`;
+      return `<section class="cennik-grupa" id="cennik-${k.id}" aria-labelledby="cg-${k.id}"><h3 id="cg-${k.id}">${esc(k.nazwa)}</h3>${tabelaCennika(lista, { linkuj: true })}</section>`;
     }).join('\n');
   },
   // rozwijane menu w nagłówku: lista linków do grup cennika (jak na Booksy) albo do kategorii problemów skóry

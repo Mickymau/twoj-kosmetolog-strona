@@ -108,16 +108,21 @@
 .cennik__opis-tresc > :last-child { margin-bottom: 0; }
 @media (prefers-reduced-motion: reduce) { .cennik__opis summary::after { transition: none; } }
 .btn--maly { min-height: var(--dotyk-min); padding: var(--s-2) var(--s-4); font-size: var(--fs-small); }
-/* pełny cennik (/zabiegi/): stałe szerokości kolumn Czas / Cena / Rezerwacja we wszystkich kategoriach (decyzja 2026-11-09);
+/* wszystkie tabele cen (pełny cennik, podstrony zabiegów, mapa ciała): stałe szerokości kolumn Czas / Cena / Rezerwacja (decyzja 2026-11-09);
    wzór: kategoria „Konsultacja kosmetologiczna” (na 1440 px: 172 / 165 / 99 px), reszta szerokości dla nazwy usługi */
 @media (min-width: 600px) {
-  .cennik-grupa .cennik { table-layout: fixed; }
-  .cennik-grupa .cennik__th-czas, .cennik-grupa .cennik__th-cena { width: 7.5rem; }
-  .cennik-grupa .cennik__th-umow { width: 6.25rem; }
+  .cennik { table-layout: fixed; }
+  .cennik__th-czas, .cennik__th-cena { width: 7.5rem; }
+  .cennik__th-umow { width: 6.25rem; }
 }
 @media (min-width: 900px) {
-  .cennik-grupa .cennik__th-czas { width: 10.75rem; }
-  .cennik-grupa .cennik__th-cena { width: 10.25rem; }
+  .cennik__th-czas { width: 10.75rem; }
+  .cennik__th-cena { width: 10.25rem; }
+}
+/* wyjątek: tabela obok sylwetki (mapa ciała, układ dwukolumnowy od 960 px) jest węższa — na laptopach kolumny Czas / Cena węższe,
+   żeby nazwa usługi nie łamała się na 4–5 linii */
+@media (min-width: 960px) and (max-width: 1199.98px) {
+  .mapa .cennik__th-czas, .mapa .cennik__th-cena { width: 5.5rem; }
 }
 .cennik-grupa + .cennik-grupa { margin-top: var(--s-7); }
 .cennik-grupa h3 { margin-bottom: var(--s-3); }
