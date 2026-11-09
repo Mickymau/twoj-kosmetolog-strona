@@ -605,6 +605,21 @@ Object.assign(ZNACZNIKI, {
     return `<div class="kontener podmenu__wnetrze"><ul class="podmenu__lista podmenu__lista--${arg}">${poz.map((x) => `<li><a href="${esc(x.href)}">${esc(x.nazwa)}</a></li>`).join('')}</ul>`
       + `<p class="podmenu__wszystkie"><a href="${esc(wszystkie.href)}">${esc(wszystkie.nazwa)} <span aria-hidden="true">→</span></a></p></div>`;
   },
+  // kafle kategorii problemów skóry (strona główna i /problemy-skory/): ten sam komponent .problem-kafel, kolejność z problemy.json;
+  // zdjęcie: src/assets/img/problem-<slug>-*.webp (od Malwiny) albo STOCK-problem-<slug>-*.webp (tymczasowe)
+  'kafle-problemow'(arg, kto) {
+    if (arg) throw `${kto}: {{kafle-problemow}} nie przyjmuje argumentu`;
+    if (!problemyDane) throw `${kto}: brak src/data/problemy.json`;
+    return problemyDane.problemy.map((p) => {
+      const baza = ['problem-', 'STOCK-problem-'].map((pref) => pref + p.slug)
+        .find((b) => fs.existsSync(path.join(SRC, 'assets', 'img', `${b}-800.webp`)));
+      if (!baza) throw `${kto}: brak zdjęcia kafla „${p.slug}” (src/assets/img/problem-${p.slug}-800.webp)`;
+      return `<li><a class="problem-kafel" href="/problemy-skory/${p.slug}/">
+            <img src="/assets/img/${baza}-800.webp" srcset="/assets/img/${baza}-480.webp 480w, /assets/img/${baza}-800.webp 800w" sizes="(min-width: 1000px) 384px, (min-width: 640px) 33vw, 50vw" width="800" height="1000" alt="" loading="lazy">
+            <span class="problem-kafel__tytul">${esc(p.nazwa)}</span>
+          </a></li>`;
+    }).join('\n          ');
+  },
   'lista-zabiegow'(arg, kto) {
     if (!PROBLEMY.includes(arg)) throw `${kto}: {{lista-zabiegow:…}} — nieznany problem „${arg}”`;
     const karty = kartyDlaProblemu(arg);
