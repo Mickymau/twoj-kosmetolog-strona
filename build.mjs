@@ -412,6 +412,13 @@ for (const p of pliki(path.join(SRC, 'data', 'zabiegi'))) {
     if (!z[pole]) ostrzezenia.add(`${g}: brak sekcji „${pole}” — nie wyrenderuje się`);
   if (z.glownaUsluga && !uslugi.has(z.glownaUsluga.split('/')[0])) blad(`${g}: nieznana glownaUsluga „${z.glownaUsluga}”`);
   if (![...uslugi.values()].some((u) => u.podstrona === z.slug)) blad(`${g}: żadna usługa w cenniku nie wskazuje podstrony „${z.slug}”`);
+  if (z.zdjecie) {
+    const f = z.zdjecie;
+    if (!f.plik || !reId.test(f.plik)) blad(`${g}: zdjecie.plik — niepoprawna nazwa`);
+    if (!f.alt || typeof f.alt !== 'string') blad(`${g}: zdjecie.alt — wymagany opis zdjęcia`);
+    if (!Number.isInteger(f.szer) || !Number.isInteger(f.wys)) blad(`${g}: zdjecie.szer i zdjecie.wys — liczby (piksele wersji 1200)`);
+    for (const w of [480, 800, 1200]) if (f.plik && !fs.existsSync(path.join(SRC, 'assets', 'img', `${f.plik}-${w}.webp`))) blad(`${g}: zdjecie — brak pliku src/assets/img/${f.plik}-${w}.webp`);
+  }
   for (const w of z.warstwy || []) if (!['naskorek', 'skora-wlasciwa', 'tkanka-podskorna'].includes(w)) blad(`${g}: nieznana warstwa „${w}”`);
   zabiegi.set(z.slug, z);
 }
@@ -712,6 +719,11 @@ const uwaga = (t) => t ? `<p class="tekst-maly uwaga-zrodla">${t}</p>` : '';
 const sekcjaTlo = (() => { let i = 0; return (reset) => { if (reset) { i = 0; return ''; } return (i++ % 2) ? ' sekcja--krem' : ''; }; })();
 
 // --- STRONA ZABIEGU (BRIEF 6.1 — stały układ) ---
+// zdjęcie w nagłówku podstrony zabiegu; proporcje z pliku (szer/wys) — bez przycinania, część grafik ma tekst w obrazie
+function zdjecieZabiegu(f) {
+  return `<img class="zdjecie zdjecie--cale" src="/assets/img/${f.plik}-800.webp" srcset="${[480, 800, 1200].map((w) => `/assets/img/${f.plik}-${w}.webp ${w}w`).join(', ')}" sizes="(min-width: 900px) 40vw, 100vw" width="${f.szer}" height="${f.wys}" alt="${esc(f.alt)}" fetchpriority="high">`;
+}
+
 function stronaZabiegu(z) {
   const problemy = problemyPodstrony(z.slug);
   const listaCen = widoczne(uslugiPodstrony(z.slug).flatMap(pozycje));
@@ -724,14 +736,16 @@ function stronaZabiegu(z) {
     + `<div class="sekcja__glowa">${nadtytul ? `<span class="nadtytul">${nadtytul}</span>` : ''}<h2 id="${id}-t">${tytul}</h2></div>${wnetrze}</div></section>`;
 
   // 1. nagłówek
-  s.push(`<section class="naglowek-strony naglowek-zabiegu" data-hero aria-labelledby="z-tytul"><div class="kontener">
-<nav class="okruszki" aria-label="Okruszki"><ol><li><a href="/">Strona główna</a></li><li><a href="/zabiegi/">Zabiegi</a></li><li aria-current="page">${z.nazwa}</li></ol></nav>
+  const naglTekst = `<nav class="okruszki" aria-label="Okruszki"><ol><li><a href="/">Strona główna</a></li><li><a href="/zabiegi/">Zabiegi</a></li><li aria-current="page">${z.nazwa}</li></ol></nav>
 <ul class="chipy chipy--male" aria-label="Problemy skóry">${problemy.map((p) => `<li><a class="chip" href="/problemy-skory/${p}/">${NAZWY_PROBLEMOW[p]}</a></li>`).join('')}</ul>
 <h1 id="z-tytul">${z.nazwa}</h1>
 <p class="lead">${z.podtytul}</p>
 <p class="naglowek-zabiegu__cena"><strong>{{cena:${z.glownaUsluga}}}</strong> <span>· {{czas:${z.glownaUsluga}}}</span></p>
-<div class="przyciski"><a class="btn" href="{{booksy:${z.glownaUsluga}}}" rel="noopener" data-umow="zabieg-${z.slug}">Umów w Booksy</a><a class="btn btn--kontur" href="#cennik">Cennik wariantów</a></div>
-</div></section>`);
+<div class="przyciski"><a class="btn" href="{{booksy:${z.glownaUsluga}}}" rel="noopener" data-umow="zabieg-${z.slug}">Umów w Booksy</a><a class="btn btn--kontur" href="#cennik">Cennik wariantów</a></div>`;
+  // zdjęcie w nagłówku (opcjonalne, ZDJECIA.md): układ jak hero strony głównej i pakietów — tekst + zdjęcie
+  s.push(`<section class="naglowek-strony naglowek-zabiegu" data-hero aria-labelledby="z-tytul">`
+    + (z.zdjecie ? `<div class="kontener hero__siatka"><div>${naglTekst}</div>${zdjecieZabiegu(z.zdjecie)}</div>` : `<div class="kontener">${naglTekst}</div>`)
+    + `</section>`);
 
   // 2. na czym polega + przekrój
   s.push(sekcja('na-czym-polega', 'Na czym polega zabieg',

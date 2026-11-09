@@ -3,6 +3,12 @@
   "nazwa": "Carbolift®",
   "podtytul": "Ujędrnianie i regeneracja skóry — twarz, owal, szyja i okolica oczu",
   "glownaUsluga": "carbolift",
+  "zdjecie": {
+    "plik": "zabieg-carbolift",
+    "szer": 1200,
+    "wys": 800,
+    "alt": "Infografika Carbolift: mikronakłuwanie i karboksyterapia CO₂ jako alternatywa dla nici PDO, z kierunkami zabiegu na twarzy i schematem warstw skóry"
+  },
   "zrodlo": "Carbolift_twarz_WWW_Booksy.pdf + Carbolift_oczy_WWW_Booksy.pdf (wersje WWW)",
   "meta": {
     "opis": "Carbolift® — mikronakłuwanie z jednoczesnym podawaniem medycznego CO₂. Ujędrnianie i regeneracja skóry twarzy, owalu i okolicy oczu. Gabinet w Warszawie (Włochy)."

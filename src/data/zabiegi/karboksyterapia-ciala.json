@@ -3,6 +3,12 @@
   "nazwa": "Karboksyterapia ciała",
   "podtytul": "Terapia cellulitu i redukcja miejscowej tkanki tłuszczowej",
   "glownaUsluga": "karboksyterapia-ciala",
+  "zdjecie": {
+    "plik": "zabieg-karboksyterapia-przed-po",
+    "szer": 1200,
+    "wys": 653,
+    "alt": "Porównanie przed i po 6 zabiegach karboksyterapii: skóra pośladków, pośrodku urządzenie do karboksyterapii"
+  },
   "zrodlo": "Karboksyterapia_cialo_WWW_Booksy_cennik.pdf (wersja WWW). ❓ „74 godziny” — pytanie 2",
   "meta": {
     "opis": "Karboksyterapia ciała — cellulit i miejscowa tkanka tłuszczowa. Obszary od kolan po uda, brzuch i ramiona, pakiety 4 i 8 zabiegów. Gabinet w Warszawie (Włochy)."

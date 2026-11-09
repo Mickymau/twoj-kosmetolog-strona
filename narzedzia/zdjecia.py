@@ -6,6 +6,7 @@ Narzędzie deweloperskie (Pillow), NIE zależność strony.
 
 Wynik: src/assets/img/<nazwa>-<szer>.webp (max 2000 px). Prefiks STOCK- z nazwy pliku zostaje.
 --kadr przycina środek do proporcji (np. 4:5, 4:3), zanim powstaną rozmiary.
+--alfa zachowuje przezroczystość (grafiki PNG z wycięciem; domyślnie tło staje się czarne).
 --powieksz pozwala wygenerować rozmiary większe niż źródło (dla małych zdjęć od klientki; efekt: miększy obraz).
 """
 import argparse
@@ -36,10 +37,11 @@ def main():
     p.add_argument("--kadr")
     p.add_argument("--szer", default="480,800,1200,1600")
     p.add_argument("--powieksz", action="store_true")
+    p.add_argument("--alfa", action="store_true")
     a = p.parse_args()
 
     zrodlo = pathlib.Path(a.plik)
-    img = ImageOps.exif_transpose(Image.open(zrodlo)).convert("RGB")
+    img = ImageOps.exif_transpose(Image.open(zrodlo)).convert("RGBA" if a.alfa else "RGB")
     if a.kadr:
         img = przytnij(img, a.kadr)
 

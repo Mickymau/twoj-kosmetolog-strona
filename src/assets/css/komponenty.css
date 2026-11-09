@@ -389,6 +389,9 @@
   background: var(--bg-cream);
 }
 .zdjecie--poziome { aspect-ratio: 4 / 3; }
+/* zdjęcie w całości (nagłówek podstrony zabiegu, diagnostyka): proporcje z atrybutów width/height pliku, bez przycinania
+   (część grafik ma tekst w obrazie lub przezroczyste tło), bez kremowej podkładki */
+.zdjecie--cale { aspect-ratio: auto; object-fit: contain; background: transparent; }
 @media (max-width: 899.98px) {
   .zdjecie--hero { aspect-ratio: 3 / 2; object-position: 35% 40%; }
 }

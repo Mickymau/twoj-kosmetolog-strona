@@ -3,6 +3,12 @@
   "nazwa": "Karboksyterapia twarzy, szyi i dekoltu",
   "podtytul": "Biorewitalizacja i ujędrnianie skóry",
   "glownaUsluga": "karboksyterapia-twarzy",
+  "zdjecie": {
+    "plik": "zabieg-karboksyterapia-sprzet",
+    "szer": 1200,
+    "wys": 801,
+    "alt": "Urządzenie do karboksyterapii na stojaku, jasne tło"
+  },
   "zrodlo": "Karboksyterapia_twarz_WWW_Booksy_cennik.pdf (wersja WWW; cena oczu 180 zł z pliku nie obowiązuje). ❓ „74 godziny” — DO-MALWINY pytanie 2",
   "meta": { "opis": "Karboksyterapia twarzy, szyi i dekoltu — medyczny CO₂ podawany cienką igłą. Ujędrnianie, owal twarzy, bruzdy nosowo-wargowe. Gabinet w Warszawie (Włochy)." },
   "warstwy": ["skora-wlasciwa"],
