@@ -572,21 +572,38 @@ Object.assign(ZNACZNIKI, {
   },
 });
 
+// widoczne pozycje grupy pełnego cennika (odwołanie do usługi/wariantu + nadpisania tylko tam, gdzie Booksy pokazuje inną wartość)
+const pozycjeGrupy = (k) => widoczne(k.pozycje.map((gp) => {
+  const [uid, wid] = gp.ref.split('#');
+  const p = pozycje(uslugi.get(uid)).find((x) => (x.w ? x.w.id : undefined) === wid);
+  const { ref, ...nadpisania } = gp;
+  return { ...p, ...nadpisania };
+}));
+
 // --- znaczniki blokowe ---
 Object.assign(ZNACZNIKI, {
   cennik(arg, kto) {
     if (arg) throw `${kto}: {{cennik}} nie przyjmuje argumentu`;
-    // grupy jak na Booksy: pozycja grupy odwołuje się do usługi/wariantu; nadpisania tylko tam, gdzie Booksy pokazuje inną wartość
+    // grupy jak na Booksy (decyzja 2026-11-09)
     return cennik.grupy.map((k) => {
-      const lista = widoczne(k.pozycje.map((gp) => {
-        const [uid, wid] = gp.ref.split('#');
-        const p = pozycje(uslugi.get(uid)).find((x) => (x.w ? x.w.id : undefined) === wid);
-        const { ref, ...nadpisania } = gp;
-        return { ...p, ...nadpisania };
-      }));
+      const lista = pozycjeGrupy(k);
       if (!lista.length) return '';
       return `<section class="cennik-grupa" id="cennik-${k.id}" aria-labelledby="cg-${k.id}"><h3 id="cg-${k.id}">${esc(k.nazwa)}</h3>${tabelaCennika(lista, { linkuj: true })}</section>`;
     }).join('\n');
+  },
+  // rozwijane menu w nagłówku: lista linków do grup cennika (jak na Booksy) albo do kategorii problemów skóry
+  'menu-podmenu'(arg, kto) {
+    let poz, wszystkie;
+    if (arg === 'zabiegi') {
+      poz = cennik.grupy.filter((k) => pozycjeGrupy(k).length).map((k) => ({ href: `/zabiegi/#cennik-${k.id}`, nazwa: k.nazwa }));
+      wszystkie = { href: '/zabiegi/', nazwa: 'Wszystkie zabiegi i pełny cennik' };
+    } else if (arg === 'problemy') {
+      poz = (problemyDane ? problemyDane.problemy : []).map((p) => ({ href: `/problemy-skory/${p.slug}/`, nazwa: p.nazwa }));
+      wszystkie = { href: '/problemy-skory/', nazwa: 'Wszystkie kategorie' };
+    } else throw `${kto}: {{menu-podmenu:…}} — oczekiwano „zabiegi” albo „problemy”`;
+    if (!poz.length) throw `${kto}: {{menu-podmenu:${arg}}} — brak pozycji`;
+    return `<div class="kontener podmenu__wnetrze"><ul class="podmenu__lista podmenu__lista--${arg}">${poz.map((x) => `<li><a href="${esc(x.href)}">${esc(x.nazwa)}</a></li>`).join('')}</ul>`
+      + `<p class="podmenu__wszystkie"><a href="${esc(wszystkie.href)}">${esc(wszystkie.nazwa)} <span aria-hidden="true">→</span></a></p></div>`;
   },
   'lista-zabiegow'(arg, kto) {
     if (!PROBLEMY.includes(arg)) throw `${kto}: {{lista-zabiegow:…}} — nieznany problem „${arg}”`;

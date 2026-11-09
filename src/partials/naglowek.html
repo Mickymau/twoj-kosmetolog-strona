@@ -11,8 +11,16 @@
     <nav class="menu" id="menu" aria-label="Menu główne">
       <ul class="menu__lewa">
         <li><a href="/diagnostyka-skory/">Diagnostyka i Beauty Plan</a></li>
-        <li><a href="/problemy-skory/">Problemy skóry</a></li>
-        <li><a href="/zabiegi/">Zabiegi i cennik</a></li>
+        <li class="menu__poz" data-rozwijane>
+          <a href="/problemy-skory/">Problemy skóry</a>
+          <button class="menu__strzalka" type="button" aria-expanded="false" aria-controls="podmenu-problemy"><span class="sr-only">Pokaż kategorie problemów skóry</span></button>
+          <div class="podmenu" id="podmenu-problemy">{{menu-podmenu:problemy}}</div>
+        </li>
+        <li class="menu__poz" data-rozwijane>
+          <a href="/zabiegi/">Zabiegi i cennik</a>
+          <button class="menu__strzalka" type="button" aria-expanded="false" aria-controls="podmenu-zabiegi"><span class="sr-only">Pokaż grupy zabiegów i cennik</span></button>
+          <div class="podmenu" id="podmenu-zabiegi">{{menu-podmenu:zabiegi}}</div>
+        </li>
       </ul>
       <ul class="menu__prawa">
         <li><a href="/pakiety-slubne/">Pakiety ślubne</a></li>

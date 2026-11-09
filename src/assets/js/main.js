@@ -20,6 +20,55 @@
     matchMedia('(min-width: 1200px)').addEventListener('change', () => ustaw(false));
   }
 
+  // --- rozwijane menu (Problemy skóry, Zabiegi i cennik) ---
+  // Zakładka zostaje zwykłym linkiem; strzałka obok otwiera listę. Desktop: panel pod nagłówkiem otwierany myszą (z krótkim
+  // opóźnieniem zamknięcia — między linkiem a panelem jest odstęp), fokusem z klawiatury albo strzałką (ekrany dotykowe).
+  // Telefon / tablet: lista rozwijana w menu. Bez JS: desktop pokazuje panel na :hover / :focus-within, telefon tylko link.
+  const rozwijane = [...document.querySelectorAll('[data-rozwijane]')];
+  if (rozwijane.length) {
+    const desktop = matchMedia('(min-width: 1200px)');
+    const timery = new Map();
+    let bezOtwierania = false;
+    const ustawPoz = (li, otwarte) => {
+      li.classList.toggle('menu__poz--otwarte', otwarte);
+      li.querySelector('.menu__strzalka').setAttribute('aria-expanded', String(otwarte));
+    };
+    const zamknijWszystkie = (poza) => rozwijane.forEach((li) => { if (li !== poza) ustawPoz(li, false); });
+    for (const li of rozwijane) {
+      li.querySelector('.menu__strzalka').addEventListener('click', () => {
+        const otworz = desktop.matches ? true : !li.classList.contains('menu__poz--otwarte');
+        zamknijWszystkie(li);
+        ustawPoz(li, otworz);
+      });
+      li.addEventListener('mouseenter', () => {
+        if (!desktop.matches) return;
+        clearTimeout(timery.get(li));
+        zamknijWszystkie(li);
+        ustawPoz(li, true);
+      });
+      li.addEventListener('mouseleave', () => {
+        if (desktop.matches) timery.set(li, setTimeout(() => ustawPoz(li, false), 250));
+      });
+      li.addEventListener('focusin', () => {
+        if (desktop.matches && !bezOtwierania) { zamknijWszystkie(li); ustawPoz(li, true); }
+      });
+      li.addEventListener('focusout', (e) => {
+        if (desktop.matches && !li.contains(e.relatedTarget)) ustawPoz(li, false);
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const otwarte = rozwijane.find((li) => li.classList.contains('menu__poz--otwarte'));
+      if (!otwarte) return;
+      ustawPoz(otwarte, false);
+      bezOtwierania = true;
+      otwarte.querySelector('.menu__strzalka').focus();
+      bezOtwierania = false;
+    });
+    document.addEventListener('click', (e) => { if (!e.target.closest('[data-rozwijane]')) zamknijWszystkie(null); });
+    desktop.addEventListener('change', () => zamknijWszystkie(null));
+  }
+
   // --- nagłówek: cień i zmniejszenie po przewinięciu ---
   const naglowek = document.querySelector('.naglowek');
   if (naglowek) {

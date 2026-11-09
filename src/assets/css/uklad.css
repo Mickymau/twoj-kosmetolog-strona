@@ -114,6 +114,8 @@
   .menu a { min-height: 52px; font-size: 1.125rem; }
   .menu li.menu__umow { margin-top: var(--s-4); border-top: 0; }
   .menu__umow .btn { width: 100%; }
+  /* długie rozwinięcia (28 grup zabiegów): menu przewija się samo, nagłówek jest przyklejony */
+  .js .menu { max-height: calc(100vh - 78px); max-height: calc(100dvh - 78px); overflow-y: auto; overscroll-behavior: contain; }
   /* z JS menu jest domyślnie zwinięte; bez JS — zawsze widoczne pod nagłówkiem */
   .js .menu { visibility: hidden; opacity: 0; transform: translateY(-8px);
     transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease), visibility 0s linear var(--t-base); }
@@ -147,6 +149,74 @@
   .menu__prawa { grid-column: 3; }
   .menu__lewa::after, .menu__prawa::before { content: ""; }
   .menu__umow { margin: 0; }
+}
+
+/* ============ ROZWIJANE MENU (Problemy skóry, Zabiegi i cennik) — decyzja 2026-11-09 ============
+   Zakładka dalej jest zwykłym linkiem; obok niej przycisk-strzałka otwiera listę (grupy cennika jak na Booksy / kategorie
+   problemów). Desktop: panel pod nagłówkiem na całą szerokość, kolumny. Telefon: lista rozwijana w menu. */
+.menu__poz { display: flex; flex-wrap: wrap; align-items: center; }
+.menu__strzalka {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: var(--dotyk-min); min-height: var(--dotyk-min);
+  border: 0; background: none; color: var(--text); cursor: pointer;
+}
+.menu__strzalka::before {
+  content: ""; width: 7px; height: 7px;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform var(--t-fast) var(--ease);
+}
+.menu__strzalka:hover { color: var(--bordo); }
+.menu__strzalka[aria-expanded="true"] { color: var(--bordo); }
+.menu__strzalka[aria-expanded="true"]::before { transform: translateY(2px) rotate(-135deg); }
+.podmenu { flex-basis: 100%; }
+.podmenu__lista { list-style: none; margin: 0; padding: 0; }
+.menu .podmenu__lista li + li { border-top: 0; }
+.podmenu__wszystkie { margin: var(--s-3) 0 0; }
+.menu .podmenu__wszystkie a { display: inline-flex; gap: 0.4em; color: var(--bordo); font-weight: 500; }
+.menu .podmenu__wszystkie a:hover { text-decoration: underline; }
+.cennik-grupa { scroll-margin-top: 96px; } /* kotwice z menu: odstęp pod przyklejonym nagłówkiem */
+
+/* telefon / tablet: lista pod pozycją, rozwijana strzałką; bez JS ukryta (wystarczy sama zakładka) */
+@media (max-width: 1199.98px) {
+  .menu__poz > a { flex: 1; }
+  .podmenu { display: none; padding: 0 0 var(--s-3) var(--s-4); }
+  .menu__poz--otwarte > .podmenu { display: block; }
+  .menu .podmenu__wnetrze { padding-inline: 0; max-width: none; } /* w menu mobilnym marginesy daje samo menu */
+  html:not(.js) .menu__strzalka { display: none; }
+  .menu .podmenu a { min-height: 44px; font-size: 1rem; font-weight: 400; }
+  .menu .podmenu__wszystkie a { font-weight: 500; }
+}
+@media (min-width: 600px) and (max-width: 1199.98px) {
+  .podmenu__lista { columns: 2; column-gap: var(--s-6); }
+  .podmenu__lista li { break-inside: avoid; }
+}
+
+/* desktop: panel pod nagłówkiem (położony względem .naglowek) */
+@media (min-width: 1200px) {
+  .menu .podmenu {
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 60;
+    padding: var(--s-6) 0;
+    background: var(--bg);
+    border-top: 1px solid var(--line-header); border-bottom: 1px solid var(--line);
+    box-shadow: 0 28px 40px -30px rgb(43 37 34 / 0.5);
+    visibility: hidden; opacity: 0; transform: translateY(-6px);
+    transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease), visibility 0s linear var(--t-base);
+  }
+  .menu__poz--otwarte > .podmenu,
+  html:not(.js) .menu__poz:hover > .podmenu,
+  html:not(.js) .menu__poz:focus-within > .podmenu {
+    visibility: visible; opacity: 1; transform: none;
+    transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+  }
+  .menu .podmenu__lista { display: block; }
+  .podmenu__lista--zabiegi { columns: 4; column-gap: var(--s-7); }
+  .podmenu__lista--problemy { columns: 3; column-gap: var(--s-7); }
+  .podmenu__lista li { break-inside: avoid; }
+  .menu .podmenu a { min-height: 34px; font-size: var(--fs-small); font-weight: 400; }
+  .menu .podmenu__lista a:hover { color: var(--bordo); text-decoration: underline; }
+  .menu .podmenu__wszystkie { margin-top: var(--s-4); }
+  .menu .podmenu__wszystkie a { font-weight: 500; }
 }
 
 /* ============ STOPKA ============ */
