@@ -88,10 +88,11 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* jednolite przyciemnienie + mocniejsze za tytułem (biały tekst ≥ 4,5:1 także na jasnych zdjęciach) */
+  /* lekkie przyciemnienie całości + mocniejsze za tytułem (biały tekst ≥ 4,5:1 także na jasnych zdjęciach;
+     zmierzone na 9 kaflach 2026-11-09: najgorszy kontrast ok. 5,6:1 na „Owal twarzy”) */
   background:
-    radial-gradient(ellipse 100% 36% at 50% 50%, rgb(43 37 34 / 0.7), rgb(43 37 34 / 0)),
-    rgb(43 37 34 / 0.38);
+    radial-gradient(ellipse 100% 36% at 50% 50%, rgb(43 37 34 / 0.75), rgb(43 37 34 / 0)),
+    rgb(43 37 34 / 0.24);
   transition: background-color var(--t-base) var(--ease);
 }
 .problem-kafel__tytul {
