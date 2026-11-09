@@ -125,6 +125,15 @@
 .problem-kafel:hover .problem-kafel__tytul::after,
 .problem-kafel:focus-visible .problem-kafel__tytul::after { width: 56px; }
 .problem-kafel:focus-visible { outline: 3px solid var(--bordo); outline-offset: 3px; }
+/* WARIANT DO DECYZJI MALWINY (2026-11-09): trzy pierwsze kafle z bordowym przyciemnieniem (#5A1F2A), reszta bez zmian.
+   Kontrast białego tytułu zmierzony: ok. 7,8:1. Po decyzji: zostawić dla wszystkich albo usunąć ten blok. */
+.kafle-problemow li:nth-child(-n+3) .problem-kafel::before {
+  background:
+    radial-gradient(ellipse 100% 36% at 50% 50%, rgb(90 31 42 / 0.78), rgb(90 31 42 / 0)),
+    rgb(90 31 42 / 0.38);
+}
+.kafle-problemow li:nth-child(-n+3) .problem-kafel:hover::before,
+.kafle-problemow li:nth-child(-n+3) .problem-kafel:focus-visible::before { background: rgb(90 31 42 / 0.7); }
 
 /* ============ KARTY ============ */
 .karta {
