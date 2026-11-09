@@ -2,10 +2,11 @@
 
 Narzędzie deweloperskie (Pillow), NIE zależność strony.
 
-    python -P narzedzia/zdjecia.py zrodla-zdjec/PLIK.jpg [--kadr 4:5] [--szer 480,800,1200,1600]
+    python -P narzedzia/zdjecia.py zrodla-zdjec/PLIK.jpg [--kadr 4:5] [--szer 480,800,1200,1600] [--powieksz]
 
 Wynik: src/assets/img/<nazwa>-<szer>.webp (max 2000 px). Prefiks STOCK- z nazwy pliku zostaje.
 --kadr przycina środek do proporcji (np. 4:5, 4:3), zanim powstaną rozmiary.
+--powieksz pozwala wygenerować rozmiary większe niż źródło (dla małych zdjęć od klientki; efekt: miększy obraz).
 """
 import argparse
 import pathlib
@@ -34,6 +35,7 @@ def main():
     p.add_argument("plik")
     p.add_argument("--kadr")
     p.add_argument("--szer", default="480,800,1200,1600")
+    p.add_argument("--powieksz", action="store_true")
     a = p.parse_args()
 
     zrodlo = pathlib.Path(a.plik)
@@ -43,7 +45,7 @@ def main():
 
     CEL.mkdir(parents=True, exist_ok=True)
     for s in sorted({min(int(x), 2000) for x in a.szer.split(",")}):
-        if s > img.width:
+        if s > img.width and not a.powieksz:
             continue
         h = round(img.height * s / img.width)
         out = CEL / f"{zrodlo.stem}-{s}.webp"
