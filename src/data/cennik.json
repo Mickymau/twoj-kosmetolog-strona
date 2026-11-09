@@ -1,64 +1,620 @@
 {
-  "_opis": "JEDYNE źródło cen, czasów i linków Booksy. Źródło prawdy: Booksy. Start: data/cennik-booksy-2026-11-02.md. cena = liczba zł (od: true → 'od X zł'); czas = minuty (null = nieznany); zweryfikowano = data sprawdzenia w Booksy (null = niezweryfikowane → blokada w --prod); wariant dziedziczy zweryfikowano/booksyUrl po usłudze, jeśli nie ma własnych; booksyUrl null → profil z firma.json; doWyjasnienia: true → blokada w --prod.",
-  "kategorie": [
+  "_opis": "JEDYNE źródło cen, czasów i linków Booksy. Źródło prawdy: Booksy. Start: data/cennik-booksy-2026-11-02.md. cena = liczba zł (od: true → 'od X zł'); czas = minuty (null = nieznany); zweryfikowano = data sprawdzenia w Booksy (null = niezweryfikowane → blokada w --prod); wariant dziedziczy zweryfikowano/booksyUrl po usłudze, jeśli nie ma własnych; booksyUrl null → profil z firma.json; doWyjasnienia: true → blokada w --prod. grupy = układ pełnego cennika jak na profilu Booksy (nazwy i kolejność z Booksy, bez znaczników promocji i dat); pozycja grupy = {ref: \"usługa\" lub \"usługa#wariant\", opcjonalnie cena/czas/pakiety nadpisujące wartość z usługi — tylko tam, gdzie Booksy sam pokazuje inną wartość w danej grupie; każde nadpisanie to rozbieżność do wyjaśnienia z Malwiną, DO-MALWINY}. Ta sama usługa może stać w wielu grupach.",
+  "grupy": [
     {
-      "id": "diagnostyka",
-      "nazwa": "Diagnostyka skóry i Beauty Plan"
+      "id": "konsultacja",
+      "nazwa": "Konsultacja kosmetologiczna- podstawowa",
+      "pozycje": [
+        {
+          "ref": "konsultacja"
+        }
+      ]
+    },
+    {
+      "id": "lumiscan",
+      "nazwa": "Komputerowa analiza skóry Lumiscan™",
+      "pozycje": [
+        {
+          "ref": "lumiscan"
+        },
+        {
+          "ref": "lumiscan-beauty-plan"
+        }
+      ]
+    },
+    {
+      "id": "beauty-plan",
+      "nazwa": "Twój Indywidualny Beauty Plan",
+      "pozycje": [
+        {
+          "ref": "beauty-plan-po-lumiscan"
+        }
+      ]
+    },
+    {
+      "id": "brwi-rzesy",
+      "nazwa": "Stylizacja Brwi i Rzęs",
+      "pozycje": [
+        {
+          "ref": "brwi#regulacja-damska"
+        },
+        {
+          "ref": "brwi#regulacja-meska"
+        },
+        {
+          "ref": "brwi#henna"
+        },
+        {
+          "ref": "stylizacja-brwi-rzes#henna-rzes"
+        },
+        {
+          "ref": "stylizacja-brwi-rzes#komplet"
+        }
+      ]
     },
     {
       "id": "tradzik",
-      "nazwa": "Trądzik bakteryjny i hormonalny"
-    },
-    {
-      "id": "naczynka",
-      "nazwa": "Trądzik różowaty i naczynka"
-    },
-    {
-      "id": "cera-sucha",
-      "nazwa": "Cera sucha"
+      "nazwa": "Trądzik bakteryjny/hormonalny",
+      "pozycje": [
+        {
+          "ref": "bezpieczne-oczyszczanie-manualne"
+        },
+        {
+          "ref": "peeling-kawitacyjny"
+        },
+        {
+          "ref": "oxybrazja#ampulka"
+        },
+        {
+          "ref": "oxybrazja#oczyszczanie"
+        },
+        {
+          "ref": "oxybrazja#kwasy"
+        },
+        {
+          "ref": "terapia-kwasami"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#blizny-potradzikowe"
+        }
+      ]
     },
     {
       "id": "przebarwienia",
-      "nazwa": "Przebarwienia"
+      "nazwa": "Przebarwienia",
+      "pozycje": [
+        {
+          "ref": "kwasy-depigmentacyjne"
+        },
+        {
+          "ref": "dermapen-biorepeel"
+        },
+        {
+          "ref": "dermapen-prx-t33"
+        },
+        {
+          "ref": "geneo#illuminate"
+        },
+        {
+          "ref": "retix-c#twarz"
+        }
+      ]
     },
     {
-      "id": "starzenie",
-      "nazwa": "Oznaki starzenia, jędrność i nawilżenie"
+      "id": "oczyszczajace",
+      "nazwa": "Zabiegi Oczyszczające",
+      "pozycje": [
+        {
+          "ref": "geneo#balance"
+        },
+        {
+          "ref": "bezpieczne-oczyszczanie-manualne"
+        },
+        {
+          "ref": "peeling-kawitacyjny"
+        },
+        {
+          "ref": "terapia-kwasami",
+          "cena": 290
+        },
+        {
+          "ref": "oxybrazja#ampulka",
+          "czas": 100
+        }
+      ]
     },
     {
-      "id": "owal",
-      "nazwa": "Owal twarzy i szyja"
+      "id": "pielegnacyjne",
+      "nazwa": "Zabiegi Pielęgnacyjne- rytuały z masażem",
+      "pozycje": [
+        {
+          "ref": "konsultacja"
+        },
+        {
+          "ref": "zabieg-indywidualny"
+        },
+        {
+          "ref": "morska-bryza"
+        },
+        {
+          "ref": "anti-redness"
+        },
+        {
+          "ref": "zabieg-ujedrniajacy"
+        },
+        {
+          "ref": "wyjatkowy-prezent"
+        }
+      ]
+    },
+    {
+      "id": "zluszczanie",
+      "nazwa": "Złuszczanie/ Eksfoliacja Kwasami",
+      "pozycje": [
+        {
+          "ref": "dermapen-biorepeel"
+        },
+        {
+          "ref": "prx-t33"
+        },
+        {
+          "ref": "terapia-kwasami",
+          "cena": 290,
+          "czas": 80
+        },
+        {
+          "ref": "kwas-azelainowy"
+        }
+      ]
+    },
+    {
+      "id": "epilacja",
+      "nazwa": "Epilacja laserowa (Nowy Quattro)",
+      "pozycje": [
+        {
+          "ref": "depilacja-laserowa#wasik-broda"
+        },
+        {
+          "ref": "depilacja-laserowa#2-okolice-twarzy"
+        },
+        {
+          "ref": "depilacja-laserowa#3-okolice-twarzy"
+        },
+        {
+          "ref": "depilacja-laserowa#pachy"
+        },
+        {
+          "ref": "depilacja-laserowa#plecy"
+        },
+        {
+          "ref": "depilacja-laserowa#plecy-czesciowo"
+        },
+        {
+          "ref": "depilacja-laserowa#klatka"
+        },
+        {
+          "ref": "depilacja-laserowa#klatka-czesciowo"
+        },
+        {
+          "ref": "depilacja-laserowa#ramiona"
+        },
+        {
+          "ref": "depilacja-laserowa#lydki-kolana"
+        },
+        {
+          "ref": "depilacja-laserowa#uda"
+        },
+        {
+          "ref": "depilacja-laserowa#cale-nogi"
+        },
+        {
+          "ref": "depilacja-laserowa#posladki"
+        },
+        {
+          "ref": "depilacja-laserowa#bikini-plytkie"
+        },
+        {
+          "ref": "depilacja-laserowa#bikini-glebokie"
+        },
+        {
+          "ref": "depilacja-laserowa#bikini-pachy"
+        },
+        {
+          "ref": "depilacja-laserowa#pachy-lydki-kolana"
+        },
+        {
+          "ref": "depilacja-laserowa#lydki-kolana-bikini"
+        },
+        {
+          "ref": "depilacja-laserowa#cale-nogi-bikini"
+        },
+        {
+          "ref": "depilacja-laserowa#cale-nogi-pachy"
+        },
+        {
+          "ref": "depilacja-laserowa#cale-nogi-bikini-pachy"
+        }
+      ]
+    },
+    {
+      "id": "geneo",
+      "nazwa": "Oxygen (Geneo) + TriPollar z Efektem Wow",
+      "pozycje": [
+        {
+          "ref": "geneo#hydrate"
+        },
+        {
+          "ref": "geneo#balance"
+        },
+        {
+          "ref": "geneo#illuminate",
+          "czas": 90
+        }
+      ]
+    },
+    {
+      "id": "retix-c",
+      "nazwa": "Retix C - zabieg Anti Age z efektem \"Baby Face\"",
+      "pozycje": [
+        {
+          "ref": "retix-c#szyja-dekolt"
+        },
+        {
+          "ref": "retix-c#twarz"
+        },
+        {
+          "ref": "retix-c#szyja"
+        }
+      ]
+    },
+    {
+      "id": "mezoterapia-iglowa",
+      "nazwa": "Mezoterapia Igłowa + Pielęgnacja",
+      "pozycje": [
+        {
+          "ref": "mezoterapia-nawilzajaca#twarz-szyja"
+        },
+        {
+          "ref": "mezoterapia-nawilzajaca#twarz-szyja-dekolt"
+        },
+        {
+          "ref": "mezoterapia-nawilzajaca#twarz"
+        },
+        {
+          "ref": "mezoterapia-rewitalizujaca"
+        },
+        {
+          "ref": "mezoterapia-neauvia"
+        },
+        {
+          "ref": "mezoterapia-oczu#cienie-obrzeki"
+        },
+        {
+          "ref": "dlonie#mezoterapia"
+        },
+        {
+          "ref": "trychologia#mezoterapia",
+          "czas": 40
+        },
+        {
+          "ref": "mezoterapia-piersi"
+        }
+      ]
+    },
+    {
+      "id": "stymulatory",
+      "nazwa": "Stymulatory Tkankowe",
+      "pozycje": [
+        {
+          "ref": "polinukleotydy"
+        },
+        {
+          "ref": "sunekos#1200"
+        },
+        {
+          "ref": "sunekos#200"
+        },
+        {
+          "ref": "sunekos#laczona"
+        },
+        {
+          "ref": "xela-rederm#2-2",
+          "czas": 90
+        },
+        {
+          "ref": "xela-rederm#1-1",
+          "czas": 90
+        },
+        {
+          "ref": "xela-rederm#1-8",
+          "czas": 90
+        }
+      ]
     },
     {
       "id": "oczy",
-      "nazwa": "Okolica oczu"
+      "nazwa": "Zabiegi na Oczy/Worki, Cienie, Obrzęki, Zmarszczki",
+      "pozycje": [
+        {
+          "ref": "pro-eyes"
+        },
+        {
+          "ref": "mezoterapia-oczu#rozjasniajaca"
+        },
+        {
+          "ref": "carbolift#oczy"
+        },
+        {
+          "ref": "karboksyterapia-oczu"
+        },
+        {
+          "ref": "mezoterapia-oczu#glow"
+        },
+        {
+          "ref": "mezoterapia-oczu#stymulujaca"
+        },
+        {
+          "ref": "xela-rederm#1-1"
+        }
+      ]
     },
     {
-      "id": "blizny",
-      "nazwa": "Blizny i rozstępy"
+      "id": "bursztynowa",
+      "nazwa": "Mezoterapia Bursztynowa /Redermalizacja",
+      "pozycje": [
+        {
+          "ref": "xela-rederm#2-2"
+        },
+        {
+          "ref": "xela-rederm#1-8"
+        },
+        {
+          "ref": "xela-rederm#1-1",
+          "czas": 75
+        }
+      ]
     },
     {
-      "id": "cialo",
-      "nazwa": "Cellulit i ciało"
+      "id": "kolagenowa",
+      "nazwa": "Mezoterapia Kolagenowa",
+      "pozycje": [
+        {
+          "ref": "mezoterapia-kolagenowa"
+        }
+      ]
     },
     {
-      "id": "wlosy",
-      "nazwa": "Włosy i skóra głowy"
+      "id": "dermapen-mezo",
+      "nazwa": "Dermapen + Mezoterapia igłowa (2 w 1)",
+      "pozycje": [
+        {
+          "ref": "dermapen#mezo-twarz"
+        },
+        {
+          "ref": "dermapen#mezo-szyja"
+        },
+        {
+          "ref": "dermapen#mezo-szyja-dekolt"
+        }
+      ]
     },
     {
-      "id": "rytualy",
-      "nazwa": "Rytuały z masażem"
+      "id": "dermapen",
+      "nazwa": "Dermapen- Mikronakłuwanie z Pielęgnacją",
+      "pozycje": [
+        {
+          "ref": "dermapen#twarz"
+        },
+        {
+          "ref": "dermapen#szyja"
+        },
+        {
+          "ref": "dermapen#szyja-dekolt"
+        },
+        {
+          "ref": "dermapen-biorepeel"
+        },
+        {
+          "ref": "dermapen-prx-t33"
+        }
+      ]
     },
     {
-      "id": "pozostale",
-      "nazwa": "Pozostałe"
+      "id": "carbolift",
+      "nazwa": "Carbolift - Lifting i Poprawa Owalu Twarzy",
+      "pozycje": [
+        {
+          "ref": "carbolift#owal-szyja"
+        },
+        {
+          "ref": "carbolift#szyja-dekolt-owal"
+        },
+        {
+          "ref": "carbolift#twarz-owal"
+        },
+        {
+          "ref": "carbolift#twarz-szyja-owal"
+        },
+        {
+          "ref": "carbolift#twarz-szyja-owal-dekolt"
+        },
+        {
+          "ref": "carbolift#oczy"
+        }
+      ]
+    },
+    {
+      "id": "trychologia",
+      "nazwa": "Zabiegi Trychologiczne na Włosy",
+      "pozycje": [
+        {
+          "ref": "trychologia#oxybrazja"
+        },
+        {
+          "ref": "trychologia#mezoterapia"
+        },
+        {
+          "ref": "trychologia#dr-cyj"
+        },
+        {
+          "ref": "trychologia#karboksyterapia"
+        }
+      ]
+    },
+    {
+      "id": "nieinwazyjne-owal",
+      "nazwa": "Nieinwazyjne Podniesienie Owalu",
+      "pozycje": [
+        {
+          "ref": "carbolift#karboksyterapia"
+        },
+        {
+          "ref": "carbolift#mezoterapia-rrs"
+        },
+        {
+          "ref": "xela-rederm#2-2",
+          "cena": 1000,
+          "pakiety": []
+        }
+      ]
+    },
+    {
+      "id": "karboksyterapia-twarz",
+      "nazwa": "Karboksyterapia (Twarz, Szyja, Dekolt)",
+      "pozycje": [
+        {
+          "ref": "karboksyterapia-twarzy#bruzdy"
+        },
+        {
+          "ref": "karboksyterapia-twarzy#szyja-owal"
+        },
+        {
+          "ref": "karboksyterapia-twarzy#twarz-owal"
+        },
+        {
+          "ref": "karboksyterapia-twarzy#twarz-owal-szyja"
+        },
+        {
+          "ref": "karboksyterapia-twarzy#szyja-dekolt-owal"
+        },
+        {
+          "ref": "karboksyterapia-twarzy#twarz-owal-szyja-dekolt"
+        },
+        {
+          "ref": "karboksyterapia-oczu"
+        }
+      ]
+    },
+    {
+      "id": "karboksyterapia-blizny",
+      "nazwa": "Karboksyterapia- Rozstępy, Blizny",
+      "pozycje": [
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#blizna-mala"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#blizna-duza"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#blizny-potradzikowe"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#rozstepy-piersi"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#rozstepy-plecy"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#rozstepy-uda"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#rozstepy-posladki"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#rozstepy-ramiona"
+        },
+        {
+          "ref": "karboksyterapia-blizny-rozstepy#rozstepy-brzuch"
+        }
+      ]
+    },
+    {
+      "id": "karboksyterapia-cellulit",
+      "nazwa": "Karboksyterapia- Cellulit, Tkanka tłuszczowa",
+      "pozycje": [
+        {
+          "ref": "karboksyterapia-ciala#kolana"
+        },
+        {
+          "ref": "karboksyterapia-ciala#brzuch-boczki"
+        },
+        {
+          "ref": "karboksyterapia-ciala#uda"
+        },
+        {
+          "ref": "karboksyterapia-ciala#uda-posladki-bryczesy"
+        },
+        {
+          "ref": "karboksyterapia-ciala#cale-nogi"
+        },
+        {
+          "ref": "karboksyterapia-ciala#posladki-bryczesy"
+        },
+        {
+          "ref": "karboksyterapia-ciala#uda-brzuch-boczki"
+        },
+        {
+          "ref": "karboksyterapia-ciala#ramiona"
+        }
+      ]
+    },
+    {
+      "id": "woski",
+      "nazwa": "Depilacja Woskiem",
+      "pozycje": [
+        {
+          "ref": "depilacja-woskiem#brwi"
+        },
+        {
+          "ref": "depilacja-woskiem#wasik"
+        },
+        {
+          "ref": "depilacja-woskiem#broda"
+        },
+        {
+          "ref": "depilacja-woskiem#wasik-broda-podbrodek"
+        },
+        {
+          "ref": "depilacja-woskiem#pachy"
+        }
+      ]
+    },
+    {
+      "id": "dlonie",
+      "nazwa": "Zabiegi na Dłonie",
+      "pozycje": [
+        {
+          "ref": "dlonie#mezoterapia"
+        },
+        {
+          "ref": "dlonie#karboksyterapia"
+        }
+      ]
+    },
+    {
+      "id": "inne",
+      "nazwa": "Inne usługi w salonie",
+      "pozycje": [
+        {
+          "ref": "masaze"
+        }
+      ]
     }
   ],
   "uslugi": [
     {
       "id": "konsultacja",
       "nazwa": "Konsultacja kosmetologiczna (podstawowa)",
-      "kategoria": "diagnostyka",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -91,7 +647,6 @@
     {
       "id": "lumiscan",
       "nazwa": "Komputerowa analiza skóry Lumiscan™ + konsultacja",
-      "kategoria": "diagnostyka",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -127,7 +682,6 @@
     {
       "id": "lumiscan-beauty-plan",
       "nazwa": "Kompleksowa analiza skóry Lumiscan™ + Beauty Plan",
-      "kategoria": "diagnostyka",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -149,7 +703,6 @@
     {
       "id": "beauty-plan-po-lumiscan",
       "nazwa": "Twój Indywidualny Beauty Plan (po wcześniejszym Lumiscan)",
-      "kategoria": "diagnostyka",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -172,7 +725,7 @@
     {
       "id": "kontrolny-lumiscan",
       "nazwa": "Kontrolny Lumiscan w okresie 6-miesięcznej opieki",
-      "kategoria": "diagnostyka",
+      "pozaGrupami": true,
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -195,7 +748,6 @@
     {
       "id": "bezpieczne-oczyszczanie-manualne",
       "nazwa": "Bezpieczne manualne oczyszczanie z ozonoterapią",
-      "kategoria": "tradzik",
       "problemy": [
         "tradzik"
       ],
@@ -218,7 +770,6 @@
     {
       "id": "peeling-kawitacyjny",
       "nazwa": "Peeling kawitacyjny z pielęgnacją",
-      "kategoria": "tradzik",
       "problemy": [
         "tradzik",
         "przebarwienia"
@@ -232,7 +783,6 @@
     {
       "id": "oxybrazja",
       "nazwa": "Oxybrazja — peeling wodno-tlenowy",
-      "kategoria": "tradzik",
       "problemy": [
         "tradzik"
       ],
@@ -277,7 +827,6 @@
     {
       "id": "terapia-kwasami",
       "nazwa": "Indywidualna terapia kwasami",
-      "kategoria": "tradzik",
       "problemy": [
         "tradzik",
         "przebarwienia",
@@ -292,7 +841,6 @@
     {
       "id": "anti-redness",
       "nazwa": "Anti-Redness — zabieg kojący dla cery naczynkowej",
-      "kategoria": "naczynka",
       "problemy": [
         "naczynka"
       ],
@@ -305,7 +853,6 @@
     {
       "id": "kwas-azelainowy",
       "nazwa": "Kwas azelainowy + pielęgnacja — terapia na rumień",
-      "kategoria": "naczynka",
       "problemy": [
         "naczynka",
         "przebarwienia"
@@ -368,7 +915,6 @@
     {
       "id": "mezoterapia-neauvia",
       "nazwa": "Mezoterapia igłowa Neauvia Organic Hydro Deluxe",
-      "kategoria": "cera-sucha",
       "problemy": [
         "cera-sucha",
         "starzenie-skory"
@@ -382,7 +928,6 @@
     {
       "id": "kwasy-depigmentacyjne",
       "nazwa": "Złuszczanie kwasami o działaniu depigmentacyjnym",
-      "kategoria": "przebarwienia",
       "problemy": [
         "przebarwienia"
       ],
@@ -395,7 +940,6 @@
     {
       "id": "dermapen-biorepeel",
       "nazwa": "Dermapen + BioRePeelCl₃®",
-      "kategoria": "przebarwienia",
       "problemy": [
         "przebarwienia",
         "blizny-i-rozstepy",
@@ -410,7 +954,6 @@
     {
       "id": "dermapen-prx-t33",
       "nazwa": "Dermapen + PRX-T33®",
-      "kategoria": "przebarwienia",
       "problemy": [
         "przebarwienia",
         "blizny-i-rozstepy"
@@ -424,7 +967,6 @@
     {
       "id": "geneo",
       "nazwa": "Oxygen (Geneo) TriPollar",
-      "kategoria": "przebarwienia",
       "problemy": [
         "przebarwienia"
       ],
@@ -463,7 +1005,6 @@
     {
       "id": "retix-c",
       "nazwa": "Retix C",
-      "kategoria": "przebarwienia",
       "problemy": [
         "przebarwienia",
         "starzenie-skory"
@@ -497,7 +1038,6 @@
     {
       "id": "dermapen",
       "nazwa": "Dermapen — mikronakłuwanie",
-      "kategoria": "starzenie",
       "problemy": [
         "starzenie-skory",
         "blizny-i-rozstepy"
@@ -547,7 +1087,6 @@
     {
       "id": "prx-t33",
       "nazwa": "PRX-T33® — bezigłowa biorewitalizacja",
-      "kategoria": "starzenie",
       "problemy": [
         "starzenie-skory",
         "przebarwienia",
@@ -568,7 +1107,6 @@
     {
       "id": "mezoterapia-nawilzajaca",
       "nazwa": "Mezoterapia igłowa twarzy — nawilżająca",
-      "kategoria": "starzenie",
       "problemy": [
         "cera-sucha",
         "starzenie-skory"
@@ -616,7 +1154,6 @@
     {
       "id": "mezoterapia-rewitalizujaca",
       "nazwa": "Mezoterapia rewitalizująca (skin booster)",
-      "kategoria": "starzenie",
       "problemy": [
         "starzenie-skory",
         "cera-sucha"
@@ -637,7 +1174,6 @@
     {
       "id": "polinukleotydy",
       "nazwa": "Stymulacja skóry polinukleotydami",
-      "kategoria": "starzenie",
       "problemy": [
         "starzenie-skory",
         "cera-sucha"
@@ -657,7 +1193,6 @@
     {
       "id": "sunekos",
       "nazwa": "Sunekos",
-      "kategoria": "starzenie",
       "problemy": [
         "starzenie-skory",
         "cera-sucha"
@@ -692,7 +1227,6 @@
     {
       "id": "xela-rederm",
       "nazwa": "Mezoterapia bursztynowa Xela Rederm",
-      "kategoria": "starzenie",
       "problemy": [
         "okolica-oczu",
         "cera-sucha",
@@ -741,7 +1275,6 @@
     {
       "id": "mezoterapia-kolagenowa",
       "nazwa": "Mezoterapia kolagenowa — atelokolagen 5 ml",
-      "kategoria": "starzenie",
       "problemy": [
         "starzenie-skory"
       ],
@@ -758,7 +1291,6 @@
     {
       "id": "karboksyterapia-twarzy",
       "nazwa": "Karboksyterapia twarzy, szyi i dekoltu",
-      "kategoria": "owal",
       "problemy": [
         "owal-twarzy",
         "starzenie-skory"
@@ -808,7 +1340,6 @@
     {
       "id": "carbolift",
       "nazwa": "Carbolift®",
-      "kategoria": "owal",
       "problemy": [
         "owal-twarzy",
         "starzenie-skory",
@@ -879,7 +1410,6 @@
     {
       "id": "karboksyterapia-oczu",
       "nazwa": "Karboksyterapia okolicy oczu (cienie, obrzęki, zmarszczki)",
-      "kategoria": "oczy",
       "problemy": [
         "okolica-oczu"
       ],
@@ -892,7 +1422,6 @@
     {
       "id": "pro-eyes",
       "nazwa": "Autorski zabieg PRO EYES",
-      "kategoria": "oczy",
       "problemy": [
         "okolica-oczu"
       ],
@@ -921,7 +1450,6 @@
     {
       "id": "mezoterapia-oczu",
       "nazwa": "Mezoterapie okolicy oczu i twarzy",
-      "kategoria": "oczy",
       "problemy": [
         "okolica-oczu"
       ],
@@ -967,7 +1495,6 @@
     {
       "id": "karboksyterapia-blizny-rozstepy",
       "nazwa": "Karboksyterapia — blizny i rozstępy",
-      "kategoria": "blizny",
       "problemy": [
         "blizny-i-rozstepy",
         "tradzik"
@@ -1036,7 +1563,6 @@
     {
       "id": "karboksyterapia-ciala",
       "nazwa": "Karboksyterapia ciała — cellulit i tkanka tłuszczowa",
-      "kategoria": "cialo",
       "problemy": [
         "cellulit"
       ],
@@ -1180,7 +1706,6 @@
     {
       "id": "trychologia",
       "nazwa": "Włosy i skóra głowy",
-      "kategoria": "wlosy",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1243,7 +1768,6 @@
     {
       "id": "zabieg-indywidualny",
       "nazwa": "Zabieg Indywidualny",
-      "kategoria": "rytualy",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1261,7 +1785,6 @@
     {
       "id": "morska-bryza",
       "nazwa": "Morska Bryza — kolagenowy rytuał nawilżający",
-      "kategoria": "rytualy",
       "problemy": [
         "cera-sucha",
         "starzenie-skory"
@@ -1275,7 +1798,6 @@
     {
       "id": "zabieg-ujedrniajacy",
       "nazwa": "Zabieg ujędrniający z termiczną maską modelującą",
-      "kategoria": "rytualy",
       "problemy": [
         "starzenie-skory"
       ],
@@ -1288,7 +1810,6 @@
     {
       "id": "wyjatkowy-prezent",
       "nazwa": "Zabieg Wyjątkowy Prezent",
-      "kategoria": "rytualy",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1304,7 +1825,6 @@
     {
       "id": "brwi",
       "nazwa": "Brwi",
-      "kategoria": "pozostale",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1333,7 +1853,6 @@
     {
       "id": "stylizacja-brwi-rzes",
       "nazwa": "Henna rzęs i komplety",
-      "kategoria": "pozostale",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1356,7 +1875,6 @@
     {
       "id": "depilacja-laserowa",
       "nazwa": "Epilacja laserowa — Nowy Quattro",
-      "kategoria": "pozostale",
       "problemy": [],
       "podstrona": "depilacja-laserowa",
       "booksyUrl": null,
@@ -1493,7 +2011,6 @@
     {
       "id": "depilacja-woskiem",
       "nazwa": "Depilacja woskiem",
-      "kategoria": "pozostale",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1534,7 +2051,6 @@
     {
       "id": "dlonie",
       "nazwa": "Zabiegi na dłonie",
-      "kategoria": "pozostale",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1567,7 +2083,6 @@
     {
       "id": "mezoterapia-piersi",
       "nazwa": "Mezoterapia igłowa — piersi",
-      "kategoria": "cialo",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": null,
@@ -1579,7 +2094,6 @@
     {
       "id": "masaze",
       "nazwa": "Masaże (Oksana, dyplomowana masażystka — osobny profil Booksy)",
-      "kategoria": "pozostale",
       "problemy": [],
       "podstrona": null,
       "booksyUrl": "https://oksimassage.booksy.com",

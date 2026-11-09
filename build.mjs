@@ -128,8 +128,7 @@ function walidujOpis(o, gdzie) {
 
 (function walidujCennik() {
   const G = 'src/data/cennik.json';
-  const kategorie = new Set((cennik.kategorie || []).map((k) => k.id));
-  if (!kategorie.size) blad(`${G}: brak listy „kategorie”`);
+  if (!Array.isArray(cennik.grupy) || !cennik.grupy.length) blad(`${G}: brak listy „grupy”`);
   if (!Array.isArray(cennik.uslugi)) return blad(`${G}: brak tablicy „uslugi”`);
 
   for (const u of cennik.uslugi) {
@@ -138,7 +137,7 @@ function walidujOpis(o, gdzie) {
     if (uslugi.has(u.id)) blad(`${g}: zduplikowane id`);
     uslugi.set(u.id, u);
     if (!u.nazwa) blad(`${g}: brak „nazwa”`);
-    if (!kategorie.has(u.kategoria)) blad(`${g}: nieznana kategoria „${u.kategoria}”`);
+    if ('kategoria' in u) blad(`${g}: pole „kategoria” nie istnieje — układ cennika jest w „grupy”`);
     if (!Array.isArray(u.problemy)) blad(`${g}: „problemy” musi być tablicą`);
     else for (const p of u.problemy) if (!PROBLEMY.includes(p)) blad(`${g}: nieznany problem „${p}” (dozwolone: ${PROBLEMY.join(', ')})`);
     if (u.podstrona !== null && !PODSTRONY.includes(u.podstrona)) blad(`${g}: nieznana podstrona „${u.podstrona}”`);
@@ -170,6 +169,41 @@ function walidujOpis(o, gdzie) {
   }
   for (const s of PODSTRONY)
     if (![...uslugi.values()].some((u) => u.podstrona === s)) ostrzezenia.add(`cennik.json: podstrona „${s}” nie ma żadnej pozycji w cenniku`);
+
+  // grupy pełnego cennika (układ jak na Booksy): pozycja = odwołanie do usługi / wariantu
+  const grupyId = new Set(), wGrupach = new Set();
+  for (const gr of cennik.grupy || []) {
+    const gg = `${G} grupa [${gr.id ?? '?'}]`;
+    if (!gr.id || !reId.test(gr.id)) { blad(`${gg}: niepoprawne „id”`); continue; }
+    if (grupyId.has(gr.id)) blad(`${gg}: zduplikowane id grupy`);
+    grupyId.add(gr.id);
+    if (!gr.nazwa) blad(`${gg}: brak „nazwa”`);
+    else if (/[%!]|\b\d{1,2}\.\d{1,2}\b/.test(gr.nazwa)) blad(`${gg}: nazwa grupy bez znaczników promocji i dat (% ! 05.12) — decyzja 2026-11-09`);
+    if (!Array.isArray(gr.pozycje) || !gr.pozycje.length) { blad(`${gg}: pusta lista „pozycje”`); continue; }
+    const ref = new Set();
+    for (const p of gr.pozycje) {
+      const gp = `${gg} ${p.ref ?? '?'}`;
+      const [uid, wid, ...nadmiar] = String(p.ref).split('#');
+      const u = uslugi.get(uid);
+      if (!u || nadmiar.length) { blad(`${gp}: nieznana usługa w „ref”`); continue; }
+      if (wid !== undefined ? !(u.warianty || []).some((w) => w.id === wid) : !!u.warianty) { blad(`${gp}: „ref” musi wskazywać wariant (usługa#wariant), gdy usługa ma warianty, i nie może go mieć, gdy nie ma`); continue; }
+      if (ref.has(p.ref)) blad(`${gp}: pozycja powtórzona w grupie`);
+      ref.add(p.ref);
+      wGrupach.add(p.ref); wGrupach.add(uid);
+      for (const k of Object.keys(p)) if (!['ref', 'cena', 'czas', 'pakiety'].includes(k)) blad(`${gp}: nieznane pole „${k}” (dozwolone: ref, cena, czas, pakiety)`);
+      if ('cena' in p && (!Number.isInteger(p.cena) || p.cena <= 0)) blad(`${gp}: „cena” musi być dodatnią liczbą całkowitą`);
+      if ('czas' in p && (!Number.isInteger(p.czas) || p.czas <= 0)) blad(`${gp}: „czas” musi być liczbą minut`);
+      if ('pakiety' in p) {
+        if (!Array.isArray(p.pakiety)) blad(`${gp}: „pakiety” musi być tablicą`);
+        else for (const k of p.pakiety) if (!Number.isInteger(k.zabiegi) || !Number.isInteger(k.cena)) blad(`${gp}: pakiet wymaga liczb „zabiegi” i „cena”`);
+      }
+    }
+  }
+  for (const u of uslugi.values()) {
+    if (u.pozaGrupami) continue;
+    for (const w of u.warianty || [null])
+      if (!wGrupach.has(w ? `${u.id}#${w.id}` : u.id)) ostrzezenia.add(`cennik.json: „${u.id}${w ? '#' + w.id : ''}” nie stoi w żadnej grupie pełnego cennika (jeśli celowo — pole „pozaGrupami”: true w usłudze)`);
+  }
 })();
 stop();
 
@@ -535,8 +569,14 @@ Object.assign(ZNACZNIKI, {
 Object.assign(ZNACZNIKI, {
   cennik(arg, kto) {
     if (arg) throw `${kto}: {{cennik}} nie przyjmuje argumentu`;
-    return cennik.kategorie.map((k) => {
-      const lista = widoczne([...uslugi.values()].filter((u) => u.kategoria === k.id).flatMap(pozycje));
+    // grupy jak na Booksy: pozycja grupy odwołuje się do usługi/wariantu; nadpisania tylko tam, gdzie Booksy pokazuje inną wartość
+    return cennik.grupy.map((k) => {
+      const lista = widoczne(k.pozycje.map((gp) => {
+        const [uid, wid] = gp.ref.split('#');
+        const p = pozycje(uslugi.get(uid)).find((x) => (x.w ? x.w.id : undefined) === wid);
+        const { ref, ...nadpisania } = gp;
+        return { ...p, ...nadpisania };
+      }));
       if (!lista.length) return '';
       return `<section class="cennik-grupa" id="cennik-${k.id}" aria-labelledby="cg-${k.id}"><h3 id="cg-${k.id}">${esc(k.nazwa)}</h3>${tabelaCennika(lista, { linkuj: true })}</section>`;
     }).join('\n');
