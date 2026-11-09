@@ -721,7 +721,7 @@ const sekcjaTlo = (() => { let i = 0; return (reset) => { if (reset) { i = 0; re
 // --- STRONA ZABIEGU (BRIEF 6.1 — stały układ) ---
 // zdjęcie w nagłówku podstrony zabiegu; proporcje z pliku (szer/wys) — bez przycinania, część grafik ma tekst w obrazie
 function zdjecieZabiegu(f) {
-  return `<img class="zdjecie zdjecie--cale" src="/assets/img/${f.plik}-800.webp" srcset="${[480, 800, 1200].map((w) => `/assets/img/${f.plik}-${w}.webp ${w}w`).join(', ')}" sizes="(min-width: 900px) 40vw, 100vw" width="${f.szer}" height="${f.wys}" alt="${esc(f.alt)}" fetchpriority="high">`;
+  return `<img class="zdjecie zdjecie--cale" src="/assets/img/${f.plik}-800.webp" srcset="${[480, 800, 1200].map((w) => `/assets/img/${f.plik}-${w}.webp ${w}w`).join(', ')}" sizes="(min-width: 1100px) 46vw, (min-width: 640px) 640px, 100vw" width="${f.szer}" height="${f.wys}" alt="${esc(f.alt)}" fetchpriority="high">`;
 }
 
 function stronaZabiegu(z) {
