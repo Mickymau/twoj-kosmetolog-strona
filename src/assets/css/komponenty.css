@@ -643,12 +643,3 @@
   .slub-kupon__lista li { grid-template-columns: 8rem 1fr; }
   .slub-kupon__rabat { font-size: 2.5rem; }
 }
-
-/* strona główna: kafel „Pakiety ślubne” = 10. element siatki problemów (te same elementy co kafle: zdjęcie, przyciemnienie,
-   biały tytuł, złota kreska, hover). Telefon (2 kolumny): zwykły kafel obok „Cellulit i ciało”.
-   Od 640 px: szeroki, na całą szerokość siatki. */
-@media (min-width: 640px) {
-  .kafle-problemow .kafel-szeroki { grid-column: 1 / -1; }
-  .kafel-szeroki .problem-kafel { aspect-ratio: 3 / 1; }
-}
-@media (min-width: 1000px) { .kafel-szeroki .problem-kafel { aspect-ratio: 4 / 1; } }
