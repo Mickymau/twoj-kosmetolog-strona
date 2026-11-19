@@ -1,0 +1,45 @@
+{
+  "_zrodlo": "Kody ujęć = ZDJECIA-DO-SESJI.md. Ramka na stronie do czasu prawdziwego zdjęcia (decyzja v2 2026-11-19).",
+  "ujecia": {
+    "A1": {
+      "opis": "Twój portret w fartuchu",
+      "proporcje": "4/5"
+    },
+    "A2": {
+      "opis": "Portret z bliska",
+      "proporcje": "1/1"
+    },
+    "A3": {
+      "opis": "Ty przy Lumiscanie",
+      "proporcje": "3/2"
+    },
+    "A4": {
+      "opis": "Rozmowa z klientką",
+      "proporcje": "3/2"
+    },
+    "A5": {
+      "opis": "Ocena skóry w lampie z lupą",
+      "proporcje": "3/2"
+    },
+    "B2": {
+      "opis": "Badanie Lumiscan w trakcie",
+      "proporcje": "3/2"
+    },
+    "B5": {
+      "opis": "Omawianie wyników przy ekranie",
+      "proporcje": "3/2"
+    },
+    "B6": {
+      "opis": "Beauty Plan w dłoniach",
+      "proporcje": "4/3"
+    },
+    "C": {
+      "opis": "Zdjęcie tego zabiegu",
+      "proporcje": "3/2"
+    },
+    "D1": {
+      "opis": "Wnętrze gabinetu",
+      "proporcje": "3/2"
+    }
+  }
+}

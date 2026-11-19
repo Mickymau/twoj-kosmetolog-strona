@@ -3,192 +3,142 @@
 <head>
   <title>Kosmetolog Warszawa Włochy – diagnostyka skóry Lumiscan | Twój Kosmetolog</title>
   <!-- [N:claude-draft] meta opis do akceptacji Malwiny -->
-  <meta name="description" content="Gabinet kosmetologiczny w Warszawie (Włochy). Diagnostyka skóry Lumiscan™, Indywidualny Beauty Plan z 6-miesięczną opieką i zabiegi dla cer problematycznych. Umów wizytę w Booksy.">
+  <meta name="description" content="Kosmetolog Malwina Witkowska-Łysiak, Warszawa Włochy. Diagnostyka skóry Lumiscan™, Indywidualny Beauty Plan i zabiegi dla cer problematycznych. 5.0 w opiniach Booksy.">
   <!-- @include head -->
 </head>
 <body>
   <!-- @include naglowek -->
   <main id="tresc">
 
-    <!-- 1. HERO — BRIEF 6.3 -->
-    <section class="hero" data-hero aria-labelledby="hero-tytul">
+    <!-- v2 · 1. HERO — osoba na pierwszym planie (PLAN-V2, audyt cz. 2–3); ramka A1 do czasu portretu z sesji -->
+    <section class="hero hero--v2" data-hero aria-labelledby="hero-tytul">
       <div class="kontener hero__siatka">
         <div>
-          <span class="nadtytul">Gabinet kosmetologiczny · Warszawa Włochy</span>
-          <h1 id="hero-tytul">Najpierw poznaj swoją skórę. <em>Potem świadomie o&nbsp;nią zadbaj.</em></h1>
-          <!-- [F:klientka brief_strona_www, sierpień] — „Specjalizuję się…” + zdanie z „Mojej filozofii pracy” -->
-          <p class="lead">Specjalizuję się w diagnostyce i pielęgnacji cer problematycznych oraz skutecznych metodach anti-aging. Każdą terapię poprzedzam szczegółową konsultacją i — jeśli jest to wskazane — komputerową diagnostyką skóry.</p>
+          <span class="nadtytul">Gabinet Twój Kosmetolog · Warszawa Włochy</span>
+          <h1 id="hero-tytul">Kosmetolog Malwina Witkowska&#8209;Łysiak <small>mgr technologii i biotechnologii kosmetyków · ponad 15 lat w zawodzie</small></h1>
+          <p class="hero__motto">„Najpierw poznaj swoją skórę. Potem świadomie o&nbsp;nią zadbaj.”</p>
+          <!-- [F:klientka] tekst z v1; pauzy zamienione na przecinki (V2-ZMIANY-TEKSTOW #1) -->
+          <p class="lead">Specjalizuję się w diagnostyce i pielęgnacji cer problematycznych oraz skutecznych metodach anti-aging. Każdą terapię poprzedzam szczegółową konsultacją, a&nbsp;jeśli jest to wskazane, komputerową diagnostyką skóry.</p>
+          <a class="ocena" href="{{firma:booksy}}" rel="noopener"><span class="ocena__gwiazdki" aria-hidden="true">★★★★★</span><strong>{{firma:ocena}}</strong><span>{{firma:liczbaOpinii}} opinii na Booksy</span></a>
           <div class="przyciski">
             <a class="btn" href="{{booksy:konsultacja}}" rel="noopener" data-umow="hero-konsultacja">Umów konsultację</a>
-            <a class="btn btn--kontur" href="/diagnostyka-skory/">Poznaj diagnostykę</a>
+            <a class="link-strzalka" href="/diagnostyka-skory/">Poznaj diagnostykę skóry</a>
           </div>
-          <ul class="zaufanie">
-            <li>15 lat doświadczenia</li>
-            <li><a href="{{firma:booksy}}" rel="noopener"><span class="gwiazdka" aria-hidden="true">★</span> {{firma:ocena}} / {{firma:liczbaOpinii}} opinii na Booksy</a></li>
-          </ul>
-          <ul class="zaufanie zaufanie--hasla" aria-label="Oferta">
-            <li>Diagnostyka skóry</li>
-            <li>Zabiegi</li>
-            <li>Beauty Plany</li>
-            <li>Depilacja laserowa</li>
-          </ul>
         </div>
-        <!-- ZDJECIA.md #1 — grafika od Malwiny (AI, PNG z przezroczystym tłem; prawa do potwierdzenia, DO-MALWINY) -->
-        <img class="zdjecie zdjecie--cale" src="/assets/img/konsultacja-lumiscan-800.webp" srcset="/assets/img/konsultacja-lumiscan-480.webp 480w, /assets/img/konsultacja-lumiscan-800.webp 800w, /assets/img/konsultacja-lumiscan-1200.webp 1200w" sizes="(min-width: 1100px) 46vw, (min-width: 640px) 640px, 100vw" width="1200" height="1001" alt="Konsultacja w gabinecie: kosmetolog i klientka przy komputerze, na ekranie obraz skóry twarzy, obok urządzenie do diagnostyki" fetchpriority="high">
+        {{ramka:A1}}
       </div>
     </section>
 
-    <!-- 2. PROBLEMY SKÓRY -->
-    <section class="sekcja sekcja--krem" aria-labelledby="problemy-tytul">
+    <!-- v2 · 2. OPINIE — prawdziwe cytaty z Booksy (src/data/opinie.json), wybór do akceptu Malwiny -->
+    <section class="sekcja sekcja--v2 sekcja--krem" aria-labelledby="opinie-tytul">
+      <div class="kontener">
+        <div class="sekcja__glowa">
+          <span class="nadtytul">Opinie z Booksy</span>
+          <h2 id="opinie-tytul">Opinie klientek</h2>
+        </div>
+        {{opinie}}
+        <div class="opinie-stopka">
+          <p class="tekst-maly">Ocena {{firma:ocena}} na podstawie {{firma:liczbaOpinii}} opinii potwierdzonych wizytą.</p>
+          <a class="link-strzalka" href="{{firma:booksy}}" rel="noopener">Wszystkie opinie na Booksy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- v2 · 3. PROBLEMY SKÓRY — kafle z problemy.json (grafiki od Malwiny) -->
+    <section class="sekcja sekcja--v2" aria-labelledby="problemy-tytul">
       <div class="kontener">
         <div class="sekcja__glowa">
           <span class="nadtytul">Znajdź zabieg na swój problem</span>
-          <!-- [N:claude-draft] -->
-          <h2 id="problemy-tytul">Z czym zmaga się Twoja skóra?</h2>
+          <h2 id="problemy-tytul">Problemy skóry</h2>
         </div>
-        <!-- ZDJECIA.md #8–16 — zdjęcia od Malwiny (Cellulit: stock); kafle generuje build z problemy.json -->
         <ul class="kafle-problemow">
           {{kafle-problemow}}
         </ul>
-        <!-- [N:claude-draft] -->
-        <p style="margin-top:var(--s-6)">Nie wiesz, od czego zacząć? <a class="link-strzalka" href="/diagnostyka-skory/">Zacznij od diagnostyki</a></p>
+        <p style="margin-top:var(--s-5)">Nie wiesz, od czego zacząć? <a class="link-strzalka" href="/diagnostyka-skory/">Zacznij od diagnostyki</a></p>
       </div>
     </section>
 
-    <!-- 3. LUMISCAN — tekst: dok. 12 sekcja 3 i 4 (zatwierdzony) -->
-    <section class="sekcja" aria-labelledby="lumiscan-tytul">
-      <div class="kontener duet">
+    <!-- v2 · 4. DIAGNOSTYKA I BEAUTY PLAN — jedna karta; 3 opcje cenowe i zasada 7 dni na podstronie -->
+    <section class="sekcja sekcja--v2 sekcja--krem" aria-labelledby="diag-tytul">
+      <div class="kontener diag-v2">
         <div>
-          <span class="nadtytul">Diagnostyka skóry Lumiscan™</span>
-          <h2 id="lumiscan-tytul">Twoja skóra ma więcej do pokazania, niż widać na pierwszy rzut oka.</h2>
+          <span class="nadtytul">Lumiscan™ i Indywidualny Beauty Plan</span>
+          <h2 id="diag-tytul">Diagnostyka skóry</h2>
+          <!-- dok. 12 sekcja 3 i 4 (zatwierdzony) -->
           <p class="lead" style="margin-top:var(--s-4)">Lumiscan™ pokazuje skórę w różnych trybach światła. Widzimy nie tylko to, co na powierzchni, ale też zmiany, które nie są jeszcze wyraźnie widoczne gołym okiem. Wyniki zawsze interpretuję razem z wywiadem i oceną w lampie z lupą.</p>
-          <div class="przyciski">
-            <a class="btn" href="{{booksy:lumiscan}}" rel="noopener" data-umow="home-lumiscan">Umów diagnostykę</a>
-            <a class="btn btn--kontur" href="/diagnostyka-skory/">Jak wygląda badanie</a>
+          <ol class="etapy" aria-label="Ścieżka: od konsultacji do 6 miesięcy opieki">
+            <li><span class="etapy__nr" aria-hidden="true">01</span><strong>Konsultacja</strong><span>Wywiad i ocena skóry w lampie z lupą.</span></li>
+            <li><span class="etapy__nr" aria-hidden="true">02</span><strong>Diagnostyka Lumiscan</strong><span>Analiza skóry i pomiar nawilżenia.</span></li>
+            <li><span class="etapy__nr" aria-hidden="true">03</span><strong>Beauty Plan</strong><span>Pielęgnacja domowa i gabinetowa, gotowy do 7 dni.</span></li>
+            <li><span class="etapy__nr" aria-hidden="true">04</span><strong>6 miesięcy opieki</strong><span>Wsparcie i kontrola efektów.</span></li>
+          </ol>
+          <div class="diag-cena">
+            <div>
+              <p class="diag-cena__kwota">od {{cena:lumiscan}}</p>
+              <p class="diag-cena__opis">3 opcje: sama diagnostyka, diagnostyka z Beauty Planem albo Beauty Plan po wcześniejszym Lumiscanie</p>
+            </div>
+            <div class="przyciski">
+              <a class="btn" href="{{booksy:lumiscan}}" rel="noopener" data-umow="home-lumiscan">Umów diagnostykę</a>
+              <a class="link-strzalka" href="/diagnostyka-skory/#opcje">Porównaj opcje</a>
+            </div>
           </div>
         </div>
-        <!-- Wizualizacja badania — wg designu Malwiny (artboard 15dd8cd198dd); paski poglądowe; w miejscu zdjęcia, układ pionowy (decyzja 2026-11-09: bez zdjęcia urządzenia) -->
-        <div class="wizualizacja-badania">
-          <p class="wizualizacja-badania__tytul">Co oceniamy podczas badania</p>
-          <ul class="wizualizacja-badania__lista">
-            <li><span>Przebarwienia i pigmentacja (także w UV)</span><span class="pasek" style="--w:72%" aria-hidden="true"></span></li>
-            <li><span>Pory i struktura skóry</span><span class="pasek" style="--w:58%" aria-hidden="true"></span></li>
-            <li><span>Nawilżenie i sebum</span><span class="pasek" style="--w:44%" aria-hidden="true"></span></li>
-            <li><span>Zaczerwienienia i naczynka</span><span class="pasek" style="--w:36%" aria-hidden="true"></span></li>
-            <li><span>Zmarszczki i elastyczność</span><span class="pasek" style="--w:63%" aria-hidden="true"></span></li>
-          </ul>
-          <p class="wizualizacja-badania__uwaga">Wizualizacja poglądowa – nie są to wyniki klientki.</p>
-        </div>
+        {{ramka:B5}}
       </div>
     </section>
 
-    <!-- 4. BEAUTY PLAN — wizualizacja 1 (ścieżka) + wizualizacja 2 (3 opcje, dok. 12 sekcja 8) -->
-    <section class="sekcja sekcja--krem" aria-labelledby="bp-tytul">
+    <!-- v2 · 5. WYBRANE ZABIEGI — dla klientki, która wie, czego chce -->
+    <section class="sekcja sekcja--v2" aria-labelledby="zabiegi-tytul">
       <div class="kontener">
         <div class="sekcja__glowa">
-          <span class="nadtytul">Indywidualny Beauty Plan</span>
-          <h2 id="bp-tytul">Nie potrzebujesz kolejnego kosmetyku. Potrzebujesz strategii.</h2>
+          <span class="nadtytul">Zabiegi i cennik</span>
+          <h2 id="zabiegi-tytul">Wybrane zabiegi</h2>
         </div>
-
-        <!-- Kroki wg designu (artboard 15dd8cd198dd) — 4 kroki; teksty z designu [N:szablon], do akceptu Malwiny -->
-        <ol class="etapy" aria-label="Ścieżka: od konsultacji do 6 miesięcy opieki">
-          <li><span class="etapy__nr" aria-hidden="true">01</span><strong>Konsultacja</strong><span>Wywiad i ocena skóry w lampie z lupą.</span></li>
-          <li><span class="etapy__nr" aria-hidden="true">02</span><strong>Diagnostyka Lumiscan™</strong><span>Analiza skóry i pomiar nawilżenia.</span></li>
-          <li><span class="etapy__nr" aria-hidden="true">03</span><strong>Beauty Plan</strong><span>Pielęgnacja domowa i gabinetowa – gotowy do 7 dni.</span></li>
-          <li><span class="etapy__nr" aria-hidden="true">04</span><strong>6 miesięcy opieki</strong><span>Wsparcie i kontrola efektów.</span></li>
-        </ol>
-
-        <div class="sekcja__glowa" style="margin-top:var(--s-9)">
-          <h2>Od czego zacząć?</h2>
-        </div>
-
-        <div class="opcje">
-          <article class="karta opcja">
-            <h3>Diagnostyka skóry Lumiscan</h3>
-            <p><span class="opcja__cena">{{cena:lumiscan}}</span><span class="opcja__czas">{{czas:lumiscan}}</span></p>
-            <ol class="postep" aria-label="Zakres">
-              <li class="aktywny">Zobaczyć</li><li class="aktywny">Zrozumieć</li><li>Wiedzieć, co robić</li>
-            </ol>
-            <p class="opcja__pytanie">„Chcę poznać i zrozumieć swoją skórę”</p>
-            <p>Analiza skóry, interpretacja wyników, priorytety i kierunek dalszej pielęgnacji. Raport PDF.</p>
-            <a class="btn btn--kontur" href="{{booksy:lumiscan}}" rel="noopener" data-umow="home-opcja-290">Umów diagnostykę</a>
-          </article>
-
-          <article class="karta opcja opcja--wyrozniona">
-            <span class="etykieta">Najpełniejsza opcja</span>
-            <h3>Lumiscan + Indywidualny Beauty Plan</h3>
-            <p><span class="opcja__cena">{{cena:lumiscan-beauty-plan}}</span><span class="opcja__czas">{{czas:lumiscan-beauty-plan}}</span></p>
-            <ol class="postep" aria-label="Zakres">
-              <li class="aktywny">Zobaczyć</li><li class="aktywny">Zrozumieć</li><li class="aktywny">Wiedzieć, co robić</li>
-            </ol>
-            <p>Pełna diagnostyka i plan pielęgnacji domowej oraz gabinetowej. 6 miesięcy opieki.</p>
-            <p class="opcja__dopisek">{{cena:lumiscan-beauty-plan}} zamiast {{suma:lumiscan,beauty-plan-po-lumiscan}} przy zakupie usług osobno.</p>
-            <a class="btn" href="{{booksy:lumiscan-beauty-plan}}" rel="noopener" data-umow="home-opcja-590">Wybieram pełny pakiet</a>
-          </article>
-
-          <article class="karta opcja">
-            <h3>Indywidualny Beauty Plan po wcześniejszym Lumiscan</h3>
-            <p><span class="opcja__cena">{{cena:beauty-plan-po-lumiscan}}</span><span class="opcja__czas">{{czas:beauty-plan-po-lumiscan}}</span></p>
-            <ol class="postep" aria-label="Zakres">
-              <li class="za-toba">Zobaczyć<span class="sr-only"> (już za Tobą)</span></li><li class="za-toba">Zrozumieć<span class="sr-only"> (już za Tobą)</span></li><li class="aktywny">Wiedzieć, co robić</li>
-            </ol>
-            <p class="opcja__pytanie">„Miałam już u Ciebie Lumiscan”</p>
-            <p>Pełny plan działania na podstawie wcześniejszej, aktualnej diagnostyki.</p>
-            <a class="btn btn--kontur" href="{{booksy:beauty-plan-po-lumiscan}}" rel="noopener" data-umow="home-opcja-350">Chcę Beauty Plan</a>
-          </article>
-        </div>
-
-        <!-- dok. 12 sekcja 8 — zasada 7 dni -->
-        <p class="uwaga-7dni"><strong>Potrzebujesz chwili do namysłu?</strong> Jeśli po diagnostyce Lumiscan zdecydujesz, że chcesz rozszerzyć konsultację o Indywidualny Beauty Plan, masz na to 7 dni. W tym czasie możesz skorzystać z ceny pełnego pakietu i dopłacić jedynie {{roznica:lumiscan-beauty-plan,lumiscan}}.</p>
-        <p style="margin-top:var(--s-5)"><a class="link-strzalka" href="/diagnostyka-skory/">Wszystko o diagnostyce i Beauty Planie</a></p>
+        {{wybrane-zabiegi:bezpieczne-oczyszczanie-manualne,dermapen,depilacja-laserowa,oxybrazja,karboksyterapia-twarzy,terapia-kwasami}}
+        <p style="margin-top:var(--s-5)"><a class="link-strzalka" href="/zabiegi/">Wszystkie zabiegi i cennik</a></p>
       </div>
     </section>
 
-    <!-- 5. OPINIE — nie renderujemy, dopóki Malwina nie wybierze 3–6 cytatów (DO-MALWINY 3) -->
-
-    <!-- 6. O MNIE — tekst: brief_strona_www (sierpień), sekcja 3 [F:klientka] -->
-    <section class="sekcja" aria-labelledby="omnie-tytul">
+    <!-- v2 · 6. O MNIE — skrót; tekst z v1 [F:klientka], zdanie ogólne zastąpione konkretem (V2-ZMIANY-TEKSTOW #3) -->
+    <section class="sekcja sekcja--v2 sekcja--krem omnie-v2" aria-labelledby="omnie-tytul">
       <div class="kontener duet duet--odwrocony">
         <div>
-          <span class="nadtytul">O mnie</span>
-          <h2 id="omnie-tytul">Malwina Witkowska-Łysiak</h2>
+          <span class="nadtytul">Poznaj mnie</span>
+          <h2 id="omnie-tytul">O mnie</h2>
           <p class="lead" style="margin-top:var(--s-4)">Nazywam się Malwina Witkowska-Łysiak i jestem założycielką gabinetu Twój Kosmetolog. Od ponad 15 lat pracuję jako kosmetolog.</p>
-          <p>Każda skóra jest inna i zasługuje na indywidualne podejście. Dlatego nie pracuję według gotowych schematów. W moim gabinecie nie liczy się pośpiech. Każdej osobie poświęcam tyle czasu, ile naprawdę potrzebuje.</p>
-          <ul class="fakty">
-            <li><strong>15</strong><span>lat doświadczenia</span></li>
+          <p>Nie pracuję według gotowych schematów. W moim gabinecie nie liczy się pośpiech: każdej osobie poświęcam tyle czasu, ile naprawdę potrzebuje.</p>
+          <ul class="fakty fakty--v2">
+            <li><strong>15+</strong><span>lat doświadczenia</span></li>
             <li><strong>mgr</strong><span>technologii i biotechnologii kosmetyków</span></li>
           </ul>
           <p style="margin-top:var(--s-5)"><a class="link-strzalka" href="/o-mnie/">Poznaj mnie bliżej</a></p>
         </div>
-        <!-- ZDJECIA.md #2 — STOCK do czasu zdjęcia Malwiny (dłonie przy zabiegu, bez twarzy) -->
-        <img class="zdjecie zdjecie--poziome" src="/assets/img/STOCK-o-mnie-dlonie-800.webp" srcset="/assets/img/STOCK-o-mnie-dlonie-480.webp 480w, /assets/img/STOCK-o-mnie-dlonie-800.webp 800w, /assets/img/STOCK-o-mnie-dlonie-1200.webp 1200w, /assets/img/STOCK-o-mnie-dlonie-1600.webp 1600w" sizes="(min-width: 900px) 45vw, 100vw" width="800" height="600" alt="Dłonie kosmetologa podczas zabiegu pielęgnacyjnego dłoni" loading="lazy">
+        {{ramka:A2}}
       </div>
     </section>
 
-    <!-- 9. KONTAKT I DOJAZD — skrót; „Jak trafić” z opisu w Booksy (BRIEF 6.7) -->
-    <section class="sekcja sekcja--krem" aria-labelledby="kontakt-tytul">
-      <div class="kontener">
-        <div class="sekcja__glowa">
+    <!-- v2 · 7. PREZENT + KONTAKT — BRIEF 6.3 pkt 8–9 (pasek „Podaruj zabieg” wrócił) -->
+    <section class="sekcja sekcja--v2" aria-labelledby="kontakt-tytul">
+      <div class="kontener zakonczenie-v2">
+        <div class="prezent">
+          <span class="nadtytul">Na prezent</span>
+          <h2>Podaruj zabieg</h2>
+          <!-- opis: cennik.json „wyjatkowy-prezent” [N:booksy 2026-11-06] -->
+          <p>Zabieg Wyjątkowy Prezent to rytuał pielęgnacyjno-relaksacyjny z masażem twarzy, szyi, dekoltu, karku, dłoni i głowy ({{czas:wyjatkowy-prezent}}, {{cena:wyjatkowy-prezent}}). Kartę podarunkową kupisz w Booksy.</p>
+          <a class="btn" href="{{booksy:wyjatkowy-prezent}}" rel="noopener" data-umow="home-prezent">Podaruj w Booksy</a>
+        </div>
+        <div class="kontakt-v2">
           <span class="nadtytul">Kontakt i dojazd</span>
           <h2 id="kontakt-tytul">Zapraszam do gabinetu</h2>
-        </div>
-        <div class="kontakt-skrot">
-          <div>
-            <h3>Adres</h3>
-            <address>{{firma:ulica}}, {{firma:pietro}}<br>{{firma:kodPocztowy}} {{firma:miasto}} – {{firma:dzielnica}}</address>
+          <dl>
+            <div><dt>Adres</dt><dd><address>{{firma:ulica}}, {{firma:pietro}}<br>{{firma:kodPocztowy}} {{firma:miasto}} – {{firma:dzielnica}}</address></dd></div>
+            <div><dt>Jak trafić</dt><dd>Blok z Żabką, wejście furtką, dzwonek 2138. Za szlabanem w prawo, klatka 4, I piętro. Parking dostępny.</dd></div>
+            <div><dt>Telefon i godziny</dt><dd><a href="{{firma:telefonHref}}">{{firma:telefon}}</a><br>{{firma:godziny}}</dd></div>
+          </dl>
+          <div class="przyciski">
+            <a class="btn" href="{{firma:booksy}}" rel="noopener" data-umow="home-kontakt">Umów wizytę</a>
+            <a class="link-strzalka" href="/kontakt/">Mapa i dojazd</a>
           </div>
-          <div>
-            <h3>Jak trafić</h3>
-            <p>Blok z Żabką, wejście furtką, dzwonek 2138. Za szlabanem w prawo, klatka 4, I piętro. Parking dostępny.</p>
-          </div>
-          <div>
-            <h3>Telefon i godziny</h3>
-            <p><a href="{{firma:telefonHref}}">{{firma:telefon}}</a><br>{{firma:godziny}}</p>
-          </div>
-        </div>
-        <div class="przyciski">
-          <a class="btn" href="{{firma:booksy}}" rel="noopener" data-umow="home-kontakt">Umów wizytę</a>
-          <a class="btn btn--kontur" href="/kontakt/">Kontakt i dojazd</a>
         </div>
       </div>
     </section>

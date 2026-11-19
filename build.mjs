@@ -86,6 +86,9 @@ function wczytajJson(plik) {
 const firma = wczytajJson('firma.json');
 const cennik = wczytajJson('cennik.json');
 const slub = wczytajJson('slub.json');
+// v2: opinie z Booksy (propozycja do akceptu Malwiny) i ramki na zdjęcia z sesji (kody z ZDJECIA-DO-SESJI.md)
+const opinieDane = wczytajJson('opinie.json');
+const ujeciaDane = wczytajJson('ujecia.json');
 stop();
 
 // ---------- walidacja cennik.json ----------
@@ -486,7 +489,7 @@ function tabelaCennika(lista, { linkuj = false, pokazKat = false } = {}) {
       ? `<a href="${linkZabiegu(p.u.podstrona)}">${esc(p.nazwa)}</a>` : esc(p.nazwa);
     const pakiety = p.pakiety.length
       ? `<span class="cennik__pakiety">${p.pakiety.map((k) => `pakiet ${k.zabiegi} zabiegów: ${esc(fmtZl(k.cena))}`).join(' · ')}</span>` : '';
-    return `<tr><th scope="row">${nazwa}${devUwaga(p)}${pakiety}${opis}</th>`
+    return `<tr data-problemy="${esc((p.u.problemy || []).join(' '))}"><th scope="row">${nazwa}${devUwaga(p)}${pakiety}${opis}</th>`
       + (zCzasem ? `<td class="cennik__czas">${esc(p.czas ? fmtMin(p.czas) : '')}</td>` : '')
       + `<td class="cennik__cena">${esc((p.od ? 'od ' : '') + fmtZl(p.cena))}</td>`
       + `<td class="cennik__umow"><a class="btn btn--maly btn--kontur" href="${esc(p.booksy)}" rel="noopener" data-umow="cennik-${esc(p.u.id)}">Umów<span class="sr-only"> — ${esc(p.nazwa)}</span></a></td></tr>`;
@@ -639,6 +642,41 @@ Object.assign(ZNACZNIKI, {
         .replace('<li>', `<li data-problemy="${problemyPodstrony(w.slug).join(' ')}">`));
     return `<ul class="karty-zabiegow" role="list" data-filtrowane>${karty.join('')}</ul>`;
   },
+  // v2: ramka w miejscu zdjęcia z sesji — {{ramka:A1}} albo {{ramka:C|Dermapen}}
+  ramka(arg, kto) {
+    const [kod, wlasny] = String(arg || '').split('|');
+    const u = ujeciaDane && ujeciaDane.ujecia[kod];
+    if (!u) throw `${kto}: {{ramka:…}} — nieznany kod ujęcia „${kod}” (src/data/ujecia.json)`;
+    return ramkaHtml(kod, wlasny || u.opis, u.proporcje);
+  },
+  // v2: opinie klientek (src/data/opinie.json, pokaz: true)
+  opinie(arg, kto) {
+    const lista = (opinieDane ? opinieDane.opinie : []).filter((o) => o.pokaz);
+    if (!lista.length) throw `${kto}: brak opinii z pokaz: true`;
+    const mies = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
+    const data = (d) => { const [r, m] = d.split('-'); return `${mies[+m - 1]} ${r}`; };
+    return `<ul class="opinie" role="list">${lista.map((o) => `<li class="opinia"><span class="opinia__gwiazdki" aria-label="Ocena 5 na 5">★★★★★</span><blockquote><p>„${esc(o.tekst)}”</p></blockquote><p class="opinia__autor"><strong>${esc(o.imie)}</strong><span>${esc(o.usluga)} · ${data(o.data)}</span></p></li>`).join('')}</ul>`;
+  },
+  // v2: wybrane zabiegi na stronie głównej — {{wybrane-zabiegi:slug,slug,…}}
+  'wybrane-zabiegi'(arg, kto) {
+    const slugi = String(arg || '').split(',').map((x) => x.trim()).filter(Boolean);
+    const karty = slugi.map((sl) => {
+      if (zabiegi.has(sl)) { const z = zabiegi.get(sl); return { tytul: z.nazwa, href: linkZabiegu(sl), opis: z.podtytul, lista: widoczne(uslugiPodstrony(sl).flatMap(pozycje)) }; }
+      if (STRONY_STATYCZNE.includes(sl)) return { tytul: STATYCZNE_OPISY[sl].tytul, href: linkZabiegu(sl), opis: STATYCZNE_OPISY[sl].opis, lista: widoczne(uslugiPodstrony(sl).flatMap(pozycje)) };
+      throw `${kto}: {{wybrane-zabiegi}} — nieznany zabieg „${sl}”`;
+    }).filter((k) => k.lista.length);
+    return `<ul class="karty-zabiegow" role="list">${karty.map(kartaZabiegu).join('')}</ul>`;
+  },
+  // v2: cennik jako jedna lista — grupy zwijane, filtr po problemie (main.js), linki do podstron w nazwach
+  'cennik-v2'(arg, kto) {
+    if (arg) throw `${kto}: {{cennik-v2}} nie przyjmuje argumentu`;
+    return cennik.grupy.map((k) => {
+      const lista = pozycjeGrupy(k);
+      if (!lista.length) return '';
+      const probl = [...new Set(lista.flatMap((p) => p.u.problemy || []))].join(' ');
+      return `<details class="cennik-grupa cennik-grupa--v2" id="cennik-${k.id}" data-problemy="${probl}"><summary><span class="cennik-grupa__nazwa">${esc(k.nazwa)}</span><span class="cennik-grupa__info">${esc(cenaTxt(lista))} · ${lista.length} ${lista.length === 1 ? 'pozycja' : lista.length < 5 ? 'pozycje' : 'pozycji'}</span></summary>${tabelaCennika(lista, { linkuj: true })}</details>`;
+    }).join('\n');
+  },
   'zobacz-tez'(arg, kto) {
     if (!zabiegi.has(arg)) throw `${kto}: {{zobacz-tez:…}} — nieznany zabieg „${arg}”`;
     const moje = problemyPodstrony(arg);
@@ -751,70 +789,97 @@ function lista(dane, klasa = 'lista-ptaszki') {
 const uwaga = (t) => t ? `<p class="tekst-maly uwaga-zrodla">${t}</p>` : '';
 const sekcjaTlo = (() => { let i = 0; return (reset) => { if (reset) { i = 0; return ''; } return (i++ % 2) ? ' sekcja--krem' : ''; }; })();
 
+// --- v2: ramka na zdjęcie z sesji ---
+function ramkaHtml(kod, opis, proporcje = '3/2') {
+  return `<figure class="ramka-foto" style="--proporcje:${proporcje}" aria-label="Miejsce na zdjęcie: ${esc(opis)}"><span class="ramka-foto__kod">${esc(kod)}</span><span class="ramka-foto__opis">${esc(opis)}</span><span class="ramka-foto__info">zdjęcie z sesji w gabinecie</span></figure>`;
+}
+
 // --- STRONA ZABIEGU (BRIEF 6.1 — stały układ) ---
 // zdjęcie w nagłówku podstrony zabiegu; proporcje z pliku (szer/wys) — bez przycinania, część grafik ma tekst w obrazie
 function zdjecieZabiegu(f) {
   return `<img class="zdjecie zdjecie--cale" src="/assets/img/${f.plik}-800.webp" srcset="${[480, 800, 1200].map((w) => `/assets/img/${f.plik}-${w}.webp ${w}w`).join(', ')}" sizes="(min-width: 1100px) 46vw, (min-width: 640px) 640px, 100vw" width="${f.szer}" height="${f.wys}" alt="${esc(f.alt)}" fetchpriority="high">`;
 }
 
+// v2: pasek faktów — wyłącznie z danych (cennik + pola opisu); brak pola = brak pozycji
+function paskFaktow(z, listaCen) {
+  const f = [];
+  if (listaCen.length) f.push(['cena', 'Cena', cenaTxt(listaCen)]);
+  const czas = czasTxt(listaCen);
+  if (czas) f.push(['czas', 'Czas zabiegu', czas]);
+  if (z.seria?.zabiegi) f.push(['seria', 'Seria', `${z.seria.zabiegi} ${z.seria.zabiegi < 5 ? 'zabiegi' : 'zabiegów'}`]);
+  if (z.seria?.odstep) f.push(['odstep', 'Odstępy', z.seria.odstep.replace(/\s*po poprzednim\s*$/, '')]);
+  const przebiegTxt = (z.przebieg || []).join(' ');
+  if (/znieczul/i.test(przebiegTxt) && /na życzenie/i.test(przebiegTxt)) f.push(['znieczulenie', 'Znieczulenie', 'na życzenie']);
+  const IK = {
+    cena: '<path d="M4 12V5a1 1 0 0 1 1-1h7l8 8-8 8-8-8z"/><circle cx="8.5" cy="8.5" r="1.5"/>',
+    czas: '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>',
+    seria: '<path d="M5 7h14M5 12h14M5 17h9"/>',
+    odstep: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',
+    znieczulenie: IKONY.znieczulenie || IKONY.punkt,
+  };
+  return f.length ? `<dl class="fakty-pasek">${f.map(([k, etykieta, wartosc]) => `<div><dt><svg class="ikona" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${IK[k]}</svg>${etykieta}</dt><dd>${esc(wartosc)}</dd></div>`).join('')}</dl>` : '';
+}
+
 function stronaZabiegu(z) {
   const problemy = problemyPodstrony(z.slug);
   const listaCen = widoczne(uslugiPodstrony(z.slug).flatMap(pozycje));
   const [gId] = z.glownaUsluga.split('/');
-  sekcjaTlo(true);
-  sekcjaTlo(); // nagłówek = białe tło
+  const nazwaTxt = z.nazwa.replace(/<[^>]+>/g, '');
   const s = [];
-  const sekcja = (id, tytul, wnetrze, nadtytul) =>
-    `<section class="sekcja${sekcjaTlo()}" id="${id}" aria-labelledby="${id}-t"><div class="kontener">`
+  // v2: maks. 5 bloków treści; tło kremowe tylko dla cennika
+  const sekcja = (id, tytul, wnetrze, { nadtytul, krem } = {}) =>
+    `<section class="sekcja sekcja--v2${krem ? ' sekcja--krem' : ''}" id="${id}" aria-labelledby="${id}-t"><div class="kontener">`
     + `<div class="sekcja__glowa">${nadtytul ? `<span class="nadtytul">${nadtytul}</span>` : ''}<h2 id="${id}-t">${tytul}</h2></div>${wnetrze}</div></section>`;
+  const tekstLubLista = (x) => (typeof x === 'string' ? akapity(x) : lista(x, 'lista-kropki'));
 
-  // 1. nagłówek
+  // 1. nagłówek: tekst + zdjęcie (albo ramka „C”), pod spodem pasek faktów
   const naglTekst = `<nav class="okruszki" aria-label="Okruszki"><ol><li><a href="/">Strona główna</a></li><li><a href="/zabiegi/">Zabiegi</a></li><li aria-current="page">${z.nazwa}</li></ol></nav>
-<ul class="chipy chipy--male" aria-label="Problemy skóry">${problemy.map((p) => `<li><a class="chip" href="/problemy-skory/${p}/">${NAZWY_PROBLEMOW[p]}</a></li>`).join('')}</ul>
 <h1 id="z-tytul">${z.nazwa}</h1>
 <p class="lead">${z.podtytul}</p>
-<p class="naglowek-zabiegu__cena"><strong>{{cena:${z.glownaUsluga}}}</strong> <span>· {{czas:${z.glownaUsluga}}}</span></p>
-<div class="przyciski"><a class="btn" href="{{booksy:${z.glownaUsluga}}}" rel="noopener" data-umow="zabieg-${z.slug}">Umów w Booksy</a><a class="btn btn--kontur" href="#cennik">Cennik wariantów</a></div>`;
-  // zdjęcie w nagłówku (opcjonalne, ZDJECIA.md): układ jak hero strony głównej i pakietów — tekst + zdjęcie
-  s.push(`<section class="naglowek-strony naglowek-zabiegu" data-hero aria-labelledby="z-tytul">`
-    + (z.zdjecie ? `<div class="kontener hero__siatka"><div>${naglTekst}</div>${zdjecieZabiegu(z.zdjecie)}</div>` : `<div class="kontener">${naglTekst}</div>`)
-    + `</section>`);
+<div class="przyciski"><a class="btn" href="{{booksy:${z.glownaUsluga}}}" rel="noopener" data-umow="zabieg-${z.slug}">Umów w Booksy</a><a class="link-strzalka" href="#cennik">Ceny wszystkich wariantów</a></div>
+${problemy.length ? `<ul class="chipy chipy--male" aria-label="Pomaga przy">${problemy.map((p) => `<li><a class="chip" href="/problemy-skory/${p}/">${NAZWY_PROBLEMOW[p]}</a></li>`).join('')}</ul>` : ''}`;
+  s.push(`<section class="naglowek-strony naglowek-zabiegu naglowek-zabiegu--v2" data-hero aria-labelledby="z-tytul"><div class="kontener">`
+    + `<div class="hero__siatka"><div>${naglTekst}</div>${z.zdjecie ? zdjecieZabiegu(z.zdjecie) : ramkaHtml('C', nazwaTxt, '3/2')}</div>`
+    + paskFaktow(z, listaCen) + `</div></section>`);
 
-  // 2. na czym polega + przekrój
-  s.push(sekcja('na-czym-polega', 'Na czym polega zabieg',
-    `<div class="duet duet--start"><div class="tresc">${akapity(z.naCzymPolega)}${z.sklad ? `<h3 class="lista-grupa">${esc(z.sklad.tytul)}</h3>${lista(z.sklad.lista, 'lista-kropki')}${z.sklad.uwaga ? `<p>${z.sklad.uwaga}</p>` : ''}` : ''}</div>${z.warstwy ? przekrojSkory(z.warstwy) : ''}</div>`));
-  // 3. dla kogo
-  s.push(sekcja('dla-kogo', 'Dla kogo', (z.dlaKogoWstep ? `<p class="lead" style="margin-bottom:var(--s-5)">${z.dlaKogoWstep}</p>` : '') + lista(z.dlaKogo) + uwaga(z.dlaKogoUwaga)));
-  // 4. efekty
-  s.push(sekcja('efekty', 'Efekty', lista(z.efekty) + (z.zastrzezenie ? `<p class="zastrzezenie">${z.zastrzezenie}</p>` : '')));
-  // 5. przebieg
-  if (z.przebieg) s.push(sekcja('przebieg', 'Przebieg zabiegu',
-    `<ol class="kroki" role="list">${z.przebieg.map((k, i) => `<li><span class="kroki__ikona">${ikona(ikonaDla(k))}</span><span class="kroki__nr">${i + 1}</span><p>${k}</p></li>`).join('')}</ol>` + uwaga(z.przebiegUwaga)));
-  // 6. seria
-  if (z.seria) s.push(sekcja('seria', 'Seria i częstotliwość', osCzasu(z.seria) + akapity(z.seria.tekst)));
-  // 7. cennik
-  s.push(sekcja('cennik', 'Cennik', z.mapaCiala ? `{{mapa-ciala:${gId}}}` : (listaCen.length ? tabelaCennika(listaCen) : '') + `<p class="tekst-maly">Aktualne ceny i wolne terminy sprawdzisz w Booksy.</p>`, 'Warianty i ceny'));
-  // 8–10. akordeony
-  const akord = (id, tytul, wnetrze) => `<details id="${id}"><summary>${tytul}</summary><div class="akordeon__tresc">${wnetrze}</div></details>`;
-  const tekstLubLista = (x) => (typeof x === 'string' ? akapity(x) : lista(x, 'lista-kropki'));
+  // 2. jak działa i jak przebiega
+  const sklad = z.sklad ? `<h3 class="lista-grupa">${esc(z.sklad.tytul)}</h3>${lista(z.sklad.lista, 'lista-kropki')}${z.sklad.uwaga ? `<p>${z.sklad.uwaga}</p>` : ''}` : '';
+  const przebieg = z.przebieg ? `<div class="karta karta--v2"><h3>Przebieg zabiegu</h3><ol class="kroki-v2" role="list">${z.przebieg.map((k) => `<li><span class="kroki-v2__ikona">${ikona(ikonaDla(k))}</span><p>${k}</p></li>`).join('')}</ol>${uwaga(z.przebiegUwaga)}</div>` : '';
+  const seria = z.seria ? `<div class="seria-v2"><h3>Seria i częstotliwość</h3>${osCzasu(z.seria)}${akapity(z.seria.tekst)}</div>` : '';
+  s.push(sekcja('jak-dziala', 'Na czym polega zabieg',
+    `<div class="duet duet--start duet--v2"><div class="tresc">${akapity(z.naCzymPolega)}${sklad}</div>${przebieg || seria}</div>${przebieg ? seria : ''}`));
+
+  // 3. dla kogo, efekty, przeciwwskazania — karty obok siebie
+  const kartaL = (tytul, wnetrze, mod = '') => `<div class="karta karta--v2${mod}"><h3>${tytul}</h3>${wnetrze}</div>`;
+  const przeciw = z.przeciwwskazania
+    ? tekstLubLista(z.przeciwwskazania) + uwaga(z.przeciwwskazaniaUwaga)
+    : '<p>Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania.</p>';
+  s.push(sekcja('dla-kogo', 'Dla kogo jest ten zabieg',
+    `<div class="karty-v2">`
+    + kartaL('Dla kogo', (z.dlaKogoWstep ? `<p>${z.dlaKogoWstep}</p>` : '') + lista(z.dlaKogo) + uwaga(z.dlaKogoUwaga))
+    + kartaL('Efekty', lista(z.efekty) + (z.zastrzezenie ? `<p class="zastrzezenie">${z.zastrzezenie}</p>` : ''))
+    + kartaL('Przeciwwskazania', przeciw, ' karta--przeciw')
+    + `</div>`));
+
+  // 4. cennik
+  s.push(sekcja('cennik', 'Cennik', (z.mapaCiala ? `{{mapa-ciala:${gId}}}` : (listaCen.length ? tabelaCennika(listaCen) : '')) + `<p class="tekst-maly">Aktualne ceny i wolne terminy sprawdzisz w Booksy.</p>`, { nadtytul: 'Warianty i ceny', krem: true }));
+
+  // 5. po zabiegu i pytania — wszystko zwijane
+  const akord = (id, tytul, wnetrze) => `<details${id ? ` id="${id}"` : ''}><summary>${tytul}</summary><div class="akordeon__tresc">${wnetrze}</div></details>`;
   const ak = [];
-  if (z.przeciwwskazania) ak.push(akord('przeciwwskazania', 'Przeciwwskazania', tekstLubLista(z.przeciwwskazania) + uwaga(z.przeciwwskazaniaUwaga)));
-  if (z.poZabiegu) ak.push(akord('po-zabiegu', 'Po zabiegu', tekstLubLista(z.poZabiegu) + uwaga(z.poZabieguUwaga)));
-  if (ak.length) s.push(sekcja('bezpieczenstwo', z.przeciwwskazania && z.poZabiegu ? 'Przeciwwskazania i zalecenia' : z.przeciwwskazania ? 'Przeciwwskazania' : 'Po zabiegu', `<div class="akordeon">${ak.join('')}</div>`));
-  if (z.faq && z.faq.length)
-    s.push(sekcja('faq', 'Najczęstsze pytania', `<!-- [N:claude-draft] FAQ wyłącznie z faktów źródła — do akceptacji Malwiny -->`
-      + `<div class="akordeon" data-faq>${z.faq.map((f) => `<details><summary>${f.p}</summary><div class="akordeon__tresc"><p>${f.o}</p></div></details>`).join('')}</div>`));
-  // 11. terapie łączone
-  if (z.laczone) s.push(sekcja('laczone', z.laczone.tytul || 'Chcesz rozszerzyć terapię?', akapity(z.laczone.tekst || []) + lista(z.laczone.lista)));
-  if (z.przypisy) s.push(sekcja('zrodla', 'Źródła', `<ol class="przypisy">${z.przypisy.map((p) => `<li>${p}</li>`).join('')}</ol>`));
-  // 12. nie wiesz?
-  s.push(`<section class="sekcja${sekcjaTlo()}" aria-labelledby="niewiesz-t"><div class="kontener"><div class="baner-diagnostyka">
+  if (z.poZabiegu) ak.push(akord('po-zabiegu', 'Jak wygląda skóra po zabiegu i jak o nią dbać?', tekstLubLista(z.poZabiegu) + uwaga(z.poZabieguUwaga)));
+  for (const f of z.faq || []) ak.push(akord('', f.p, `<p>${f.o}</p>`));
+  if (z.laczone) ak.push(akord('laczone', z.laczone.tytul || 'Z czym można połączyć ten zabieg?', akapity(z.laczone.tekst || []) + lista(z.laczone.lista)));
+  if (z.przypisy) ak.push(akord('zrodla', 'Źródła', `<ol class="przypisy">${z.przypisy.map((p) => `<li>${p}</li>`).join('')}</ol>`));
+  if (ak.length) s.push(sekcja('pytania', 'Po zabiegu i najczęstsze pytania', `<div class="akordeon akordeon--v2" data-faq>${ak.join('')}</div>`));
+
+  // zakończenie: konsultacja / diagnostyka + zobacz też
+  s.push(`<section class="sekcja sekcja--v2" aria-labelledby="niewiesz-t"><div class="kontener"><div class="baner-diagnostyka">
 <div><h2 id="niewiesz-t">${z.diagnostyka?.tytul || 'Nie wiesz, czy to zabieg dla Ciebie?'}</h2>
-${z.diagnostyka ? akapity(z.diagnostyka.tekst) : '<p>Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania. Jeśli chcesz najpierw dokładnie poznać swoją skórę, zacznij od diagnostyki Lumiscan™ — albo umów konsultację kosmetologiczną ({{cena:konsultacja}}).</p>'}</div>
-<div class="przyciski"><a class="btn" href="/diagnostyka-skory/">Poznaj diagnostykę</a><a class="btn btn--kontur" href="{{booksy:konsultacja}}" rel="noopener" data-umow="zabieg-${z.slug}-konsultacja">Umów konsultację</a></div>
+${z.diagnostyka ? akapity(z.diagnostyka.tekst) : '<p>Przed każdym zabiegiem oceniam skórę i wykluczam przeciwwskazania. Jeśli chcesz najpierw dokładnie poznać swoją skórę, zacznij od konsultacji kosmetologicznej ({{cena:konsultacja}}) albo diagnostyki Lumiscan™.</p>'}</div>
+<div class="przyciski"><a class="btn" href="{{booksy:konsultacja}}" rel="noopener" data-umow="zabieg-${z.slug}-konsultacja">Umów konsultację</a><a class="link-strzalka" href="/diagnostyka-skory/">Diagnostyka skóry</a></div>
 </div></div></section>`);
-  // 13. zobacz też
-  s.push(`<section class="sekcja${sekcjaTlo()}" aria-labelledby="zobacz-t"><div class="kontener"><div class="sekcja__glowa"><span class="nadtytul">Na te same problemy</span><h2 id="zobacz-t">Zobacz też</h2></div>{{zobacz-tez:${z.slug}}}</div></section>`);
+  s.push(`<section class="sekcja sekcja--v2 sekcja--linia" aria-labelledby="zobacz-t"><div class="kontener"><div class="sekcja__glowa"><span class="nadtytul">Na te same problemy</span><h2 id="zobacz-t">Podobne zabiegi</h2></div>{{zobacz-tez:${z.slug}}}</div></section>`);
 
   return szkieletStrony({
     tytul: z.meta?.tytul || `${z.nazwa.replace(/<[^>]+>/g, '')} – Warszawa Włochy | Twój Kosmetolog`,
@@ -961,6 +1026,11 @@ const robocze = (p) => p.split(path.sep).some((s) => s.startsWith('_'));
 fs.mkdirSync(DIST, { recursive: true });
 for (const e of fs.readdirSync(DIST)) fs.rmSync(path.join(DIST, e), { recursive: true, force: true });
 
+const czyscV2 = (html) => {
+  let h = html.replace(/ — /g, ' – ').replace(/&nbsp;— /g, '&nbsp;– ');
+  if (PUBLICZNY) h = h.replace(/[ \t]*<!--(?!\[if)[\s\S]*?-->\n?/g, '');
+  return h;
+};
 const KAT_STRON = path.join(SRC, 'pages');
 const strony = [];
 for (const p of pliki(KAT_STRON)) {
@@ -969,7 +1039,7 @@ for (const p of pliki(KAT_STRON)) {
   const cel = path.join(DIST, r);
   fs.mkdirSync(path.dirname(cel), { recursive: true });
   if (p.endsWith('.html')) {
-    const html = dodajSeo(renderuj(p), r);
+    const html = czyscV2(dodajSeo(renderuj(p), r));
     fs.writeFileSync(cel, html);
     strony.push({ r, html });
   } else fs.copyFileSync(p, cel);
@@ -978,7 +1048,7 @@ for (const [r, kod, nazwa] of generowane) {
   const cel = path.join(DIST, r);
   if (fs.existsSync(cel)) { blad(`${nazwa}: kolizja — strona ${r} istnieje też w src/pages`); continue; }
   fs.mkdirSync(path.dirname(cel), { recursive: true });
-  const html = dodajSeo(renderujKod(kod, nazwa), r);
+  const html = czyscV2(dodajSeo(renderujKod(kod, nazwa), r));
   fs.writeFileSync(cel, html);
   strony.push({ r, html });
 }

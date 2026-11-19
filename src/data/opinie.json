@@ -1,0 +1,47 @@
+{
+  "_zrodlo": "Profil Booksy Twój Kosmetolog, odczyt 2026-11-19. Cytaty prawdziwe; skróty oznaczone „…”, poprawione wyłącznie polskie znaki. Wybór do akceptu Malwiny (pokaz: true = na stronie).",
+  "opinie": [
+    {
+      "pokaz": true,
+      "imie": "Monika",
+      "usluga": "Diagnostyka skóry Lumiscan™",
+      "data": "2026-08-18",
+      "tekst": "Badanie wykonane naprawdę na najwyższym poziomie. Wszystko szczegółowo wyjaśniła i omówiła każdy parametr. Dzięki takiej konsultacji można naprawdę świadomie poznać potrzeby swojej skóry i odpowiednio dobrać pielęgnację."
+    },
+    {
+      "pokaz": true,
+      "imie": "Julianna",
+      "usluga": "Zabieg indywidualny",
+      "data": "2025-06-17",
+      "tekst": "Jestem jej klientką od ponad 10 lat. Zawsze mogę liczyć na solidną poradę, wynikającą nie z aktualnych nowinek, a z rzetelnej wiedzy i doświadczenia."
+    },
+    {
+      "pokaz": true,
+      "imie": "Aleksandra",
+      "usluga": "Zabieg indywidualny",
+      "data": "2025-03-21",
+      "tekst": "Fachowo doradzona pielęgnacja dla mojej skóry – atopowej, naczynkowej i suchej. Wiem, że jestem w dobrych rękach."
+    },
+    {
+      "pokaz": false,
+      "imie": "Anna",
+      "usluga": "Mezoterapia rewitalizująca",
+      "data": "2025-08-29",
+      "tekst": "Usługa dobrana pod potrzebę skóry, mnóstwo cennych rad bez naciągania na zbędne zabiegi. Wizyta w przyjemnej atmosferze, bez poczucia pośpiechu."
+    },
+    {
+      "pokaz": false,
+      "imie": "Joanna",
+      "usluga": "Zabieg indywidualny",
+      "data": "2025-01-15",
+      "tekst": "Bardzo dokładnie omówiła stan mojej skóry, a po zabiegach zaleciła pielęgnację dopasowaną do potrzeb."
+    },
+    {
+      "pokaz": false,
+      "imie": "Anna",
+      "usluga": "Konsultacja kosmetologiczna",
+      "data": "2025-01-20",
+      "tekst": "W końcu trafiłam na osobę, która pracuje z powołania i chce rzeczywiście pomóc."
+    }
+  ]
+}

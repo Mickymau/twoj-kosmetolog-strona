@@ -1,0 +1,194 @@
+/* v2.css — warstwa wersji 2 (propozycja dla Malwiny). Ładowana jako ostatnia; tokeny bez zmian (DECISIONS-V2).
+   Zasady: więcej bieli, krem tylko tam, gdzie zmienia się temat, jeden styl przycisku na akcję, tekst widoczny od razu. */
+
+/* ---------- nagłówek: stała wysokość (bez „skoku” treści przy przewijaniu) ---------- */
+.naglowek--przewiniety .naglowek__wnetrze { min-height: 72px; }
+.naglowek--przewiniety .naglowek__logo img { width: 56px; height: 56px; }
+@media (min-width: 1200px) {
+  .naglowek--przewiniety .naglowek__wnetrze { min-height: 88px; }
+  .naglowek--przewiniety .naglowek__logo img { width: 64px; height: 64px; }
+}
+
+/* ---------- rytm sekcji ---------- */
+.sekcja--v2 { padding-block: clamp(3rem, 2rem + 3.5vw, 5.5rem); }
+.sekcja--v2 + .sekcja--v2:not(.sekcja--krem) { padding-top: 0; }
+.sekcja--linia { border-top: 1px solid var(--line); padding-top: clamp(3rem, 2rem + 3.5vw, 5.5rem) !important; }
+.sekcja__glowa { margin-bottom: var(--s-6); }
+
+/* ---------- ramka na zdjęcie z sesji ---------- */
+.ramka-foto {
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--s-2);
+  width: 100%;
+  aspect-ratio: var(--proporcje, 3/2);
+  margin: 0;
+  padding: var(--s-6);
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgb(184 151 90 / 0.10), rgb(184 151 90 / 0) 55%),
+    var(--bg-cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  outline: 1px dashed rgb(184 151 90 / 0.55);
+  outline-offset: -12px;
+}
+.ramka-foto__kod {
+  display: inline-grid;
+  place-items: center;
+  min-width: 3rem;
+  height: 3rem;
+  padding-inline: var(--s-3);
+  border-radius: var(--radius-chip);
+  background: var(--bordo);
+  color: var(--on-bordo);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.ramka-foto__opis { font-family: var(--font-serif); font-size: var(--fs-h3); color: var(--text); max-width: 18ch; }
+.ramka-foto__info { font-size: var(--fs-small); color: var(--text-muted); }
+
+/* ---------- hero strony głównej: osoba ---------- */
+.hero--v2 { padding-block: var(--s-6) clamp(3rem, 2rem + 3vw, 5rem); }
+.hero--v2 .hero__siatka { align-items: center; }
+.hero--v2 h1 { max-width: 16ch; }
+.hero--v2 h1 small { display: block; margin-top: var(--s-2); font-family: var(--font-sans); font-size: var(--fs-body); font-weight: 500; letter-spacing: 0; color: var(--text-2); }
+.hero__motto { margin-top: var(--s-5); font-family: var(--font-serif); font-style: italic; font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem); line-height: 1.35; color: var(--bordo); max-width: 30ch; }
+.hero--v2 .lead { margin-top: var(--s-4); }
+.ocena {
+  display: inline-flex; align-items: center; gap: var(--s-3);
+  margin-top: var(--s-5); min-height: var(--dotyk-min);
+  color: var(--text); text-decoration: none;
+}
+.ocena__gwiazdki { color: var(--bordo); letter-spacing: 0.08em; font-size: 1.125rem; }
+.ocena strong { font-weight: 600; }
+.ocena span:last-child { color: var(--text-muted); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
+.ocena:hover span:last-child { color: var(--bordo); }
+.hero--v2 .przyciski { align-items: center; gap: var(--s-5); }
+.hero--v2 .ramka-foto, .hero--v2 .hero__foto { max-width: 480px; justify-self: end; }
+@media (min-width: 900px) { .hero--v2 .hero__siatka { grid-template-columns: 1.1fr 0.9fr; gap: var(--s-8); } }
+@media (max-width: 899.98px) { .hero--v2 .ramka-foto { max-width: 360px; justify-self: start; } }
+
+/* ---------- opinie ---------- */
+.opinie { list-style: none; padding: 0; display: grid; gap: var(--s-5); }
+@media (min-width: 900px) { .opinie { grid-template-columns: repeat(3, 1fr); } }
+.opinia { display: flex; flex-direction: column; gap: var(--s-4); padding: var(--s-6); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); }
+.opinia__gwiazdki { color: var(--bordo); letter-spacing: 0.1em; }
+.opinia blockquote { margin: 0; flex: 1; }
+.opinia blockquote p { font-family: var(--font-serif); font-size: 1.1875rem; line-height: 1.5; color: var(--text); }
+.opinia__autor { display: grid; gap: 2px; font-size: var(--fs-small); color: var(--text-muted); }
+.opinia__autor strong { color: var(--text); font-weight: 600; }
+.opinie-stopka { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-4); margin-top: var(--s-6); }
+
+/* ---------- diagnostyka na głównej: jedna karta ---------- */
+.diag-v2 { display: grid; gap: var(--s-7); align-items: start; }
+@media (min-width: 960px) { .diag-v2 { grid-template-columns: 1fr 1fr; gap: var(--s-8); } }
+.diag-v2 .etapy { margin-top: var(--s-6); }
+.diag-cena {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-5);
+  margin-top: var(--s-6); padding: var(--s-5) var(--s-6);
+  background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--bordo); border-radius: var(--radius);
+}
+.diag-cena p { margin: 0; }
+.diag-cena__kwota { font-family: var(--font-serif); font-size: var(--fs-h3); color: var(--text); }
+.diag-cena__opis { font-size: var(--fs-small); color: var(--text-muted); }
+.diag-cena .przyciski { margin: 0; align-items: center; gap: var(--s-5); }
+
+/* ---------- pasek faktów (podstrona zabiegu) ---------- */
+.fakty-pasek {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s-4) var(--s-5);
+  margin: var(--s-7) 0 0; padding: var(--s-5) var(--s-6);
+  background: var(--bg-cream); border-radius: var(--radius);
+}
+.fakty-pasek div { display: grid; gap: var(--s-1); }
+.fakty-pasek dt { display: flex; align-items: center; gap: var(--s-2); font-size: var(--fs-overline); letter-spacing: var(--ls-overline); text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+.fakty-pasek dt .ikona { width: 20px; height: 20px; color: var(--bordo); flex: none; }
+.fakty-pasek dd { margin: 0; font-family: var(--font-serif); font-size: 1.25rem; color: var(--text); }
+
+/* ---------- nagłówek podstrony zabiegu v2 ---------- */
+.naglowek-zabiegu--v2 { padding-bottom: var(--s-6); }
+.naglowek-zabiegu--v2 .hero__siatka { display: grid; gap: var(--s-7); align-items: center; }
+@media (min-width: 960px) { .naglowek-zabiegu--v2 .hero__siatka { grid-template-columns: 1fr 1fr; gap: var(--s-8); } }
+.naglowek-zabiegu--v2 h1 { max-width: 18ch; }
+.naglowek-zabiegu--v2 .lead { margin-top: var(--s-4); max-width: 34rem; }
+.naglowek-zabiegu--v2 .przyciski { align-items: center; gap: var(--s-5); margin-top: var(--s-5); }
+.naglowek-zabiegu--v2 .chipy { margin-top: var(--s-5); }
+
+/* ---------- treść podstrony zabiegu ---------- */
+.duet--v2 { align-items: start; }
+.karta--v2 { padding: var(--s-6); }
+.karta--v2 h3 { font-size: var(--fs-h3); margin-bottom: var(--s-4); }
+.karty-v2 { display: grid; gap: var(--s-5); }
+@media (min-width: 960px) { .karty-v2 { grid-template-columns: repeat(3, 1fr); } }
+.karta--przeciw { background: var(--bg-cream); border-color: transparent; }
+.kroki-v2 { list-style: none; padding: 0; display: grid; gap: var(--s-4); counter-reset: krok; }
+.kroki-v2 li { display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--s-3); align-items: start; }
+.kroki-v2 p { margin: 0; padding-top: 0.45rem; }
+.kroki-v2__ikona { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--bg-cream); color: var(--bordo); }
+.kroki-v2__ikona .ikona { width: 20px; height: 20px; }
+.seria-v2 { margin-top: var(--s-7); padding-top: var(--s-6); border-top: 1px solid var(--line); }
+.seria-v2 h3 { font-size: var(--fs-h3); margin-bottom: var(--s-4); }
+.akordeon--v2 summary { font-weight: 500; }
+
+/* ---------- prezent + kontakt (strona główna) ---------- */
+.zakonczenie-v2 { display: grid; gap: var(--s-6); }
+@media (min-width: 960px) { .zakonczenie-v2 { grid-template-columns: 1fr 1fr; gap: var(--s-7); } }
+.prezent { padding: var(--s-6); background: var(--bordo); color: var(--on-bordo); border-radius: var(--radius); display: flex; flex-direction: column; gap: var(--s-4); }
+.prezent h2, .prezent h3 { color: var(--on-bordo); }
+.prezent p { color: rgb(255 255 255 / 0.88); }
+.prezent .nadtytul { color: rgb(255 255 255 / 0.8); }
+.prezent .btn { align-self: flex-start; background: var(--on-bordo); color: var(--bordo); border-color: var(--on-bordo); }
+.prezent .btn:hover { background: var(--bg-cream); color: var(--bordo-dark); }
+.kontakt-v2 { padding: var(--s-6); border: 1px solid var(--line); border-radius: var(--radius); display: grid; gap: var(--s-4); }
+.kontakt-v2 address { font-style: normal; }
+.kontakt-v2 dl { display: grid; gap: var(--s-3); margin: 0; }
+.kontakt-v2 dt { font-size: var(--fs-overline); letter-spacing: var(--ls-overline); text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+.kontakt-v2 dd { margin: 0; }
+
+/* ---------- o mnie (skrót) ---------- */
+.omnie-v2 .ramka-foto { max-width: 420px; }
+.fakty--v2 { margin-top: var(--s-5); }
+
+/* ---------- cennik v2: zwijane grupy ---------- */
+.cennik-v2__nawigacja { margin-bottom: var(--s-6); }
+.cennik-grupa--v2 { border-bottom: 1px solid var(--line); }
+.cennik-grupa--v2:first-of-type { border-top: 1px solid var(--line); }
+.cennik-grupa--v2 > summary {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-5);
+  min-height: 64px; padding-block: var(--s-4); padding-right: var(--s-6);
+  cursor: pointer; list-style: none; position: relative;
+}
+.cennik-grupa--v2 > summary::-webkit-details-marker { display: none; }
+.cennik-grupa--v2 > summary::after {
+  content: ""; position: absolute; right: 4px; top: 50%; width: 10px; height: 10px; margin-top: -7px;
+  border-right: 1.5px solid var(--bordo); border-bottom: 1.5px solid var(--bordo); transform: rotate(45deg);
+  transition: transform var(--t-fast) var(--ease);
+}
+.cennik-grupa--v2[open] > summary::after { transform: translateY(4px) rotate(-135deg); }
+.cennik-grupa__nazwa { font-family: var(--font-serif); font-size: var(--fs-h3); color: var(--text); }
+.cennik-grupa__info { font-size: var(--fs-small); color: var(--text-muted); }
+.cennik-grupa--v2 .cennik-tabela { padding-bottom: var(--s-5); }
+.cennik-grupa--v2[hidden], .cennik-grupa--v2 tr[hidden] { display: none; }
+.cennik-v2__brak { padding: var(--s-5) 0; color: var(--text-muted); }
+
+/* ---------- diagnostyka v2 ---------- */
+.diag-sekcja-ramka { margin-top: var(--s-6); }
+.lista-obszary { list-style: none; padding: 0; display: grid; gap: var(--s-4); }
+@media (min-width: 720px) { .lista-obszary { grid-template-columns: 1fr 1fr; } }
+.lista-obszary li { padding: var(--s-5); border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
+.lista-obszary strong { display: block; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; margin-bottom: var(--s-2); color: var(--text); }
+
+/* ---------- ruch: tekst nigdy nie czeka na animację ---------- */
+.sekcja__glowa.pojaw, p.pojaw, h2.pojaw { opacity: 1 !important; transform: none !important; }
+
+/* ---------- filtr na telefonie: jeden przewijany pasek zamiast 6 rzędów ---------- */
+@media (max-width: 719.98px) {
+  .cennik-v2__nawigacja .filtr { flex-wrap: nowrap; overflow-x: auto; padding-bottom: var(--s-2); margin-inline: calc(-1 * var(--kontener-px)); padding-inline: var(--kontener-px); scrollbar-width: thin; }
+  .cennik-v2__nawigacja .chip { flex: none; }
+}
+
+/* ---------- drobne poprawki z kontroli (taste consistency) ---------- */
+.diag-cena__opis, .opinia__autor { color: var(--text-2); }
+.stopka__siatka p a { display: inline-flex; align-items: center; min-height: var(--dotyk-min); }

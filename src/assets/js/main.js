@@ -132,6 +132,32 @@
     const z = new URLSearchParams(location.search).get('problem');
     if (z) ustaw(z);
   }
+  // --- v2: cennik — filtr po problemie (grupy i wiersze), otwieranie grupy z adresu #cennik-… ---
+  const filtrC = document.querySelector('[data-filtr-cennik]');
+  const grupy = [...document.querySelectorAll('.cennik-grupa--v2')];
+  if (filtrC && grupy.length) {
+    const licznikC = document.querySelector('[data-filtr-licznik]');
+    const brak = document.querySelector('.cennik-v2__brak');
+    const ustawC = (problem) => {
+      let n = 0;
+      for (const g of grupy) {
+        let widac = 0;
+        for (const tr of g.querySelectorAll('tbody tr')) {
+          const ok = !problem || (tr.dataset.problemy || '').split(' ').includes(problem);
+          tr.hidden = !ok; if (ok) widac++;
+        }
+        g.hidden = !widac; g.open = !!problem && widac > 0; n += widac;
+      }
+      for (const b of filtrC.querySelectorAll('button')) b.setAttribute('aria-pressed', String(b.dataset.problem === problem));
+      if (licznikC) licznikC.textContent = problem ? `Pasujące zabiegi: ${n}` : '';
+      if (brak) brak.hidden = n > 0;
+    };
+    filtrC.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) ustawC(b.dataset.problem); });
+    const z = new URLSearchParams(location.search).get('problem');
+    if (z) ustawC(z);
+  }
+  const otworzZHash = () => { const g = location.hash && document.getElementById(location.hash.slice(1)); if (g && g.tagName === 'DETAILS') g.open = true; };
+  addEventListener('hashchange', otworzZHash); otworzZHash();
   // --- mapa ciała: obszar ↔ wiersze cennika ---
   for (const mapa of document.querySelectorAll('[data-mapa]')) {
     const obszary = [...mapa.querySelectorAll('[data-obszar]')];
@@ -165,7 +191,8 @@
   // --- pojawianie się przy przewijaniu (raz, z opóźnieniem dla kolejnych elementów) ---
   const bezRuchu = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!bezRuchu && 'IntersectionObserver' in window) {
-    const SELEKTORY = '.sekcja__glowa, .karta, .karta-zabiegu, .kafel, .kroki > li, .sciezka > li, .os > li, .opcja, .przekroj, .baner-diagnostyka, .pytania > li, .wybor > li, .zdjecie, .mapa__sylwetki, .przygotowanie';
+    // v2: ruch tylko na zdjęciach i kartach; nagłówki i tekst widoczne od razu
+    const SELEKTORY = '.karta, .karta-zabiegu, .kafel, .opcja, .opinia, .zdjecie, .ramka-foto, .mapa__sylwetki';
     const el = [...document.querySelectorAll(SELEKTORY)].filter((e) => !e.closest('[data-hero]'));
     const obs = new IntersectionObserver((wpisy) => {
       for (const w of wpisy) if (w.isIntersecting) { w.target.classList.add('widoczny'); obs.unobserve(w.target); }
@@ -176,6 +203,8 @@
       e.classList.add('pojaw');
       obs.observe(e);
     }
+    // zabezpieczenie: gdyby obserwator nie zadziałał (zrzuty ekranu, druk, stare przeglądarki) — pokaż wszystko po 2,5 s
+    setTimeout(() => el.forEach((e) => e.classList.add('widoczny')), 2500);
     for (const sch of document.querySelectorAll('.sciezka, .os')) {
       sch.classList.add('rysuj');
       new IntersectionObserver(([w], o) => { if (w.isIntersecting) { sch.classList.add('narysowana'); o.disconnect(); } }, { threshold: 0.3 }).observe(sch);

@@ -1,0 +1,7 @@
+{
+  "buildCommand": "node build.mjs --podglad",
+  "outputDirectory": "dist",
+  "installCommand": "",
+  "framework": null,
+  "headers": [{ "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }]
+}
